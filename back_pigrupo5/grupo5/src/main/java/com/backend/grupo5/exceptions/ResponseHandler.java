@@ -1,4 +1,4 @@
-package com.backend.grupo5.execptions;
+package com.backend.grupo5.exceptions;
 
 
 import org.springframework.http.HttpStatus;
@@ -6,7 +6,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
-import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 

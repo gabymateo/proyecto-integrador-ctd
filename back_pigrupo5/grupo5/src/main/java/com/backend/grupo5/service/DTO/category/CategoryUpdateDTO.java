@@ -1,17 +1,26 @@
 package com.backend.grupo5.service.DTO.category;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import lombok.Data;
+
 import java.util.Optional;
 
+@Data
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class CategoryUpdateDTO {
+    private String title;
+    private String description;
+    private String imageURL;
 
-    private Optional<String> title;
-    private Optional<String> description;
-
-    public Optional<String> getTitle() {
+    public String getTitle() {
         return title;
     }
 
-    public Optional<String> getDescription() {
+    public String getDescription() {
         return description;
+    }
+
+    public String getImageURL() {
+        return imageURL;
     }
 }

@@ -1,4 +1,4 @@
-package com.backend.grupo5.execptions;
+package com.backend.grupo5.exceptions;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

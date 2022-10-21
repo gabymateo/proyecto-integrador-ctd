@@ -1,9 +1,9 @@
 package com.backend.grupo5.controller;
 
 
-import com.backend.grupo5.execptions.ApplicationError;
-import com.backend.grupo5.execptions.ErrorHandler;
-import com.backend.grupo5.execptions.ResponseHandler;
+import com.backend.grupo5.exceptions.ApplicationError;
+import com.backend.grupo5.exceptions.ErrorHandler;
+import com.backend.grupo5.exceptions.ResponseHandler;
 import com.backend.grupo5.model.Category;
 import com.backend.grupo5.service.CategoryService;
 import com.backend.grupo5.service.DTO.category.CategoryCreateDTO;
@@ -12,6 +12,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.ArrayList;
 import java.util.Optional;
 
@@ -26,21 +27,23 @@ public class CategoryController {
     }
 
     @PostMapping()
-    public ResponseEntity<Object> create(@RequestBody CategoryCreateDTO categoryCreateDTO) {
+    public ResponseEntity<Object> create(@Valid @RequestBody CategoryCreateDTO categoryCreateDTO) throws Exception {
         try {
             Category category = this.categoryService.create(categoryCreateDTO);
             return ResponseHandler.generateResponse(HttpStatus.CREATED, "success", category);
         } catch (ApplicationError error) {
             return ErrorHandler.generateErrorResponse(error.getHttpStatus(), error.getMessage());
+        }catch (Exception e) {
+            return ErrorHandler.generateErrorResponse(HttpStatus.INTERNAL_SERVER_ERROR, e.getMessage());
         }
     }
 
     @GetMapping()
-    public ResponseEntity<Object> getAll() {
+    public ResponseEntity<Object> getAll() throws Exception {
         try {
             ArrayList<Category> categories = this.categoryService.getAll();
             return ResponseHandler.generateResponse(HttpStatus.OK, "success", categories);
-        } catch (ApplicationError error) {
+        } catch (ApplicationError error ) {
             return ErrorHandler.generateErrorResponse(error.getHttpStatus(), error.getMessage());
         }
     }

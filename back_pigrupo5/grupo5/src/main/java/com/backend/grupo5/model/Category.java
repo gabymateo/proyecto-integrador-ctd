@@ -1,9 +1,13 @@
 package com.backend.grupo5.model;
 
 import org.hibernate.annotations.SQLDelete;
+import org.springframework.data.annotation.CreatedDate;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Size;
 import java.time.LocalDateTime;
+import java.util.Date;
 
 @Entity
 @Table(name = "categories")
@@ -15,6 +19,8 @@ public class Category {
     @Column(unique = true, nullable = false)
     private long id;
 
+    @NotEmpty
+    @Size(min = 3)
     @Column(unique = true, nullable = false)
     private String title;
 
@@ -24,8 +30,9 @@ public class Category {
     @Column
     private String imageUrl;
 
-    @Column
-    private LocalDateTime createDate;
+
+    @CreatedDate
+    private Date createDate;
 
 //    @Column(nullable = true)
 //    private boolean deleted = Boolean.FALSE;
@@ -64,9 +71,13 @@ public class Category {
         this.imageUrl = imageUrl;
     }
 
-    public void setCreateDate(LocalDateTime date) {this.createDate = date;}
+    public Date getCreateDate() {
+        return createDate;
+    }
 
-
+    public void setCreateDate(Date createDate) {
+        this.createDate = createDate;
+    }
 }
 
 

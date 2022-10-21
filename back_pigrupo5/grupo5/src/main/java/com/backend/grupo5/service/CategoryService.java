@@ -1,13 +1,12 @@
 package com.backend.grupo5.service;
 
-import com.backend.grupo5.execptions.ApplicationError;
+import com.backend.grupo5.exceptions.ApplicationError;
 import com.backend.grupo5.model.Category;
 import com.backend.grupo5.repository.CategoryRepository;
 import com.backend.grupo5.service.DTO.category.CategoryCreateDTO;
-import com.backend.grupo5.mapper.CategoryDTOToCategoryEntity;
+import com.backend.grupo5.mapper.CategoryDTOToCategory;
 import com.backend.grupo5.service.DTO.category.CategoryUpdateDTO;
 import org.springframework.http.HttpStatus;
-import org.springframework.security.core.parameters.P;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
@@ -18,11 +17,11 @@ import java.util.Optional;
 public class CategoryService {
 
     private final CategoryRepository repository;
-    private final CategoryDTOToCategoryEntity mapper;
+    private final CategoryDTOToCategory mapper;
 
     public CategoryService(
             CategoryRepository categoryRepository,
-            CategoryDTOToCategoryEntity mapper
+            CategoryDTOToCategory mapper
     )
     {
         this.repository = categoryRepository;
@@ -52,11 +51,14 @@ public class CategoryService {
         if(category.isEmpty()) {
             throw new ApplicationError("Category not found", HttpStatus.NOT_FOUND);
         }
-        if(categoryUpdateDTO.getTitle().isPresent()) {
-            category.get().setTitle(categoryUpdateDTO.getTitle().get());
+        if(categoryUpdateDTO.getTitle() != null) {
+            category.get().setTitle(categoryUpdateDTO.getTitle());
         }
-        if(categoryUpdateDTO.getDescription().isPresent() && categoryUpdateDTO.getDescription() != null) {
-            category.get().setDescription(categoryUpdateDTO.getDescription().get());
+        if(categoryUpdateDTO.getDescription() != null) {
+            category.get().setDescription(categoryUpdateDTO.getDescription());
+        }
+        if(categoryUpdateDTO.getImageURL() != null) {
+            category.get().setImageUrl(categoryUpdateDTO.getImageURL());
         }
         return this.repository.save(category.get());
     }

@@ -1,4 +1,4 @@
-package com.backend.grupo5.execptions;
+package com.backend.grupo5.exceptions;
 
 import lombok.Data;
 import org.springframework.http.HttpStatus;
