@@ -1,8 +1,8 @@
 .footer{
-    height: 50px;
     background-color: #FBC02D;
     display: flex;
     justify-content: center;
+    height: 50px;
 }
 
 .footerContainer{

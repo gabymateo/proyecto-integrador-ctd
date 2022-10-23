@@ -1,14 +1,11 @@
 import React from 'react';
 import '../../styles/body.css';
-
+import { BloqueBuscador } from './BloqueBuscador';
 const Body = () => {
   return (
     <div className='body'>
       <div className='bodyContainer'>
-        <div className='bloqueBuscador'>
-          <h1>Busca ofertas en hoteles, casas y mucho mas.</h1>
-          <div className='barraBuscador'></div>
-        </div>
+        <BloqueBuscador/>
       </div>
     </div>
   )
