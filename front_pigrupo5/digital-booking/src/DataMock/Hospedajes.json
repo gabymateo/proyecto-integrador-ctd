@@ -1,0 +1,67 @@
+[
+    {
+        "id": 1,
+        "Crimg":"https://i.blogs.es/c68014/casa-3d/840_560.jpeg",
+        "Category":"Categoría1",
+        "Title":"Casa1",
+        "Location": "Medellin",
+        "Description": "Este hospedaje es una maravilla"
+    },
+    {
+        "id": 2,
+        "Crimg":"https://images.unsplash.com/photo-1571055107559-3e67626fa8be?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjB8fGNhc2FzfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
+        "Category":"Categoría1",
+        "Title":"Casa2",
+        "Location": "Medellin",
+        "Description": "Este hospedaje es una maravilla"
+    },
+    {
+        "id": 3,
+        "Crimg":"https://images.unsplash.com/photo-1521401830884-6c03c1c87ebb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8aG9zcGVkYWplfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
+        "Category":"Categoría2",
+        "Title":"Casa3",
+        "Location": "Medellin",
+        "Description": "Este hospedaje es una maravilla"
+    },
+    {
+        "id": 4,
+        "Crimg":"https://images.unsplash.com/photo-1595368062392-a189a24c0cf8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8N3x8aG9zcGVkYWplfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
+        "Category":"Categoría2",
+        "Title":"Casa4",
+        "Location": "Medellin",
+        "Description": "Este hospedaje es una maravilla"
+    },
+    {
+        "id": 5,
+        "Crimg":"https://images.unsplash.com/photo-1570129477492-45c003edd2be?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8Y2FzYXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
+        "Category":"Categoría3",
+        "Title":"Casa5",
+        "Location": "Medellin",
+        "Description": "Este hospedaje es una maravilla"
+    },
+    {
+        "id": 6,
+        "Crimg":"https://media.istockphoto.com/photos/wooden-cottage-log-home-log-cabin-picture-id175248296?b=1&k=20&m=175248296&s=170667a&w=0&h=vFpT_6TOguXaBVilf_QHjxXTHdwZXlyQirtAO5w8c_8=",
+        "Category":"Categoría3",
+        "Title":"Casa6",
+        "Location": "Medellin",
+        "Description": "Este hospedaje es una maravilla"
+    },
+    {
+        "id": 7,
+        "Crimg":"https://images.unsplash.com/photo-1537197518227-a36efeafd477?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OXx8Y2FiYSVDMyVCMWFzfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
+        "Category":"Categoría4",
+        "Title":"Casa7",
+        "Location": "Medellin",
+        "Description": "Este hospedaje es una maravilla"
+    },
+    {
+        "id": 8,
+        "Crimg":"https://images.unsplash.com/photo-1589129140837-67287c22521b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTh8fGNhYmElQzMlQjFhc3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
+        "Category":"Categoría4",
+        "Title":"Casa8",
+        "Location": "Medellin",
+        "Description": "Este hospedaje es una maravilla"
+    }
+
+]

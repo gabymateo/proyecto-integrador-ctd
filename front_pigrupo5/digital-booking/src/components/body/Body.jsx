@@ -1,5 +1,6 @@
 import React from 'react';
 import '../../styles/body.css';
+import ListCards from './ListCards';
 
 const Body = () => {
   return (
@@ -10,6 +11,9 @@ const Body = () => {
           <div className='barraBuscador'></div>
         </div>
       </div>
+
+      <ListCards> </ListCards>
+
     </div>
   )
 }
