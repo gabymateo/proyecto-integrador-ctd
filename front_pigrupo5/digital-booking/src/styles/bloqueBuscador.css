@@ -1,0 +1,26 @@
+.barraBuscador {
+    height: 30px;
+    background-color: white;
+    border: 3px solid gray;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 10px 0px;
+    box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.15);  
+}
+
+.barraBuscadorItem{
+    display: flex;
+    align-items: center;
+    gap:10px
+}
+
+.barraBuscadorInput{
+    border:none;
+    outline: none;
+}
+
+.date{
+    position: absolute;
+    top: 234px;
+}

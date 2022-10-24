@@ -2,10 +2,11 @@
     background-color: #FBC02D;
     color: white;
     min-height: 100vh;
-    width: 100%;
-    
+    display: flex;
+    justify-content: center; 
 }
 
 .bodyContainer{
-
+    width: 100%;
+    max-width: 1024px;
 }
