@@ -8,9 +8,11 @@ const Body = () => {
     <div className='body'>
       <div className='bodyContainer'>
         <BloqueBuscador/>
+        <ListCards/> 
       </div>
 
-      <ListCards> </ListCards>
+
+
 
     </div>
   )
