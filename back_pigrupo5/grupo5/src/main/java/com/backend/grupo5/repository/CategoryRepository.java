@@ -1,7 +1,7 @@
 package com.backend.grupo5.repository;
 
 
-import com.backend.grupo5.model.Category;
+import com.backend.grupo5.model.entities.Category;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
