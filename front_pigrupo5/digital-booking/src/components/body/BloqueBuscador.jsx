@@ -17,7 +17,7 @@ export const BloqueBuscador = () => {
   return (
     <div className='bloqueBuscador'>
           <h1>Busca ofertas en hoteles, casas y mucho mas.</h1>
-          <div className='barraBuscador'>
+          <div className='barraBuscadorContainer'>
             <div className='barraBuscadorItem'>
                 <input
                  type='text' 
@@ -26,7 +26,11 @@ export const BloqueBuscador = () => {
                  />
             </div>
             <div className='barraBuscadorItem'>
-                <span onClick={()=>setOpenDate(!openDate)} className='barraBuscador'>Check In - Check Out</span>
+                <span 
+                onClick={()=>setOpenDate(!openDate)} 
+                className='barraBuscador'>
+                  Check In - Check Out
+                </span>
                 {openDate && <DateRange
                   editableDateInputs={true}
                   onChange={item => setDate([item.selection])}
@@ -35,8 +39,8 @@ export const BloqueBuscador = () => {
                   className='date'
                 />}
             </div>
-            <div className='barraBuscadorItem'>
-                <button className='buscadorButton'>Buscar</button>
+            <div className='buscadorButton'>
+                <button>Buscar</button>
             </div>
           </div>    
     </div>

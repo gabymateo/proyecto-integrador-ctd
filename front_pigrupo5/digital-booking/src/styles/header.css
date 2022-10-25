@@ -44,3 +44,29 @@
     border: 1px solid #1DBEB4;
     border-radius: 5px;
 }
+
+.headerButton:hover{
+    background: #1DBEB4;
+    color: white;
+}
+
+.toggleButton{
+    width: 30px;
+    height: 30px;
+    color: #545776;
+    cursor: pointer;
+    display: none;
+}
+
+/*---mobile---*/
+@media (max-width:450px){
+    .headerButton{
+        display: none;
+    }
+    
+    .toggleButton{
+        display: flex;
+    }
+    
+}
+
