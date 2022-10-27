@@ -1,6 +1,7 @@
 .bloqueBuscador{
     background-color: #545776;
     margin-top: none;
+    z-index: 10;
 }
 
 h1{
@@ -42,6 +43,7 @@ h1{
 .date{
     position: absolute;
     top: 234px;
+    z-index: 10;
 }
 
 .buscadorButton{
