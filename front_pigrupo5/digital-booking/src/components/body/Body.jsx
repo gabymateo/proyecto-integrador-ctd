@@ -10,10 +10,6 @@ const Body = () => {
         <BloqueBuscador/>
         <ListCards/> 
       </div>
-
-
-
-
     </div>
   )
 }

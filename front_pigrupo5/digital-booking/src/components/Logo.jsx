@@ -1,6 +1,7 @@
 import logo from '../images/logo 1logo-gris-db.png';
+import avatar from '../images/avatar.png'
 
-const Logo = () => (
+export const Logo = () => (
     <div className='logo-contenedor'>
         <img 
         src={logo}
@@ -9,4 +10,12 @@ const Logo = () => (
       </div>
 );
 
-export default Logo;
+export const Avatar = () => (
+  <div className='avatar-contenedor'>
+      <img 
+      src={avatar}
+      className='avatar'
+      alt='user avatar' />
+    </div>
+);
+
