@@ -2,6 +2,7 @@ import React from 'react';
 import Header from '../components/Header';
 import Login from '../components/Login';
 import Footer from '../components/Footer';
+import Body from '../components/body/Body'
 
 const userTest = {
   email: 'fulano@gmail.com',
@@ -10,17 +11,27 @@ const userTest = {
 
 const Login_form = () => {
 
-  const [isAuthenticated, setIsAuthenticated] = React.useState(false);
+  const [isAuthenticated, setIsAuthenticated] = React.useState(undefined);
+  const [userLogged, setUserLogged] = React.useState("");
 
   const handleLogin = (correo, contraseña) =>{
-    (correo == userTest.email && contraseña == userTest.password)? setIsAuthenticated(true): setIsAuthenticated(false);
+    if (correo == userTest.email && contraseña == userTest.password) {
+      setIsAuthenticated(true);
+      setUserLogged(correo); 
+    }
+    else setIsAuthenticated(false);   
   }
 
   return (
     <div>
-        <Header/>
-        <Login onHandleLogin={handleLogin}/>
-        {isAuthenticated? <p>la autenticacíón es correcta</p>:<p>No se ha autenticado</p>};
+        <Header user={userLogged}/>
+        {isAuthenticated  
+          ? <div> <Body/> </div>
+          : <div> {isAuthenticated === undefined 
+                  ? <Login onHandleLogin={handleLogin} /> 
+                  : <div> <Login onHandleLogin={handleLogin} /> <p>Por favor vuelva a intentarlo, sus credenciales son inválidas</p> </div>}
+            </div>
+        };
         <Footer/>
     </div>
   )

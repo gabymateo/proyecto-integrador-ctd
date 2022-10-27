@@ -37,7 +37,7 @@ const LoginForm = (props) => {
     }
 
     const hadleBlurPass = () => {
-      const hasError = (password).length <=6;
+      const hasError = (password).length <6;
       setBadPassword(hasError);
     }
 
@@ -49,7 +49,7 @@ const LoginForm = (props) => {
       <form className="form" id="login" onSubmit={handleSubmit}> 
         <label> Correo electrónico  <input type='email' value={email} onChange={handleValueEmail} onBlur={hadleBlurEmail}/> <span style={{ visibility: BadEmail ? "visible" : "hidden"}}>El email no es correcto</span> <br></br> </label>
         <div>
-          <label> Contraseña <input type={showPwd ? "text" : "password"} value={password} onChange={handleValuePassword} onBlur={hadleBlurPass}/> <span style={{ visibility: badPassword ? "visible" : "hidden"}}>El password no es correcto</span> <br></br> </label>
+          <label> Contraseña <input type={showPwd ? "text" : "password"} value={password} onChange={handleValuePassword} onBlur={hadleBlurPass}/> <span style={{ visibility: badPassword ? "visible" : "hidden"}}>El password debe ser de al menos 6 caracteres</span> <br></br> </label>
           <div className="position-absolute pointer pwd-icon" onClick={() => setShowPwd(!showPwd)}>
             {showPwd ? <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" height={"1rem"}>
               <path d="M12 15a3 3 0 100-6 3 3 0 000 6z" />

@@ -1,3 +1,10 @@
+:root{
+    --amarillo: #FBC02D;
+    --grisFuerte: #263238;
+    --grisClaro:#607D8B;
+    --beige:#FFFBE2;
+}
+
 .header {
     background-color: #ffffff;
     display: flex;
@@ -13,7 +20,20 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+}
 
+.sesionContainer {
+    display: flex;
+    flex-direction: row 
+}
+
+.helloUser > p > span {
+    color: var(--amarillo)
+}
+
+.avatar-contenedor > img {
+    width: 2em;
+    height: auto;
 }
 
 .container-logo {
@@ -27,6 +47,7 @@
     align-content: flex-end;
     justify-content: space-around;
 }
+
 
 .lema {
     display: flex;

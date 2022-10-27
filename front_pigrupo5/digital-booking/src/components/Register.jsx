@@ -20,7 +20,7 @@ const LoginRegister = (props) => {
     const [BadEmail, setBadEmail] = useState(undefined);
     const [badPassword, setBadPassword] = useState(undefined);
     const [difPassword, setDifPassword] = useState(undefined);
-    const [validationAll, setValidationAll] = useState(undefined);
+    const [validationAll, setValidationAll] = useState(false);
 
     const handleChangeFormValues = (e) => {
       setFormValues({
@@ -33,9 +33,17 @@ const LoginRegister = (props) => {
     const handleSubmit = (e) => {
       e.preventDefault();
       const isValid = ((formValues.name).length>1 && (formValues.lastName).length>1 && ((!BadEmail) && !(BadEmail == undefined)) && ((!badPassword) && !(badPassword == undefined)) && ((!difPassword) && !(difPassword == undefined)))
+      console.log("total validaciones: ",isValid);
+      console.log("email: ", ((!BadEmail) && !(BadEmail == undefined)));
+      console.log("long pass: ", ((!badPassword) && !(badPassword == undefined)));
+      console.log("same pass: ", ((!difPassword) && !(difPassword == undefined)));
       setValidationAll(isValid)
-      console.log(isValid);
     }
+
+    React.useEffect(()=>{
+      hadleBlurEmail();
+      hadleBlurPass();
+    })
 
     const hadleBlurEmail = () =>{
       const hasError = !emailRegexp.test(formValues.email);
@@ -43,7 +51,7 @@ const LoginRegister = (props) => {
     }
 
     const hadleBlurPass = () => {
-      const hasError = (formValues.password).length <=6;
+      const hasError = (formValues.password).length <6;
       setBadPassword(hasError);
     }
 
@@ -73,7 +81,10 @@ const LoginRegister = (props) => {
             </svg>}
           </div>
           <label> Confirmar contraseña <input name="confirmPassword" type='password' value={formValues.confirmPassword} onChange={handleChangeFormValues} onBlur={hadleBlurDifPass} /> <span style={{ visibility: difPassword ? "visible" : "hidden"}}>El pass no coincide</span> <br></br></label>
-          <button className="submit" type='submit' disabled={validationAll?true:false} >Crear cuenta</button>
+          {validationAll==true
+            ? <p>Datos enviados</p>
+            : <p>Debes diligenciar todos los campos</p>}
+          <button className="submit" type='submit'>Crear cuenta</button>
           <div className='footer_form'>
             <p>¿Ya tienes cuenta? <NavLink to="/login" className="active">Iniciar sesión</NavLink></p>
           </div>

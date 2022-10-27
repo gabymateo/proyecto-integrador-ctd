@@ -1,12 +1,13 @@
 import React from "react";
 import "../styles/header.css";
-import Logo from "./Logo";
+import {Logo, Avatar} from "./Logo";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { AiOutlineClose } from "react-icons/ai";
 import { useState } from "react";
 
-const Header = () => {
+const Header = (props) => {
   const [clicked, setClicked] = useState(false);
+  console.log(props.user);
 
   return (
     <div className="header">
@@ -21,8 +22,17 @@ const Header = () => {
           <div className="menuContainer">
             <span>MENÚ</span>
           </div>
-          <button className="headerButton">Crear cuenta</button>
-          <button className="headerButton">Iniciar sesión</button>
+          {props.user !='' && props.user!= undefined
+            ? <div className="sesionContainer">
+                    <div className="helloUser"> 
+                      <p>Hola <span>{props.user}</span></p> 
+                      <button className="headerButton">Cerrar Sesion </button>
+                    </div>
+                    <Avatar/>
+              </div>
+            : <div> <button className="headerButton">Crear cuenta</button>
+                    <button className="headerButton">Iniciar sesión</button> 
+              </div>}
           <GiHamburgerMenu
             className="toggleButton"
             onClick={() => setClicked(!clicked)}
