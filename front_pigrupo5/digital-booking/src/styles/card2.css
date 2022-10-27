@@ -31,7 +31,8 @@ body {
     height: 170px;   
     width: 95%;
     background: var(--beige);
-    z-index: 0;
+    z-index: 1;
+
 }
 
 .tarjeta > .images > img {
