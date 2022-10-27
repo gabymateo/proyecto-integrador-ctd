@@ -4,6 +4,7 @@ import {Logo, Avatar} from "./Logo";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { AiOutlineClose } from "react-icons/ai";
 import { useState } from "react";
+import { NavLink } from 'react-router-dom';
 
 const Header = (props) => {
   const [clicked, setClicked] = useState(false);
@@ -13,9 +14,10 @@ const Header = (props) => {
     <div className="header">
       <div className="headerContainer">
         <div className="container-logo">
-          <span className="logo">
+        <NavLink to="/"> <span className="logo">
             <Logo />
           </span>
+          </NavLink>
           <span className="lema">Sentite como en tu hogar</span>
         </div>
         <div className={`headerItems ${clicked && "active"}`}>
@@ -30,8 +32,8 @@ const Header = (props) => {
                     </div>
                     <Avatar/>
               </div>
-            : <div> <button className="headerButton">Crear cuenta</button>
-                    <button className="headerButton">Iniciar sesión</button> 
+            : <div> <button className="headerButton"><NavLink to="/register" className="link_btn">Crear cuenta</NavLink></button>
+                    <button className="headerButton"><NavLink to="/login" className="link_btn">Iniciar sesión</NavLink></button> 
               </div>}
           <GiHamburgerMenu
             className="toggleButton"

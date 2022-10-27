@@ -147,4 +147,12 @@
         margin-right: 20px;
     }
 
+
+    .link_btn{
+        color:#ffffff;
+        cursor: pointer;
+        
+        border: none;
+    }
+
 }
