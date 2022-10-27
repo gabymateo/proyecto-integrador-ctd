@@ -31,6 +31,8 @@ body {
     height: 170px;   
     width: 95%;
     background: var(--beige);
+    z-index: 1;
+
 }
 
 .tarjeta > .images > img {
@@ -103,3 +105,14 @@ body {
 }
 
 .tarjeta .infoCard > button:hover{transform: translateY(-3px);}
+
+@media (max-width:450px){
+
+    .ListCards{
+        display: flex;
+        flex-direction: column;
+    }
+
+
+    
+}
