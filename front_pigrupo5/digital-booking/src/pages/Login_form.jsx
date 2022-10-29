@@ -25,16 +25,10 @@ const Login_form = () => {
   return (
     <div>
         <Header user={userLogged}/>
-        {isAuthenticated  
-          ? <div> <Body/> </div>
-          : <div> {isAuthenticated === undefined 
-                  ? <Login onHandleLogin={handleLogin} /> 
-                  : <div> <Login onHandleLogin={handleLogin} /> <p>Por favor vuelva a intentarlo, sus credenciales son inválidas</p> </div>}
-            </div>
-        };
+        {isAuthenticated  ? <div> <Body/> </div>: <Login onHandleLogin={handleLogin} initSesion={isAuthenticated} /> };
         <Footer/>
     </div>
   )
 }
 
-export default Login_form;
+export default Login_form

@@ -22,6 +22,7 @@ const LoginForm = (props) => {
       setPassword(e.target.value);
     }
 
+
     //---------------------------------INIT Validaciones ----------------------
     const handleSubmit = (e) => {
       e.preventDefault()
@@ -61,6 +62,7 @@ const LoginForm = (props) => {
             </svg>}
           </div>
         </div>
+        {props.initSesion == undefined || props.initSesion==true ? undefined: <p>las credenciales son invalidas, intente nuevamente</p>}
           <button form='login' className="submit" type='submit' > Ingresar </button>
           <div className='footer_form'>
             <p>¿Aún no tienes cuenta? <NavLink to="/register" className="active">Registrate</NavLink></p>

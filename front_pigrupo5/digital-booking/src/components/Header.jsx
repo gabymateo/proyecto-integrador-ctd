@@ -8,7 +8,7 @@ import { NavLink } from 'react-router-dom';
 
 const Header = (props) => {
   const [clicked, setClicked] = useState(false);
-  console.log(props.user);
+  //console.log(props.user);
 
   return (
     <div className="header">
