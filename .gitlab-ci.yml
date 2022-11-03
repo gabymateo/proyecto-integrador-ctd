@@ -2,8 +2,8 @@
   image: node:latest  
   script: |    
     cd /builds/ctd/proyecto-integrador-1022/0521-pt-c1/grupo-05/front_pigrupo5/digital-booking
-    yarn --frozen-lockfile # Install all dependencies    
-    yarn build
+    yarn 
+    yarn build:dev
   artifacts:    
     paths:      
       - ./build      
@@ -30,7 +30,8 @@ yarn_prod:
   image: python:latest  
   when: manual  
   script: |    
-    pip install awscli #Install awscli tools    
+    pwd
+    pip install awscli   
     aws s3 sync ./build/ s3://${S3_BUCKET}
 
 deploy_dev:  
