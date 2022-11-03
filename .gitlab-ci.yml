@@ -4,14 +4,16 @@ cache:
     - node_modules
 stages:
   - build
-  - run
+  - deploy
 
 variables:
   S3_BUCKET_DEV: ${BUCKET_DEV}
-  S3_BUCKET_PROD: ${BUCKET_PROD} # Updated
+  S3_BUCKET_PROD: ${BUCKET_PROD}
 
+# Build section
+#---------------
 .yarn_build:
-  image: node:17.2.0
+  image: node:latest
   script: |
     cd /builds/ctd/proyecto-integrador-1022/0521-pt-c1/grupo-05/front_pigrupo5/digital-booking
     yarn # Install all dependencies
@@ -28,7 +30,7 @@ yarn_dev:
   only:
     refs:
       - Develop_FrontEnd
-# Updated section
+
 yarn_prod:
   extends: .yarn_build
   stage: build
@@ -38,6 +40,8 @@ yarn_prod:
     refs:
       - Main_Frontend
 
+# Deploy section
+#---------------
 .deploy_aws:
   image: python:latest
   when: manual
@@ -47,7 +51,7 @@ yarn_prod:
 
 deploy_dev:
   extends: .deploy_aws
-  stage: run
+  stage: deploy
   dependencies:
     - yarn_dev
   before_script:
@@ -55,10 +59,10 @@ deploy_dev:
   only:
     refs:
       - Develop_FrontEnd
-# updated section
+
 deploy_prod:
   extends: .deploy_aws
-  stage: run
+  stage: deploy
   dependencies:
     - yarn_prod
   before_script:
