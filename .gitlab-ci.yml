@@ -3,10 +3,10 @@
   script: |    
     cd /builds/ctd/proyecto-integrador-1022/0521-pt-c1/grupo-05/front_pigrupo5/digital-booking
     yarn 
-    yarn build:dev
+    yarn build
   artifacts:    
     paths:      
-      - ./build      
+      - /builds/ctd/proyecto-integrador-1022/0521-pt-c1/grupo-05/front_pigrupo5/digital-booking/build      
 
 yarn_dev:  
   extends: .yarn_build  
@@ -32,7 +32,7 @@ yarn_prod:
   script: |    
     pwd
     pip install awscli   
-    aws s3 sync ./build/ s3://${S3_BUCKET}
+    aws s3 sync /builds/ctd/proyecto-integrador-1022/0521-pt-c1/grupo-05/front_pigrupo5/digital-booking/build/ s3://${S3_BUCKET}
 
 deploy_dev:  
   extends: .deploy_aws  
