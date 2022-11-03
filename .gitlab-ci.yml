@@ -2,7 +2,7 @@
   image: node:latest  
   script: |    
     cd /builds/ctd/proyecto-integrador-1022/0521-pt-c1/grupo-05/front_pigrupo5/digital-booking
-    yarn # Install all dependencies    
+    yarn --frozen-lockfile # Install all dependencies    
     yarn build:${APP_ENV} # Build command 
   artifacts:    
     paths:      
