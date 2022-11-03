@@ -28,7 +28,7 @@ export const BloqueBuscador = () => {
             <div className='barraBuscadorItem'>
                 <span 
                 onClick={()=>setOpenDate(!openDate)} 
-                className='barraBuscador'>
+                className='buscador'>
                   Check In - Check Out
                 </span>
                 {openDate && <DateRange
@@ -39,10 +39,14 @@ export const BloqueBuscador = () => {
                   className='date'
                 />}
             </div>
-            <div className='buscadorButton'>
-                <button>Buscar</button>
-            </div>
+            <button>Buscar</button>
+            
           </div>    
     </div>
   )
 }
+/**
+ * <div className='buscadorButton'>
+                <button>Buscar</button>
+            </div>
+ */

@@ -1,7 +1,6 @@
 import React from 'react';
 import '../../styles/body.css';
 import ListCards from './ListCards';
-
 import { BloqueBuscador } from './BloqueBuscador';
 const Body = () => {
   return (

@@ -1,22 +1,15 @@
-@import url('https://fonts.googleapis.com/css?family=Quicksand');
-
-:root{
-    --amarillo: #FBC02D;
-    --grisFuerte: #263238;
-    --grisClaro:#607D8B;
-    --beige:#FFFBE2;
+.ListCardsContainer{
+    display: flex;
+    justify-content: center;
+    background-color: rgba(214, 214, 214, 0.898);
 }
-
-body {
-    font-family: Quicksand;
-}
-
 .ListCards{
     display: grid;
     grid-template-columns:50% 50%;
     grid-template-rows:180px 180px;
     grid-gap: 0em;
     column-gap: 0em;
+    width: 1024px;
 }
 
 .tarjeta {
@@ -30,7 +23,7 @@ body {
     position: relative;
     height: 170px;   
     width: 95%;
-    background: var(--beige);
+    background: #FFF;
     z-index: 1;
 
 }
@@ -90,7 +83,7 @@ body {
 }
 
 .tarjeta .infoCard > button {
-    background: darken(gray, 10%);
+    background: var(--amarillo);
     padding: 5px;
     display: inline-block;
     outline: 0;
@@ -98,7 +91,7 @@ body {
     border-radius: 10px;
     text-transform: uppercase;
     letter-spacing: 1px;
-    color: var(--beige);
+    color: #FFF;
     cursor: pointer;
     transform: translateY(1px);
 	transition: 0.3s linear;
@@ -106,11 +99,26 @@ body {
 
 .tarjeta .infoCard > button:hover{transform: translateY(-3px);}
 
-@media (max-width:450px){
+/*---RESPONSIVE---*/
+/*---RESPONSIVE TABLET---*/
+@media (min-width:551px) and (max-width:700px){
+    .ListCards{
+        display: grid;
+        grid-template-columns:100%;
+        grid-template-rows:180px 180px;
+        
+    }
+    
+}
+/*---RESPONSIVE MOBILE---*/
+
+@media (max-width:550px){
 
     .ListCards{
-        display: flex;
-        flex-direction: column;
+        display: grid;
+        grid-template-columns:100%;
+        grid-template-rows:180px 180px;
+        
     }
 
 

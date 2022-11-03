@@ -6,6 +6,7 @@ import "../../styles/card2.css";
 export default function ListCards (props) {
 
     return (
+        <div className='ListCardsContainer'>
         <div className='ListCards'>
             {Hospedajes.map((hospedaje)=>(
             <Card
@@ -18,5 +19,7 @@ export default function ListCards (props) {
             />
             ))}
         </div>
+        </div>
+        
     )
 }

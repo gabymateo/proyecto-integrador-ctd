@@ -15,6 +15,7 @@
 
 .logos{
     margin-left: 1rem;
+    color: #FFF;
 }
 
 .redes{
@@ -29,7 +30,9 @@
 }
 
 /*---mobile---*/
-@media (max-width:450px){
+/*---RESPONSIVE MOBILE---*/
+
+@media (max-width:550px) {
     .redes{
         display: none;
     }
