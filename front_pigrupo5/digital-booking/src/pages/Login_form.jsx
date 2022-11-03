@@ -1,8 +1,8 @@
 import React from 'react';
-import Header from '../components/Header';
-import Login from '../components/Login';
+import Header from '../components/header/Header';
+import Login from '../components/header/Login';
 import Footer from '../components/Footer';
-import Body from '../components/body/Body'
+import Body from '../components/body/Body';
 
 const userTest = {
   email: 'fulano@gmail.com',

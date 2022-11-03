@@ -1,5 +1,5 @@
-import logo from '../images/logo 1logo-gris-db.png';
-import avatar from '../images/avatar.png'
+import logo from '../../images/logo 1logo-gris-db.png';
+import avatar from '../../images/avatar.png'
 
 export const Logo = () => (
     <div className='logo-contenedor'>

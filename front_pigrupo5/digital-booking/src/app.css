@@ -1,0 +1,14 @@
+@import url('https://fonts.googleapis.com/css?family=Quicksand');
+
+:root{
+    --amarillo: #FBC02D;
+    --grisFuerte: #263238;
+    --grisClaro:#607D8B;
+    --beige:#FFFBE2;
+    font-family: Quicksand;
+    background: transparent;
+}
+
+body{
+    margin: 0px;
+}
