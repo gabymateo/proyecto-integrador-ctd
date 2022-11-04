@@ -4,10 +4,11 @@ stages:
 
 Maven-build:  
   stage: build
+  image:  maven:3.6.1-jdk-8-slim
   script:
     - echo "Building app..."
     - pwd
-    - mvn compile
+    - "mvn package -B"
     - ls target/generated-sources
     - echo "Finished building the app."
   artifacts:
