@@ -7,7 +7,7 @@ Maven-build:
   script:
     - echo "Building app..."
     - pwd
-    - "mvn package -B"  
+    - mvn compile
     - ls target/generated-sources
     - echo "Finished building the app."
   artifacts:
