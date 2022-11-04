@@ -15,13 +15,11 @@ variables:
 .yarn_build:
   image: node:latest
   script: |
-    pwd
-    cd /builds/ctd/proyecto-integrador-1022/0521-pt-c1/grupo-05/front_pigrupo5/digital-booking
     yarn # Install all dependencies
     yarn build # Build command
   artifacts:
     paths:
-      - /builds/ctd/proyecto-integrador-1022/0521-pt-c1/grupo-05/build
+      - ./build
       
 yarn_dev:
   extends: .yarn_build
@@ -48,7 +46,7 @@ yarn_prod:
   when: manual
   script: |
     pip install awscli #Install awscli tools
-    aws s3 sync /builds/ctd/proyecto-integrador-1022/0521-pt-c1/grupo-05/build/ s3://${S3_BUCKET}
+    aws s3 sync ./build/ s3://${S3_BUCKET}
 
 deploy_dev:
   extends: .deploy_aws
