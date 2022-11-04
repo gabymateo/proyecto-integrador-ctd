@@ -1,0 +1,13 @@
+.body{
+    background-color: #FFF;
+    display: flex;
+    justify-content: center;
+    /*min-height: 100vh;*/
+    
+}
+
+.bodyContainer{
+    width: 100%;
+    
+    
+}

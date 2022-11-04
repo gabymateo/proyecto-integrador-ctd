@@ -1,0 +1,39 @@
+.footer{
+    background-color: #FBC02D;
+    display: flex;
+    justify-content: center;
+    height: 50px;
+}
+
+.footerContainer{
+    width: 100%;
+    max-width: 1024px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logos{
+    margin-left: 1rem;
+    color: #FFF;
+}
+
+.redes{
+    display: flex;
+    justify-content: space-between;
+    margin-right: 1rem;
+    gap: 8px;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+
+}
+
+/*---mobile---*/
+/*---RESPONSIVE MOBILE---*/
+
+@media (max-width:550px) {
+    .redes{
+        display: none;
+    }
+}

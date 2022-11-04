@@ -1,0 +1,31 @@
+.alojamiento{
+    width: 100%;
+}
+
+.alojamiento >.headerAlojamiento{
+    display: flex;
+    justify-content: center;
+    background-color: var(--grisClaro);
+}
+
+.alojamiento >.headerAlojamiento > .alojamientoContainer {
+    width: 100%;
+    height: 93px;
+    max-width: 1024px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.alojamiento >.headerAlojamiento > .alojamientoContainer > .info {
+    margin-left: 15px;
+    padding: 10px 5px;
+    color: #FFF;
+}
+.alojamiento >.headerAlojamiento > .alojamientoContainer > .info > h4 {
+    
+}
+
+.alojamiento >.headerAlojamiento > .alojamientoContainer > .backButton{
+    margin-right: 15px;
+    padding: 10px 5px;
+}

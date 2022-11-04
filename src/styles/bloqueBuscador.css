@@ -1,0 +1,190 @@
+.bloqueBuscador{
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    background-color: var(--grisClaro);
+    z-index: 10;
+}
+
+.bloqueBuscador > h1{
+    color: #fff;
+    padding: 15px;
+}
+
+.bloqueBuscador > .barraBuscadorContainer{
+    display: flex;
+    gap: 10px;
+    padding: 15px;
+}
+
+.bloqueBuscador > .barraBuscadorContainer > .barraBuscadorItem {
+    display: flex;
+    align-items: center;
+    background-color: white;
+    height: 40px;
+    border-radius: 5px;
+    box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.15);
+    width: 422px;
+    
+}
+
+.bloqueBuscador > .barraBuscadorContainer > .barraBuscadorItem > .date{
+    position: absolute;
+    top: 90%;
+    z-index: 10;
+    border-radius: 2px;
+    
+
+}
+.bloqueBuscador > .barraBuscadorContainer > .barraBuscadorItem > .buscador{
+    width: 100%;
+}
+
+.bloqueBuscador > .barraBuscadorContainer > .barraBuscadorItem > .barraBuscadorInput {
+    width: 100%;
+    border:none;
+    outline: none;
+    color:gray;
+}
+
+.bloqueBuscador > .barraBuscadorContainer > button {
+    border:none;
+    outline: none;
+    background: var(--amarillo);
+    color: #fff;
+    cursor: pointer;
+    width: 20%;
+    border-radius: 5px;
+    box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.15);
+}
+
+.bloqueBuscador > .barraBuscadorContainer > button:hover{
+    color: var(--amarillo);
+    background: #FFF;
+    border: 1px solid var(--amarillo);
+}
+
+
+
+/*---RESPONSIVE---*/
+/*---RESPONSIVE TABLET---*/
+
+@media (min-width:551px) and (max-width:700px){
+    .bloqueBuscador > .barraBuscadorContainer > .barraBuscadorItem {
+        display: flex;
+        align-items: center;
+        background-color: white;
+        height: 40px;
+        border-radius: 5px;
+        box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.15);
+        width: 222px;
+    }
+}
+
+/*---RESPONSIVE MOBILE---*/
+
+@media (max-width:550px){
+    .bloqueBuscador > h1{
+        font-size: 150%;
+        padding: 10px 10px;
+    }
+    .bloqueBuscador > .barraBuscadorContainer {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .bloqueBuscador > .barraBuscadorContainer > .barraBuscadorItem{
+        width: 250%;
+        margin-bottom: 10px;
+    }
+
+    .bloqueBuscador > .barraBuscadorContainer > .barraBuscadorItem > .date{
+        top: 75%;
+        width: 82%;
+    }
+
+    .bloqueBuscador > .barraBuscadorContainer > button{
+        width: 250%;
+        height: 40px;
+        
+    }
+}
+
+/*
+.bloqueBuscador{
+    background-color: #545776;
+    z-index: 10;
+    width: 100%;
+}
+
+h1{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.barraBuscadorContainer {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 10px 0px;
+    
+}
+
+.barraBuscadorItem{
+    display: flex;
+    align-items: center;
+    background-color: white;
+    height: 40px;
+    border-radius: 5px;
+    box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.15);
+    border: 3px solid gray;
+    width: 422px;
+    margin-left: 10px;
+}
+
+.barraBuscadorInput{
+    border:none;
+    outline: none;
+    color:gray;
+}
+
+.barraBuscador{
+    color:gray;
+
+}
+
+.date{
+    position: absolute;
+    top: 234px;
+    z-index: 10;
+}
+
+.buscadorButton{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border:none;
+    outline: none;
+    background: #1DBEB4;
+    height: 40px;
+    border-radius: 5px;
+    box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.15);
+    width: 206px;
+    margin-left: 10px;
+    margin-right: 10px;
+
+}
+
+button{
+    border:none;
+    outline: none;
+    background: #1DBEB4;
+    cursor: pointer;
+    color: white;
+}
+
+
