@@ -4,7 +4,7 @@ stages:
 
 Maven-build:  
   stage: build
-  image:  maven:3.6.1-jdk-8-slim
+  image:  3.8.6-openjdk-18-slim
   script:
     - echo "Building app..."
     - pwd
