@@ -1,0 +1,34 @@
+stages:  
+  - build
+  - deploy  
+
+Maven-build:  
+  stage: build
+  script:
+    - echo "Building app..."
+    - pwd
+    - "mvn package -B"  
+    - ls target/generated-sources
+    - echo "Finished building the app."
+  artifacts:
+    paths:      
+      - target/*.war
+  only:
+      - Main_Backend
+
+Deploy:
+  stage: deploy 
+  image: alpine:3.11
+  before_script:
+    - 'command -v ssh-agent >/dev/null || ( apk add --update openssh )'   
+    - eval $(ssh-agent -s)  
+    - echo "$SSH_PRIVATE_KEY" | tr -d '\r' | ssh-add -  
+    - mkdir -p ~/.ssh  
+    - chmod 700 ~/.ssh  
+    - ssh-keyscan $EC2_IPADDRESS >> ~/.ssh/known_hosts  
+    - chmod 644 ~/.ssh/known_hosts  
+  script:
+    - echo "Deploying started..."
+    - scp -o StrictHostKeyChecking=no /target "$SSH_USER"@"$EC2_IPADDRESS":/opt/apache-tomcat-10.0.27/webapps
+  only:
+      - Main_Backend
