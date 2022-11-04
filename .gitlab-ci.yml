@@ -7,8 +7,9 @@ Maven-build:
   image: maven:3.8.5-openjdk-17-slim
   script:
     - echo "Building app..."
-    - pwd
     - "mvn package -B"
+    - pwd
+    - ls target
     - ls target/generated-sources
     - echo "Finished building the app."
   artifacts:
@@ -30,6 +31,7 @@ Deploy:
     - chmod 644 ~/.ssh/known_hosts  
   script:
     - echo "Deploying started..."
+    - pwd
     - scp -o StrictHostKeyChecking=no /target "$SSH_USER"@"$EC2_IPADDRESS":/opt/apache-tomcat-10.0.27/webapps
   only:
       - Main_Backend
