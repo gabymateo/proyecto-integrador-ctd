@@ -6,6 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="3d23211f-316c-4ad6-94b6-51a98bb7f6d8" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,6 +72,7 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+<<<<<<< HEAD
     &quot;last_opened_file_path&quot;: &quot;/home/dlopez/Escritorio/PI_Grupo5/grupo-05&quot;,
     &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
@@ -120,7 +123,9 @@
       <workItem from="1667517556183" duration="2460000" />
       <workItem from="1667520729720" duration="19000" />
       <workItem from="1667520810035" duration="81000" />
-      <workItem from="1667521045859" duration="28000" />
+      <workItem from="1667521045859" duration="1074000" />
+      <workItem from="1667567230411" duration="293000" />
+      <workItem from="1667608256029" duration="632000" />
     </task>
     <servers />
   </component>
