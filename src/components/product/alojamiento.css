@@ -2,13 +2,14 @@
     width: 100%;
 }
 
-.alojamiento >.headerAlojamiento{
+/*---HEADER---*/
+.alojamiento__header{
     display: flex;
     justify-content: center;
     background-color: var(--grisClaro);
 }
 
-.alojamiento >.headerAlojamiento > .alojamientoContainer {
+.header__container {
     width: 100%;
     height: 93px;
     max-width: 1024px;
@@ -16,16 +17,201 @@
     align-items: center;
     justify-content: space-between;
 }
-.alojamiento >.headerAlojamiento > .alojamientoContainer > .info {
+.header__container > .info {
     margin-left: 15px;
     padding: 10px 5px;
     color: #FFF;
 }
-.alojamiento >.headerAlojamiento > .alojamientoContainer > .info > h4 {
+
+.header__container > .info > h1 {
+    font-size: 1.5em;
+}
+
+.header__container > .info > p {
+    font-size: 0.9em;
+}
+
+
+.header__container > a > .backButton{
+    margin-right: 15px;
+    padding: 10px 5px;
+    width: 50px;
+    height: 50px;
+    color: white;
+    cursor: pointer;
+}
+.header__container > a > .backButton:hover{
+    color: var(--amarillo);
+    width: 51px;
+    height: 51px;
+}
+
+/*---BLOQUE UBICACION---*/
+.alojamiento__ubicacion{
+    display: flex;
+    justify-content: center;
+    background-color: rgb(238, 238, 238);
+}
+
+.ubicacion__container{
+    width: 100%;
+    height: 93px;
+    max-width: 1024px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.ubicacion__container > .ciudad{
+    margin-left: 15px;
+    padding: 10px 5px;
+    color: var(--grisClaro);
+}
+
+.ubicacion__container > .puntuacion{
+    margin-right: 15px;
+    padding: 10px 5px;
+    color: var(--grisClaro);
+}
+
+/*---BLOQUE IMAGENES---*/
+.alojamiento__imagenes {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.imagenes__botones{
+    width: 100%;
+    max-width: 1024px;
+}
+
+.imagenes__botones > .share ,.like {
+    width: 3.4%;
+    height: 3.4%;
+    color: var(--grisClaro);
+    cursor: pointer;
+    margin-left: 15px;
+    padding: 10px 5px;
     
 }
 
-.alojamiento >.headerAlojamiento > .alojamientoContainer > .backButton{
-    margin-right: 15px;
+.imagenes__container {
+    width: 100%;
+    max-width: 1024px;
+    display: flex;
+    flex-direction: row;
+    margin: 0 15px;
+}
+
+/*---BLOQUE IMAGENES, VER MAS---*/
+.imagenes__imagen-secundaria > p {
+    /*position: fixed;*/
+    color: #FFF;
+}
+/*---BLOQUE IMAGENES, IMAGENES EN GRILLA---*/
+.imagenes__imagen-secundaria{
+    display: grid;
+    grid-template-columns: repeat(4, 25%);
+    grid-gap: 10px;
+    grid-template-rows: repeat(2, 50%);
+
+}
+
+.imagenes__imagen-secundaria > img {
+    width: 100%;
+    border-radius: 5%;
+
+}
+
+.imagenes__imagen-secundaria > .imagen1 {
+    grid-column: 1/3;
+    grid-row: 1 / 3;
+
+}
+
+/*---BLOQUE DESCRIPCION---*/
+.alojamiento__descripcion {
+    display: flex;
+    justify-content: center;
+}
+
+.descripcion__container{
+    width: 100%;
+    max-width: 1024px;
+    margin-left: 15px;
     padding: 10px 5px;
 }
+.descripcion__container > h1 {
+    color: var(--grisFuerte);
+    font-size: 1.5em;
+}
+.descripcion__container > p {
+    color: var(--grisClaro);
+}
+
+/*---BLOQUE CARACTERISTICAS--*/
+.alojamiento__caracteristicas{
+    display: flex;
+    justify-content: center;
+}
+
+.caracteristicas__container{
+    width: 100%;
+    max-width: 1024px;
+    margin-left: 15px;
+    padding: 10px 5px;
+}
+
+.caracteristicas__container > h1 {
+    font-size: 1.5em;
+    color: var(--grisFuerte);
+}
+
+.caracteristicas__barra {
+    height: 2px;
+    width: 100%;
+    background-color: var(--amarillo);
+}
+
+.caracteristicas__atributos{
+    margin: 0 15px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+}
+
+/*---BLOQUE POLITICAS---*/
+.alojamiento__politicas {
+    display: flex;
+    justify-content: center;
+}
+
+.politicas__container{
+    width: 100%;
+    max-width: 1024px;
+    margin-left: 15px;
+    padding: 10px 5px;
+}
+
+.politicas__container > h1 {
+    font-size: 1.5em;
+    color: var(--grisFuerte);
+}
+
+.normas__container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.normas__container > div > h1 {
+    font-size: 1.2em;
+    color: var(--grisFuerte);
+}
+
+.normas__container > div > p {
+    color: var(--grisFuerte);
+    font-size: 0.9em;
+}
+
+/*---RESPONSIVE---*/
+/*---RESPONSIVE TABLET---*/

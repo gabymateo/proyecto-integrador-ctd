@@ -1,7 +1,7 @@
 import React from "react";
 import Card from "./Card"
 import Hospedajes from '../../DataMock/Hospedajes.json'
-import "../../styles/card2.css";
+import "../../styles/listCard.css";
 
 export default function ListCards (props) {
 
