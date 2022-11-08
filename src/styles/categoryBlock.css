@@ -12,7 +12,8 @@
     font-weight: bold;
     color: var(--grisFuerte);
     margin-top: -5px;
-    width: 1024px;
+    width: 100%;
+    max-width: 1024px;
     margin-left: 15px;
     border: none;
     padding: 10px 5px;   
