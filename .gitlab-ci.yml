@@ -43,7 +43,6 @@ yarn_prod:
 #---------------
 .deploy_aws:
   image: python:latest
-  when: manual
   script: |
     pip install awscli #Install awscli tools
     aws s3 sync ./dist s3://${S3_BUCKET}
@@ -65,7 +64,7 @@ deploy_prod:
   dependencies:
     - yarn_prod
   before_script:
-    - export S3_BUCKET=${S3_BUCKET_PROD}
+    - export S3_BUCKET=${S3_BUCKET_PDN}
   only:
     refs:
       - Main_Frontend
