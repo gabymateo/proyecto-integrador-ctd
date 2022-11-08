@@ -10,7 +10,7 @@ Maven-build:
     - "mvn package -B"
     - pwd
     - ls target
-    - ls target/generated-sources
+    - ls target/generated-sourcesgit
     - echo "Finished building the app."
   artifacts:
     paths:      
@@ -33,6 +33,6 @@ Deploy:
     - echo "Deploying started..."
     - pwd
     - ssh "$SSH_USER"@"$EC2_IPADDRESS" "hostname"
-    - scp -o StrictHostKeyChecking=no ./target/*war "$SSH_USER"@"$EC2_IPADDRESS":/opt/apache-tomcat-10.0.27/webapps/ROOT
+    - scp -o StrictHostKeyChecking=no ./target/*war "$SSH_USER"@"$EC2_IPADDRESS":/opt/apache-tomcat-10.0.27/webapps
   only:
       - Main_Backend
