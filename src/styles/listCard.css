@@ -2,6 +2,7 @@
     display: flex;
     justify-content: center;
     background-color: rgba(214, 214, 214, 0.898);
+    
 }
 .ListCards{
     display: grid;
@@ -10,6 +11,7 @@
     grid-gap: 0em;
     column-gap: 0em;
     width: 1024px;
+    
 }
 
 .tarjeta {

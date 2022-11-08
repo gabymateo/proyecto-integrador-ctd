@@ -1,7 +1,9 @@
 .ListCategoryContainer{
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
     background-color: rgba(214, 214, 214, 0.898);
+    width: 100%;
 }
 
 .ListCategoryContainer > .TituloCategoria{
@@ -10,17 +12,24 @@
     font-weight: bold;
     color: var(--grisFuerte);
     margin-top: -5px;
-    margin: 2px 2px 2px 2px;
-    padding: 2px 2px 2px 2px;   
+    width: 1024px;
+    margin-left: 15px;
+    border: none;
+    padding: 10px 5px;   
+}
+
+.TituloCategoria > h2 {
+    margin-left: 15px;
 }
 
 .ListCategoryBlock{
     display: grid;
-    grid-template-columns:50% 50%;
-    grid-template-rows:180px 180px;
+    grid-template-columns:repeat(4, 1fr);
+    grid-template-rows:100%;
     grid-gap: 0em;
     column-gap: 0em;
-    width: 1024px;
+    width: 100%;
+    max-width: 1024px;
 }
 
 .tipoAlojamiento {
@@ -32,15 +41,21 @@
     border-radius: 10px;
     overflow: hidden;
     position: relative;
-    height: 170px;   
-    width: 95%;
+    height: 200px;   
+    width: 90%;
     background: #FFF;
     z-index: 1;
+    
+    
+}
+
+.tipoAlojamiento:hover{
+    cursor: pointer;
 }
 
 .tipoAlojamiento > .imagesTipoAlojamiento > img {
     width: 100%;
-    height: 52%;
+    height: 70%;
     position: absolute;
     border-radius: 10px;   
 }
@@ -49,7 +64,7 @@
     position: absolute;
     width: 97%;
     height: auto;
-    top: 58%;
+    bottom: 0;
 }
 
 .tipoAlojamiento .infoCategoria > h2 {
@@ -87,8 +102,9 @@
 @media (min-width:551px) and (max-width:700px){
     .ListCategoryBlock{
         display: grid;
-        grid-template-columns:100%;
-        grid-template-rows:180px 180px;
+        grid-template-columns:repeat(2, 2fr);
+        grid-template-rows:repeat(2, 2fr);
+        width: 100%;
         
     }
     
@@ -98,10 +114,15 @@
 @media (max-width:550px){
 
     .ListCategoryBlock{
-        display: grid;
-        grid-template-columns:100%;
-        grid-template-rows:180px 180px;
-        
+        display: flex;
+        flex-direction: column;
+
+    }
+
+    .tipoAlojamiento{
+        height: 400px;
+        width: 95%;
+
     }
 
 
