@@ -6,7 +6,7 @@ import com.backend.grupo5.model.entities.Category;
 import com.backend.grupo5.model.services.ICategoryService;
 import com.backend.grupo5.repository.CategoryRepository;
 import com.backend.grupo5.service.DTO.category.CategoryCreateDTO;
-import com.backend.grupo5.common.helpers.mapper.CategoryDTOToCategory;
+import com.backend.grupo5.common.helpers.mapper.category.CategoryDTOToCategory;
 import com.backend.grupo5.service.DTO.category.CategoryUpdateDTO;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;

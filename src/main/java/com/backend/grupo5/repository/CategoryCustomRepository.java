@@ -23,4 +23,5 @@ public class CategoryCustomRepository {
 //        Root<Product> productRoot = query.from(Product.class);
 //        query.select(productRoot.get(name));
 //    }
+
 }

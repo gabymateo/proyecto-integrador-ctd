@@ -1,5 +1,8 @@
 package com.backend.grupo5.model.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import org.hibernate.annotations.SQLDelete;
 import org.springframework.data.annotation.CreatedDate;
 
@@ -28,6 +31,8 @@ public class Category {
     private String description;
 
     @OneToMany(mappedBy = "category", cascade = CascadeType.ALL)
+//    @JsonManagedReference
+    @JsonIgnore
     private Set<Product> products = new HashSet<>();
 
     @Column
