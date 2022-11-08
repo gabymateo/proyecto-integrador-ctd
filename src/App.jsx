@@ -11,17 +11,19 @@ import {
   Outlet,
   Link,
   Navigate,
+  useParams,
 } from "react-router-dom";
 
 
-function App() {
+function App(props) {
+  const params = useParams();
   return (
     <>
       <Routes>
         <Route path="/" element={<Home/>}></Route>
         <Route path="/login" element={<Login/>}></Route>
         <Route path="/register" element={<Register/>}></Route>
-        <Route path="/product" element={<Product/>}></Route>
+        <Route path={`/product/${props.key}`} element={<Product/>}></Route>
       </Routes>
     </>
   )

@@ -1,6 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import "../../styles/card2.css";
+import "../../styles/listCard.css";
 
 export default function Card (props) {
 
@@ -15,7 +15,7 @@ export default function Card (props) {
                 <h1>{props.Nombre}</h1>   
                 <h2>{props.Ubicacion}</h2>
                 <p className="desc">{props.Descripcion}</p>
-                <NavLink to='/product' >
+                <NavLink to={`/product/${props.key}`} >
                 {/* incluir la ruta por id de producto*/}  
                 <button className='button'> Ver detalle </button> 
                 </NavLink> 

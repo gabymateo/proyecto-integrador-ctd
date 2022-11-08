@@ -1,9 +1,9 @@
 import React from 'react';
-import '../styles/footer.css'
-import Facebook from '../images/icon-facebook.png'
-import LinkedIn from '../images/icon-linkedIn.png'
-import Twitter from '../images/icon-twitter.png'
-import Instagram from '../images/icon-instagram.png'
+import './footer.css'
+import Facebook from '../../images/icon-facebook.png'
+import LinkedIn from '../../images/icon-linkedIn.png'
+import Twitter from '../../images/icon-twitter.png'
+import Instagram from '../../images/icon-instagram.png'
 
 
 const Footer = () => {

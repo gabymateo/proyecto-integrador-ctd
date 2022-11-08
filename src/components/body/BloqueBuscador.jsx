@@ -35,8 +35,10 @@ export const BloqueBuscador = () => {
                   editableDateInputs={true}
                   onChange={item => setDate([item.selection])}
                   moveRangeOnFirstSelection={false}
+                  months={2}
                   ranges={date}
                   className='date'
+                  direction='horizontal'
                 />}
             </div>
             <button>Buscar</button>

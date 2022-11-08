@@ -1,0 +1,27 @@
+[
+    {
+        "id": 1,
+        "Crimg":"https://i.blogs.es/c68014/casa-3d/840_560.jpeg",
+        "Title":"Hoteles",
+        "Description": "807.105 hoteles"
+    },
+    {
+        "id": 2,
+        "Crimg":"https://images.unsplash.com/photo-1571055107559-3e67626fa8be?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjB8fGNhc2FzfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
+        "Title":"Hostels",
+        "Description": "807.105 hoteles"
+    },
+    {
+        "id": 3,
+        "Crimg":"https://images.unsplash.com/photo-1521401830884-6c03c1c87ebb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8aG9zcGVkYWplfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
+        "Title":"Departamentos",
+        "Description": "807.105 hoteles"
+    },
+    {
+        "id": 4,
+        "Crimg":"https://images.unsplash.com/photo-1595368062392-a189a24c0cf8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8N3x8aG9zcGVkYWplfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
+        "Title":"Bed and breakfast",
+        "Description": "807.105 hoteles"
+    }
+
+]
