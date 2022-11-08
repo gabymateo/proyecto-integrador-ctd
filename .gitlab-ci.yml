@@ -7,8 +7,8 @@ Maven-build:
   image: maven:3.8.5-openjdk-17-slim
   script:
     - echo "Building app..."
-    - "mvn package -B"
-    - pwd
+    -  mvn clean
+    - mvn package -B
     - ls target
     - ls target/generated-sources
     - echo "Finished building the app."
