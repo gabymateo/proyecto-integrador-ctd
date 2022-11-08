@@ -10,7 +10,7 @@ Maven-build:
     - "mvn package -B"
     - pwd
     - ls target
-    - ls target/generated-sourcesgit
+    - ls target/generated-sources
     - echo "Finished building the app."
   artifacts:
     paths:      
