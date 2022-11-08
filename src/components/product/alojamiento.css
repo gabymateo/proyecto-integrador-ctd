@@ -116,9 +116,8 @@
     grid-gap: 10px;
     grid-template-rows: repeat(2, 50%);
 
-}
-
-.imagenes__imagen-secundaria > img {
+} 
+.imagenes__imagen-secundaria > div > img {
     width: 100%;
     border-radius: 5%;
 
@@ -215,3 +214,28 @@
 
 /*---RESPONSIVE---*/
 /*---RESPONSIVE TABLET---*/
+@media (min-width:551px) and (max-width:700px){
+    /*---BLOQUE CARACTERISTICAS--*/
+    .caracteristicas__atributos{
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    /*---BLOQUE POLITICAS---*/
+    .normas__container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+/*---RESPONSIVE MOBILE---*/
+@media (max-width:550px){
+    /*---BLOQUE CARACTERISTICAS--*/
+    .caracteristicas__atributos{
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    /*---BLOQUE POLITICAS---*/
+    .normas__container {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+}
