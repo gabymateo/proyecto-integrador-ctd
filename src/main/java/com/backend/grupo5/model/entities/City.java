@@ -1,6 +1,10 @@
 package com.backend.grupo5.model.entities;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
@@ -16,10 +20,15 @@ public class City {
     @Column(nullable = false)
     private String name;
 
-//    @Column(nullable = false)
-//    private String state;
+    @Column(nullable = false)
+    private String state;
 
-    @OneToMany(mappedBy = "city", fetch = FetchType.LAZY)
+    @Column
+    private String country;
+
+    @OneToMany(mappedBy = "city", fetch = FetchType.EAGER)
+//    @JsonManagedReference
+    @JsonIgnore
     private Set<Product> products = new HashSet<>();
 
     public Set<Product> getProducts() {
@@ -31,6 +40,22 @@ public class City {
         for(Product product : products) {
             product.setCity(this);
         }
+    }
+
+    public String getState() {
+        return state;
+    }
+
+    public void setState(String state) {
+        this.state = state;
+    }
+
+    public String getCountry() {
+        return country;
+    }
+
+    public void setCountry(String country) {
+        this.country = country;
     }
 
     public Long getId() {

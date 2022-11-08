@@ -7,6 +7,19 @@
     <list default="true" id="3d23211f-316c-4ad6-94b6-51a98bb7f6d8" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/backend/grupo5/common/helpers/mapper/CategoryDTOToCategory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/backend/grupo5/common/helpers/mapper/category/CategoryDTOToCategory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/backend/grupo5/controller/CityController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/backend/grupo5/controller/CityController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/backend/grupo5/controller/ProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/backend/grupo5/controller/ProductController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/backend/grupo5/model/entities/Category.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/backend/grupo5/model/entities/Category.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/backend/grupo5/model/entities/City.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/backend/grupo5/model/entities/City.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/backend/grupo5/model/entities/Image.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/backend/grupo5/model/entities/Image.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/backend/grupo5/model/entities/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/backend/grupo5/model/entities/Product.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/backend/grupo5/model/services/IProductService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/backend/grupo5/model/services/IProductService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/backend/grupo5/repository/CategoryCustomRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/backend/grupo5/repository/CategoryCustomRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/backend/grupo5/repository/ProductRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/backend/grupo5/repository/ProductRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/backend/grupo5/service/CategoryService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/backend/grupo5/service/CategoryService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/backend/grupo5/service/DTO/product/ProductCreateDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/backend/grupo5/service/DTO/product/ProductCreateDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/backend/grupo5/service/ProductService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/backend/grupo5/service/ProductService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -17,9 +30,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Enum" />
         <option value="Interface" />
         <option value="Class" />
+        <option value="Enum" />
       </list>
     </option>
   </component>
@@ -100,7 +113,12 @@
       <workItem from="1667520810035" duration="81000" />
       <workItem from="1667521045859" duration="1074000" />
       <workItem from="1667567230411" duration="293000" />
-      <workItem from="1667608256029" duration="632000" />
+      <workItem from="1667608256029" duration="1279000" />
+      <workItem from="1667756795353" duration="2226000" />
+      <workItem from="1667798387055" duration="2644000" />
+      <workItem from="1667837829023" duration="29494000" />
+      <workItem from="1667877256510" duration="5739000" />
+      <workItem from="1667912638552" duration="7000" />
     </task>
     <servers />
   </component>
