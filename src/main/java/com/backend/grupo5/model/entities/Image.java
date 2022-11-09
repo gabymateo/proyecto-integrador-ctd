@@ -19,6 +19,8 @@ public class Image {
     @Column
     private String name_key;
 
+    //test
+
     @Column
     private String imageUrl;
 
