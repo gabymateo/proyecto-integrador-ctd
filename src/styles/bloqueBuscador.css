@@ -49,18 +49,23 @@
     color:gray;
 }
 
-.bloqueBuscador > .barraBuscadorContainer > button {
+.bloqueBuscador > .barraBuscadorContainer > a {
+    width: 20%;
+}
+
+.bloqueBuscador > .barraBuscadorContainer > a > button {
     border:none;
     outline: none;
     background: var(--amarillo);
     color: #fff;
     cursor: pointer;
-    width: 20%;
+    height: 100%;
+    width: 100%;
     border-radius: 5px;
     box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.15);
 }
 
-.bloqueBuscador > .barraBuscadorContainer > button:hover{
+.bloqueBuscador > .barraBuscadorContainer > a > button:hover{
     color: var(--amarillo);
     background: #FFF;
     border: 1px solid var(--amarillo);
@@ -106,10 +111,12 @@
         width: 82%;
     }
 
-    .bloqueBuscador > .barraBuscadorContainer > button{
+    .bloqueBuscador > .barraBuscadorContainer > a {
         width: 250%;
+    }
+
+    .bloqueBuscador > .barraBuscadorContainer > a > button{
         height: 40px;
-        
     }
 }
 
