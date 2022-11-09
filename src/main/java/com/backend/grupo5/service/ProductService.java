@@ -73,7 +73,7 @@ public class ProductService implements IProductService {
         for (MultipartFile file : files) {
             Image image = awsService.upload(file);
             image.setProduct(product);
-            image.setUrl(awsService.getById(image.getKey()));
+            image.setUrl(awsService.getById(image.getKey()).toString());
             imageRepository.save(image);
             images.add(image);
         }
