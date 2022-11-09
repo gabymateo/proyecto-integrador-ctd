@@ -1,7 +1,11 @@
 package com.backend.grupo5.model.entities;
 
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
+import java.net.URL;
 
 @Entity
 @Table(name = "images")
@@ -13,31 +17,70 @@ public class Image {
     private Long id;
 
     @Column(nullable = false)
-    private String title;
+    private String bucketName;
 
-    @OneToOne(mappedBy = "")
-    private Product product;
+    @Column
+    private String key;
 
-    @Column(nullable = false)
-    private String url;
+    private URL url;
+
+    @ManyToOne
+    @JoinColumn(name = "product_id")
+    @JsonBackReference
+    Product product;
+
+//    @Column(nullable = false)
+//    private String url;
 
     public Long getId() {
         return id;
     }
 
-    public String getTitle() {
-        return title;
+//    public String getUrl() {
+//        return url;
+//    }
+//
+//    public void setUrl(String url) {
+//        this.url = url;
+//    }
+
+    public Product getProduct() {
+        return product;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    public void setProduct(Product product) {
+        this.product = product;
     }
 
-    public String getUrl() {
-        return url;
+    public String getBucketName() {
+        return bucketName;
     }
 
-    public void setUrl(String url) {
+    public void setBucketName(String bucketName) {
+        this.bucketName = bucketName;
+    }
+
+    public String getKey() {
+        return key;
+    }
+
+    public void setKey(String key) {
+        this.key = key;
+    }
+
+    public Image() {
+
+    }
+    public Image(String bucketName, String key) {
+        this.bucketName = bucketName;
+        this.key = key;
+    }
+
+    public void setUrl(URL url) {
         this.url = url;
+    }
+
+    public URL getUrl() {
+        return url;
     }
 }
