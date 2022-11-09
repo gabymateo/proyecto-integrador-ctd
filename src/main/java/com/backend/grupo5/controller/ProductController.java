@@ -18,8 +18,8 @@ import org.springframework.web.multipart.MultipartFile;
 import java.util.ArrayList;
 import java.util.Optional;
 
-@Controller
-@RequestMapping("/products")
+@RestController
+@RequestMapping("products")
 public class ProductController {
 
     private final ProductService productService;
@@ -29,7 +29,7 @@ public class ProductController {
     }
 
 
-    @PostMapping(value = "/")
+    @PostMapping
     public ResponseEntity<Object> create(@ModelAttribute ProductCreateDTO input) {
         try {
             Product product = this.productService.create(input, input.getFiles());
@@ -49,7 +49,7 @@ public class ProductController {
         }
     }
 
-    @GetMapping("/")
+    @GetMapping
     public ResponseEntity<Object> search(
             @RequestParam(name = "name", required = false) String name,
             @RequestParam(name = "cityId", required = false) Long cityId,

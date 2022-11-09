@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/cities")
+@RequestMapping("cities")
 public class CityController {
 
     private final CityService cityService;
