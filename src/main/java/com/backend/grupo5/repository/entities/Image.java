@@ -1,4 +1,4 @@
-package com.backend.grupo5.model.entities;
+package com.backend.grupo5.repository.entities;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 

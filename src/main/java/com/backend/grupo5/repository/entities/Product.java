@@ -1,4 +1,4 @@
-package com.backend.grupo5.model.entities;
+package com.backend.grupo5.repository.entities;
 
 
 import com.fasterxml.jackson.annotation.*;
@@ -34,15 +34,16 @@ public class Product {
 
     @ManyToOne(fetch = FetchType.EAGER, optional = false)
     @JoinColumn(name = "category_id")
-//    @JsonBackReference
-//    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
-    Category category;
+    private Category category;
 
     @ManyToOne(fetch = FetchType.EAGER, optional = false)
     @JoinColumn(name = "city_id")
-//    @JsonBackReference
-//    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
-    City city;
+    private City city;
+
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(name = "product_features", joinColumns = {@JoinColumn(name = "product_id")}, inverseJoinColumns = {@JoinColumn(name = "feature_id")}
+    )
+    private Set<Feature> features = new HashSet<>();
 
     public City getCity() {
         return city;

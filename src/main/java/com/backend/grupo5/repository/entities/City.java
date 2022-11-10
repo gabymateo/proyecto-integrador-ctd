@@ -1,9 +1,7 @@
-package com.backend.grupo5.model.entities;
+package com.backend.grupo5.repository.entities;
 
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import javax.persistence.*;
 import java.util.HashSet;

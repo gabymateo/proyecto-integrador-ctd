@@ -1,6 +1,6 @@
 package com.backend.grupo5.model.services;
 
-import com.backend.grupo5.model.entities.Image;
+import com.backend.grupo5.repository.entities.Image;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.net.URL;

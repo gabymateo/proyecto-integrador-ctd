@@ -1,8 +1,9 @@
 package com.backend.grupo5.service;
 
 import com.backend.grupo5.common.exceptions.ApplicationError;
+import com.backend.grupo5.common.helpers.error_description.CityErrorDescription;
 import com.backend.grupo5.common.helpers.mapper.CityDTOTOCity;
-import com.backend.grupo5.model.entities.City;
+import com.backend.grupo5.repository.entities.City;
 import com.backend.grupo5.model.services.ICityService;
 import com.backend.grupo5.repository.CityRepository;
 import com.backend.grupo5.service.DTO.city.CityCreateDTO;
@@ -10,6 +11,7 @@ import com.backend.grupo5.service.DTO.city.CityUpdateDTO;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.Optional;
 
 @Service
@@ -32,7 +34,16 @@ public class CityService implements ICityService {
 
     @Override
     public Optional<City> getById(Long id) {
-        return this.cityRepository.findById(id);
+        Optional<City> city = this.cityRepository.findById(id);
+        if (city.isEmpty()) {
+            throw new ApplicationError(CityErrorDescription.CITY_NOT_FOUND.getDescription(), HttpStatus.NOT_FOUND);
+        }
+        return city;
+    }
+
+    @Override
+    public ArrayList<City> getAll() {
+        return (ArrayList<City>) this.cityRepository.findAll();
     }
 
     @Override
@@ -44,7 +55,7 @@ public class CityService implements ICityService {
     public void delete(Long id) {
         Optional<City> city = this.cityRepository.findById(id);
         if(city.isEmpty()) {
-            throw new ApplicationError("city not found", HttpStatus.NOT_FOUND);
+            throw new ApplicationError(CityErrorDescription.CITY_NOT_FOUND.getDescription(), HttpStatus.NOT_FOUND);
         }
         this.cityRepository.delete(city.get());
     }

@@ -1,6 +1,6 @@
 package com.backend.grupo5.common.helpers.mapper;
 
-import com.backend.grupo5.model.entities.City;
+import com.backend.grupo5.repository.entities.City;
 import com.backend.grupo5.service.DTO.city.CityCreateDTO;
 import org.springframework.stereotype.Component;
 

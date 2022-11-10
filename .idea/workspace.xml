@@ -6,8 +6,37 @@
   <component name="ChangeListManager">
     <list default="true" id="3d23211f-316c-4ad6-94b6-51a98bb7f6d8" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/backend/grupo5/Grupo5Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/backend/grupo5/Grupo5Application.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/backend/grupo5/common/helpers/error_description/CategoryErrorDescription.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/backend/grupo5/common/helpers/error_description/CategoryErrorDescription.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/backend/grupo5/common/helpers/mapper/CityDTOTOCity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/backend/grupo5/common/helpers/mapper/CityDTOTOCity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/backend/grupo5/common/helpers/mapper/ProductDTOTOProduct.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/backend/grupo5/common/helpers/mapper/ProductDTOTOProduct.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/backend/grupo5/common/helpers/mapper/category/CategoryDTOToCategory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/backend/grupo5/common/helpers/mapper/category/CategoryDTOToCategory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/backend/grupo5/controller/CategoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/backend/grupo5/controller/CategoryController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/backend/grupo5/controller/CityController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/backend/grupo5/controller/CityController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/backend/grupo5/controller/ProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/backend/grupo5/controller/ProductController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/backend/grupo5/model/entities/Category.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/backend/grupo5/repository/entities/Category.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/backend/grupo5/model/entities/City.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/backend/grupo5/repository/entities/City.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/backend/grupo5/model/entities/Feature.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/backend/grupo5/repository/entities/Feature.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/backend/grupo5/model/entities/Image.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/backend/grupo5/repository/entities/Image.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/backend/grupo5/model/entities/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/backend/grupo5/repository/entities/Product.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/backend/grupo5/model/services/IAwsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/backend/grupo5/model/services/IAwsService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/backend/grupo5/model/services/ICategoryService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/backend/grupo5/model/services/ICategoryService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/backend/grupo5/model/services/ICityService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/backend/grupo5/model/services/ICityService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/backend/grupo5/model/services/IProductService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/backend/grupo5/model/services/IProductService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/backend/grupo5/repository/CategoryCustomRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/backend/grupo5/repository/ProductCustomRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/backend/grupo5/repository/CategoryRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/backend/grupo5/repository/CategoryRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/backend/grupo5/repository/CityRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/backend/grupo5/repository/CityRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/backend/grupo5/repository/ImageRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/backend/grupo5/repository/ImageRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/backend/grupo5/repository/ProductRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/backend/grupo5/repository/ProductRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/backend/grupo5/service/AwsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/backend/grupo5/service/AwsService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/backend/grupo5/service/CategoryService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/backend/grupo5/service/CategoryService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/backend/grupo5/service/CityService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/backend/grupo5/service/CityService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/backend/grupo5/service/DTO/product/ProductModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/backend/grupo5/service/DTO/product/ProductModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/backend/grupo5/service/DTO/product/ProductSearchDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/backend/grupo5/service/DTO/product/ProductSearchInput.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/backend/grupo5/service/ProductService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/backend/grupo5/service/ProductService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,6 +57,9 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/pom.xml" root0="SKIP_INSPECTION" />
   </component>
   <component name="JpbToolWindowState">
     <option name="myId2FirstActivated">
@@ -67,17 +99,23 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Smartsoft Labs/Desktop/Proyecto&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;project.propVCSSupport.DirectoryMappings&quot;,
-    &quot;show.run.dashboard.notification&quot;: &quot;false&quot;,
-    &quot;spring.configuration.checksum&quot;: &quot;57d57033456e04226fd0a033c47459ea&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "C:/Users/Smartsoft Labs/Desktop/Proyecto",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "project.propVCSSupport.DirectoryMappings",
+    "show.run.dashboard.notification": "false",
+    "spring.configuration.checksum": "1c48d62c8561074f5ffbbfcab319515c"
+  },
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mysql"
+    ]
   }
-}</component>
+}]]></component>
   <component name="RunManager" selected="Spring Boot.Grupo5Application">
     <configuration name="Grupo5Application (1)" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="back_pigrupo5" />
@@ -134,7 +172,11 @@
       <workItem from="1667960542222" duration="679000" />
       <workItem from="1667999592018" duration="140000" />
       <workItem from="1668031655109" duration="35000" />
-      <workItem from="1668036692384" duration="350000" />
+      <workItem from="1668036692384" duration="1027000" />
+      <workItem from="1668037861401" duration="2023000" />
+      <workItem from="1668048348072" duration="790000" />
+      <workItem from="1668049862771" duration="1525000" />
+      <workItem from="1668085203533" duration="5981000" />
     </task>
     <servers />
   </component>

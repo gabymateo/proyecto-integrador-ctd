@@ -1,6 +1,6 @@
 package com.backend.grupo5.repository;
 
-import com.backend.grupo5.model.entities.Product;
+import com.backend.grupo5.repository.entities.Product;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import org.springframework.data.jpa.repository.Query;

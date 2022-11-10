@@ -2,7 +2,7 @@ package com.backend.grupo5.service;
 import com.backend.grupo5.common.helpers.error_description.CategoryErrorDescription;
 import com.backend.grupo5.common.exceptions.ApplicationError;
 import com.backend.grupo5.common.helpers.validators.CategoryValidator;
-import com.backend.grupo5.model.entities.Category;
+import com.backend.grupo5.repository.entities.Category;
 import com.backend.grupo5.model.services.ICategoryService;
 import com.backend.grupo5.repository.CategoryRepository;
 import com.backend.grupo5.service.DTO.category.CategoryCreateDTO;
