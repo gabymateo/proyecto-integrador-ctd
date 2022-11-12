@@ -1,6 +1,6 @@
 package com.backend.grupo5.model.services;
 
-import com.backend.grupo5.model.entities.Category;
+import com.backend.grupo5.repository.entities.Category;
 import com.backend.grupo5.service.DTO.category.CategoryCreateDTO;
 import com.backend.grupo5.service.DTO.category.CategoryUpdateDTO;
 

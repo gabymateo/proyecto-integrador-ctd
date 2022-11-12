@@ -11,7 +11,6 @@ public class CategoryCreateDTO {
 
     private String title;
     private String description;
-    private String imageURL;
 
     public String getTitle() {
         return title;
@@ -21,7 +20,4 @@ public class CategoryCreateDTO {
         return description;
     }
 
-    public String getImageURL() {
-        return imageURL;
-    }
 }

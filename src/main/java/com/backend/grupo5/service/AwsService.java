@@ -2,8 +2,7 @@ package com.backend.grupo5.service;
 
 import com.amazonaws.services.s3.AmazonS3;
 import com.amazonaws.services.s3.model.PutObjectRequest;
-import com.amazonaws.services.s3.model.S3Object;
-import com.backend.grupo5.model.entities.Image;
+import com.backend.grupo5.repository.entities.Image;
 import com.backend.grupo5.model.services.IAwsService;
 import com.backend.grupo5.repository.ImageRepository;
 import org.springframework.beans.factory.annotation.Value;
@@ -44,8 +43,6 @@ public class AwsService implements IAwsService {
 
     @Override
     public URL getById(String key) {
-//        S3Object object = amazonS3.getObject(bucketName, key);
-//        return object.getObjectMetadata()
         return  amazonS3.getUrl(bucketName, key);
     }
 }

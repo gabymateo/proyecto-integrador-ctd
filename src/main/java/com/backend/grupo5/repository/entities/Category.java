@@ -1,15 +1,11 @@
-package com.backend.grupo5.model.entities;
+package com.backend.grupo5.repository.entities;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
-import org.hibernate.annotations.SQLDelete;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 import org.springframework.data.annotation.CreatedDate;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.Size;
-import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
@@ -31,19 +27,14 @@ public class Category {
     private String description;
 
     @OneToMany(mappedBy = "category", cascade = CascadeType.ALL)
-//    @JsonManagedReference
     @JsonIgnore
     private Set<Product> products = new HashSet<>();
 
-    @Column
-    private String imageUrl;
-
-
-    @CreatedDate
+    @CreationTimestamp
     private Date createDate;
 
-//    @Column
-//    private boolean deleted = Boolean.FALSE;
+    @UpdateTimestamp
+    private Date updateDate;
 
 
     public Set<Product> getProducts() {
@@ -81,14 +72,6 @@ public class Category {
         this.description = description;
     }
 
-    public String getImageUrl() {
-        return imageUrl;
-    }
-
-    public void setImageUrl(String imageUrl) {
-        this.imageUrl = imageUrl;
-    }
-
     public Date getCreateDate() {
         return createDate;
     }
@@ -97,9 +80,13 @@ public class Category {
         this.createDate = createDate;
     }
 
-//    public void setDeleted(boolean deleted) {
-//        this.deleted = deleted;
-//    }
+    public Date getUpdateDate() {
+        return updateDate;
+    }
+
+    public void setUpdateDate(Date updateDate) {
+        this.updateDate = updateDate;
+    }
 }
 
 

@@ -1,6 +1,6 @@
 package com.backend.grupo5.common.helpers.mapper;
 
-import com.backend.grupo5.model.entities.Product;
+import com.backend.grupo5.repository.entities.Product;
 import com.backend.grupo5.service.DTO.product.ProductCreateDTO;
 import org.springframework.stereotype.Component;
 
