@@ -1,6 +1,8 @@
 package com.backend.grupo5.repository.entities;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 import org.springframework.data.annotation.CreatedDate;
 
 import javax.persistence.*;
@@ -25,19 +27,14 @@ public class Category {
     private String description;
 
     @OneToMany(mappedBy = "category", cascade = CascadeType.ALL)
-//    @JsonManagedReference
     @JsonIgnore
     private Set<Product> products = new HashSet<>();
 
-    @Column
-    private String imageUrl;
-
-
-    @CreatedDate
+    @CreationTimestamp
     private Date createDate;
 
-//    @Column
-//    private boolean deleted = Boolean.FALSE;
+    @UpdateTimestamp
+    private Date updateDate;
 
 
     public Set<Product> getProducts() {
@@ -75,14 +72,6 @@ public class Category {
         this.description = description;
     }
 
-    public String getImageUrl() {
-        return imageUrl;
-    }
-
-    public void setImageUrl(String imageUrl) {
-        this.imageUrl = imageUrl;
-    }
-
     public Date getCreateDate() {
         return createDate;
     }
@@ -91,9 +80,13 @@ public class Category {
         this.createDate = createDate;
     }
 
-//    public void setDeleted(boolean deleted) {
-//        this.deleted = deleted;
-//    }
+    public Date getUpdateDate() {
+        return updateDate;
+    }
+
+    public void setUpdateDate(Date updateDate) {
+        this.updateDate = updateDate;
+    }
 }
 
 

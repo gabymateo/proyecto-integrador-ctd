@@ -2,10 +2,14 @@ package com.backend.grupo5.repository.entities;
 
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
+import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
+
 
 @Entity
 @Table(name = "cities")
@@ -25,9 +29,14 @@ public class City {
     private String country;
 
     @OneToMany(mappedBy = "city", fetch = FetchType.EAGER)
-//    @JsonManagedReference
     @JsonIgnore
     private Set<Product> products = new HashSet<>();
+
+    @CreationTimestamp
+    private Date createDate;
+
+    @UpdateTimestamp
+    private Date updateDate;
 
     public Set<Product> getProducts() {
         return products;
@@ -67,5 +76,24 @@ public class City {
     public void setName(String name) {
         this.name = name;
     }
+
+    public Date getCreateDate() {
+        return createDate;
+    }
+
+    public void setCreateDate(Date createDate) {
+        this.createDate = createDate;
+    }
+
+    public Date getUpdateDate() {
+        return updateDate;
+    }
+
+    public void setUpdateDate(Date updateDate) {
+        this.updateDate = updateDate;
+    }
+
+
+
 
 }

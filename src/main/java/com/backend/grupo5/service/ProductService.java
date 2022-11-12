@@ -3,6 +3,8 @@ package com.backend.grupo5.service;
 import com.backend.grupo5.common.exceptions.ApplicationError;
 import com.backend.grupo5.common.helpers.error_description.ProductErrorDescription;
 import com.backend.grupo5.common.helpers.mapper.ProductDTOTOProduct;
+import com.backend.grupo5.model.entities.ImageModel;
+import com.backend.grupo5.model.entities.ProductModel;
 import com.backend.grupo5.repository.*;
 import com.backend.grupo5.repository.entities.Category;
 import com.backend.grupo5.repository.entities.City;
@@ -15,7 +17,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
-import javax.persistence.EntityManager;
 import javax.transaction.Transactional;
 import java.util.*;
 
@@ -68,7 +69,6 @@ public class ProductService implements IProductService {
         for (MultipartFile file : files) {
             Image image = awsService.upload(file);
             image.setProduct(product);
-            image.setUrl(awsService.getById(image.getKey()).toString());
             imageRepository.save(image);
             images.add(image);
         }
@@ -79,9 +79,17 @@ public class ProductService implements IProductService {
     @Override
     public Optional<Product> getById(Long id) {
         Optional<Product> product = this.productRepository.findById(id);
+        Set<ImageModel> images = new HashSet<>();
         if(product.isEmpty()) {
             throw new ApplicationError(ProductErrorDescription.PRODUCT_NOT_FOUND.getDescription(), HttpStatus.NOT_FOUND);
         }
+        for(Image image : product.get().getImages()) {
+            ImageModel imageModel = ImageModel.create(image);
+            imageModel.setUrl(this.awsService.getById(image.getName_key()).toString());
+            images.add(imageModel);
+        }
+        ProductModel productModel = ProductModel.create(product.get(), images);
+        System.out.println(productModel);
         return product;
     }
 

@@ -1,11 +1,14 @@
 package com.backend.grupo5.repository.entities;
 
-
 import com.fasterxml.jackson.annotation.*;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
+import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
+
 
 @Entity
 @Table(name = "products")
@@ -44,6 +47,13 @@ public class Product {
     @JoinTable(name = "product_features", joinColumns = {@JoinColumn(name = "product_id")}, inverseJoinColumns = {@JoinColumn(name = "feature_id")}
     )
     private Set<Feature> features = new HashSet<>();
+
+    @CreationTimestamp
+    private Date createDate;
+
+    @UpdateTimestamp
+    private Date updateDate;
+
 
     public City getCity() {
         return city;
@@ -104,11 +114,35 @@ public class Product {
         }
     }
 
+    public Set<Feature> getFeatures() {
+        return features;
+    }
+
+    public void setFeatures(Set<Feature> features) {
+        this.features = features;
+    }
+
     public boolean isAvailability() {
         return availability;
     }
 
     public void setAvailability(boolean availability) {
         this.availability = availability;
+    }
+
+    public Date getCreateDate() {
+        return createDate;
+    }
+
+    public void setCreateDate(Date createDate) {
+        this.createDate = createDate;
+    }
+
+    public Date getUpdateDate() {
+        return updateDate;
+    }
+
+    public void setUpdateDate(Date updateDate) {
+        this.updateDate = updateDate;
     }
 }

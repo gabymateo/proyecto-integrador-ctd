@@ -1,8 +1,11 @@
 package com.backend.grupo5.repository.entities;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
+import java.util.Date;
 
 
 @Entity
@@ -19,15 +22,16 @@ public class Image {
     @Column
     private String name_key;
 
-    //test
-
-    @Column
-    private String imageUrl;
-
     @ManyToOne
     @JoinColumn(name = "product_id")
     @JsonBackReference
-    Product product;
+    private Product product;
+
+    @CreationTimestamp
+    private Date createDate;
+
+    @UpdateTimestamp
+    private Date updateDate;
 
 
     public Long getId() {
@@ -50,14 +54,6 @@ public class Image {
         this.bucketName = bucketName;
     }
 
-    public String getKey() {
-        return name_key;
-    }
-
-    public void setKey(String key) {
-        this.name_key = key;
-    }
-
     public Image() {
     }
     public Image(String bucketName, String key) {
@@ -65,11 +61,15 @@ public class Image {
         this.name_key = key;
     }
 
-    public void setUrl(String url) {
-        this.imageUrl = url;
+    public String getName_key() {
+        return name_key;
     }
 
-    public String getUrl() {
-        return imageUrl;
+    public Date getCreateDate() {
+        return createDate;
+    }
+
+    public Date getUpdateDate() {
+        return updateDate;
     }
 }

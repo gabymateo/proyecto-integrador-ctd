@@ -70,9 +70,6 @@ public class CategoryService implements ICategoryService {
         if(categoryUpdateDTO.getDescription() != null) {
             category.get().setDescription(categoryUpdateDTO.getDescription());
         }
-        if(categoryUpdateDTO.getImageURL() != null) {
-            category.get().setImageUrl(categoryUpdateDTO.getImageURL());
-        }
         return this.repository.save(category.get());
     }
 
