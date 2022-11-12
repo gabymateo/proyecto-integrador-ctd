@@ -1,46 +1,177 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="30256ab8-b3d8-4e40-8197-94749fec663a" name="Changes" comment="" />
+    <list default="true" id="3d23211f-316c-4ad6-94b6-51a98bb7f6d8" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/backend/grupo5/common/helpers/mapper/category/CategoryDTOToCategory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/backend/grupo5/common/helpers/mapper/category/CategoryDTOToCategory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/backend/grupo5/common/helpers/validators/CategoryValidator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/backend/grupo5/common/helpers/validators/CategoryValidator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/backend/grupo5/model/entities/ProductModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/backend/grupo5/model/entities/ProductModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/backend/grupo5/repository/ProductRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/backend/grupo5/repository/ProductRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/backend/grupo5/repository/entities/Category.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/backend/grupo5/repository/entities/Category.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/backend/grupo5/repository/entities/City.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/backend/grupo5/repository/entities/City.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/backend/grupo5/repository/entities/Feature.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/backend/grupo5/repository/entities/Feature.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/backend/grupo5/repository/entities/Image.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/backend/grupo5/repository/entities/Image.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/backend/grupo5/repository/entities/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/backend/grupo5/repository/entities/Product.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/backend/grupo5/service/CategoryService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/backend/grupo5/service/CategoryService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/backend/grupo5/service/DTO/category/CategoryCreateDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/backend/grupo5/service/DTO/category/CategoryCreateDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/backend/grupo5/service/DTO/product/ProductCreateDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/backend/grupo5/service/DTO/product/ProductCreateDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/backend/grupo5/service/ProductService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/backend/grupo5/service/ProductService.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="CodeStyleSettingsInfer">
+    <option name="done" value="true" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Enum" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/pom.xml" root0="SKIP_INSPECTION" />
+  </component>
+  <component name="JpbToolWindowState">
+    <option name="myId2FirstActivated">
+      <map>
+        <entry key="com.haulmont.jpb.jpaInspector" value="true" />
+        <entry key="com.haulmont.jpb.jpaPalette" value="true" />
+        <entry key="com.haulmont.jpb.jpaStructure" value="true" />
+      </map>
+    </option>
+    <option name="myId2Visible">
+      <map>
+        <entry key="com.haulmont.jpb.jpaInspector" value="false" />
+        <entry key="com.haulmont.jpb.jpaPalette" value="false" />
+        <entry key="com.haulmont.jpb.jpaStructure" value="false" />
+      </map>
+    </option>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProjectId" id="2GNagrtYOnCuIM7RILfVmLnq3vQ" />
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="Use Maven wrapper" />
+        <option name="useMavenConfig" value="true" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectCodeStyleSettingsMigration">
+    <option name="version" value="2" />
+  </component>
+  <component name="ProjectId" id="2GbRpqyG3UcKbz5QXnx9sgNA63m" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/Smartsoft Labs/Documents/grupo-05/back_pigrupo5/grupo5"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Smartsoft Labs/Desktop/Proyecto&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;project.propVCSSupport.DirectoryMappings&quot;,
+    &quot;show.run.dashboard.notification&quot;: &quot;false&quot;,
+    &quot;spring.configuration.checksum&quot;: &quot;1c48d62c8561074f5ffbbfcab319515c&quot;
+  },
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mysql&quot;
+    ]
   }
-}]]></component>
-  <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\Smartsoft Labs\Documents\grupo-05\back_pigrupo5" />
-    </key>
+}</component>
+  <component name="RunManager" selected="Spring Boot.Grupo5Application">
+    <configuration name="Grupo5Application (1)" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="back_pigrupo5" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.backend.grupo5.Grupo5Application" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Grupo5Application" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <option name="ACTIVE_PROFILES" />
+      <module name="back_pigrupo5" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.backend.grupo5.Grupo5Application" />
+      <extension name="net.ashald.envfile">
+        <option name="IS_ENABLED" value="false" />
+        <option name="IS_SUBST" value="false" />
+        <option name="IS_PATH_MACRO_SUPPORTED" value="false" />
+        <option name="IS_IGNORE_MISSING_FILES" value="false" />
+        <option name="IS_ENABLE_EXPERIMENTAL_INTEGRATIONS" value="false" />
+        <ENTRIES>
+          <ENTRY IS_ENABLED="true" PARSER="runconfig" IS_EXECUTABLE="false" />
+        </ENTRIES>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="30256ab8-b3d8-4e40-8197-94749fec663a" name="Changes" comment="" />
-      <created>1666231609802</created>
+      <changelist id="3d23211f-316c-4ad6-94b6-51a98bb7f6d8" name="Changes" comment="" />
+      <created>1666655482988</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1666231609802</updated>
-      <workItem from="1666231611186" duration="425000" />
-      <workItem from="1666232058775" duration="10000" />
+      <updated>1666655482988</updated>
+      <workItem from="1666655484214" duration="1264000" />
+      <workItem from="1666661701248" duration="7705000" />
+      <workItem from="1666703182452" duration="18000" />
+      <workItem from="1666736637870" duration="188000" />
+      <workItem from="1666739923375" duration="2300000" />
+      <workItem from="1666828109482" duration="2979000" />
+      <workItem from="1666909539993" duration="1614000" />
+      <workItem from="1667000554540" duration="3145000" />
+      <workItem from="1667080166482" duration="181000" />
+      <workItem from="1667178313790" duration="2170000" />
+      <workItem from="1667221537308" duration="89000" />
+      <workItem from="1667265746025" duration="6200000" />
+      <workItem from="1667309431642" duration="8000" />
+      <workItem from="1667351492373" duration="8557000" />
+      <workItem from="1667394630911" duration="252000" />
+      <workItem from="1667517556183" duration="2460000" />
+      <workItem from="1667520729720" duration="19000" />
+      <workItem from="1667520810035" duration="81000" />
+      <workItem from="1667521045859" duration="1074000" />
+      <workItem from="1667567230411" duration="293000" />
+      <workItem from="1667608256029" duration="1279000" />
+      <workItem from="1667756795353" duration="2226000" />
+      <workItem from="1667798387055" duration="2644000" />
+      <workItem from="1667837829023" duration="29494000" />
+      <workItem from="1667877256510" duration="5739000" />
+      <workItem from="1667912638552" duration="7000" />
+      <workItem from="1667950607734" duration="625000" />
+      <workItem from="1667951250439" duration="1217000" />
+      <workItem from="1667959599812" duration="394000" />
+      <workItem from="1667960542222" duration="679000" />
+      <workItem from="1667999592018" duration="140000" />
+      <workItem from="1668031655109" duration="35000" />
+      <workItem from="1668036692384" duration="1027000" />
+      <workItem from="1668037861401" duration="2023000" />
+      <workItem from="1668048348072" duration="790000" />
+      <workItem from="1668049862771" duration="1525000" />
+      <workItem from="1668085203533" duration="8896000" />
+      <workItem from="1668225118974" duration="2258000" />
+      <workItem from="1668227399996" duration="6703000" />
     </task>
     <servers />
   </component>
@@ -57,5 +188,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>
