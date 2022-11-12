@@ -4,7 +4,7 @@ package com.backend.grupo5.controller;
 import com.backend.grupo5.common.exceptions.ApplicationError;
 import com.backend.grupo5.common.exceptions.ErrorHandler;
 import com.backend.grupo5.common.exceptions.ResponseHandler;
-import com.backend.grupo5.model.entities.Category;
+import com.backend.grupo5.repository.entities.Category;
 import com.backend.grupo5.service.CategoryService;
 import com.backend.grupo5.service.DTO.category.CategoryCreateDTO;
 import com.backend.grupo5.service.DTO.category.CategoryUpdateDTO;
@@ -12,7 +12,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import javax.validation.Valid;
 import java.util.ArrayList;
 import java.util.Optional;
 
@@ -26,7 +25,7 @@ public class CategoryController {
         this.categoryService = categoryService;
     }
 
-    @PostMapping()
+    @PostMapping("/")
     public ResponseEntity<Object> create(@RequestBody CategoryCreateDTO categoryCreateDTO)  {
         try {
             Category category = this.categoryService.create(categoryCreateDTO);
@@ -36,7 +35,7 @@ public class CategoryController {
         }
     }
 
-    @GetMapping()
+    @GetMapping("/")
     public ResponseEntity<Object> getAll() {
         try {
             ArrayList<Category> categories = this.categoryService.getAll();

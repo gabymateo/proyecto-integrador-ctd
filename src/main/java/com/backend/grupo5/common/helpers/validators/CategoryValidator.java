@@ -17,9 +17,6 @@ public class CategoryValidator {
         if(input.getDescription().isEmpty() || input.getDescription().length() < 1) {
             throw new ApplicationError(CategoryErrorDescription.DESCRIPTION_NOT_PROVIDED.getDescription(), HttpStatus.BAD_REQUEST);
         }
-        if(input.getImageURL().isEmpty() || input.getImageURL().length() < 1) {
-            throw new ApplicationError(CategoryErrorDescription.DESCRIPTION_NOT_PROVIDED.getDescription(), HttpStatus.BAD_REQUEST);
-        }
     }
 
     public void validateUpdate(CategoryUpdateDTO input) throws ApplicationError {

@@ -7,12 +7,10 @@ public enum CategoryErrorDescription {
     INVALID_LENGTH("length must be at least one");
 
 
-
     private final String description;
     CategoryErrorDescription(String description) {
         this.description = description;
     };
-
 
     public String getDescription() {
         return description;
