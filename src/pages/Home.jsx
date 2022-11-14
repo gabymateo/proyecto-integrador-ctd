@@ -3,11 +3,13 @@ import Header from '../components/header/Header';
 import Body from '../components/body/Body';
 import Footer from '../components/footer/Footer';
 
-const Home = () => {
+
+const Home = ({productos, setProducts}) => {
+
   return (
     <>
         <Header/>
-        <Body/>
+        <Body productos={productos} setProducts={setProducts}/>
         <Footer/>
     </>
   )
