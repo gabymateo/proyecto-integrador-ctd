@@ -19,7 +19,6 @@ public class ImageModel {
     private Date createDate;
     private Date updateDate;
 
-
     public static ImageModel create(Image input) {
         ImageModel image = new ImageModel();
         image.setId(input.getId());

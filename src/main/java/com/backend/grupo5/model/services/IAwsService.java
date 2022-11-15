@@ -7,5 +7,5 @@ import java.net.URL;
 
 public interface IAwsService {
     Image upload(MultipartFile file);
-    URL getById(String key);
+    URL getByKey(String key);
 }

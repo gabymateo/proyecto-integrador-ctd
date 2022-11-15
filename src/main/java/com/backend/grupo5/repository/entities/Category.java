@@ -26,9 +26,12 @@ public class Category {
     @Column
     private String description;
 
-    @OneToMany(mappedBy = "category", cascade = CascadeType.ALL)
-    @JsonIgnore
-    private Set<Product> products = new HashSet<>();
+    @Column
+    private String url;
+
+//    @OneToMany(mappedBy = "category", cascade = CascadeType.ALL)
+//    @JsonIgnore
+//    private Set<Product> products = new HashSet<>();
 
     @CreationTimestamp
     private Date createDate;
@@ -37,16 +40,16 @@ public class Category {
     private Date updateDate;
 
 
-    public Set<Product> getProducts() {
-        return products;
-    }
-
-    public void setProducts(Set<Product> products) {
-        this.products = products;
-        for(Product product : products) {
-            product.setCategory(this);
-        }
-    }
+//    public Set<Product> getProducts() {
+//        return products;
+//    }
+//
+//    public void setProducts(Set<Product> products) {
+//        this.products = products;
+//        for(Product product : products) {
+//            product.setCategory(this);
+//        }
+//    }
 
     public long getId() {
         return id;
