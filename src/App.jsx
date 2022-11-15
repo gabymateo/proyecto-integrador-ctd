@@ -16,7 +16,7 @@ import {
   useParams,
 } from "react-router-dom";
 
-const baseUrl = 'http://3.19.63.189:8080/grupo5'
+const baseUrl = 'http://18.220.195.162:8080/grupo5'
 
 function App() {
   const [products, setProducts] = React.useState([]);
