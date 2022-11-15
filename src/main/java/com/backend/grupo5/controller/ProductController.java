@@ -18,8 +18,8 @@ import org.springframework.web.bind.annotation.*;
 import java.util.ArrayList;
 import java.util.Optional;
 
-@Controller
-@RequestMapping("/products")
+@RestController
+@RequestMapping("products")
 public class ProductController {
 
     private final ProductService productService;
@@ -29,7 +29,7 @@ public class ProductController {
     }
 
 
-    @PostMapping(value = "/")
+    @PostMapping
     public ResponseEntity<Object> create(@ModelAttribute ProductCreateDTO input) {
         try {
             ProductModel product = this.productService.create(input, input.getFiles());

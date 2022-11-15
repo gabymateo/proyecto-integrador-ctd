@@ -16,7 +16,7 @@ import java.util.ArrayList;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/categories")
+@RequestMapping("categories")
 public class CategoryController {
 
     private final CategoryService categoryService;
