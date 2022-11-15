@@ -1,11 +1,11 @@
 package com.backend.grupo5.model.entities;
 
-import com.backend.grupo5.repository.entities.Category;
-import com.backend.grupo5.repository.entities.City;
-import com.backend.grupo5.repository.entities.Image;
-import com.backend.grupo5.repository.entities.Product;
+import com.backend.grupo5.repository.entities.*;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.*;
 
+import java.util.Optional;
 import java.util.Set;
 
 @Data
@@ -13,25 +13,38 @@ import java.util.Set;
 @NoArgsConstructor
 @Getter
 @Setter
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class ProductModel {
 
     private Long id;
     private String name;
     private String address;
+    private String price;
     private Set<ImageModel> images;
     private boolean availability;
     private Category category;
+    private Long categoryId;
     private City city;
+    private Long cityId;
+    private Set<Feature> features;
+    private Set<Long> featureIds;
+    private Set<Long> imageIds;
 
-    public static ProductModel create(Product input, Set<ImageModel> images) {
+    public static ProductModel ProductEntityToProduct(Product input, Optional<Set<ImageModel>> images, Optional<Boolean> fetchAttributes) {
         ProductModel product = new ProductModel();
         product.setId(input.getId());
         product.setName(input.getName());
         product.setAddress(input.getAddress());
         product.setAvailability(input.isAvailability());
-        product.setCity(input.getCity());
-        product.setCategory(input.getCategory());
-        product.setImages(images);
+        product.setCategoryId(input.getCategory().getId());
+        product.setCityId(input.getCity().getId());
+        product.setImages(images.isPresent() ? images.get() : null);
+        product.setPrice(input.getPrice());
+        if(fetchAttributes.isPresent() && fetchAttributes.get().equals(true)) {
+            product.setFeatures(input.getFeatures());
+            product.setCity(input.getCity());
+            product.setCategory(input.getCategory());
+        }
         return product;
     }
 }
