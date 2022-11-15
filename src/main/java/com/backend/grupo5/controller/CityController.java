@@ -55,4 +55,14 @@ public class CityController {
             return ErrorHandler.generateErrorResponse(error.getHttpStatus(), error.getMessage());
         }
     }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Object> delete(@PathVariable Long id) {
+        try {
+            this.cityService.delete(id);
+            return ResponseHandler.generateResponse(HttpStatus.NO_CONTENT, "success", null);
+        } catch (ApplicationError error) {
+            return ErrorHandler.generateErrorResponse(error.getHttpStatus(), error.getMessage());
+        }
+    }
 }

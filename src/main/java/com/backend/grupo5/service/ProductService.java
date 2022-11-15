@@ -145,6 +145,10 @@ public class ProductService implements IProductService {
     @Override
     public void delete(Long id) {
         Optional<Product> product = this.productRepository.findById(id);
-        product.ifPresent(this.productRepository::delete);
+        if(product.isEmpty()) {
+            throw  new ApplicationError("not found", HttpStatus.NOT_FOUND);
+        }
+        product.get().getFeatures().removeAll(product.get().getFeatures());
+        this.productRepository.delete(product.get());
     }
 }
