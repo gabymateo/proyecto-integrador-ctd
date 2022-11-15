@@ -42,7 +42,12 @@ public class AwsService implements IAwsService {
     }
 
     @Override
-    public URL getById(String key) {
-        return  amazonS3.getUrl(bucketName, key);
+    public URL getByKey(String key) {
+        try {
+            return  amazonS3.getUrl(bucketName, key);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            return null;
+        }
     }
 }

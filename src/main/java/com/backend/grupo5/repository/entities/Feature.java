@@ -1,5 +1,7 @@
 package com.backend.grupo5.repository.entities;
 
+import com.backend.grupo5.common.helpers.enums.FeatureType;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
@@ -24,7 +26,11 @@ public class Feature {
     @Column(nullable = false)
     private String name;
 
+    @Column(nullable = false)
+    private String type;
+
     @ManyToMany(mappedBy = "features")
+    @JsonIgnore
     private Set<Product> products = new HashSet<>();
 
     @CreationTimestamp

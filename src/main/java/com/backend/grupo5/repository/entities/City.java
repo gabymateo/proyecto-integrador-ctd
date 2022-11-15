@@ -28,9 +28,9 @@ public class City {
     @Column
     private String country;
 
-    @OneToMany(mappedBy = "city", fetch = FetchType.EAGER)
-    @JsonIgnore
-    private Set<Product> products = new HashSet<>();
+//    @OneToMany(mappedBy = "city", fetch = FetchType.EAGER)
+//    @JsonIgnore
+//    private Set<Product> products = new HashSet<>();
 
     @CreationTimestamp
     private Date createDate;
@@ -38,16 +38,16 @@ public class City {
     @UpdateTimestamp
     private Date updateDate;
 
-    public Set<Product> getProducts() {
-        return products;
-    }
-
-    public void setProducts(Set<Product> products) {
-        this.products = products;
-        for(Product product : products) {
-            product.setCity(this);
-        }
-    }
+//    public Set<Product> getProducts() {
+//        return products;
+//    }
+//
+//    public void setProducts(Set<Product> products) {
+//        this.products = products;
+//        for(Product product : products) {
+//            product.setCity(this);
+//        }
+//    }
 
     public String getState() {
         return state;
