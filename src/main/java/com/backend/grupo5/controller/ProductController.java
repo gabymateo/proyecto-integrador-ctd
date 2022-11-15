@@ -73,11 +73,13 @@ public class ProductController {
             @RequestParam(name = "categoryId", required = false) Long categoryId,
             @RequestParam(name = "order", required = false) String order,
             @RequestParam(name= "sort", required = false) String sort,
-            @RequestParam(name = "size", required = false) int size,
-            @RequestParam(name = "page", required = false) int page
+            @RequestParam(name = "size", required = false) String size,
+            @RequestParam(name = "page", required = false) String page
     ) {
         try {
-            Page<ProductModel> products = this.productService.searchTest(name, categoryId, cityId, order, sort, PageRequest.of(page, size));
+            int parsedPage = page != null ? Integer.parseInt(page) : 0;
+            int parsedSize = size != null ? Integer.parseInt(size) : 5;
+            Page<ProductModel> products = this.productService.searchTest(name, categoryId, cityId, order, sort, PageRequest.of(parsedPage, parsedSize));
             return ResponseHandler.generateResponse(HttpStatus.OK, "success", products.getContent(), products.getPageable());
         } catch (ApplicationError error) {
             return ErrorHandler.generateErrorResponse(error.getHttpStatus(), error.getMessage());
