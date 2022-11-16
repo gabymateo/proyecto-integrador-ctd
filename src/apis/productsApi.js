@@ -27,7 +27,6 @@ export function useProductsApi() {
 //     }
 // }
 
-
     // ---------- FUNCIÓN PARA OBTENER TODOS LOS PRODUCTOS DE LA DB --------------- 
     const getProducts = async () => {
     try {
@@ -40,43 +39,27 @@ export function useProductsApi() {
     }
 }
     // ---------- FUNCIÓN PARA OBTENER PRODUCTOS FILTRADOS POR CIUDAD DE LA DB --------
-    const getProductsFilterCity = async (option) => {
+    const getProductsFilter = async (ciudadId, categoriaId) => {
         try {
-            console.log(`${baseUrl}/products/?cityId=${option}`);
-            const responseGetProductsFilterCity = await axios.get(`${baseUrl}/products/?cityId=${option}`)
-            setProducts(()=>responseGetProductsFilterCity.data);
+            console.log(`${baseUrl}/products/?cityId=${ciudadId}&categoryId=${categoriaId}`);
+            const responseGetProductsFilter = await axios.get(`${baseUrl}/products/?cityId=${ciudadId}&categoryId=${categoriaId}`)
+            setProducts(responseGetProductsFilter.data);
             //console.log("responseGetProductsFilterCity: ", responseGetProductsFilterCity.data);
         }     
         catch (error) {
             console.error('error', error.response.data)
         }
-    }
-    
-    // ---------- FUNCIÓN PARA OBTENER PRODUCTOS FILTRADOS POR CATEGORÍA DE LA DB --------------- 
-    const getProductsFilterCategory = async (option) => {
-        try {
-            console.log(`${baseUrl}/products/?categoryId=${option}`);
-            const responseGetProductsFilterCategory = await axios.get(`${baseUrl}/products/?categoryId=${option}`)
-            //console.log("responseGetProductsFilterCategory: ", responseGetProductsFilterCategory.data);
-            setProducts(responseGetProductsFilterCategory.data);
-        }
-        catch (error) {
-            console.error('error', error.response.data)
-        }
-        
-    }
-
+    } 
     // React.useEffect (()=> {
-    
-    // },[products])
-
+    //     console.log("productos en la api:", products.data);
+    // },[getProductsFilterCity])
 
     // ---------- ESTE ES EL RETURN DE LA API ---------------------------
 return {
     products: products.data,
-    //postProducts: postProducts,
+    setProducts: setProducts,
     getProducts: getProducts,
-    getProductsFilterCity: getProductsFilterCity,
-    getProductsFilterCategory: getProductsFilterCategory,
+    getProductsFilter: getProductsFilter,
+    //postProducts: postProducts,
     }
 }

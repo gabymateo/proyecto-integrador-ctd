@@ -1,34 +1,16 @@
 import React, { useState } from "react";
 import "../../styles/categoryBlock.css";
-import { useProductsApi } from "../../apis/productsApi";
-import { useEffect } from "react";
-import axios from "axios";
+import { useSearchParams } from "react-router-dom";
 
 const baseUrl = 'http://18.220.195.162:8080/grupo5'
 
 export default function CategoryBlock(props) {
-
-  //const {products, getProductsFilterCategory} = useProductsApi();
-  const [option, setOption] = useState("");
+  const [searchParams, setSearchParams] = useSearchParams();
   
   const handleClick = (event, id) => {
-    event.preventDefault();
-    console.log("categoria: ", id);
-    
-    const getProductsFilterCategory = async (id) => {
-      try {
-          console.log(`${baseUrl}/products/?categoryId=${id}`);
-          const responseGetProductsFilterCategory = await axios.get(`${baseUrl}/products/?categoryId=${id}`)
-          //console.log("responseGetProductsFilterCategory: ", responseGetProductsFilterCategory.data);
-          props.setProducts(responseGetProductsFilterCategory.data.data);
-      }
-      catch (error) {
-          console.error('error', error.response.data)
-      }    
-  }
-    getProductsFilterCategory(id)
+    event.preventDefault();    
+    setSearchParams({cityId:searchParams.get("cityId"),categoryId: id})
 }
-
 
   return (
     <div onClick={(event) => handleClick(event, props.id)} className="BloqueCategoria">

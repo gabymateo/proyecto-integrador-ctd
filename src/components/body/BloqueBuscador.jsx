@@ -7,8 +7,9 @@ import 'react-date-range/dist/styles.css'; // main css file
 import 'react-date-range/dist/theme/default.css'; // theme css file
 import { useCitiesApi } from '../../apis/citiesApi';
 import { useProductsApi } from '../../apis/productsApi';
+import { AiFillPropertySafety } from 'react-icons/ai';
 
-export const BloqueBuscador = () => {
+export const BloqueBuscador = ({setProducts}) => {
   const [openDate, setOpenDate] = useState(false)
   const [option, setOption] = useState("");
   const [searchParams, setSearchParams] = useSearchParams();
@@ -17,22 +18,22 @@ export const BloqueBuscador = () => {
       endDate: null,
       key: 'selection'
     }
-  ]);
-  
+  ]);  
   const apiCity = useCitiesApi();
-  const {products, getProductsFilterCity}= useProductsApi();
+  const {products, getProductsFilter}= useProductsApi();
 
 
   const handleChange = (event) => {
     setOption(event.target.value) 
-    setSearchParams({cityId: event.target.value})
+    setSearchParams({categoryId:searchParams.get("categoryId"), cityId: event.target.value})
   }
 
-  const handleClick = (event) => {
-    event.preventDefault();
-    getProductsFilterCity(option);
-  }
-  
+    const handleClick = (event) => {
+      event.preventDefault();
+      getProductsFilter(searchParams.get("cityId"), searchParams.get("categoryId"));
+      setProducts(products)
+    }
+
 
   return (
     <div className='bloqueBuscador'>

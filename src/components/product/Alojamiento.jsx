@@ -9,6 +9,7 @@ import { AiTwotoneHeart } from 'react-icons/ai';
 import Slider from "react-slick";
 import "../../../node_modules/slick-carousel/slick/slick.css"; 
 import "../../../node_modules/slick-carousel/slick/slick-theme.css";
+import { useProductsApi } from "../../apis/productsApi";
 
 export const Alojamiento = () => {
   const images = [
@@ -46,6 +47,9 @@ export const Alojamiento = () => {
       },
     ],
   };
+
+  const api = useProductsApi();
+
   return (
     <div className="alojamiento">
       <div className="alojamiento__header">
