@@ -8,6 +8,7 @@ import com.backend.grupo5.repository.entities.Role;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,6 +20,7 @@ public class RoleController {
     private final IRoleService roleService;
 
     @PostMapping("/")
+    @PreAuthorize("hasAuthority('ADMIN')")
     public ResponseEntity<Object> create(@RequestBody Role input) {
         try {
             Role role = this.roleService.create(input);

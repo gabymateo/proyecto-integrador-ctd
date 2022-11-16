@@ -4,23 +4,15 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
-import java.util.Set;
 
-@Entity
-@Table(name = "roles")
-@Getter
-@Setter
-public class Role {
+@Entity @Table(name = "bookings") @Getter @Setter
+public class Booking {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column
-    private String name;
 
-    @Override
-    public String toString() {
-        return this.name;
-    }
+
+
 }

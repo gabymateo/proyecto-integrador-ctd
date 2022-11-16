@@ -9,6 +9,7 @@ import com.backend.grupo5.service.CityService;
 import com.backend.grupo5.service.DTO.city.CityCreateDTO;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -27,6 +28,7 @@ public class CityController {
 
 
     @PostMapping("/")
+    @PreAuthorize("hasAuthority('ADMIN')")
     public ResponseEntity<Object> create(@RequestBody CityCreateDTO input) {
         try {
             City city = this.cityService.create(input);
@@ -57,6 +59,7 @@ public class CityController {
     }
 
     @DeleteMapping("/{id}")
+    @PreAuthorize("hasAuthority('ADMIN')")
     public ResponseEntity<Object> delete(@PathVariable Long id) {
         try {
             this.cityService.delete(id);

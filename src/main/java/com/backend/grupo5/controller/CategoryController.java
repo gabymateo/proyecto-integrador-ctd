@@ -10,8 +10,10 @@ import com.backend.grupo5.service.DTO.category.CategoryCreateDTO;
 import com.backend.grupo5.service.DTO.category.CategoryUpdateDTO;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
+import javax.annotation.security.RolesAllowed;
 import java.util.ArrayList;
 import java.util.Optional;
 
@@ -26,6 +28,7 @@ public class CategoryController {
     }
 
     @PostMapping("/")
+    @PreAuthorize("hasAuthority('ADMIN')")
     public ResponseEntity<Object> create(@RequestBody CategoryCreateDTO categoryCreateDTO)  {
         try {
             Category category = this.categoryService.create(categoryCreateDTO);
@@ -56,6 +59,7 @@ public class CategoryController {
     }
 
     @PatchMapping("/{id}")
+    @PreAuthorize("hasAuthority('ADMIN')")
     public ResponseEntity<Object> update(@PathVariable Long id, @RequestBody CategoryUpdateDTO categoryUpdateDTO) {
         try {
             Category category = this.categoryService.update(id, categoryUpdateDTO);
@@ -66,6 +70,7 @@ public class CategoryController {
     }
 
     @DeleteMapping("/{id}")
+    @PreAuthorize("hasAuthority('ADMIN')")
     public ResponseEntity<Object> delete(@PathVariable Long id) {
         try {
             this.categoryService.delete(id);

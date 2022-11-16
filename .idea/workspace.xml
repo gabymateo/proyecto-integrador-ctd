@@ -6,10 +6,23 @@
   <component name="ChangeListManager">
     <list default="true" id="3d23211f-316c-4ad6-94b6-51a98bb7f6d8" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/backend/grupo5/Grupo5Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/backend/grupo5/Grupo5Application.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/backend/grupo5/controller/CategoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/backend/grupo5/controller/CategoryController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/backend/grupo5/controller/CityController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/backend/grupo5/controller/CityController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/backend/grupo5/controller/FeatureController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/backend/grupo5/controller/FeatureController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/backend/grupo5/service/FeatureService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/backend/grupo5/service/FeatureService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/backend/grupo5/service/ProductService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/backend/grupo5/service/ProductService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/backend/grupo5/controller/ProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/backend/grupo5/controller/ProductController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/backend/grupo5/controller/RoleController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/backend/grupo5/controller/RoleController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/backend/grupo5/repository/entities/Role.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/backend/grupo5/repository/entities/Role.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/backend/grupo5/repository/entities/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/backend/grupo5/repository/entities/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/backend/grupo5/security/AuthenticationCredentials.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/backend/grupo5/security/AuthenticationCredentials.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/backend/grupo5/security/Authority.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/backend/grupo5/security/Authority.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/backend/grupo5/security/JwtAuthenticationFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/backend/grupo5/security/JwtAuthenticationFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/backend/grupo5/security/JwtAuthorizationFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/backend/grupo5/security/JwtAuthorizationFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/backend/grupo5/security/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/backend/grupo5/security/SecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/backend/grupo5/security/TokenManagement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/backend/grupo5/security/TokenManagement.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/backend/grupo5/security/UserDetailsImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/backend/grupo5/security/UserDetailsImp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/backend/grupo5/security/UserDetailsServiceImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/backend/grupo5/security/UserDetailsServiceImp.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,8 +36,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Enum" />
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -166,7 +179,14 @@
       <workItem from="1668270432999" duration="14209000" />
       <workItem from="1668305445887" duration="3825000" />
       <workItem from="1668386526339" duration="8119000" />
-      <workItem from="1668455679234" duration="17495000" />
+      <workItem from="1668455679234" duration="22964000" />
+      <workItem from="1668517595347" duration="11000" />
+      <workItem from="1668550944615" duration="8486000" />
+      <workItem from="1668570550011" duration="146000" />
+      <workItem from="1668572604749" duration="816000" />
+      <workItem from="1668603890652" duration="35000" />
+      <workItem from="1668605037668" duration="426000" />
+      <workItem from="1668637016156" duration="948000" />
     </task>
     <servers />
   </component>

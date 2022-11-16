@@ -10,6 +10,7 @@ import com.backend.grupo5.service.DTO.feature.FeatureCreateDTO;
 import com.backend.grupo5.service.FeatureService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -26,6 +27,7 @@ public class FeatureController {
     }
 
     @PostMapping("/")
+    @PreAuthorize("hasAuthority('ADMIN')")
     public ResponseEntity<Object> create(@RequestBody FeatureCreateDTO input) {
         try {
             Feature feature = this.featureService.create(input);
@@ -56,6 +58,7 @@ public class FeatureController {
     }
 
     @DeleteMapping("/{id}")
+    @PreAuthorize("hasAuthority('ADMIN')")
     public ResponseEntity<Object> delete(@PathVariable Long id) {
         try {
             this.featureService.delete(id);
