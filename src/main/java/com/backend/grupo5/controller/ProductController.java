@@ -12,6 +12,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
@@ -29,7 +30,8 @@ public class ProductController {
     }
 
 
-    @PostMapping
+    @PostMapping(value = "/")
+    @PreAuthorize("hasAuthority('ADMIN')")
     public ResponseEntity<Object> create(@ModelAttribute ProductCreateDTO input) {
         try {
             ProductModel product = this.productService.create(input, input.getFiles());
@@ -49,22 +51,6 @@ public class ProductController {
         }
     }
 
-//    @GetMapping("/")
-//    public ResponseEntity<Object> search(
-//            @RequestParam(name = "name", required = false) String name,
-//            @RequestParam(name = "cityId", required = false) Long cityId,
-//            @RequestParam(name = "categoryId", required = false) Long categoryId,
-//            @RequestParam(name = "order", required = false) String order,
-//            @RequestParam(name = "size", required = false) int size,
-//            @RequestParam(name = "page", required = false) int page
-//    ) {
-//        try {
-//            ArrayList<ProductModel> products = this.productService.search(name, categoryId, cityId, order);
-//            return ResponseHandler.generateResponse(HttpStatus.OK, "success", products);
-//        } catch (ApplicationError error) {
-//            return ErrorHandler.generateErrorResponse(HttpStatus.BAD_REQUEST, error.getMessage());
-//        }
-//    }
 
     @GetMapping("/")
     public ResponseEntity<Object> search(
@@ -87,6 +73,7 @@ public class ProductController {
     }
 
     @DeleteMapping("/{id}")
+    @PreAuthorize("hasAuthority('ADMIN')")
     public ResponseEntity<Object> delete(@PathVariable Long id) {
         try {
             this.productService.delete(id);
