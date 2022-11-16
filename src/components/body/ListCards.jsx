@@ -16,7 +16,7 @@ export default function ListCards ({productos}) {
             {productos?.map((prod)=>{
                 return <Card
                     key={prod.id}
-                    // Foto={prod.images[0].name_key} 
+                    Foto={prod.images[0].url} 
                     Categoria={prod.category?.title}
                     Nombre={prod.name}
                     Ubicacion={prod.address}

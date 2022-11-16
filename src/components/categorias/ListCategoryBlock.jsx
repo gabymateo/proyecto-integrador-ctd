@@ -4,7 +4,7 @@ import Categorias from "../../DataMock/Categorias.json";
 import "./categoryBlock.css";
 import { useCategoriesApi } from '../../apis/categoriesApi'
 
-export default function ListCategoryBlock({setProducts}) {
+export default function ListCategoryBlock() {
 
   const {categories, getCategories}= useCategoriesApi();
 
@@ -16,12 +16,11 @@ export default function ListCategoryBlock({setProducts}) {
       <div className="ListCategoryBlock">
         {categories?.map((category) => {
           return <CategoryBlock
-            setProducts={setProducts}
             id={category.id}
             key={category.id}
             Foto={category.Crimg}
             Nombre={category.title}
-            Descripcion={category.Description}
+            Descripcion={category.description}
           />
 })}
       </div>
