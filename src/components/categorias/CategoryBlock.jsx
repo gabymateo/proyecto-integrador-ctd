@@ -1,5 +1,5 @@
 import React from "react";
-import "../../styles/categoryBlock.css";
+import "./categoryBlock.css";
 
 export default function CategoryBlock(props) {
   return (

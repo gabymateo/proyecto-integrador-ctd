@@ -1,6 +1,6 @@
 import React from 'react';
 import Header from '../components/header/Header';
-import Login from '../components/header/Login';
+import Login from '../components/sesion/Login';
 import Footer from '../components/footer/Footer';
 import Body from '../components/body/Body';
 

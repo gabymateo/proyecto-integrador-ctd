@@ -1,7 +1,7 @@
 import React from "react";
 import CategoryBlock from "./CategoryBlock";
 import Categorias from "../../DataMock/Categorias.json";
-import "../../styles/categoryBlock.css";
+import "./categoryBlock.css";
 
 export default function ListCategoryBlock(props) {
   return (

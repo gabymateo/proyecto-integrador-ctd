@@ -1,6 +1,6 @@
-import React from 'react'
-import '../../styles/bloqueBuscador.css'
-import {useState} from 'react'
+import React from 'react';
+import './bloqueBuscador.css';
+import {useState} from 'react';
 import { NavLink } from "react-router-dom";
 import { DateRange } from 'react-date-range';
 import 'react-date-range/dist/styles.css'; // main css file
