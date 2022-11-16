@@ -1,6 +1,6 @@
 import React from 'react';
-import '../../styles/body.css';
-import ListCards from './ListCards';
+import './body.css';
+import ListCards from '../cards/ListCards';
 import {BloqueBuscador} from '../buscador/BloqueBuscador';
 import ListCategoryBlock from '../categorias/ListCategoryBlock';
 
