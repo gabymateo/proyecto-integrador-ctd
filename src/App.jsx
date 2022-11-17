@@ -25,7 +25,6 @@ function App() {
     const getProducts = async () => {
         try {
             const responseGetProducts = await axios.get(`${baseUrl}/products/`)
-            console.log("responseGetProducts: ", responseGetProducts.data.data);
             setProducts(responseGetProducts.data.data);
         }
         catch (error) {

@@ -9,7 +9,7 @@ export default function CategoryBlock(props) {
   
   const handleClick = (event, id) => {
     event.preventDefault();    
-    setSearchParams({cityId:searchParams.get("cityId"),categoryId: id})
+    searchParams.get("cityId") ? setSearchParams({cityId:searchParams.get("cityId"),categoryId: id}) : setSearchParams({categoryId: id})
 }
 
   return (

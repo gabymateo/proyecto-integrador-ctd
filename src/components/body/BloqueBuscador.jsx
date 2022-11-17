@@ -11,7 +11,6 @@ import { AiFillPropertySafety } from 'react-icons/ai';
 
 export const BloqueBuscador = ({setProducts}) => {
   const [openDate, setOpenDate] = useState(false)
-  const [option, setOption] = useState("");
   const [searchParams, setSearchParams] = useSearchParams();
   const [date, setDate] = useState([
     { startDate: new Date(),
@@ -24,13 +23,14 @@ export const BloqueBuscador = ({setProducts}) => {
 
 
   const handleChange = (event) => {
-    setOption(event.target.value) 
-    setSearchParams({categoryId:searchParams.get("categoryId"), cityId: event.target.value})
+    searchParams.get("categoryId") 
+      ? setSearchParams({categoryId:searchParams.get("categoryId"), cityId: event.target.value}) 
+      : setSearchParams({cityId: event.target.value})
   }
 
     const handleClick = (event) => {
       event.preventDefault();
-      getProductsFilter(searchParams.get("cityId"), searchParams.get("categoryId"));
+      getProductsFilter();
       setProducts(products)
     }
 
@@ -72,8 +72,3 @@ export const BloqueBuscador = ({setProducts}) => {
     </div>
   )
 }
-/**
- * <div className='buscadorButton'>
-                <button>Buscar</button>
-            </div>
- */
