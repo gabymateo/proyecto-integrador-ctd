@@ -1,5 +1,5 @@
 import React from 'react';
-import '../../styles/form.css';
+import './form.css';
 import { NavLink } from 'react-router-dom';
 import { useState } from "react";
 

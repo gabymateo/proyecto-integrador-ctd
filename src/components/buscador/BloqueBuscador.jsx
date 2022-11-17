@@ -1,5 +1,5 @@
 import React from 'react'
-import '../../styles/bloqueBuscador.css'
+import './bloqueBuscador.css'
 import {useState} from 'react'
 import { NavLink, useSearchParams } from "react-router-dom";
 import { DateRange } from 'react-date-range';

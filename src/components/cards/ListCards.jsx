@@ -1,7 +1,7 @@
 import React from "react";
 import Card from "./Card"
 import Hospedajes from '../../DataMock/Hospedajes.json'
-import "../../styles/listCard.css";
+import "./listCard.css";
 import { useProductsApi } from "../../apis/productsApi"; 
 import { useState } from "react";
 import axios from "axios";

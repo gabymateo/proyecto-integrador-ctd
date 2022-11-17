@@ -1,6 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import "../../styles/listCard.css";
+import "./listCard.css";
 
 export default function Card (props) {
 
