@@ -104,7 +104,7 @@ const LoginRegister = (props) => {
           <div>
           <label> Contraseña </label>
           <div className='passwordInput'>
-             <input type={showPwd ? "text" : "password"} value={formValues.password}  onChange={handleChangeFormValues} onBlur={hadleBlurPass}/> 
+             <input name='password' type={showPwd ? "text" : "password"} value={formValues.password}  onChange={handleChangeFormValues} onBlur={hadleBlurPass}/> 
              <div className="icon" onClick={() => setShowPwd(!showPwd)}> 
                 {showPwd ? <img src={Eye} height={"15rem"}/> :<img src={closeEye} height={"15rem"} />}
              </div>
