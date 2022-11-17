@@ -1,11 +1,6 @@
 import React from "react";
 import CategoryBlock from "./CategoryBlock";
-<<<<<<< HEAD:src/components/body/ListCategoryBlock.jsx
-import "../../styles/categoryBlock.css";
-=======
-import Categorias from "../../DataMock/Categorias.json";
 import "./categoryBlock.css";
->>>>>>> 1cf77887a15d084b53b41cab3d4f8a6d2259dad2:src/components/categorias/ListCategoryBlock.jsx
 import { useCategoriesApi } from '../../apis/categoriesApi'
 
 const imgCategorias = {
