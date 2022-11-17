@@ -1,5 +1,5 @@
 import React from 'react';
-import '../../styles/header.css';
+import './header.css';
 import { Logo, Avatar } from './Logo';
 import { GiHamburgerMenu } from 'react-icons/gi'; //icono hamburguesa
 import { GrClose } from 'react-icons/gr';//
