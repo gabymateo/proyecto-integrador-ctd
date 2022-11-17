@@ -6,15 +6,28 @@ const baseUrl = 'http://18.220.195.162:8080/grupo5'
 
 export default function CategoryBlock(props) {
   const [searchParams, setSearchParams] = useSearchParams();
+  const [isActive, setActive] = useState("false");
+
+  const toggleClass = () => {
+    setActive(!isActive); 
+    }
   
   const handleClick = (event, id) => {
-    event.preventDefault();    
-    searchParams.get("cityId") ? setSearchParams({cityId:searchParams.get("cityId"),categoryId: id}) : setSearchParams({categoryId: id})
-}
+    event.preventDefault(); 
+    toggleClass();
+    console.log("evento: ", event.currentTarget.firstChild.className);
+    if (event.currentTarget.firstChild.className == "tipoAlojamiento") {
+      (searchParams.get("cityId") ? setSearchParams({cityId:searchParams.get("cityId"),categoryId: id}) : setSearchParams({categoryId: id}))
+    }
+    else {
+      searchParams.delete("categoryId")
+      searchParams.get("cityId") ? setSearchParams({cityId:searchParams.get("cityId")}) : ""
+    }
+  }
 
   return (
     <div onClick={(event) => handleClick(event, props.id)} className="BloqueCategoria">
-      <div className="tipoAlojamiento">
+      <div className={isActive ? "tipoAlojamiento": "tipoAlojamientoActivo"}>
         <div className="imagesTipoAlojamiento">
           <img src={props.Foto} />
         </div>
