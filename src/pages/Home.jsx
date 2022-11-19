@@ -4,12 +4,12 @@ import Body from '../components/body/Body';
 import Footer from '../components/footer/Footer';
 
 
-const Home = ({productos, setProducts}) => {
+const Home = ({productos, getProductosFiltrados}) => {
 
   return (
     <>
         <Header/>
-        <Body productos={productos} setProducts={setProducts}/>
+        <Body productos={productos} getProductosFiltrados={getProductosFiltrados}/>
         <Footer/>
     </>
   )

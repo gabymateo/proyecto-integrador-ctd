@@ -46,17 +46,17 @@ export function useProductsApi() {
         
         try {
             if (searchParams.get("categoryId") && searchParams.get("cityId")) {
-                console.log("categoria:",searchParams.get("categoryId"), " ciudad:", searchParams.get("cityId") );
-                const responseGetProductsFilter = await axios.get(`${baseUrl}/products/?cityId=${searchParams.get("cityId")}&categoryId=${searchParams.get("categoryId")}`)
-                console.log(`${baseUrl}/products/?cityId=${searchParams.get("cityId")}&categoryId=${searchParams.get("categoryId")}`);
+                //console.log("categoria:",searchParams.get("categoryId"), " ciudad:", searchParams.get("cityId") );
+                const responseGetProductsFilter = await axios.get(`${baseUrl}/products/?cityId=${searchParams.get("cityId")} & categoryId=${searchParams.get("categoryId")}`)
+                console.log(`${baseUrl}/products/?cityId=${searchParams.get("cityId")} & categoryId=${searchParams.get("categoryId")}`);
                 setProducts(responseGetProductsFilter.data)
             }
-            else if (searchParams.get("categoryId") == undefined || searchParams.get("categoryId") == null) {
+            else if ((searchParams.get("categoryId") == undefined || searchParams.get("categoryId") == null) && searchParams.get("cityId")) {
                 const responseGetProductsFilter = await axios.get(`${baseUrl}/products/?cityId=${searchParams.get("cityId")}`)
                 console.log(`${baseUrl}/products/?cityId=${searchParams.get("cityId")}`);
                 setProducts(responseGetProductsFilter.data)
             }
-            else if (searchParams.get("cityId") == undefined || searchParams.get("cityId") == null) {
+            else if ((searchParams.get("cityId") == undefined || searchParams.get("cityId") == null) && searchParams.get("categoryId")) {
                 const responseGetProductsFilter = await axios.get(`${baseUrl}/products/?categoryId=${searchParams.get("categoryId")}`)
                 console.log(`${baseUrl}/products/?categoryId=${searchParams.get("categoryId")}`);
                 setProducts(responseGetProductsFilter.data)
@@ -68,7 +68,6 @@ export function useProductsApi() {
             }
         }     
         catch (error) {
-            console.log("categoria:",searchParams.get("categoryId"), " ciudad:", searchParams.get("cityId") )
             console.error('error', error.response.data)
         }
     } 

@@ -9,7 +9,7 @@ import { useCitiesApi } from '../../apis/citiesApi';
 import { useProductsApi } from '../../apis/productsApi';
 import { AiFillPropertySafety } from 'react-icons/ai';
 
-export const BloqueBuscador = ({setProducts}) => {
+export const BloqueBuscador = ({getProductosFiltrados}) => {
   const [openDate, setOpenDate] = useState(false)
   const [searchParams, setSearchParams] = useSearchParams();
   const [date, setDate] = useState([
@@ -23,15 +23,17 @@ export const BloqueBuscador = ({setProducts}) => {
 
 
   const handleChange = (event) => {
-    searchParams.get("categoryId") 
-      ? setSearchParams({categoryId:searchParams.get("categoryId"), cityId: event.target.value}) 
+
+    searchParams.get("categoryId") ? 
+      setSearchParams({categoryId:searchParams.get("categoryId"), cityId: event.target.value}) 
       : setSearchParams({cityId: event.target.value})
   }
 
     const handleClick = (event) => {
       event.preventDefault();
-      getProductsFilter();
-      setProducts(products)
+      getProductosFiltrados();
+      //searchParams.delete("cityId", "categoryId")
+      //setSearchParams({})
     }
 
 
