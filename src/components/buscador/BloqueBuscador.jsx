@@ -8,13 +8,15 @@ import 'react-date-range/dist/theme/default.css'; // theme css file
 import { useCitiesApi } from '../../apis/citiesApi';
 import { useProductsApi } from '../../apis/productsApi';
 import { AiFillPropertySafety } from 'react-icons/ai';
+import {format} from 'date-fns';
 
 export const BloqueBuscador = ({getProductosFiltrados}) => {
   const [openDate, setOpenDate] = useState(false)
   const [searchParams, setSearchParams] = useSearchParams();
+  /*CALENDARIO */
   const [date, setDate] = useState([
     { startDate: new Date(),
-      endDate: null,
+      endDate: new Date(),
       key: 'selection'
     }
   ]);  
@@ -53,7 +55,7 @@ export const BloqueBuscador = ({getProductosFiltrados}) => {
                 <span 
                 onClick={()=>setOpenDate(!openDate)} 
                 className='buscador'>
-                  Check In - Check Out
+                  {`${format(date[0].startDate, 'dd/MM/yyyy')} to ${format(date[0].endDate, 'dd/MM/yyyy')}`}
                 </span>
                 {openDate && <DateRange
                   editableDateInputs={true}
