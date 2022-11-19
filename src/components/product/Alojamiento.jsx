@@ -1,17 +1,35 @@
 import React from "react";
 import "./alojamiento.css";
-import { NavLink } from "react-router-dom";
+import { NavLink, useParams, useSearchParams } from "react-router-dom";
 //Iconos
-import { IoChevronBack } from "react-icons/io5";
+
 import { FiShare2 } from 'react-icons/fi';
 import { AiTwotoneHeart } from 'react-icons/ai';
 //React Slider
 import Slider from "react-slick";
 import "../../../node_modules/slick-carousel/slick/slick.css"; 
 import "../../../node_modules/slick-carousel/slick/slick-theme.css";
+import { Politicas } from "./Politicas";
+import { HeaderAlojamiento } from "./HeaderAlojamiento";
+import { Calendario } from "./Calendario";
 import { useProductsApi } from "../../apis/productsApi";
 
+
 export const Alojamiento = () => {
+
+  const api = useProductsApi()
+  const ident = useParams().id
+
+  React.useEffect(() => {
+    api.getProducts(ident)
+  },[])
+  
+  //console.log(api.products);
+  //console.log(api.products.name);
+
+
+  //console.log(ident);
+
   const images = [
     {
       src: "https://i.blogs.es/c68014/casa-3d/840_560.jpeg",
@@ -48,25 +66,14 @@ export const Alojamiento = () => {
     ],
   };
 
-  const api = useProductsApi();
 
   return (
     <div className="alojamiento">
-      <div className="alojamiento__header">
-        <div className="header__container">
-          <div className="info">
-            <p>HOTEL</p>
-            <h1>Hermitage Hotel</h1>
-          </div>
-          <NavLink to="/">
-            <IoChevronBack className="backButton" />
-          </NavLink>
-        </div>
-      </div>
+      <HeaderAlojamiento/>
       <div className="alojamiento__ubicacion">
         <div className="ubicacion__container">
           <div className="ciudad">
-            <p>Buenos Aires</p>
+            <p></p>
             <p>A 940 m del centro</p>
           </div>
           <div className="puntuacion">
@@ -119,33 +126,8 @@ export const Alojamiento = () => {
           </div>
         </div>
       </div>
-      <div className="alojamiento__politicas">
-        <div className="politicas__container">
-          <h1>Qué tenés que saber</h1>
-          <div className="caracteristicas__barra"></div>
-          {/**Cambiar nombre a barra */}
-          <div className="normas__container">
-            <div className="normas">
-              <h1>Normas</h1>
-              <p>Lorem, ipsum dolor.</p>
-              <p>Rem, cum reprehenderit?</p>
-              <p>Mollitia, ipsam accusantium!</p>
-            </div>
-            <div className="seguridad">
-              <h1>Seguridad</h1>
-              <p>Lorem, ipsum.</p>
-              <p>Ipsa, consectetur?</p>
-              <p>Officia, nisi.</p>
-            </div>
-            <div className="cancelacion">
-              <h1>Cancelacion</h1>
-              <p>Lorem ipsum dolor sit.</p>
-              <p>Laboriosam saepe quam vitae.</p>
-              <p>Minus natus non repellat!</p>
-            </div>
-          </div>
-        </div>
-      </div>
+      <Calendario/>
+      <Politicas/>
     </div>
   );
 };

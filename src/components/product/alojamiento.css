@@ -188,6 +188,14 @@
     display: grid;
     grid-template-columns: repeat(4, 1fr);
 }
+/*---BLOQUE CALENDARIO---*/
+.alojamiento__calendario{
+    display: flex;
+    justify-content: center;
+    background-color: var(--grisFondo);
+    
+}
+
 
 /*---BLOQUE POLITICAS---*/
 .alojamiento__politicas {

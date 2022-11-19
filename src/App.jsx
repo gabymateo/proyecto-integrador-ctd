@@ -15,7 +15,7 @@ import {
   Navigate,
   useParams,useSearchParams
 } from "react-router-dom";
-import { useProductsApi } from './apis/productsApi'
+import { useProductsApi } from './apis/productsApi';
 
 function App() {
   const {products, getProducts, getProductsFilter} = useProductsApi()

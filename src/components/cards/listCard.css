@@ -1,7 +1,7 @@
 .ListCardsContainer{
     display: flex;
     justify-content: center;
-    background-color: rgba(214, 214, 214, 0.898);
+    background-color: var(--grisFondo);
     
 }
 .ListCards{

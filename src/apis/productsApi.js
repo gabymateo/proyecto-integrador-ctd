@@ -31,12 +31,20 @@ export function useProductsApi() {
 // }
 
     // ---------- FUNCIÓN PARA OBTENER TODOS LOS PRODUCTOS DE LA DB --------------- 
-    const getProducts = async () => {
+    const getProducts = async (id) => {
     try {
-        const responseGetProducts = await axios.get(`${baseUrl}/products/`)
-        //console.log("responseGetProducts: ", responseGetProducts);
-        setProducts(responseGetProducts.data);
-    }
+        if(id){
+            const responseGetProducts = await axios.get(`${baseUrl}/products/${id}`)
+            //console.log("responseGetProducts: ", responseGetProducts);
+            setProducts(responseGetProducts.data);
+
+        }else {
+            const responseGetProducts = await axios.get(`${baseUrl}/products/`)
+            //console.log("responseGetProducts: ", responseGetProducts);
+            setProducts(responseGetProducts.data);
+        }
+
+        }
     catch (error) {
         console.error('error', error)
     }
