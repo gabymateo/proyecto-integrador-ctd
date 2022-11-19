@@ -18,7 +18,7 @@ import {
 import { useProductsApi } from './apis/productsApi'
 
 function App() {
-  const {products, getProductsFilter} = useProductsApi()
+  const {products, getProducts, getProductsFilter} = useProductsApi()
 
   React.useEffect(()=> {
     getProductsFilter()
@@ -27,7 +27,7 @@ function App() {
   return (
     <>
       <Routes>
-        <Route path="/" element={<Home productos={products} getProductosFiltrados={getProductsFilter} />}></Route>
+        <Route path="/" element={<Home productos={products} getProductosFiltrados={getProductsFilter} getProductos={getProducts} />}></Route>
         <Route path="/login" element={<Login/>}></Route>
         <Route path="/register" element={<Register/>}></Route>
         <Route path='/product/:id' element={<Product/>}></Route>

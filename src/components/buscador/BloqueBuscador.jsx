@@ -10,7 +10,7 @@ import { useProductsApi } from '../../apis/productsApi';
 import { AiFillPropertySafety } from 'react-icons/ai';
 import {format} from 'date-fns';
 
-export const BloqueBuscador = ({getProductosFiltrados}) => {
+export const BloqueBuscador = ({getProductosFiltrados, getProductos}) => {
   const [openDate, setOpenDate] = useState(false)
   const [searchParams, setSearchParams] = useSearchParams();
   /*CALENDARIO */
@@ -25,18 +25,22 @@ export const BloqueBuscador = ({getProductosFiltrados}) => {
 
 
   const handleChange = (event) => {
+    console.log(event.target.value);
 
     searchParams.get("categoryId") ? 
-      setSearchParams({categoryId:searchParams.get("categoryId"), cityId: event.target.value}) 
-      : setSearchParams({cityId: event.target.value})
+    ( (event.target.value)==="0" ? 
+        setSearchParams({categoryId:searchParams.get("categoryId")})
+        : setSearchParams({categoryId:searchParams.get("categoryId"), cityId: event.target.value}) )
+    : ( (event.target.value)==="0" ? setSearchParams({}) :setSearchParams({cityId: event.target.value}))
   }
 
     const handleClick = (event) => {
       event.preventDefault();
       getProductosFiltrados();
-      //searchParams.delete("cityId", "categoryId")
-      //setSearchParams({})
     }
+    
+    //console.log(date[0].startDate);
+    //console.log(date[0].endDate);
 
 
   return (
@@ -46,6 +50,7 @@ export const BloqueBuscador = ({getProductosFiltrados}) => {
             <div className='barraBuscadorItem'>
                 <select onChange={handleChange}>
                   <option defaultValue> Selecciona una ciudad </option>
+                  <option value={0}> Traer todos </option>
                   {apiCity.cities.map((city)=> {
                     return <option  key={city.id} value={city.id}> {city.name} </option>
                   })}

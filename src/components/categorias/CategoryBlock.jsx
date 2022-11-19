@@ -9,7 +9,7 @@ export default function CategoryBlock(props) {
   const [isActive, setActive] = useState("false");
 
   const toggleClass = () => {
-    setActive(!isActive); 
+    setActive(!isActive); //esto lo estoy usando para cambiar los estilos de la tarjeta categoría, simulando estar activo/inactivo
     }
   
   const handleClick = (event, id) => {
@@ -24,8 +24,7 @@ export default function CategoryBlock(props) {
         }
     }
     else {
-      searchParams.delete("categoryId")
-      searchParams.get("cityId") ? setSearchParams({cityId:searchParams.get("cityId")}) : searchParams.delete("categoryId");
+      searchParams.get("cityId") ? setSearchParams({cityId:searchParams.get("cityId")}) : setSearchParams({});
     }
   }
 
