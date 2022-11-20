@@ -8,6 +8,7 @@ import {BiCheckCircle} from 'react-icons/bi';
 import Horarios from '../../DataMock/Horarios.json'
 
 export const Reserva = () => {
+  //calendario
   const [openDate, setOpenDate] = useState(false);
   const [date, setDate] = useState([
     { startDate: new Date(), endDate: new Date(), key: "selection" },
@@ -20,6 +21,10 @@ export const Reserva = () => {
         <div className="reserva__form">
           <h1>Completá tus Datos</h1>
           <div className="form__container">
+            <div>
+              <p>hola</p>
+              <input type="text" />
+            </div>
             <label>
               Nombre
               <input type="text"></input>

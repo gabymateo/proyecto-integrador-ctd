@@ -99,8 +99,6 @@
 .imagenes__container {
     width: 100%;
     max-width: 1024px;
-    display: flex;
-    flex-direction: row;
     margin: 0 15px;
 }
 
@@ -128,14 +126,14 @@
 
 }
 
-.imagenes__imagen-secundaria > .imagen1 {
+.imagenes__imagen-secundaria > .imagen0 {
     /*grid-column: 1/3;
     */
     grid-row: 1 / 3;
 
 }
 
-.imagenes__imagen-secundaria > .imagen4{
+.imagenes__imagen-secundaria > .imagen3{
     grid-column-start: 2
 }
 

@@ -24,7 +24,7 @@ export const Alojamiento = () => {
     getProducts(ident)
   },[])
   
-  console.log(products.data?.images);
+  //console.log(products.data?.images);
   //console.log(api.products.name);
 
 
@@ -95,8 +95,8 @@ export const Alojamiento = () => {
           </div>
             */}
           <div className="imagenes__imagen-secundaria">
-              {products.data?.images?.map((image) => (
-                <div key={image.id} className={`imagen${image.id}`}>
+              {products.data?.images?.map((image, i=0) => (
+                <div key={image.id} className={`imagen${i}`}>
                   <img src={image.url}  />
                 </div>
                 
