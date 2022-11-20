@@ -99,6 +99,7 @@ export const Alojamiento = () => {
                 <div key={image.id} className={`imagen${image.id}`}>
                   <img src={image.url}  />
                 </div>
+                
               ))}
               <p>Ver mas</p>
           </div>

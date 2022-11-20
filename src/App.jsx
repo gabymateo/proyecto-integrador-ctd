@@ -16,6 +16,7 @@ import {
   useParams,useSearchParams
 } from "react-router-dom";
 import { useProductsApi } from './apis/productsApi';
+import { Book } from './pages/Book';
 
 function App() {
   const {products, getProducts, getProductsFilter} = useProductsApi()
@@ -32,6 +33,7 @@ function App() {
         <Route path="/register" element={<Register/>}></Route>
         <Route path='/product/:id' element={<Product/>}></Route>
         <Route path='/filter' element={<Filter/>}></Route>
+        <Route path='/product/:id/reserva' element={<Book/>}></Route>
       </Routes>
     </>
   )

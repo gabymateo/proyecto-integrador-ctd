@@ -1,24 +1,45 @@
-import React from 'react';
-import './alojamiento.css'
+import {React , useState} from 'react';
+import './alojamiento.css';
+import { DateRange } from 'react-date-range';
+import { NavLink } from 'react-router-dom';
+import '../../../node_modules/react-date-range/dist/styles.css'; // main css file
+import '../../../node_modules/react-date-range/dist/theme/default.css'; // theme css file
 
 export const Calendario = () => {
+  const [openDate, setOpenDate] = useState(false)
+  const [date, setDate] = useState([
+    { startDate: new Date(),
+      endDate: new Date(),
+      key: 'selection'
+    }
+  ]);
+
   return (
     <>
-        <div className="alojamiento__calendario">
-            <div className="caracteristicas__container">
-            <h1>¿Que ofrece este lugar?</h1>
-            <div className="caracteristicas__barra"></div>
-            <div className="caracteristicas__atributos">
-                <p>Lorem.</p>
-                <p>Dolor.</p>
-                <p>Eius.</p>
-                <p>In?</p>
-                <p>Vitae?</p>
-                <p>Eligendi?</p>
-                <p>Nam?</p>
-            </div>
-            </div>
+      <div className="alojamiento__fechasReserva">
+        <div className="fechasReserva__container">
+          <h1>Fechas Disponibles</h1>
+          <div className='calendario'>
+            <DateRange
+              editableDateInputs={true}
+              onChange={(item) => setDate([item.selection])}
+              moveRangeOnFirstSelection={false}
+              months={2}
+              ranges={date}
+              showDateDisplay={false}
+              rangeColors={["#FBC02D", "#FBC02D", "#FBC02D"]}
+              className="date"
+              direction="horizontal"
+            />
+          </div>
+          <div className="fechasReserva__reserva">
+            <p>Agregá tus fechas de viaje para obtener precios exactos</p>
+            <NavLink to={`reserva`}>
+            <button>Iniciar Reserva</button>
+            </NavLink>
+          </div>
         </div>
+      </div>
     </>
-  )
+  );
 }
