@@ -6,7 +6,6 @@ import Login from './pages/Login_form';
 import Register from './pages/Register';
 import { Product } from './pages/Product';
 import { Filter } from './pages/Filter';
-import Booking_page  from './pages/Booking'
 import {
   BrowserRouter,
   Route,
@@ -34,11 +33,7 @@ function App() {
         <Route path="/register" element={<Register/>}></Route>
         <Route path='/product/:id' element={<Product/>}></Route>
         <Route path='/filter' element={<Filter/>}></Route>
-<<<<<<< HEAD
-        <Route path='/booking' element={<Booking_page/>}></Route>
-=======
         <Route path='/product/:id/reserva' element={<Book/>}></Route>
->>>>>>> ee51f2eabcc2439aa13d87b01a4b31c2a92ac727
       </Routes>
     </>
   )

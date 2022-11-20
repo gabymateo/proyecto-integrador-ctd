@@ -88,9 +88,6 @@ export const Alojamiento = () => {
         <div className="imagenes__botones">
           <FiShare2 className="share" />
           <AiTwotoneHeart className="like" />
-          <a href="/booking"> 
-            <AiTwotoneHeart className="like" />
-          </a>
         </div>
         <div className="imagenes__container">
           {/*
