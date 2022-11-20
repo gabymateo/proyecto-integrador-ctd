@@ -6,6 +6,7 @@ import Login from './pages/Login_form';
 import Register from './pages/Register';
 import { Product } from './pages/Product';
 import { Filter } from './pages/Filter';
+import Booking_page  from './pages/Booking'
 import {
   BrowserRouter,
   Route,
@@ -32,6 +33,7 @@ function App() {
         <Route path="/register" element={<Register/>}></Route>
         <Route path='/product/:id' element={<Product/>}></Route>
         <Route path='/filter' element={<Filter/>}></Route>
+        <Route path='/booking' element={<Booking_page/>}></Route>
       </Routes>
     </>
   )

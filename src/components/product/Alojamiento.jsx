@@ -1,6 +1,8 @@
 import React from "react";
 import "./alojamiento.css";
 import { NavLink, useParams, useSearchParams } from "react-router-dom";
+import Booking from "../booking/Booking";
+
 //Iconos
 
 import { FiShare2 } from 'react-icons/fi';
@@ -13,7 +15,6 @@ import { Politicas } from "./Politicas";
 import { HeaderAlojamiento } from "./HeaderAlojamiento";
 import { Calendario } from "./Calendario";
 import { useProductsApi } from "../../apis/productsApi";
-
 
 export const Alojamiento = () => {
 
@@ -87,6 +88,9 @@ export const Alojamiento = () => {
         <div className="imagenes__botones">
           <FiShare2 className="share" />
           <AiTwotoneHeart className="like" />
+          <a href="/booking"> 
+            <AiTwotoneHeart className="like" />
+          </a>
         </div>
         <div className="imagenes__container">
           {/*
