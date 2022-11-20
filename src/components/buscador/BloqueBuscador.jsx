@@ -67,6 +67,7 @@ export const BloqueBuscador = ({getProductosFiltrados, getProductos}) => {
                   onChange={item => setDate([item.selection])}
                   moveRangeOnFirstSelection={false}
                   months={2}
+                  rangeColors={['#FBC02D', '#FBC02D', '#FBC02D']}
                   ranges={date}
                   className='date'
                   direction='horizontal'

@@ -96,9 +96,10 @@ export const Alojamiento = () => {
             */}
           <div className="imagenes__imagen-secundaria">
               {images.map((image) => (
-                <div className={`imagen${image.id}`}>
+                <div key={image.id} className={`imagen${image.id}`}>
                   <img src={image.src}  />
                 </div>
+                
               ))}
               <p>Ver mas</p>
             
