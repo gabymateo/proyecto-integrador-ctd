@@ -9,19 +9,22 @@ export default function CategoryBlock(props) {
   const [isActive, setActive] = useState("false");
 
   const toggleClass = () => {
-    setActive(!isActive); 
+    setActive(!isActive); //esto lo estoy usando para cambiar los estilos de la tarjeta categoría, simulando estar activo/inactivo
     }
   
   const handleClick = (event, id) => {
     event.preventDefault(); 
     toggleClass();
-    console.log("evento: ", event.currentTarget.firstChild.className);
     if (event.currentTarget.firstChild.className == "tipoAlojamiento") {
-      (searchParams.get("cityId") ? setSearchParams({cityId:searchParams.get("cityId"),categoryId: id}) : setSearchParams({categoryId: id}))
+        if (searchParams.get("cityId")) {
+          setSearchParams({cityId:searchParams.get("cityId"),categoryId: id})
+        }
+        else {
+              setSearchParams({categoryId: id})
+        }
     }
     else {
-      searchParams.delete("categoryId")
-      searchParams.get("cityId") ? setSearchParams({cityId:searchParams.get("cityId")}) : ""
+      searchParams.get("cityId") ? setSearchParams({cityId:searchParams.get("cityId")}) : setSearchParams({});
     }
   }
 
