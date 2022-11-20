@@ -27,7 +27,6 @@ export const Calendario = () => {
               months={2}
               ranges={date}
               showDateDisplay={false}
-              color={["#FBC02D"]}
               rangeColors={["#FBC02D", "#FBC02D", "#FBC02D"]}
               className="date"
               direction="horizontal"
@@ -35,7 +34,7 @@ export const Calendario = () => {
           </div>
           <div className="fechasReserva__reserva">
             <p>Agregá tus fechas de viaje para obtener precios exactos</p>
-            <NavLink>
+            <NavLink to={`reserva`}>
             <button>Iniciar Reserva</button>
             </NavLink>
           </div>
