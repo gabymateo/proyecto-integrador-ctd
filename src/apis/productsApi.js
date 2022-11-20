@@ -85,7 +85,7 @@ export function useProductsApi() {
 
     // ---------- ESTE ES EL RETURN DE LA API ---------------------------
 return {
-    products: products.data,
+    products: products,
     setProducts: setProducts,
     getProducts: getProducts,
     getProductsFilter: getProductsFilter,
