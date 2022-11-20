@@ -1,6 +1,7 @@
 import React from "react";
 import CategoryBlock from "./CategoryBlock";
-import "./categoryBlock.css";
+//import "./categoryBlock.css";
+import "./../cards/listCard.css";
 import { useCategoriesApi } from '../../apis/categoriesApi'
 
 const imgCategorias = {
