@@ -18,14 +18,14 @@ import { useProductsApi } from "../../apis/productsApi";
 
 export const Alojamiento = () => {
 
-  const api = useProductsApi()
+  const {getProducts, products} = useProductsApi()
   const ident = useParams().id
-
+  
   React.useEffect(() => {
-    api.getProducts(ident)
+    getProducts(ident)
   },[])
   
-  //console.log(api.products);
+  //console.log(products.data?.images);
   //console.log(api.products.name);
 
 
@@ -99,13 +99,13 @@ export const Alojamiento = () => {
           </div>
             */}
           <div className="imagenes__imagen-secundaria">
-              {images.map((image) => (
-                <div className={`imagen${image.id}`}>
-                  <img src={image.src}  />
+              {products.data?.images?.map((image, i=0) => (
+                <div key={image.id} className={`imagen${i}`}>
+                  <img src={image.url}  />
                 </div>
+                
               ))}
               <p>Ver mas</p>
-            
           </div>
         </div>
       </div>

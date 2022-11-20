@@ -14,9 +14,10 @@ variables:
 #---------------
 .yarn_build:
   image: node:latest
-  script: |
-    yarn # Install all dependencies
-    yarn build # Build command
+  script: 
+    - echo "Compiling the React app..."
+    - npm run build
+    - echo "React app built successfully!"
   artifacts:
     paths:
       - ./dist
@@ -42,10 +43,10 @@ yarn_prod:
 # Deploy section
 #---------------
 .deploy_aws:
-  image: python:latest
-  script: |
-    pip install awscli #Install awscli tools
-    aws s3 sync ./dist s3://${S3_BUCKET}
+  image: registry.gitlab.com/gitlab-org/cloud-deploy/aws-base:latest
+  script:
+  - echo "Deploying Web App to S3..."
+  - aws s3 sync ./dist s3://${S3_BUCKET}
 
 deploy_dev:
   extends: .deploy_aws

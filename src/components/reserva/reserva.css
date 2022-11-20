@@ -1,0 +1,49 @@
+.reserva{
+    display: flex;
+    justify-content: center;
+    
+}
+
+.reserva__container{
+    display: grid;
+    grid-template-columns: 65% 40%;
+    grid-template-rows: repeat(3, 1fr);
+    max-width: 1024px;
+}
+/*---BLOQUE FORM---*/
+.reserva__form{
+    
+}
+
+
+.form__container{
+    background-color: #FFF;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-gap: 15px;
+}
+
+.form__container > label {
+    display: flex;
+    flex-direction: column;
+}
+
+/*---BLOQUE CALENDARIO---*/
+/*---BLOQUE HORARIO---*/
+
+.reserva__horario{
+    width: 100%;
+} 
+
+.reserva__horario > .horario__container {
+    background-color: #FFF;
+    display: flex;
+    flex-direction: column;
+}
+/*---BLOQUE DETALLES---*/
+.reserva__detalles{
+    background-color: #FFF;
+    grid-column: 2;
+    grid-row: 1 / 4;
+    
+}

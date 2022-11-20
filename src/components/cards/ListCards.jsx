@@ -2,7 +2,7 @@ import React from "react";
 import Card from "./Card"
 import Hospedajes from '../../DataMock/Hospedajes.json'
 import "./listCard.css";
-import { useProductsApi } from "../../apis/productsApi"; 
+//import { useProductsApi } from "../../apis/productsApi"; 
 import { useState } from "react";
 import axios from "axios";
 
@@ -11,7 +11,7 @@ export default function ListCards ({productos}) {
     return (
         <div className='ListCardsContainer'>
         <div className='ListCards'>
-            {productos?.map((prod)=>{
+            {productos.data?.map((prod)=>{
                 return <Card
                     key={prod.id}
                     id={prod.id}

@@ -1,7 +1,17 @@
 import React from 'react'
 import './alojamiento.css';
+import { useProductsApi } from '../../apis/productsApi';
+import { useParams } from 'react-router-dom';
 
 export const Politicas = () => {
+
+  const identificador = useParams().id
+  const {getProducts, products} = useProductsApi()
+
+  React.useEffect(()=>{
+    getProducts(identificador)
+  }, [])
+
   return (
     <>
     <div className="alojamiento__politicas">
@@ -10,24 +20,12 @@ export const Politicas = () => {
           <div className="caracteristicas__barra"></div>
           {/**Cambiar nombre a barra */}
           <div className="normas__container">
-            <div className="normas">
+            {products.data?.features?.map((politica) => {
+              return <div key={politica.id} className='normas'> 
               <h1>Normas</h1>
-              <p>Lorem, ipsum dolor.</p>
-              <p>Rem, cum reprehenderit?</p>
-              <p>Mollitia, ipsam accusantium!</p>
-            </div>
-            <div className="seguridad">
-              <h1>Seguridad</h1>
-              <p>Lorem, ipsum.</p>
-              <p>Ipsa, consectetur?</p>
-              <p>Officia, nisi.</p>
-            </div>
-            <div className="cancelacion">
-              <h1>Cancelacion</h1>
-              <p>Lorem ipsum dolor sit.</p>
-              <p>Laboriosam saepe quam vitae.</p>
-              <p>Minus natus non repellat!</p>
-            </div>
+              <p>{politica.name}</p>
+              </div>
+            })}
           </div>
         </div>
       </div>
