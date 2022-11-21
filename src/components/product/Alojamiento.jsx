@@ -7,15 +7,16 @@ import Booking from "../booking/Booking";
 
 import { FiShare2 } from 'react-icons/fi';
 import { AiTwotoneHeart } from 'react-icons/ai';
-//React Slider
-import Slider from "react-slick";
+
 import "../../../node_modules/slick-carousel/slick/slick.css"; 
 import "../../../node_modules/slick-carousel/slick/slick-theme.css";
 import { HeaderAlojamiento } from "./HeaderAlojamiento";
-import {BloqueImagenes, Test} from './BloqueImagenes';
+import { Ubicacion } from "./Ubicacion";
+import { BloqueImagenes, BloqueImagenesRes } from './BloqueImagenes';
 import { Calendario } from "./Calendario";
 import { Politicas } from "./Politicas";
 import { useProductsApi } from "../../apis/productsApi";
+
 
 
 export const Alojamiento = () => {
@@ -33,21 +34,10 @@ export const Alojamiento = () => {
 
   return (
     <div className="alojamiento">
-      <HeaderAlojamiento products={products.data}/>
-      <div className="alojamiento__ubicacion">
-        <div className="ubicacion__container">
-          <div className="ciudad">
-            <p></p>
-            <p>A 940 m del centro</p>
-          </div>
-          <div className="puntuacion">
-            <p>Muy bueno</p>
-            <span>Estrellitas</span>
-            <span>Puntuacion</span>
-          </div>
-        </div>
-      </div>
+      <HeaderAlojamiento/>
+      <Ubicacion products={products.data}/>
       <BloqueImagenes products={products.data}/>
+      <BloqueImagenesRes products={products.data}/>
       <div className="alojamiento__descripcion">
         <div className="descripcion__container">
           <h1>Titulo</h1>
@@ -70,7 +60,7 @@ export const Alojamiento = () => {
         </div>
       </div>
       <Calendario/>
-      <Politicas products={products.data}/>
+      <Politicas/>
     </div>
   );
 };

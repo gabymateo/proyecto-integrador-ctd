@@ -68,10 +68,40 @@
     color: var(--grisClaro);
 }
 
+.ubicacion__container > .ciudad > p > svg {
+    height: 1.5em;
+    width: 1.5em;
+    margin: 0 5px;
+}
+
 .ubicacion__container > .puntuacion{
+    display: grid;
+    gap: 2px;
+    grid-template-columns: repeat(2, 1fr);
     margin-right: 15px;
     padding: 10px 5px;
     color: var(--grisClaro);
+}
+
+.ubicacion__container > .puntuacion > .rate{
+    grid-row: 1 / 3;
+    grid-column: 2;
+    
+    background-color: var(--grisClaro);
+    width: 3.2em;
+    height: 3.2em;
+    align-self: center;
+    justify-self: center;
+    color: #FFF;
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.ubicacion__container > .puntuacion > .rate > p {
+    font-size: 1.5em;
+    font-weight: 900;
 }
 
 /*---BLOQUE IMAGENES---*/
@@ -96,6 +126,16 @@
     
 }
 
+.imagenes__botones > .share:hover{
+    transform: scale(1.1, 1.1);
+}
+
+.imagenes__botones > .like:hover {
+    color: red;
+    transform: scale(1.1, 1.1);
+    
+}
+
 .imagenes__container {
     width: 100%;
     max-width: 1024px;
@@ -111,6 +151,7 @@
     position: absolute;
     right: 0;
     bottom: 0;
+    font-weight: 600;
 }
 
 .imagenes__imagen-secundaria > p:hover{
@@ -283,7 +324,9 @@
     color: var(--grisFuerte);
     font-size: 0.9em;
 }
-
+.alojamiento__imagenes-res{
+    
+}
 /*---RESPONSIVE---*/
 /*---RESPONSIVE TABLET---*/
 @media (min-width:551px) and (max-width:700px){
@@ -303,6 +346,21 @@
     /*---BLOQUE CARACTERISTICAS--*/
     .caracteristicas__atributos{
         grid-template-columns: repeat(1, 1fr);
+    }
+
+    .alojamiento__imagenes{
+        display: none;
+    }
+    .alojamiento__imagenes-res{
+        display:block;
+    }
+    .slick-slide > div > div{
+        height: 50px;
+        width: 50px;
+    }
+    .slick-slide > div > div > img{
+        object-fit: cover;
+
     }
 
     /*---BLOQUE POLITICAS---*/

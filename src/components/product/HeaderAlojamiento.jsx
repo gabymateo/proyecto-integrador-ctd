@@ -4,9 +4,15 @@ import { IoChevronBack } from "react-icons/io5";
 import { NavLink, useParams } from "react-router-dom";
 import { useProductsApi } from '../../apis/productsApi';
 
-export const HeaderAlojamiento = (props) => {
+export const HeaderAlojamiento = () => {
+  const {getProducts, products} = useProductsApi()
+  const id = useParams().id
   
-  const data = props?.products;
+  React.useEffect(() => {
+    getProducts(id)
+  },[])
+
+  const data = products?.data;
 
   return (
     <>

@@ -1,9 +1,17 @@
 import React from "react";
 import "./alojamiento.css";
+import { useParams } from "react-router-dom";
+import { useProductsApi } from "../../apis/productsApi";
 
 export const Politicas = (props) => {
+  const { getProducts, products } = useProductsApi();
+  const id = useParams().id;
 
-  const features = props?.products?.features;
+  React.useEffect(() => {
+    getProducts(id);
+  }, []);
+  
+  const features = products?.data?.features;
 
   return (
     <>

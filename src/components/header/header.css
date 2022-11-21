@@ -89,7 +89,7 @@
 
 /*---RESPONSIVE---*/
 /*---RESPONSIVE TABLET---*/
-@media (min-width:551px) and (max-width:700px) {
+@media (min-width:551px) and (max-width:768px) {
 
     .container-logo > .lema{
         display: none;
