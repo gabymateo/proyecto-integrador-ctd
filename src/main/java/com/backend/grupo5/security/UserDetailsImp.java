@@ -17,7 +17,6 @@ public class UserDetailsImp implements UserDetails {
 
     private final User user;
 
-
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         List<SimpleGrantedAuthority> authorities = new ArrayList<>();
@@ -25,6 +24,9 @@ public class UserDetailsImp implements UserDetails {
         return authorities;
     }
 
+    public Long getId() {
+        return user.getId();
+    }
     @Override
     public String getPassword() {
         return user.getPassword();

@@ -4,9 +4,10 @@ package com.backend.grupo5.controller;
 import com.backend.grupo5.common.exceptions.ApplicationError;
 import com.backend.grupo5.common.exceptions.ErrorHandler;
 import com.backend.grupo5.common.exceptions.ResponseHandler;
+import com.backend.grupo5.model.services.ICityService;
 import com.backend.grupo5.repository.entities.City;
-import com.backend.grupo5.service.CityService;
 import com.backend.grupo5.service.DTO.city.CityCreateDTO;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -15,17 +16,9 @@ import org.springframework.web.bind.annotation.*;
 import java.util.ArrayList;
 import java.util.Optional;
 
-@RestController
-@RequestMapping("cities")
+@RestController @RequestMapping("/cities") @RequiredArgsConstructor
 public class CityController {
-
-    private final CityService cityService;
-
-
-    public CityController(CityService cityService) {
-        this.cityService = cityService;
-    }
-
+    private final ICityService cityService;
 
     @PostMapping("/")
     @PreAuthorize("hasAuthority('ADMIN')")

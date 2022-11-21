@@ -1,6 +1,5 @@
 package com.backend.grupo5.repository.entities;
 
-import com.backend.grupo5.common.helpers.enums.FeatureType;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.Setter;
@@ -12,13 +11,8 @@ import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
-
-@Getter
-@Setter
-@Entity
-@Table(name = "features")
+@Getter @Setter @Entity @Table(name = "features")
 public class Feature {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -38,6 +32,5 @@ public class Feature {
 
     @UpdateTimestamp
     private Date updateDate;
-
 
 }

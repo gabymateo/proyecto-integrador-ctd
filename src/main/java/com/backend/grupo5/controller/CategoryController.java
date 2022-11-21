@@ -4,31 +4,26 @@ package com.backend.grupo5.controller;
 import com.backend.grupo5.common.exceptions.ApplicationError;
 import com.backend.grupo5.common.exceptions.ErrorHandler;
 import com.backend.grupo5.common.exceptions.ResponseHandler;
+import com.backend.grupo5.model.services.ICategoryService;
 import com.backend.grupo5.repository.entities.Category;
-import com.backend.grupo5.service.CategoryService;
+
 import com.backend.grupo5.service.DTO.category.CategoryCreateDTO;
 import com.backend.grupo5.service.DTO.category.CategoryUpdateDTO;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
-import javax.annotation.security.RolesAllowed;
 import java.util.ArrayList;
 import java.util.Optional;
 
-@RestController
-@RequestMapping("categories")
+@RestController @RequestMapping("/categories") @RequiredArgsConstructor
 public class CategoryController {
 
-    private final CategoryService categoryService;
+    private final ICategoryService categoryService;
 
-    public CategoryController(CategoryService categoryService) {
-        this.categoryService = categoryService;
-    }
-
-    @PostMapping("/")
-    @PreAuthorize("hasAuthority('ADMIN')")
+    @PostMapping("/") @PreAuthorize("hasAuthority('ADMIN')")
     public ResponseEntity<Object> create(@RequestBody CategoryCreateDTO categoryCreateDTO)  {
         try {
             Category category = this.categoryService.create(categoryCreateDTO);
@@ -58,8 +53,7 @@ public class CategoryController {
         }
     }
 
-    @PatchMapping("/{id}")
-    @PreAuthorize("hasAuthority('ADMIN')")
+    @PatchMapping("/{id}") @PreAuthorize("hasAuthority('ADMIN')")
     public ResponseEntity<Object> update(@PathVariable Long id, @RequestBody CategoryUpdateDTO categoryUpdateDTO) {
         try {
             Category category = this.categoryService.update(id, categoryUpdateDTO);
@@ -69,8 +63,7 @@ public class CategoryController {
         }
     }
 
-    @DeleteMapping("/{id}")
-    @PreAuthorize("hasAuthority('ADMIN')")
+    @DeleteMapping("/{id}") @PreAuthorize("hasAuthority('ADMIN')")
     public ResponseEntity<Object> delete(@PathVariable Long id) {
         try {
             this.categoryService.delete(id);
