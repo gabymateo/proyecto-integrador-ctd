@@ -115,7 +115,7 @@
     ]
   }
 }</component>
-  <component name="RunManager" selected="Spring Boot.Grupo5Application">
+  <component name="RunManager">
     <configuration name="Grupo5Application (1)" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="back_pigrupo5" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.backend.grupo5.Grupo5Application" />
