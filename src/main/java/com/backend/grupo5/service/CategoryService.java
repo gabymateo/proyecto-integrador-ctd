@@ -8,6 +8,7 @@ import com.backend.grupo5.repository.CategoryRepository;
 import com.backend.grupo5.service.DTO.category.CategoryCreateDTO;
 import com.backend.grupo5.common.helpers.mapper.category.CategoryDTOToCategory;
 import com.backend.grupo5.service.DTO.category.CategoryUpdateDTO;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
@@ -15,23 +16,12 @@ import javax.transaction.Transactional;
 import java.util.ArrayList;
 import java.util.Optional;
 
-@Service
+@Service @RequiredArgsConstructor
 public class CategoryService implements ICategoryService {
 
     private final CategoryRepository repository;
     private final CategoryDTOToCategory mapper;
-
     private final CategoryValidator validator;
-
-    public CategoryService(
-            CategoryRepository categoryRepository,
-            CategoryDTOToCategory mapper,
-            CategoryValidator validator)
-    {
-        this.repository = categoryRepository;
-        this.mapper = mapper;
-        this.validator = validator;
-    }
 
     @Override
     public Category create(CategoryCreateDTO category) {

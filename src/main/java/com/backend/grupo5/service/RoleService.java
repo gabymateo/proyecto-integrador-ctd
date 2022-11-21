@@ -3,21 +3,16 @@ package com.backend.grupo5.service;
 import com.backend.grupo5.model.services.IRoleService;
 import com.backend.grupo5.repository.RoleRepository;
 import com.backend.grupo5.repository.entities.Role;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
 import java.util.ArrayList;
 import java.util.Optional;
 
-@Service @Transactional
+@Service @Transactional @RequiredArgsConstructor
 public class RoleService implements IRoleService {
-
     private final RoleRepository roleRepository;
-
-    public RoleService(RoleRepository roleRepository) {
-        this.roleRepository = roleRepository;
-    }
-
 
     @Override
     public Role create(Role role) {

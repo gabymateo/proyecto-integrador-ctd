@@ -88,19 +88,21 @@ public class ProductCustomRepository {
         if(categoryId != null) {
             predicates.add(cb.and(cb.equal(productRoot.get("category").get("id"), categoryId)));
         }
-
         if(startDate != null && endDate != null) {
-            Join<Product, Booking> join = productRoot.join("bookings", JoinType.LEFT);
-            Predicate start = cb.between(join.get("startDate"), startDate, endDate).not();
-            Predicate end = cb.between(join.get("endDate"), startDate, endDate).not();
-            Predicate isNull = cb.or(cb.isNull(join.get("startDate")), cb.isNull(join.get("endDate")));
-            predicates.add(cb.or(cb.or(start, end), isNull));
+            Subquery<Long> subquery = query.subquery(Long.class);
+            Root<Product> subRoot = subquery.from(Product.class);
+            Join<Product, Booking> join = subRoot.join("bookings", JoinType.LEFT);
+            subquery.where(cb.or(cb.between(join.get("startDate"), startDate, endDate), cb.between(join.get("endDate"), startDate, endDate)));
+            subquery.select(subRoot.get("id"));
+            predicates.add(cb.and(productRoot.get("id").in(subquery).not()));
         }
+        System.out.println(cityId);
         if(cityId != null) {
             predicates.add(cb.and(cb.equal(productRoot.get("city").get("id"), cityId)));
         }
         query.where(predicates.toArray(new Predicate[predicates.size()]));
-        query.distinct(true);
+        query.select(productRoot);
+//        query.distinct(true);
 
         if(order != null) {
             String parsedOrder = order.toLowerCase();

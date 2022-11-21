@@ -6,21 +6,16 @@ import com.backend.grupo5.model.services.IFeatureService;
 import com.backend.grupo5.repository.FeatureRepository;
 import com.backend.grupo5.repository.entities.Feature;
 import com.backend.grupo5.service.DTO.feature.FeatureCreateDTO;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.Optional;
 
-@Service
+@Service @RequiredArgsConstructor
 public class FeatureService implements IFeatureService {
-
     private final FeatureRepository repository;
-
-    public FeatureService(FeatureRepository repository) {
-        this.repository = repository;
-    }
-
 
     @Override
     public Feature create(FeatureCreateDTO input) {
@@ -48,6 +43,5 @@ public class FeatureService implements IFeatureService {
         }
         this.repository.delete(feature.get());
     }
-
 
 }

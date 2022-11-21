@@ -7,10 +7,8 @@ import com.backend.grupo5.model.services.IBookingService;
 import com.backend.grupo5.model.services.IProductService;
 import com.backend.grupo5.model.services.IUserService;
 import com.backend.grupo5.repository.BookingRepository;
-import com.backend.grupo5.repository.ProductCustomRepository;
 import com.backend.grupo5.repository.ProductRepository;
 import com.backend.grupo5.repository.entities.Booking;
-import com.backend.grupo5.repository.entities.BookingCustomRepository;
 import com.backend.grupo5.repository.entities.Product;
 import com.backend.grupo5.repository.entities.User;
 import com.backend.grupo5.service.DTO.booking.BookingCreateInput;
@@ -18,7 +16,6 @@ import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
@@ -32,10 +29,9 @@ public class BookingService implements IBookingService {
     private final ModelMapper modelMapper;
     private final IUserService userService;
     private final IProductService productService;
-    private final BookingCustomRepository bookingCustomRepository;
     private final BookingDTOToBookingEntity mapper;
     private final ProductRepository productRepository;
-    private final ProductCustomRepository productCustomRepository;
+
 
 
     @Override
@@ -60,9 +56,6 @@ public class BookingService implements IBookingService {
         Booking booking = mapper.map(input);
         booking.setUser(user.get());
         booking.setProduct(product.get());
-        Set<Booking> bookings = product.get().getBookings();
-        bookings.add(booking);
-        product.get().setBookings(bookings);
         return this.bookingRepository.save(booking);
     }
 

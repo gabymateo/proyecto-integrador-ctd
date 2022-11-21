@@ -12,10 +12,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 
-@Entity
-@Table(name = "products")
-@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
-@Getter @Setter
+@Entity @Table(name = "products") @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"}) @Getter @Setter
 public class Product {
 
     @Id
