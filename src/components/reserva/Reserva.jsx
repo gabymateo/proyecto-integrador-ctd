@@ -7,6 +7,15 @@ import "../../../node_modules/react-date-range/dist/theme/default.css"; // theme
 import {BiCheckCircle} from 'react-icons/bi';
 import Horarios from '../../DataMock/Horarios.json'
 
+const emailRegexp = new RegExp(/[^@ \t\r\n]+@[^@ \t\r\n]+\.[^@ \t\r\n]+/);
+
+const initValues={
+  name: "",
+  lastName: "",
+  email:"",
+  city:""
+}
+
 export const Reserva = () => {
   //calendario
   const [openDate, setOpenDate] = useState(false);
@@ -14,33 +23,76 @@ export const Reserva = () => {
     { startDate: new Date(), endDate: new Date(), key: "selection" },
   ]);
 
+  const [formValues, setFormValues] = useState(initValues);
+
+  const [badName, setBadName] = useState(undefined);
+  const [badLastName, setBadLastName] = useState(undefined);
+  const [badEmail, setBadEmail] = useState(undefined);
+  const [badCity, setBadCity] = useState(undefined);
+  const [validationAll, setValidationAll] = useState(false);
+  const [enviarDatos, setEnviarDatos] = useState(false);
+
+  const handleChangeFormValues = (e) => {
+    setFormValues({
+      ...formValues,
+      [e.target.name]: e.target.value,
+    })
+  }
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setEnviarDatos(true)
+    console.log("ENVIADOS");
+  }
+
+  //   React.useEffect(()=>{
+  //   //const  handleAll=() =>{
+  //     const isValid = ((badName==false) && (badLastName==false) && (badEmail==false)  && (badCity==false))
+  //     setValidationAll(isValid)
+  //     console.log("total validaciones: ",isValid);
+  //   //}
+  // }, [badName, badLastName, badEmail, badCity])
+
+
+  const handleBlurName= () =>{
+    const hasError = !((formValues.name).length>1)
+    setBadName(hasError)
+    //handleValidationAll();
+  }
+
+  const handleBlurLastName= () =>{
+    const hasError = !((formValues.lastName).length>1)
+    setBadLastName(hasError)
+    //handleValidationAll();
+  }
+
+  const handleBlurEmail = () =>{
+    const hasError = ! emailRegexp.test(formValues.email);
+    setBadEmail(hasError)
+    //handleValidationAll();
+  }
+
+  const handleBlurCity = () =>{
+    const hasError = ! emailRegexp.test(formValues.city);
+    setBadCity(hasError)
+    //handleValidationAll();
+  }
+
   
   return (
     <div className="reserva">
       <div className="reserva__container">
         <div className="reserva__form">
-          <h1>Completá tus Datos</h1>
+        <h2 className="booking_title">Completa tus datos</h2>
           <div className="form__container">
-            <div>
-              <p>hola</p>
-              <input type="text" />
-            </div>
-            <label>
-              Nombre
-              <input type="text"></input>
-            </label>
-            <label>
-              Apellido
-              <input type="text"></input>
-            </label>
-            <label>
-              Correo Electronico
-              <input type="mail"></input>
-            </label>
-            <label>
-              Ciudad
-              <input type="text"></input>
-            </label>
+          <label> Nombre  <input name="name" type='text' value={formValues.name} onChange={handleChangeFormValues} onBlur={handleBlurName}/>
+            <span style={{ visibility: badName ? "visible" :"hidden"}}>Por favor ingrese su nombre</span> <br></br> </label>
+          <label> Apellido  <input name="lastName" type='text' value={formValues.lastName} onChange={handleChangeFormValues} onBlur={handleBlurLastName}/>
+            <span style={{ visibility: badLastName ? "visible" : "hidden"}}>Por favor ingrese su apellido</span> <br></br> </label>
+          <label> Correo electrónico  <input name="email" type='email' value={formValues.email} onChange={handleChangeFormValues} onBlur={handleBlurEmail}/> 
+            <span style={{ visibility: badEmail ? "visible" : "hidden"}}>No es un email correcto</span> <br></br> </label>
+            <label> Ciudad  <input name="city" type='text' value={formValues.city} onChange={handleChangeFormValues} onBlur={handleBlurCity}/> 
+            <span style={{ visibility: badCity ? "visible" : "hidden"}}>Ingresa una ciudad</span> <br></br> </label>
           </div>
         </div>
         <div className="calendario__container">
@@ -60,7 +112,7 @@ export const Reserva = () => {
         <div className="reserva__horario">
           <h1>Tu horario de llegada</h1>
           <div className="horario__container">
-            <p>
+            <p className='principal'>
               <BiCheckCircle /> Tu habitacion va a estar lista para el check in
               entre las 10:00 y las 11:00pm
             </p>
@@ -94,7 +146,7 @@ export const Reserva = () => {
           </div>
           <hr />
           <NavLink>
-            <button>Confirmar Reserva</button>
+            <button className="submit" type='submit'>Confirmar Reserva</button>
           </NavLink>
         </div>
       </div>

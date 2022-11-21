@@ -1,10 +1,18 @@
 .reserva{
     display: flex;
     justify-content: center;
+    font-family: 'Poppins';
     
 }
 
+.reserva h1 {
+    font-weight: 500;
+    font-size: 20px;
+    font-weight: bold;
+}
+
 .reserva__container{
+    margin-top: 2%;
     display: grid;
     grid-template-columns: 65% 40%;
     grid-template-rows: repeat(3, 1fr);
@@ -12,7 +20,8 @@
 }
 /*---BLOQUE FORM---*/
 .reserva__form{
-    
+    margin-right: 5%;
+
 }
 
 
@@ -21,11 +30,33 @@
     display: grid;
     grid-template-columns: 50% 50%;
     grid-gap: 15px;
+    padding: 5%;
+    padding-bottom: 1%;
+    font-family: 'Poppins';
+    font-size: 12px;
+    border-radius: 10px;
+    box-shadow: 1px 3px 2px #c2c2c2;
 }
+
+.form__container input {
+    background: #F0F0F0;
+    border: none;
+    margin-top: 5%;
+    
+}
+
 
 .form__container > label {
     display: flex;
     flex-direction: column;
+
+}
+
+.booking_title {
+    font-size: 20px;
+    font-family: 'Poppins';
+    font-weight: 500;
+    font-weight: bold;
 }
 
 /*---BLOQUE CALENDARIO---*/
@@ -45,5 +76,30 @@
     background-color: #FFF;
     grid-column: 2;
     grid-row: 1 / 4;
+    
+}
+
+.calendario__container{
+    margin-right: 5%;
+}
+
+.reserva__horario{
+    margin-top: 5%;
+}
+
+.horario__container{
+    padding: 5% ;
+    font-family: 'Poppins';
+    font-size: 15px;
+    margin-right: 5%;
+    border-radius: 10px;
+    box-shadow: 1px 3px 2px #c2c2c2;
+}
+
+.reserva__detalles{
+    margin-top: 16%;
+    border-radius: 10px;
+    padding: 5%;
+    box-shadow: 1px 3px 2px #c2c2c2;
     
 }
