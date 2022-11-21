@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import "./../cards/listCard.css";
+//import "./../cards/listCard.css";
+import "./categoryBlock.css";
 import { useSearchParams } from "react-router-dom";
 
 const baseUrl = 'http://18.220.195.162:8080/grupo5'
