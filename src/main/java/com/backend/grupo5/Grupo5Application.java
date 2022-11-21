@@ -1,5 +1,6 @@
 package com.backend.grupo5;
 
+import org.modelmapper.ModelMapper;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration;
@@ -12,6 +13,11 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 public class Grupo5Application extends SpringBootServletInitializer {
 	public static void main(String[] args) {
 		SpringApplication.run(Grupo5Application.class, args);
+	}
+
+	@Bean
+	public ModelMapper modelMapper() {
+		return new ModelMapper();
 	}
 
 	@Bean

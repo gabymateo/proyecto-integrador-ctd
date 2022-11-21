@@ -30,6 +30,11 @@ public class UserService implements IUserService {
     }
 
     @Override
+    public Optional<User> getById(Long id) {
+        return this.userRepository.findById(id);
+    }
+
+    @Override
     public ArrayList<User> getAll() {
         return (ArrayList<User>) this.userRepository.findAll();
     }

@@ -10,6 +10,7 @@ import com.backend.grupo5.repository.entities.*;
 import com.backend.grupo5.model.services.IProductService;
 import com.backend.grupo5.service.DTO.product.ProductCreateDTO;
 import com.backend.grupo5.service.DTO.product.ProductUpdateDTO;
+import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
@@ -18,9 +19,10 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.transaction.Transactional;
+import java.time.LocalDate;
 import java.util.*;
 
-@Service
+@Service @RequiredArgsConstructor
 public class ProductService implements IProductService {
 
     private final ProductRepository productRepository;
@@ -31,24 +33,6 @@ public class ProductService implements IProductService {
     private final ImageRepository imageRepository;
     private final ProductCustomRepository productCustomRepository;
     private final FeatureService featureService;
-
-    public ProductService(
-            ProductRepository productRepository,
-            CategoryRepository categoryRepository,
-            CityRepository cityRepository, ProductDTOTOProduct mapper,
-            AwsService awsService,
-            ImageRepository imageRepository,
-            ProductCustomRepository productCustomRepository, FeatureRepository featureRepository, FeatureService featureService) {
-        this.productRepository = productRepository;
-        this.categoryRepository = categoryRepository;
-        this.cityRepository = cityRepository;
-        this.mapper = mapper;
-        this.awsService = awsService;
-        this.imageRepository = imageRepository;
-        this.productCustomRepository = productCustomRepository;
-        this.featureService = featureService;
-    }
-
 
     @Override
     @Transactional
@@ -77,6 +61,7 @@ public class ProductService implements IProductService {
         product.setCategory(category.get());
         product.setCity(city.get());
         product.setFeatures(features);
+        product.setBookings(new HashSet<>());
         //upload image and relate to product
         for (MultipartFile file : files) {
             Image image = awsService.upload(file);
@@ -104,9 +89,8 @@ public class ProductService implements IProductService {
         return Optional.of(ProductModel.ProductEntityToProduct(product.get(), Optional.of(images), Optional.of(true)));
     }
 
-    @Override
-    public ArrayList<ProductModel> search(String name, Long categoryId, Long cityId, String order) {
-        ArrayList<Product> products = this.productCustomRepository.search(name, categoryId, cityId, order);
+    public Page<ProductModel> search(String name, Long categoryId, Long cityId, String order, String sort, LocalDate startDate, LocalDate endDate, Long productId, Pageable pageable) {
+        Page<Product> products = this.productCustomRepository.search(name, categoryId, cityId, order, sort, startDate, endDate, productId, pageable);
         ArrayList<ProductModel> productModels = new ArrayList<>();
         for(Product product : products) {
             Set<ImageModel> images = new HashSet<>();
@@ -115,26 +99,9 @@ public class ProductService implements IProductService {
                 imageModel.setUrl(this.awsService.getByKey(image.getName_key()).toString());
                 images.add(imageModel);
             }
-            productModels.add(ProductModel.ProductEntityToProduct(product, Optional.of(images), Optional.of(true)));
+            productModels.add(ProductModel.ProductEntityToProduct(product, Optional.of(images), Optional.of(false)));
         }
-        return productModels;
-    }
-
-    public Page<ProductModel> searchTest(String name, Long categoryId, Long cityId, String order, String sort, Pageable pageable) {
-        Page<Product> products = this.productCustomRepository.test(name, categoryId, cityId, order, sort, pageable);
-        ArrayList<ProductModel> productModels = new ArrayList<>();
-        for(Product product : products) {
-            Set<ImageModel> images = new HashSet<>();
-            for (Image image : product.getImages()) {
-                ImageModel imageModel = ImageModel.create(image);
-                imageModel.setUrl(this.awsService.getByKey(image.getName_key()).toString());
-                images.add(imageModel);
-            }
-            productModels.add(ProductModel.ProductEntityToProduct(product, Optional.of(images), Optional.of(true)));
-        }
-
         return new PageImpl<>(productModels, products.getPageable(), products.getTotalElements());
-
     }
 
     @Override
