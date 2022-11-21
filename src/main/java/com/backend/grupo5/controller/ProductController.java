@@ -4,12 +4,11 @@ import com.backend.grupo5.common.exceptions.ApplicationError;
 import com.backend.grupo5.common.exceptions.ErrorHandler;
 import com.backend.grupo5.common.exceptions.ResponseHandler;
 import com.backend.grupo5.model.entities.ProductModel;
-import com.backend.grupo5.repository.entities.Product;
+import com.backend.grupo5.model.services.IProductService;
 import com.backend.grupo5.service.DTO.product.ProductCreateDTO;
-import com.backend.grupo5.service.ProductService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Sort;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -18,19 +17,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.Optional;
 
-@RestController
-@RequestMapping("products")
+@Controller @RequestMapping("/products") @RequiredArgsConstructor
 public class ProductController {
-
-    private final ProductService productService;
-
-    public ProductController(ProductService productService) {
-        this.productService = productService;
-    }
-
+    private final IProductService productService;
 
     @PostMapping(value = "/")
     @PreAuthorize("hasAuthority('ADMIN')")
@@ -52,7 +43,6 @@ public class ProductController {
             return ErrorHandler.generateErrorResponse(HttpStatus.BAD_REQUEST, error.getMessage());
         }
     }
-
 
     @GetMapping("/")
     public ResponseEntity<Object> search(

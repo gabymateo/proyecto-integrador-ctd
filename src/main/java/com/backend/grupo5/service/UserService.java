@@ -3,21 +3,16 @@ package com.backend.grupo5.service;
 import com.backend.grupo5.model.services.IUserService;
 import com.backend.grupo5.repository.UserRepository;
 import com.backend.grupo5.repository.entities.User;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
 import java.util.ArrayList;
 import java.util.Optional;
 
-@Service @Transactional
+@Service @Transactional @RequiredArgsConstructor
 public class UserService implements IUserService {
-
     private final UserRepository userRepository;
-
-    public UserService(UserRepository userRepository) {
-        this.userRepository = userRepository;
-    }
-
 
     @Override
     public User create(User user) {
@@ -33,7 +28,7 @@ public class UserService implements IUserService {
     public Optional<User> getById(Long id) {
         return this.userRepository.findById(id);
     }
-
+    
     @Override
     public ArrayList<User> getAll() {
         return (ArrayList<User>) this.userRepository.findAll();

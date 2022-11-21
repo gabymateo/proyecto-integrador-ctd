@@ -16,7 +16,6 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController @RequiredArgsConstructor @RequestMapping("/users")
 public class UserController {
     private final IUserService userService;
-
     @PostMapping("/signUp")
     public ResponseEntity<Object> create(@RequestBody User input) {
         try {

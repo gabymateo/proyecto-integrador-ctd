@@ -7,13 +7,12 @@ import com.backend.grupo5.model.services.IBookingService;
 import com.backend.grupo5.repository.entities.Booking;
 import com.backend.grupo5.service.DTO.booking.BookingCreateInput;
 import lombok.RequiredArgsConstructor;
-import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
+
 import java.util.List;
 import java.util.Optional;
 
@@ -22,8 +21,7 @@ public class BookingController {
 
     private final IBookingService bookingService;
 
-
-    @PostMapping("/")
+    @PostMapping("/") @PreAuthorize("hasAnyAuthority('ADMIN', 'USER')")
     public ResponseEntity<Object> create(@RequestBody BookingCreateInput input) {
         try {
             Booking booking = this.bookingService.create(input);

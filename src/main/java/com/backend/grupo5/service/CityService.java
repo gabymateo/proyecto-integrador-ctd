@@ -8,23 +8,18 @@ import com.backend.grupo5.model.services.ICityService;
 import com.backend.grupo5.repository.CityRepository;
 import com.backend.grupo5.service.DTO.city.CityCreateDTO;
 import com.backend.grupo5.service.DTO.city.CityUpdateDTO;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.Optional;
 
-@Service
+@Service @RequiredArgsConstructor
 public class CityService implements ICityService {
 
     private final CityRepository cityRepository;
     private final CityDTOTOCity mapper;
-
-    public CityService(CityRepository cityRepository, CityDTOTOCity mapper) {
-        this.cityRepository = cityRepository;
-        this.mapper = mapper;
-    }
-
 
     @Override
     public City create(CityCreateDTO input) {

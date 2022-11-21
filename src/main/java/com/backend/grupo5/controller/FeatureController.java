@@ -7,7 +7,7 @@ import com.backend.grupo5.common.exceptions.ResponseHandler;
 import com.backend.grupo5.model.services.IFeatureService;
 import com.backend.grupo5.repository.entities.Feature;
 import com.backend.grupo5.service.DTO.feature.FeatureCreateDTO;
-import com.backend.grupo5.service.FeatureService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -16,15 +16,9 @@ import org.springframework.web.bind.annotation.*;
 import java.util.ArrayList;
 import java.util.Optional;
 
-@RestController
-@RequestMapping("/features")
+@RestController @RequestMapping("/features") @RequiredArgsConstructor
 public class FeatureController {
-
     private final IFeatureService featureService;
-
-    public FeatureController(FeatureService featureService) {
-        this.featureService = featureService;
-    }
 
     @PostMapping("/")
     @PreAuthorize("hasAuthority('ADMIN')")
