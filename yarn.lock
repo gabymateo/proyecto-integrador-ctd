@@ -855,6 +855,11 @@ path-parse@^1.0.7:
   resolved "https://registry.npmjs.org/path-parse/-/path-parse-1.0.7.tgz"
   integrity sha512-LDJzPVEEEPR+y48z93A0Ed0yXb8pAByGWo/k5YYdYgpY2/2EsOsksJrq7lOHxryrVOn1ejG6oAp8ahvOIQD8sw==
 
+photoswipe@^5.3.3:
+  version "5.3.3"
+  resolved "https://registry.yarnpkg.com/photoswipe/-/photoswipe-5.3.3.tgz#86351a33502a3ab7d1e483127fe596b20054218a"
+  integrity sha512-BUuulwZwkYFKADSe5xf0dd+wf6dws34ZvqP8R3oYHepRauOXoQHvw600sw1HlWd8K0S3LRCS4jxyR5fTuI383Q==
+
 picocolors@^1.0.0:
   version "1.0.0"
   resolved "https://registry.npmjs.org/picocolors/-/picocolors-1.0.0.tgz"
@@ -1290,6 +1295,11 @@ react-list@^0.8.13:
   integrity sha512-pgmzGi0G5uGrdHzMhgO7KR1wx5ZXVvI3SsJUmkblSAKtewIhMwbQiMuQiTE83ozo04BQJbe0r3WIWzSO0dR1xg==
   dependencies:
     prop-types "15"
+
+react-photoswipe-gallery@^2.2.2:
+  version "2.2.2"
+  resolved "https://registry.yarnpkg.com/react-photoswipe-gallery/-/react-photoswipe-gallery-2.2.2.tgz#50ae1e6d695fc38605fd907313ac1580379d0a17"
+  integrity sha512-pe77HMiM5s4F/Q2nw8QHHvRzz7/XYkPMhWpeN71DT/1qfidk8fbZjsuqyAysRnhCGnFKxF9HfKx1BsfPuPTZNw==
 
 react-refresh@^0.14.0:
   version "0.14.0"

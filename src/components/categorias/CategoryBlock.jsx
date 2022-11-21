@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+//import "./../cards/listCard.css";
 import "./categoryBlock.css";
 import { useSearchParams } from "react-router-dom";
 
