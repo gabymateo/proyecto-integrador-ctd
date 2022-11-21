@@ -7,7 +7,9 @@ import 'react-date-range/dist/styles.css'; // main css file
 import 'react-date-range/dist/theme/default.css'; // theme css file
 import { useCitiesApi } from '../../apis/citiesApi';
 import { useProductsApi } from '../../apis/productsApi';
-import { AiFillPropertySafety } from 'react-icons/ai';
+//ICONOS
+import { IoLocationSharp } from 'react-icons/io5';
+import { IoMdCalendar } from 'react-icons/io';
 import {format} from 'date-fns';
 
 export const BloqueBuscador = ({getProductosFiltrados, getProductos}) => {
@@ -48,15 +50,17 @@ export const BloqueBuscador = ({getProductosFiltrados, getProductos}) => {
           <h1>Busca ofertas en hoteles, casas y mucho mas.</h1>
           <div className='barraBuscadorContainer'>
             <div className='barraBuscadorItem'>
+              <IoLocationSharp/>
                 <select onChange={handleChange}>
                   <option defaultValue> Selecciona una ciudad </option>
                   <option value={0}> Traer todos </option>
                   {apiCity.cities.map((city)=> {
-                    return <option  key={city.id} value={city.id}> {city.name} </option>
+                    return <option  key={city.id} value={city.id}> <IoLocationSharp/> {city.name} </option>
                   })}
                 </select>
             </div>
             <div className='barraBuscadorItem'>
+              <IoMdCalendar/>
                 <span 
                 onClick={()=>setOpenDate(!openDate)} 
                 className='buscador'>
@@ -67,6 +71,7 @@ export const BloqueBuscador = ({getProductosFiltrados, getProductos}) => {
                   onChange={item => setDate([item.selection])}
                   moveRangeOnFirstSelection={false}
                   months={2}
+                  showDateDisplay={false}
                   rangeColors={['#FBC02D', '#FBC02D', '#FBC02D']}
                   ranges={date}
                   className='date'
