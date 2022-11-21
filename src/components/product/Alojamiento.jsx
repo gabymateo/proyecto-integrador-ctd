@@ -1,7 +1,7 @@
 import React from "react";
 import "./alojamiento.css";
 import { NavLink, useParams, useSearchParams } from "react-router-dom";
-import Booking from "../booking/Booking";
+
 
 //Iconos
 
