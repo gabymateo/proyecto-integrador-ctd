@@ -7,9 +7,9 @@ import '../../../node_modules/photoswipe/dist/photoswipe.css'
 import { Gallery, Item } from 'react-photoswipe-gallery'
 
 export const BloqueImagenes = (props) => {
-    //console.log(props?.products);
-    const images = props?.products?.images
-    //console.log(images[0]);
+  //console.log(props?.products);
+  const images = props?.products?.images;
+  //console.log(images[0]);
 
   return (
     <>
@@ -19,31 +19,27 @@ export const BloqueImagenes = (props) => {
           <AiTwotoneHeart className="like" />
         </div>
         <div className="imagenes__container">
-        <div className="imagenes__imagen-secundaria">
-          <Gallery>
-            {images?.map((image, i = 0) => (
-              <div key={image.id} className={`imagen${i}`}>
-                <Item 
-                original={image.url} 
-                width="1024" 
-                height="768"
-                >
-                  {({ ref, open }) => (
-                    <img ref={ref} onClick={open} src={image.url} />
-                  )}
-                </Item>
-              </div>
-            ))}
-          <Item>
-          {({ref, open})=>(
-            <p ref={ref} onClick={open}>Ver mas</p>
-
-          )}
-
-          </Item>
-          </Gallery>
+          <div className="imagenes__imagen-secundaria">
+            <Gallery>
+              {images?.map((image, i = 0) => (
+                <div key={image.id} className={`imagen${i}`}>
+                  <Item original={image.url} width="1024" height="768">
+                    {({ ref, open }) => (
+                      <img ref={ref} onClick={open} src={image.url} />
+                    )}
+                  </Item>
+                </div>
+              ))}
+              <Item>
+                {({ ref, open }) => (
+                  <p ref={ref} onClick={open}>
+                    Ver mas
+                  </p>
+                )}
+              </Item>
+            </Gallery>
+          </div>
         </div>
-      </div>
       </div>
     </>
   );

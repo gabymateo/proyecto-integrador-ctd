@@ -33,7 +33,7 @@ export const Alojamiento = () => {
 
   return (
     <div className="alojamiento">
-      <HeaderAlojamiento/>
+      <HeaderAlojamiento products={products.data}/>
       <div className="alojamiento__ubicacion">
         <div className="ubicacion__container">
           <div className="ciudad">
@@ -48,7 +48,6 @@ export const Alojamiento = () => {
         </div>
       </div>
       <BloqueImagenes products={products.data}/>
-      <Test products={products.data}/>
       <div className="alojamiento__descripcion">
         <div className="descripcion__container">
           <h1>Titulo</h1>
@@ -71,7 +70,7 @@ export const Alojamiento = () => {
         </div>
       </div>
       <Calendario/>
-      <Politicas/>
+      <Politicas products={products.data}/>
     </div>
   );
 };
