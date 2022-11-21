@@ -29,6 +29,7 @@ public class ProductModel {
     private Set<Feature> features;
     private Set<Long> featureIds;
     private Set<Long> imageIds;
+    private Set<Booking> bookings;
 
     public static ProductModel ProductEntityToProduct(Product input, Optional<Set<ImageModel>> images, Optional<Boolean> fetchAttributes) {
         ProductModel product = new ProductModel();
@@ -44,6 +45,7 @@ public class ProductModel {
             product.setFeatures(input.getFeatures());
             product.setCity(input.getCity());
             product.setCategory(input.getCategory());
+            product.setBookings(input.getBookings());
         }
         return product;
     }

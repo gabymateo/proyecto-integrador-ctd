@@ -10,12 +10,14 @@ import com.backend.grupo5.service.ProductService;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Optional;
 
@@ -60,12 +62,14 @@ public class ProductController {
             @RequestParam(name = "order", required = false) String order,
             @RequestParam(name= "sort", required = false) String sort,
             @RequestParam(name = "size", required = false) String size,
+            @RequestParam(name = "checkIn", required = false) @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate startDate,
+            @RequestParam(name = "checkOut", required = false) @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate endDate,
             @RequestParam(name = "page", required = false) String page
     ) {
         try {
             int parsedPage = page != null ? Integer.parseInt(page) : 0;
-            int parsedSize = size != null ? Integer.parseInt(size) : 5;
-            Page<ProductModel> products = this.productService.searchTest(name, categoryId, cityId, order, sort, PageRequest.of(parsedPage, parsedSize));
+            int parsedSize = size != null ? Integer.parseInt(size) : 8;
+            Page<ProductModel> products = this.productService.search(name, categoryId, cityId, order, sort, startDate, endDate, null, PageRequest.of(parsedPage, parsedSize));
             return ResponseHandler.generateResponse(HttpStatus.OK, "success", products.getContent(), products.getPageable());
         } catch (ApplicationError error) {
             return ErrorHandler.generateErrorResponse(error.getHttpStatus(), error.getMessage());
