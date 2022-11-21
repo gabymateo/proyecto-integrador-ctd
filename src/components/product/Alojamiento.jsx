@@ -12,7 +12,7 @@ import Slider from "react-slick";
 import "../../../node_modules/slick-carousel/slick/slick.css"; 
 import "../../../node_modules/slick-carousel/slick/slick-theme.css";
 import { HeaderAlojamiento } from "./HeaderAlojamiento";
-import {BloqueImagenes} from './BloqueImagenes';
+import {BloqueImagenes, Test} from './BloqueImagenes';
 import { Calendario } from "./Calendario";
 import { Politicas } from "./Politicas";
 import { useProductsApi } from "../../apis/productsApi";
@@ -48,6 +48,7 @@ export const Alojamiento = () => {
         </div>
       </div>
       <BloqueImagenes products={products.data}/>
+      <Test products={products.data}/>
       <div className="alojamiento__descripcion">
         <div className="descripcion__container">
           <h1>Titulo</h1>
