@@ -5,9 +5,9 @@ import com.backend.grupo5.common.helpers.validators.CategoryValidator;
 import com.backend.grupo5.repository.entities.Category;
 import com.backend.grupo5.model.services.ICategoryService;
 import com.backend.grupo5.repository.CategoryRepository;
-import com.backend.grupo5.service.DTO.category.CategoryCreateDTO;
+import com.backend.grupo5.controller.input.category.CategoryCreateDTO;
 import com.backend.grupo5.common.helpers.mapper.category.CategoryDTOToCategory;
-import com.backend.grupo5.service.DTO.category.CategoryUpdateDTO;
+import com.backend.grupo5.controller.input.category.CategoryUpdateDTO;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
@@ -21,13 +21,11 @@ public class CategoryService implements ICategoryService {
 
     private final CategoryRepository repository;
     private final CategoryDTOToCategory mapper;
-    private final CategoryValidator validator;
 
     @Override
-    public Category create(CategoryCreateDTO category) {
-        //validate input
-        this.validator.validateCreate(category);
-        Category categoryEntity = mapper.map(category);
+    public Category create(CategoryCreateDTO input) {
+        CategoryValidator.validateCreate(input);
+        Category categoryEntity = mapper.map(input);
         return this.repository.save(categoryEntity);
     }
 
@@ -45,20 +43,18 @@ public class CategoryService implements ICategoryService {
         return (ArrayList<Category>) this.repository.findAll();
     }
 
-    @Override
-    @Transactional
-    public Category update(Long id, CategoryUpdateDTO categoryUpdateDTO) {
-        //validate input
-        this.validator.validateUpdate(categoryUpdateDTO);
+    @Override @Transactional
+    public Category update(Long id, CategoryUpdateDTO input) {
+        CategoryValidator.validateUpdate(input);
         Optional<Category> category = this.repository.findById(id);
         if(category.isEmpty()) {
             throw new ApplicationError(CategoryErrorDescription.CATEGORY_NOT_FOUND.getDescription(), HttpStatus.NOT_FOUND);
         }
-        if(categoryUpdateDTO.getTitle() != null) {
-            category.get().setTitle(categoryUpdateDTO.getTitle());
+        if(input.getTitle() != null) {
+            category.get().setTitle(input.getTitle());
         }
-        if(categoryUpdateDTO.getDescription() != null) {
-            category.get().setDescription(categoryUpdateDTO.getDescription());
+        if(input.getDescription() != null) {
+            category.get().setDescription(input.getDescription());
         }
         return this.repository.save(category.get());
     }

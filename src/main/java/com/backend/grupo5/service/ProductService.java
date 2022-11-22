@@ -3,13 +3,14 @@ package com.backend.grupo5.service;
 import com.backend.grupo5.common.exceptions.ApplicationError;
 import com.backend.grupo5.common.helpers.error_description.ProductErrorDescription;
 import com.backend.grupo5.common.helpers.mapper.ProductDTOTOProduct;
+import com.backend.grupo5.common.helpers.validators.ProductValidator;
 import com.backend.grupo5.model.entities.ImageModel;
 import com.backend.grupo5.model.entities.ProductModel;
 import com.backend.grupo5.repository.*;
 import com.backend.grupo5.repository.entities.*;
 import com.backend.grupo5.model.services.IProductService;
-import com.backend.grupo5.service.DTO.product.ProductCreateDTO;
-import com.backend.grupo5.service.DTO.product.ProductUpdateDTO;
+import com.backend.grupo5.controller.input.product.ProductCreateDTO;
+import com.backend.grupo5.controller.input.product.ProductUpdateDTO;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
@@ -34,9 +35,10 @@ public class ProductService implements IProductService {
     private final ProductCustomRepository productCustomRepository;
     private final FeatureService featureService;
 
-    @Override
-    @Transactional
+    @Override @Transactional
     public ProductModel create(ProductCreateDTO input, MultipartFile[] files) {
+        //validate input
+        ProductValidator.validateCreate(input);
         Product product = mapper.map(input);
         Set<Image> images = new HashSet<>();
         Set<Feature> features = new HashSet<>();
@@ -45,23 +47,22 @@ public class ProductService implements IProductService {
         if(category.isEmpty()) {
             throw new ApplicationError(ProductErrorDescription.CATEGORY_NOT_PROVIDED.getDescription(), HttpStatus.BAD_REQUEST);
         }
+        product.setCategory(category.get());
         //validate if city exists
         Optional<City> city = this.cityRepository.findById(input.getCityId());
         if(city.isEmpty()) {
             throw new ApplicationError(ProductErrorDescription.CITY_NOT_PROVIDED.getDescription(), HttpStatus.BAD_REQUEST);
         }
+        product.setCity(city.get());
         //validate if features exits
         for (Long id : input.getFeatureIds()) {
             Optional<Feature> foundFeature = this.featureService.getById(id);
             if(foundFeature.isEmpty()) {
-                throw new ApplicationError("not found", HttpStatus.NOT_FOUND);
+                throw new ApplicationError(ProductErrorDescription.FEATURE_NOT_FOUND.getDescription(), HttpStatus.NOT_FOUND);
             }
             features.add(foundFeature.get());
         }
-        product.setCategory(category.get());
-        product.setCity(city.get());
         product.setFeatures(features);
-        product.setBookings(new HashSet<>());
         //upload image and relate to product
         for (MultipartFile file : files) {
             Image image = awsService.upload(file);
@@ -71,7 +72,7 @@ public class ProductService implements IProductService {
         }
         product.setImages(images);
         this.productRepository.save(product);
-        return ProductModel.ProductEntityToProduct(product, Optional.empty(), Optional.of(false));
+        return ProductModel.ProductEntityToProduct(product, null, Optional.of(false));
     }
 
     @Override
@@ -86,7 +87,7 @@ public class ProductService implements IProductService {
             imageModel.setUrl(this.awsService.getByKey(image.getName_key()).toString());
             images.add(imageModel);
         }
-        return Optional.of(ProductModel.ProductEntityToProduct(product.get(), Optional.of(images), Optional.of(true)));
+        return Optional.of(ProductModel.ProductEntityToProduct(product.get(), images, Optional.of(true)));
     }
 
     public Page<ProductModel> search(String name, Long categoryId, Long cityId, String order, String sort, LocalDate startDate, LocalDate endDate, Long productId, Pageable pageable) {
@@ -99,7 +100,7 @@ public class ProductService implements IProductService {
                 imageModel.setUrl(this.awsService.getByKey(image.getName_key()).toString());
                 images.add(imageModel);
             }
-            productModels.add(ProductModel.ProductEntityToProduct(product, Optional.of(images), Optional.of(false)));
+            productModels.add(ProductModel.ProductEntityToProduct(product, images, Optional.of(false)));
         }
         return new PageImpl<>(productModels, products.getPageable(), products.getTotalElements());
     }
@@ -113,7 +114,7 @@ public class ProductService implements IProductService {
     public void delete(Long id) {
         Optional<Product> product = this.productRepository.findById(id);
         if(product.isEmpty()) {
-            throw  new ApplicationError("not found", HttpStatus.NOT_FOUND);
+            throw  new ApplicationError(ProductErrorDescription.PRODUCT_NOT_FOUND.getDescription(), HttpStatus.NOT_FOUND);
         }
         product.get().getFeatures().removeAll(product.get().getFeatures());
         this.productRepository.delete(product.get());

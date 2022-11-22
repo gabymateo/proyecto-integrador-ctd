@@ -6,7 +6,9 @@ import java.util.Set;
 
 @Data
 public class AuthenticationCredentials {
-
     private String email;
     private String password;
 }
+
+
+

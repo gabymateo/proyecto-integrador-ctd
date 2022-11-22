@@ -1,6 +1,5 @@
 package com.backend.grupo5.security;
 
-import com.backend.grupo5.repository.RoleRepository;
 import com.backend.grupo5.repository.UserRepository;
 import com.backend.grupo5.repository.entities.Role;
 import com.backend.grupo5.repository.entities.User;
@@ -19,7 +18,6 @@ import java.util.stream.Collectors;
 
 @RequiredArgsConstructor @Service
 public class UserDetailsServiceImp implements UserDetailsService {
-
     private final UserRepository userRepository;
 
     @Override
@@ -35,3 +33,4 @@ public class UserDetailsServiceImp implements UserDetailsService {
         return roles.stream().map(role -> new SimpleGrantedAuthority(role.getName())).collect(Collectors.toList());
     }
 }
+

@@ -1,11 +1,11 @@
-package com.backend.grupo5.controller;
+package com.backend.grupo5.controller.http;
 
 import com.backend.grupo5.common.exceptions.ApplicationError;
 import com.backend.grupo5.common.exceptions.ErrorHandler;
 import com.backend.grupo5.common.exceptions.ResponseHandler;
 import com.backend.grupo5.model.entities.ProductModel;
 import com.backend.grupo5.model.services.IProductService;
-import com.backend.grupo5.service.DTO.product.ProductCreateDTO;
+import com.backend.grupo5.controller.input.product.ProductCreateDTO;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -24,7 +24,7 @@ public class ProductController {
     private final IProductService productService;
 
     @PostMapping(value = "/")
-    @PreAuthorize("hasAuthority('ADMIN')")
+    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
     public ResponseEntity<Object> create(@ModelAttribute ProductCreateDTO input) {
         try {
             ProductModel product = this.productService.create(input, input.getFiles());

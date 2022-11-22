@@ -1,11 +1,11 @@
-package com.backend.grupo5.controller;
+package com.backend.grupo5.controller.http;
 
 import com.backend.grupo5.common.exceptions.ApplicationError;
 import com.backend.grupo5.common.exceptions.ErrorHandler;
 import com.backend.grupo5.common.exceptions.ResponseHandler;
 import com.backend.grupo5.model.services.IBookingService;
 import com.backend.grupo5.repository.entities.Booking;
-import com.backend.grupo5.service.DTO.booking.BookingCreateInput;
+import com.backend.grupo5.controller.input.booking.BookingCreateInput;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -18,10 +18,10 @@ import java.util.Optional;
 
 @RestController @RequestMapping("/bookings") @RequiredArgsConstructor
 public class BookingController {
-
     private final IBookingService bookingService;
 
-    @PostMapping("/") @PreAuthorize("hasAnyAuthority('ADMIN', 'USER')")
+    @PostMapping("/")
+    @PreAuthorize("hasAnyAuthority('ROLE_ADMIN', 'ROLE_USER')")
     public ResponseEntity<Object> create(@RequestBody BookingCreateInput input) {
         try {
             Booking booking = this.bookingService.create(input);
@@ -36,6 +36,16 @@ public class BookingController {
         try {
             Optional<Booking> booking = this.bookingService.getById(id);
             return ResponseHandler.generateResponse(HttpStatus.OK, "success", booking);
+        } catch (ApplicationError error) {
+            return ErrorHandler.generateErrorResponse(error.getHttpStatus(), error.getMessage());
+        }
+    }
+
+    @GetMapping("/{productId}")
+    public ResponseEntity<Object> getByProductId(@PathVariable Long productId) {
+        try {
+            List<Booking> bookings = this.bookingService.getByProductId(productId);
+            return ResponseHandler.generateResponse(HttpStatus.OK, "success", bookings);
         } catch (ApplicationError error) {
             return ErrorHandler.generateErrorResponse(error.getHttpStatus(), error.getMessage());
         }

@@ -1,4 +1,4 @@
-package com.backend.grupo5.service.DTO.product;
+package com.backend.grupo5.controller.input.product;
 
 import lombok.Data;
 import lombok.Getter;
@@ -7,11 +7,8 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.util.ArrayList;
 
-@Data
-@Getter
-@Setter
+@Data @Getter @Setter
 public class ProductCreateDTO {
-
     private String name;
     private Long categoryId;
     private Long cityId;
@@ -21,5 +18,4 @@ public class ProductCreateDTO {
     private boolean availability;
     private ArrayList<Long> featureIds;
     private MultipartFile[] files;
-
 }

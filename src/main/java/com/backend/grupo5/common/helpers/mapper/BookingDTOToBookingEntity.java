@@ -1,7 +1,7 @@
 package com.backend.grupo5.common.helpers.mapper;
 
 import com.backend.grupo5.repository.entities.Booking;
-import com.backend.grupo5.service.DTO.booking.BookingCreateInput;
+import com.backend.grupo5.controller.input.booking.BookingCreateInput;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDate;
