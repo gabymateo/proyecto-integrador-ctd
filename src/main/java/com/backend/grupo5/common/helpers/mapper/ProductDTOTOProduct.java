@@ -13,6 +13,7 @@ public class ProductDTOTOProduct implements IMapper<ProductCreateDTO, Product>{
         product.setAddress(in.getAddress());
         product.setPrice(in.getPrice());
         product.setAvailability(in.isAvailability());
+        product.setDescription(in.getDescription());
         return product;
     }
 }
