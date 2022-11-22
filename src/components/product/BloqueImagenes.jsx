@@ -67,23 +67,22 @@ export const BloqueImagenesRes = (props) => {
             <AiFillHeart className="like" />
           </div>
           <div className="imagenes-res__container">
-          <Slider {...settings}>
-          <div>
-            <h3>1</h3>
-          </div>
-          <div>
-            <h3>2</h3>
-          </div>
-        </Slider>
-            
-            {/*<Slider {...settings}>
+            <Slider {...settings}>
               {images?.map((image, i=0)=>(
                 <div key={image.id} className={`imagen${i}`}>
                   <img src={image.url} alt="" />
                 </div>
               ))}
-            </Slider>*/}
+            </Slider>
           </div>
+              {/*<Slider {...settings}>
+              <div>
+                <h3>1</h3>
+              </div>
+              <div>
+                <h3>2</h3>
+              </div>
+            </Slider>*/}
         
       </div>
     </>

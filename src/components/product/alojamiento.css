@@ -188,6 +188,24 @@
     grid-column-start: 2
 }
 
+/*---BLOQUE IMAGENES-RES---*/
+.slick-list {
+    height: 400px;
+    
+    overflow: hidden;
+    
+}
+
+.slick-slide > div > div > img {
+    object-fit: cover;
+    max-width:400px;
+    max-height:400px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    
+
+}
 /*---BLOQUE DESCRIPCION---*/
 .alojamiento__descripcion {
     display: flex;

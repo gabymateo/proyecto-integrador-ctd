@@ -17,6 +17,7 @@ import {
 } from "react-router-dom";
 import { useProductsApi } from './apis/productsApi';
 import { Book } from './pages/Book';
+import {ReservaOk} from './components/reserva/ReservaOk'
 
 function App() {
   const {products, getProducts, getProductsFilter} = useProductsApi()
@@ -34,6 +35,7 @@ function App() {
         <Route path='/product/:id' element={<Product/>}></Route>
         <Route path='/filter' element={<Filter/>}></Route>
         <Route path='/product/:id/reserva' element={<Book/>}></Route>
+        <Route path='/product/:id/reserva/ok' element={<ReservaOk/>}></Route>
       </Routes>
     </>
   )

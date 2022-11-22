@@ -5,7 +5,8 @@ import { DateRange } from "react-date-range";
 import "../../../node_modules/react-date-range/dist/styles.css"; // main css file
 import "../../../node_modules/react-date-range/dist/theme/default.css"; // theme css file
 import {BiCheckCircle} from 'react-icons/bi';
-import Horarios from '../../DataMock/Horarios.json'
+import Horarios from '../../DataMock/Horarios.json';
+import { ReservaOk } from './ReservaOk';
 
 const emailRegexp = new RegExp(/[^@ \t\r\n]+@[^@ \t\r\n]+\.[^@ \t\r\n]+/);
 
@@ -145,7 +146,7 @@ export const Reserva = () => {
             <span>_/_/_</span>
           </div>
           <hr />
-          <NavLink>
+          <NavLink to={'ok'}>
             <button className="submit" type='submit'>Confirmar Reserva</button>
           </NavLink>
         </div>

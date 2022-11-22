@@ -12,7 +12,6 @@ export const Book = () => {
     <Reserva/>
     <Politicas/>
     <Footer/>
-
     </>
   )
 }
