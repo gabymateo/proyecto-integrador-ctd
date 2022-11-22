@@ -104,7 +104,8 @@ export const Reserva = () => {
           <h1>Seleccioná tu fecha de reserva</h1>
           <DateRange
             editableDateInputs={true}
-            onChange={(item) => setDate([item.selection])}
+            onChan  
+            nge={(item) => setDate([item.selection])}
             moveRangeOnFirstSelection={false}
             months={2}
             ranges={date}
@@ -119,17 +120,17 @@ export const Reserva = () => {
           <div className="horario__container">
             <p className='principal'>
               <BiCheckCircle /> Tu habitacion va a estar lista para el check in
-              entre las 10:00 y las 11:00pm
+              entre las 10:00 AM y las 11:00 PM
             </p>
             <label>
               Indica tu horario estimado de llegada
+              </label>
               <select>
                 <option defaultValue>Seleccionar hora de llegada</option>
                 {Horarios.map((h) => {
                   return <option key={h.id}>{h.horario}</option>;
                 })}
               </select>
-            </label>
           </div>
         </div>
         <div className="reserva__detalles">
