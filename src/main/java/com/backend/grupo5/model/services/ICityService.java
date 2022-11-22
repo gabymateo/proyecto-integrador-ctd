@@ -1,8 +1,8 @@
 package com.backend.grupo5.model.services;
 
 import com.backend.grupo5.repository.entities.City;
-import com.backend.grupo5.service.DTO.city.CityCreateDTO;
-import com.backend.grupo5.service.DTO.city.CityUpdateDTO;
+import com.backend.grupo5.controller.input.city.CityCreateDTO;
+import com.backend.grupo5.controller.input.city.CityUpdateDTO;
 
 import java.util.ArrayList;
 import java.util.Optional;

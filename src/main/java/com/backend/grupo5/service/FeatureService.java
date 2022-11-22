@@ -1,11 +1,11 @@
 package com.backend.grupo5.service;
 
 import com.backend.grupo5.common.exceptions.ApplicationError;
-import com.backend.grupo5.common.helpers.enums.FeatureType;
+import com.backend.grupo5.common.helpers.validators.FeatureValidator;
 import com.backend.grupo5.model.services.IFeatureService;
 import com.backend.grupo5.repository.FeatureRepository;
 import com.backend.grupo5.repository.entities.Feature;
-import com.backend.grupo5.service.DTO.feature.FeatureCreateDTO;
+import com.backend.grupo5.controller.input.feature.FeatureCreateDTO;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
@@ -19,6 +19,7 @@ public class FeatureService implements IFeatureService {
 
     @Override
     public Feature create(FeatureCreateDTO input) {
+        FeatureValidator.validateCreate(input);
         Feature feature = new Feature();
         feature.setName(input.getName());
         feature.setType( input.getType());

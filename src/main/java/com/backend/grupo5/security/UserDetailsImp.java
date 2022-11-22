@@ -9,7 +9,6 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Collections;
 import java.util.List;
 
 @RequiredArgsConstructor
@@ -24,9 +23,6 @@ public class UserDetailsImp implements UserDetails {
         return authorities;
     }
 
-    public Long getId() {
-        return user.getId();
-    }
     @Override
     public String getPassword() {
         return user.getPassword();

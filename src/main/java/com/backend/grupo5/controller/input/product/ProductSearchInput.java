@@ -1,4 +1,4 @@
-package com.backend.grupo5.service.DTO.product;
+package com.backend.grupo5.controller.input.product;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.AllArgsConstructor;

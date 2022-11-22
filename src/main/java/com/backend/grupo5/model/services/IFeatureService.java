@@ -1,7 +1,7 @@
 package com.backend.grupo5.model.services;
 
 import com.backend.grupo5.repository.entities.Feature;
-import com.backend.grupo5.service.DTO.feature.FeatureCreateDTO;
+import com.backend.grupo5.controller.input.feature.FeatureCreateDTO;
 
 import java.util.ArrayList;
 import java.util.Optional;

@@ -1,4 +1,4 @@
-package com.backend.grupo5.controller;
+package com.backend.grupo5.controller.http;
 
 
 import com.backend.grupo5.common.exceptions.ApplicationError;
@@ -7,8 +7,8 @@ import com.backend.grupo5.common.exceptions.ResponseHandler;
 import com.backend.grupo5.model.services.ICategoryService;
 import com.backend.grupo5.repository.entities.Category;
 
-import com.backend.grupo5.service.DTO.category.CategoryCreateDTO;
-import com.backend.grupo5.service.DTO.category.CategoryUpdateDTO;
+import com.backend.grupo5.controller.input.category.CategoryCreateDTO;
+import com.backend.grupo5.controller.input.category.CategoryUpdateDTO;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

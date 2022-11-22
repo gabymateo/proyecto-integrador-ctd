@@ -19,14 +19,4 @@ public class ErrorHandler extends ResponseEntityExceptionHandler {
         response.put("data", message);
         return new ResponseEntity<Object>(response, httpStatus);
     }
-
-    //input handler
-//    @ExceptionHandler(MethodArgumentNotValidException.class)
-//    public ResponseEntity<?> inputValidationError(MethodArgumentNotValidException ex) {
-//        Map<String, Object> response = new HashMap<>();
-//        response.put("status", "error");
-//        response.put("data", ex.getBindingResult().getFieldError().getDefaultMessage());
-//        return new ResponseEntity<Object>(response, HttpStatus.BAD_REQUEST);
-//    }
-
 }

@@ -1,9 +1,7 @@
-package com.backend.grupo5.service.DTO.category;
+package com.backend.grupo5.controller.input.category;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Data;
-
-import java.util.Optional;
 
 @Data
 @JsonIgnoreProperties(ignoreUnknown = true)
