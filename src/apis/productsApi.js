@@ -50,9 +50,33 @@ export function useProductsApi() {
     }
 }
     // ---------- FUNCIÓN PARA OBTENER PRODUCTOS FILTRADOS POR CIUDAD DE LA DB --------
-    const getProductsFilter = async () => {
-        
+    const getProductsFilter = async (checkIn, checkOut) => {        
         try {
+        if (checkIn != undefined) 
+            {
+            if (searchParams.get("categoryId") && searchParams.get("cityId")) {
+                //console.log("categoria:",searchParams.get("categoryId"), " ciudad:", searchParams.get("cityId") );
+                const responseGetProductsFilter = await axios.get(`${baseUrl}/products/?cityId=${searchParams.get("cityId")}&categoryId=${searchParams.get("categoryId")}&checkIn=${checkIn}&checkOut=${checkOut}`)
+                console.log(`${baseUrl}/products/?cityId=${searchParams.get("cityId")}&categoryId=${searchParams.get("categoryId")}&checkIn=${checkIn}&checkOut=${checkOut}`);
+                setProducts(responseGetProductsFilter.data)
+            }
+            else if ((searchParams.get("categoryId") == undefined || searchParams.get("categoryId") == null) && searchParams.get("cityId")) {
+                const responseGetProductsFilter = await axios.get(`${baseUrl}/products/?cityId=${searchParams.get("cityId")}&checkIn=${checkIn}&checkOut=${checkOut}`)
+                console.log(`${baseUrl}/products/?cityId=${searchParams.get("cityId")}&checkIn=${checkIn}&checkOut=${checkOut}`);
+                setProducts(responseGetProductsFilter.data)
+            }
+            else if ((searchParams.get("cityId") == undefined || searchParams.get("cityId") == null) && searchParams.get("categoryId")) {
+                const responseGetProductsFilter = await axios.get(`${baseUrl}/products/?categoryId=${searchParams.get("categoryId")}&checkIn=${checkIn}&checkOut=${checkOut}`)
+                console.log(`${baseUrl}/products/?categoryId=${searchParams.get("categoryId")}&checkIn=${checkIn}&checkOut=${checkOut}`);
+                setProducts(responseGetProductsFilter.data)
+            }
+            else {
+                const responseGetProductsFilter = await axios.get(`${baseUrl}/products/?checkIn=${checkIn}&checkOut=${checkOut}`)
+                console.log(`${baseUrl}/products/?checkIn=${checkIn}&checkOut=${checkOut}`);
+                setProducts(responseGetProductsFilter.data)
+            }
+        }
+        else {
             if (searchParams.get("categoryId") && searchParams.get("cityId")) {
                 //console.log("categoria:",searchParams.get("categoryId"), " ciudad:", searchParams.get("cityId") );
                 const responseGetProductsFilter = await axios.get(`${baseUrl}/products/?cityId=${searchParams.get("cityId")} & categoryId=${searchParams.get("categoryId")}`)
@@ -74,14 +98,12 @@ export function useProductsApi() {
                 console.log(`${baseUrl}/products/`);
                 setProducts(responseGetProductsFilter.data)
             }
+        }
         }     
         catch (error) {
             console.error('error', error.response.data)
         }
     } 
-    // React.useEffect (()=> {
-    //     console.log("productos en la api:", products.data);
-    // },[getProductsFilterCity])
 
     // ---------- ESTE ES EL RETURN DE LA API ---------------------------
 return {
