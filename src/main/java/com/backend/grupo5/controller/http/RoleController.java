@@ -1,4 +1,4 @@
-package com.backend.grupo5.controller;
+package com.backend.grupo5.controller.http;
 
 import com.backend.grupo5.common.exceptions.ApplicationError;
 import com.backend.grupo5.common.exceptions.ErrorHandler;

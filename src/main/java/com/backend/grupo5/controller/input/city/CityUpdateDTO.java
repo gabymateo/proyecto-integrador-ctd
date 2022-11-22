@@ -1,4 +1,4 @@
-package com.backend.grupo5.service.DTO.city;
+package com.backend.grupo5.controller.input.city;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Data;

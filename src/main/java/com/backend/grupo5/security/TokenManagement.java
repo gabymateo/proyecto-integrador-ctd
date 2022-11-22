@@ -15,17 +15,16 @@ import java.util.*;
 public class TokenManagement {
 
     private final static String ACCESS_TOKEN_SECRET = "8Zz5tw0Ionm3XPZZfN0NOml3z9FMfmpgXwovR9fp6ryDIoGRM8EPHAB6iHsc0fb";
-    private final static Long ACCESS_TOKEN_VALIDITY_SECONDS = 2_592_000L;
+    private final static Long ACCESS_TOKEN_VALIDITY_SECONDS = 7_60000_9000_000L;
 
 
-    public static String createToken(String name, String email, Role role, Long id) {
+    public static String createToken(String name, String email, Role role) {
         Long expirationTime = ACCESS_TOKEN_VALIDITY_SECONDS * 1000;
         Date expirationDate = new Date(System.currentTimeMillis() * expirationTime);
 
         Map<String, Object> extra = new HashMap<>();
-        extra.put("email", name);
+        extra.put("name", name);
         extra.put("role", role.toString());
-        extra.put("id", id);
 
         return Jwts.builder()
                 .setSubject(email)

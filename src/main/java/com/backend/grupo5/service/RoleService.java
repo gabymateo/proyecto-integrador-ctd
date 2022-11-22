@@ -13,7 +13,6 @@ import java.util.Optional;
 @Service @Transactional @RequiredArgsConstructor
 public class RoleService implements IRoleService {
     private final RoleRepository roleRepository;
-
     @Override
     public Role create(Role role) {
         return this.roleRepository.save(role);

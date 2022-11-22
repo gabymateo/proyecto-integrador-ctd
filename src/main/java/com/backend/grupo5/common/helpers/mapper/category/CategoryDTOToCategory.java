@@ -2,7 +2,7 @@ package com.backend.grupo5.common.helpers.mapper.category;
 
 import com.backend.grupo5.common.helpers.mapper.IMapper;
 import com.backend.grupo5.repository.entities.Category;
-import com.backend.grupo5.service.DTO.category.CategoryCreateDTO;
+import com.backend.grupo5.controller.input.category.CategoryCreateDTO;
 import org.springframework.stereotype.Component;
 
 

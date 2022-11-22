@@ -3,11 +3,12 @@ package com.backend.grupo5.service;
 import com.backend.grupo5.common.exceptions.ApplicationError;
 import com.backend.grupo5.common.helpers.error_description.CityErrorDescription;
 import com.backend.grupo5.common.helpers.mapper.CityDTOTOCity;
+import com.backend.grupo5.common.helpers.validators.CityValidator;
 import com.backend.grupo5.repository.entities.City;
 import com.backend.grupo5.model.services.ICityService;
 import com.backend.grupo5.repository.CityRepository;
-import com.backend.grupo5.service.DTO.city.CityCreateDTO;
-import com.backend.grupo5.service.DTO.city.CityUpdateDTO;
+import com.backend.grupo5.controller.input.city.CityCreateDTO;
+import com.backend.grupo5.controller.input.city.CityUpdateDTO;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
@@ -23,6 +24,7 @@ public class CityService implements ICityService {
 
     @Override
     public City create(CityCreateDTO input) {
+        CityValidator.validateCreate(input);
         City city = mapper.map(input);
         return this.cityRepository.save(city);
     }

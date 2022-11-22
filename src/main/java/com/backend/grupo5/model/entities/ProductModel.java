@@ -32,7 +32,7 @@ public class ProductModel {
     private Set<Long> imageIds;
     private Set<Booking> bookings;
 
-    public static ProductModel ProductEntityToProduct(Product input, Optional<Set<ImageModel>> images, Optional<Boolean> fetchAttributes) {
+    public static ProductModel ProductEntityToProduct(Product input, Set<ImageModel> images, Optional<Boolean> fetchAttributes) {
         ProductModel product = new ProductModel();
         product.setId(input.getId());
         product.setName(input.getName());
@@ -40,7 +40,7 @@ public class ProductModel {
         product.setAvailability(input.isAvailability());
         product.setCategoryId(input.getCategory().getId());
         product.setCityId(input.getCity().getId());
-        product.setImages(images.isPresent() ? images.get() : null);
+        product.setImages(images);
         product.setPrice(input.getPrice());
         product.setDescription(input.getDescription());
         if(fetchAttributes.isPresent() && fetchAttributes.get().equals(true)) {
