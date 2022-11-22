@@ -26,6 +26,7 @@ public class ProductModel {
     private Long categoryId;
     private City city;
     private Long cityId;
+    private String description;
     private Set<Feature> features;
     private Set<Long> featureIds;
     private Set<Long> imageIds;
@@ -41,6 +42,7 @@ public class ProductModel {
         product.setCityId(input.getCity().getId());
         product.setImages(images.isPresent() ? images.get() : null);
         product.setPrice(input.getPrice());
+        product.setDescription(input.getDescription());
         if(fetchAttributes.isPresent() && fetchAttributes.get().equals(true)) {
             product.setFeatures(input.getFeatures());
             product.setCity(input.getCity());
