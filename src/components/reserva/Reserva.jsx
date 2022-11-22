@@ -24,7 +24,6 @@ export const Reserva = () => {
   ]);
 
   const [formValues, setFormValues] = useState(initValues);
-
   const [badName, setBadName] = useState(undefined);
   const [badLastName, setBadLastName] = useState(undefined);
   const [badEmail, setBadEmail] = useState(undefined);
@@ -79,7 +78,9 @@ export const Reserva = () => {
   }
 
   const handleClick = () => {
-    
+    localStorage.JWT = 'xxyyzz'
+    const pruebaToken= localStorage.JWT
+    console.log(pruebaToken);
   }
 
   
