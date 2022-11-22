@@ -78,6 +78,10 @@ export const Reserva = () => {
     //handleValidationAll();
   }
 
+  const handleClick = () => {
+    
+  }
+
   
   return (
     <div className="reserva">
@@ -147,7 +151,7 @@ export const Reserva = () => {
           </div>
           <hr />
           <NavLink>
-            <button className="submit" type='submit'>Confirmar Reserva</button>
+            <button className="submit" type='submit' onClick={handleClick}>Confirmar Reserva</button>
           </NavLink>
         </div>
       </div>

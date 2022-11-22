@@ -38,11 +38,11 @@ export const BloqueBuscador = ({getProductosFiltrados, getProductos}) => {
 
     const handleClick = (event) => {
       event.preventDefault();
-      getProductosFiltrados();
+      const checkIn = (new Date(date[0].startDate)).toISOString().substring(0, 10);
+      const checkOut = (new Date(date[0].endDate)).toISOString().substring(0, 10); 
+      //setSearchParams({checkIn:checkIn, checkOut:checkOut})
+      getProductosFiltrados(checkIn, checkOut);
     }
-    
-    //console.log(date[0].startDate);
-    //console.log(date[0].endDate);
 
 
   return (
