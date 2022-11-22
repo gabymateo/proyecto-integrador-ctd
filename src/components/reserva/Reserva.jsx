@@ -80,7 +80,7 @@ export const Reserva = () => {
   const handleClick = () => {
     localStorage.JWT = 'xxyyzz'
     const pruebaToken= localStorage.JWT
-    console.log(pruebaToken);
+    //console.log(pruebaToken);
   }
 
   
