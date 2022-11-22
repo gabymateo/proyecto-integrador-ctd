@@ -31,6 +31,9 @@ public class Product {
     @Column
     private String price;
 
+    @Column
+    private Integer rate = 0;
+
     @OneToMany(mappedBy = "product", cascade = CascadeType.ALL)
     @JsonManagedReference
     private Set<Image> images = new HashSet<>();

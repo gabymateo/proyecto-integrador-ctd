@@ -50,5 +50,4 @@ public class BookingController {
             return ErrorHandler.generateErrorResponse(error.getHttpStatus(), error.getMessage());
         }
     }
-
 }

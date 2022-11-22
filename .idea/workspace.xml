@@ -6,7 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="3d23211f-316c-4ad6-94b6-51a98bb7f6d8" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/backend/grupo5/common/helpers/mapper/ProductDTOTOProduct.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/backend/grupo5/common/helpers/mapper/ProductDTOTOProduct.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/backend/grupo5/model/entities/ProductModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/backend/grupo5/model/entities/ProductModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/backend/grupo5/repository/entities/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/backend/grupo5/repository/entities/Product.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/backend/grupo5/service/DTO/product/ProductCreateDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/backend/grupo5/service/DTO/product/ProductCreateDTO.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -182,7 +185,8 @@
       <workItem from="1668971498986" duration="24889000" />
       <workItem from="1669035628444" duration="38000" />
       <workItem from="1669047575131" duration="268000" />
-      <workItem from="1669052378172" duration="9351000" />
+      <workItem from="1669052378172" duration="11370000" />
+      <workItem from="1669076332186" duration="1956000" />
     </task>
     <servers />
   </component>

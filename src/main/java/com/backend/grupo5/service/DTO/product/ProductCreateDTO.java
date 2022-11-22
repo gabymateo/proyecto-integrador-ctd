@@ -17,6 +17,7 @@ public class ProductCreateDTO {
     private Long cityId;
     private String address;
     private String price;
+    private String description;
     private boolean availability;
     private ArrayList<Long> featureIds;
     private MultipartFile[] files;
