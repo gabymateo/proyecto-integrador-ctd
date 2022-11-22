@@ -20,49 +20,6 @@ public class ProductCustomRepository {
         this.entityManager = entityManager;
     }
 
-//    public ArrayList<Product> search(
-//            String name,
-//            Long categoryId,
-//            Long cityId,
-//            String order,
-//            LocalDate startDate,
-//            LocalDate endDate
-//    ) {
-//        CriteriaBuilder cb = entityManager.getCriteriaBuilder();
-//        CriteriaQuery<Product> query = cb.createQuery(Product.class);
-//        Root<Product> productRoot = query.from(Product.class);
-//        List<Predicate> predicates = new ArrayList<Predicate>();
-//        if(name != null) {
-//            predicates.add(cb.like(productRoot.<String>get("name"), "%"+name+"%"));
-//        }
-//        if(categoryId != null) {
-//            predicates.add(cb.equal(productRoot.get("category").get("id"), categoryId));
-//        }
-//        if(cityId != null) {
-//            predicates.add(cb.equal(productRoot.get("city").get("id"), cityId));
-//        }
-//        //@Query(value = "select * from product left join booking on product.id = booking.product_id where" +
-//        //            "((booking.checkin not between ?1 and ?2) " +
-//        //            "or (booking.checkin is null)) and ((booking.checkout not between ?1 and ?2) " +
-//        //            "or (booking.checkout is null)) group by product.id", nativeQuery = true)
-//        if(startDate != null) {
-//            if(endDate != null) {
-//                predicates.add(cb.lessThan(productRoot.get("bookings").get("startDate"), startDate));
-//                predicates.add(cb.lessThan(productRoot.get("bookings").get("endDate"), startDate));
-//                predicates.add(cb.greaterThan(productRoot.get("bookings").get("endDate"), endDate));
-//                predicates.add(cb.greaterThan(productRoot.get("bookings").get("startDate"), endDate));
-//            }else {
-//                predicates.add(cb.lessThan(productRoot.get("bookings").get("startDate"), startDate));
-//            }
-//        }
-//        query.where(cb.and(predicates.toArray(new Predicate[predicates.size()]))).orderBy();
-//        if(order != null) {
-//            String parsedOrder = order.toLowerCase();
-//            query.orderBy(parsedOrder.equals("desc") ? cb.desc(productRoot.get("id")) : cb.asc(productRoot.get("id")));
-//        }
-//        return (ArrayList<Product>) entityManager.createQuery(query).getResultList();
-//    }
-
     public Page<Product> search(
             String name,
             Long categoryId,
@@ -96,7 +53,6 @@ public class ProductCustomRepository {
             subquery.select(subRoot.get("id"));
             predicates.add(cb.and(productRoot.get("id").in(subquery).not()));
         }
-        System.out.println(cityId);
         if(cityId != null) {
             predicates.add(cb.and(cb.equal(productRoot.get("city").get("id"), cityId)));
         }

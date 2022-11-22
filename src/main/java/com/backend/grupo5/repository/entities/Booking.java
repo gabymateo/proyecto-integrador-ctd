@@ -5,7 +5,6 @@ import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.Getter;
 import lombok.Setter;
 
-
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.time.LocalTime;
@@ -18,8 +17,19 @@ public class Booking {
     private Long id;
 
     @Column
-    private LocalTime startHour;
+    private String guestName;
 
+    @Column
+    private String guestLastName;
+
+    @Column
+    private String guestEmail;
+
+    @Column
+    private String guestCity;
+
+    @Column
+    private LocalTime startHour;
 
     @Column
     private LocalDate startDate;
