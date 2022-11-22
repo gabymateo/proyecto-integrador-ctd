@@ -43,20 +43,12 @@ const LoginRegister = (props) => {
     }
 
     //---------------------------------INIT Validaciones ----------------------
-
-      // console.log("BadName: ", badName);
-      // console.log("BadLastName: ", badLastName);
-      // console.log("BadEmail: ", badEmail);
-      // console.log("Badlong pass: ", badPassword);
-      // console.log("Badsame pass: ", difPassword)
     
       
       React.useEffect(()=>{
-      //const  handleAll=() =>{
         const isValid = ((badName==false) && (badLastName==false) && (badEmail==false) && (badPassword==false) && (difPassword==false))
         setValidationAll(isValid)
         console.log("total validaciones: ",isValid);
-      //}
     }, [badName, badLastName, badEmail, badPassword, difPassword])
 
 
@@ -94,7 +86,7 @@ const LoginRegister = (props) => {
     return(
     <div className="container">
         <h2 className="title">Crear Cuenta</h2>
-        <form className="form" onSubmit={handleSubmit} > 
+        <form className="form" onSubmit={handleSubmit}> 
           <label> Nombre  <input name="name" type='text' value={formValues.name} onChange={handleChangeFormValues} onBlur={hadleBlurName}/>
             <span style={{ visibility: badName ? "visible" :"hidden"}}>Por favor ingrese su nombre</span> <br></br> </label>
           <label> Apellido  <input name="lastName" type='text' value={formValues.lastName} onChange={handleChangeFormValues} onBlur={hadleBlurLastName}/>
@@ -104,15 +96,15 @@ const LoginRegister = (props) => {
           <div>
           <label> Contraseña </label>
           <div className='passwordInput'>
-             <input name='password' type={showPwd ? "text" : "password"} value={formValues.password}  onChange={handleChangeFormValues} onBlur={hadleBlurPass}/> 
-             <div className="icon" onClick={() => setShowPwd(!showPwd)}> 
+            <input name='password' type={showPwd ? "text" : "password"} value={formValues.password}  onChange={handleChangeFormValues} onBlur={hadleBlurPass}/> 
+            <div className="icon" onClick={() => setShowPwd(!showPwd)}> 
                 {showPwd ? <img src={Eye} height={"15rem"}/> :<img src={closeEye} height={"15rem"} />}
-             </div>
+            </div>
           </div>
             <span  style={{ visibility: badPassword ? "visible" : "hidden"}}>El password debe ser de al menos 6 caracteres</span>
             <br></br>
           </div>
-         <label> Confirmar contraseña <input name="confirmPassword" type='password' value={formValues.confirmPassword} onChange={handleChangeFormValues} onBlur={hadleBlurDifPass} /> 
+          <label> Confirmar contraseña <input name="confirmPassword" type='password' value={formValues.confirmPassword} onChange={handleChangeFormValues} onBlur={hadleBlurDifPass} /> 
             <span style={{ visibility: difPassword ? "visible" : "hidden"}}>El password no coincide</span> <br></br></label>
           {enviarDatos==true
             ? <p>Datos enviados</p>

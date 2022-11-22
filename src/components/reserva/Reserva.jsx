@@ -1,4 +1,5 @@
-import {React , useState} from 'react';
+import React from 'react';
+import { useState } from "react";
 import "./reserva.css";
 import { NavLink } from 'react-router-dom';
 import { DateRange } from "react-date-range";
@@ -42,15 +43,16 @@ export const Reserva = () => {
     e.preventDefault();
     setEnviarDatos(true)
     console.log("ENVIADOS");
+    // localStorage.JWT = 'xxyyzz'
+    // const pruebaToken= localStorage.JWT
+    // console.log(pruebaToken);
   }
 
-  //   React.useEffect(()=>{
-  //   //const  handleAll=() =>{
-  //     const isValid = ((badName==false) && (badLastName==false) && (badEmail==false)  && (badCity==false))
-  //     setValidationAll(isValid)
-  //     console.log("total validaciones: ",isValid);
-  //   //}
-  // }, [badName, badLastName, badEmail, badCity])
+    React.useEffect(()=>{
+      const isValid = ((badName==false) && (badLastName==false) && (badEmail==false)  && (badCity==false))
+      setValidationAll(isValid)
+      console.log("total validaciones: ",isValid);
+  }, [badName, badLastName, badEmail, badCity])
 
 
   const handleBlurName= () =>{
@@ -72,21 +74,15 @@ export const Reserva = () => {
   }
 
   const handleBlurCity = () =>{
-    const hasError = ! emailRegexp.test(formValues.city);
+    const hasError = !((formValues.city).length>1);
     setBadCity(hasError)
     //handleValidationAll();
-  }
-
-  const handleClick = () => {
-    localStorage.JWT = 'xxyyzz'
-    const pruebaToken= localStorage.JWT
-    //console.log(pruebaToken);
   }
 
   
   return (
     <div className="reserva">
-      <div className="reserva__container">
+      <form className="reserva__container" onSubmit={handleSubmit}>
         <div className="reserva__form">
         <h2 className="booking_title">Completa tus datos</h2>
           <div className="form__container">
@@ -151,11 +147,9 @@ export const Reserva = () => {
             <span>_/_/_</span>
           </div>
           <hr />
-          <NavLink>
-            <button className="submit" type='submit' onClick={handleClick}>Confirmar Reserva</button>
-          </NavLink>
+            <button className="submit" type='submit' disabled={!validationAll}>Confirmar Reserva</button>
         </div>
-      </div>
+      </form>
     </div>
   );
 };
