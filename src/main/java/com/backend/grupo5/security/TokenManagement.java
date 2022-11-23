@@ -34,6 +34,8 @@ public class TokenManagement {
                 .compact();
     }
 
+
+
     public static UsernamePasswordAuthenticationToken getAuthentication(String token) {
         try {
             Claims claims = Jwts.parserBuilder()
