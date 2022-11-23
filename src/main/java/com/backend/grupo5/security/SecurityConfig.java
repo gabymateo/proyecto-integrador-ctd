@@ -31,7 +31,7 @@ public class SecurityConfig {
         return httpSecurity
                 .csrf().disable()
                 .authorizeRequests()
-                .antMatchers("*", "/**" )
+                .antMatchers("*", "*" )
                 .permitAll()
                 .anyRequest()
                 .authenticated()
