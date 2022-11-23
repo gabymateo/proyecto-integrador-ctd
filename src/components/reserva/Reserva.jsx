@@ -1,4 +1,5 @@
-import {React , useState} from 'react';
+import React from 'react';
+import { useState } from "react";
 import "./reserva.css";
 import { NavLink } from 'react-router-dom';
 import { DateRange } from "react-date-range";
@@ -25,7 +26,6 @@ export const Reserva = () => {
   ]);
 
   const [formValues, setFormValues] = useState(initValues);
-
   const [badName, setBadName] = useState(undefined);
   const [badLastName, setBadLastName] = useState(undefined);
   const [badEmail, setBadEmail] = useState(undefined);
@@ -44,15 +44,16 @@ export const Reserva = () => {
     e.preventDefault();
     setEnviarDatos(true)
     console.log("ENVIADOS");
+    // localStorage.JWT = 'xxyyzz'
+    // const pruebaToken= localStorage.JWT
+    // console.log(pruebaToken);
   }
 
-  //   React.useEffect(()=>{
-  //   //const  handleAll=() =>{
-  //     const isValid = ((badName==false) && (badLastName==false) && (badEmail==false)  && (badCity==false))
-  //     setValidationAll(isValid)
-  //     console.log("total validaciones: ",isValid);
-  //   //}
-  // }, [badName, badLastName, badEmail, badCity])
+    React.useEffect(()=>{
+      const isValid = ((badName==false) && (badLastName==false) && (badEmail==false)  && (badCity==false))
+      setValidationAll(isValid)
+      console.log("total validaciones: ",isValid);
+  }, [badName, badLastName, badEmail, badCity])
 
 
   const handleBlurName= () =>{
@@ -74,7 +75,7 @@ export const Reserva = () => {
   }
 
   const handleBlurCity = () =>{
-    const hasError = ! emailRegexp.test(formValues.city);
+    const hasError = !((formValues.city).length>1);
     setBadCity(hasError)
     //handleValidationAll();
   }
@@ -82,7 +83,7 @@ export const Reserva = () => {
   
   return (
     <div className="reserva">
-      <div className="reserva__container">
+      <form className="reserva__container" onSubmit={handleSubmit}>
         <div className="reserva__form">
         <h2 className="booking_title">Completa tus datos</h2>
           <div className="form__container">
@@ -100,7 +101,7 @@ export const Reserva = () => {
           <h1>Seleccioná tu fecha de reserva</h1>
           <DateRange
             editableDateInputs={true}
-            onChange={(item) => setDate([item.selection])}
+            onChannge={(item) => setDate([item.selection])}
             moveRangeOnFirstSelection={false}
             months={2}
             ranges={date}
@@ -115,17 +116,17 @@ export const Reserva = () => {
           <div className="horario__container">
             <p className='principal'>
               <BiCheckCircle /> Tu habitacion va a estar lista para el check in
-              entre las 10:00 y las 11:00pm
+              entre las 10:00 AM y las 11:00 PM
             </p>
             <label>
               Indica tu horario estimado de llegada
+              </label>
               <select>
                 <option defaultValue>Seleccionar hora de llegada</option>
                 {Horarios.map((h) => {
                   return <option key={h.id}>{h.horario}</option>;
                 })}
               </select>
-            </label>
           </div>
         </div>
         <div className="reserva__detalles">
@@ -147,10 +148,10 @@ export const Reserva = () => {
           </div>
           <hr />
           <NavLink to={'ok'}>
-            <button className="submit" type='submit'>Confirmar Reserva</button>
+            <button className="submit" type='submit' disabled={!validationAll}>Confirmar Reserva</button>
           </NavLink>
         </div>
-      </div>
+      </form>
     </div>
   );
 };

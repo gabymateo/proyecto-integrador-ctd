@@ -40,8 +40,8 @@ export const Alojamiento = () => {
       <BloqueImagenesRes products={products.data}/>
       <div className="alojamiento__descripcion">
         <div className="descripcion__container">
-          <h1>Titulo</h1>
-          <p>Texto de descripcio</p>
+          <h1>SubTitulo</h1>
+          <p>Texto de descripcion</p>
         </div>
       </div>
       <div className="alojamiento__caracteristicas">

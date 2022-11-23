@@ -273,6 +273,16 @@
     font-size: 1.5em;
     color: var(--grisFuerte);
 }
+/*---CALENDARIO---*/
+.fechasReserva__container > .calendario {
+    width: 300px;
+    height: 300px;
+}
+
+.rdrCalendarWrapper,q .rdrDateRangeWrapper .date{
+   
+}
+
 
 .fechasReserva__reserva{
     display: flex;
@@ -343,7 +353,7 @@
     font-size: 0.9em;
 }
 .alojamiento__imagenes-res{
-    
+    display: none;
 }
 /*---RESPONSIVE---*/
 /*---RESPONSIVE TABLET---*/
