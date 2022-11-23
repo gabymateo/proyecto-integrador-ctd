@@ -34,11 +34,11 @@ public class Grupo5Application extends SpringBootServletInitializer {
 		};
 	}
 
-	@Bean
-	public MultipartConfigElement multipartConfigElement() {
-		MultipartConfigFactory factory = new MultipartConfigFactory();
-		factory.setMaxFileSize(DataSize.ofBytes(100000000L));
-		factory.setMaxRequestSize(DataSize.ofBytes(100000000L));
-		return factory.createMultipartConfig();
-	}
+//	@Bean
+//	public MultipartConfigElement multipartConfigElement() {
+//		MultipartConfigFactory factory = new MultipartConfigFactory();
+//		factory.setMaxFileSize(DataSize.ofBytes(100000000L));
+//		factory.setMaxRequestSize(DataSize.ofBytes(100000000L));
+//		return factory.createMultipartConfig();
+//	}
 }
