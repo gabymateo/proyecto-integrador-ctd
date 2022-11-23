@@ -21,7 +21,7 @@ export function useBookingsApi() {
             startDate:startDate,
             endDate:endDate,
             headers: {
-                Authorization: Authorization,
+                Authorization: 'Bearer ' + Authorization,
             },
         })
         console.log("responsePostBookings: ", responsePostBookings);

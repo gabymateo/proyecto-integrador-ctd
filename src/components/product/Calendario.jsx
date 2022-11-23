@@ -13,6 +13,11 @@ export const Calendario = () => {
       key: 'selection'
     }
   ]);
+  const [logued, setLogued] = useState(false);
+
+  localStorage.JWT = 'qwertyuiop'  //voy a simular mientras tanto que alguien está logueado. ESTO LO DEBO BORRAR
+  //localStorage.clear(); //ESTO LO DEBO BORRAR DE ACÁ, solo para simular
+
 
   return (
     <>
@@ -34,9 +39,8 @@ export const Calendario = () => {
           </div>
           <div className="fechasReserva__reserva">
             <p>Agregá tus fechas de viaje para obtener precios exactos</p>
-            <NavLink to={`reserva`}>
-            <button>Iniciar Reserva</button>
-            </NavLink>
+            {localStorage.JWT ? (<NavLink to={`reserva`}><button>Iniciar Reserva</button></NavLink>)
+                    :(<NavLink to={`./../../login`}><button>Iniciar Reserva</button></NavLink>)}
           </div>
         </div>
       </div>
