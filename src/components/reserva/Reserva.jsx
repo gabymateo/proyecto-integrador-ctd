@@ -1,12 +1,13 @@
 import React from 'react';
 import { useState } from "react";
 import "./reserva.css";
-import { NavLink } from 'react-router-dom';
+import { NavLink, useParams } from 'react-router-dom';
 import { DateRange } from "react-date-range";
 import "../../../node_modules/react-date-range/dist/styles.css"; // main css file
 import "../../../node_modules/react-date-range/dist/theme/default.css"; // theme css file
 import {BiCheckCircle} from 'react-icons/bi';
 import Horarios from '../../DataMock/Horarios.json'
+import { useBookingsApi } from '../../apis/bookingsApi'
 
 const emailRegexp = new RegExp(/[^@ \t\r\n]+@[^@ \t\r\n]+\.[^@ \t\r\n]+/);
 
@@ -31,6 +32,7 @@ export const Reserva = () => {
   const [badCity, setBadCity] = useState(undefined);
   const [validationAll, setValidationAll] = useState(false);
   const [enviarDatos, setEnviarDatos] = useState(false);
+  const {bookings, postBookings} = useBookingsApi();
 
   const handleChangeFormValues = (e) => {
     setFormValues({
@@ -38,22 +40,6 @@ export const Reserva = () => {
       [e.target.name]: e.target.value,
     })
   }
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setEnviarDatos(true)
-    console.log("ENVIADOS");
-    // localStorage.JWT = 'xxyyzz'
-    // const pruebaToken= localStorage.JWT
-    // console.log(pruebaToken);
-  }
-
-    React.useEffect(()=>{
-      const isValid = ((badName==false) && (badLastName==false) && (badEmail==false)  && (badCity==false))
-      setValidationAll(isValid)
-      console.log("total validaciones: ",isValid);
-  }, [badName, badLastName, badEmail, badCity])
-
 
   const handleBlurName= () =>{
     const hasError = !((formValues.name).length>1)
@@ -79,6 +65,33 @@ export const Reserva = () => {
     //handleValidationAll();
   }
 
+    React.useEffect(()=>{
+      const isValid = ((badName==false) && (badLastName==false) && (badEmail==false)  && (badCity==false))
+      setValidationAll(isValid)
+      //console.log("total validaciones: ",isValid);
+  }, [badName, badLastName, badEmail, badCity])
+
+    const productId = useParams().id;
+    const userId = 1;
+    const guestName = formValues.name;
+    const guestLastName = formValues.lastName;
+    const guestEmail = formValues.email;
+    const guestCity = formValues.city;
+    const startHour = '';
+    //const startDate = (new Date(date[0].startDate)).toISOString().substring(0, 10);
+    //const endDate = (new Date(date[0].endDate)).toISOString().substring(0, 10); 
+    //const Authorization = localStorage.JWT;
+    const startDate = 2022-11-11;
+    const endDate = 2022-11-13; 
+    const Authorization = "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiIkMmEkMTIkeG5jOTdYZUJKWHZoRWJNRTloY3h6T21uMUMwMTNyM3hsTkJsV0s0emZZL0kvano0ckU2Uk8iLCJleHAiOjM0Nzk1NzU1NTIwODY1OTEsInJvbGUiOiJBRE1JTiIsIm5hbWUiOiJ0ZXN0MSJ9.12C6pYBktEoXqKt4Q2ugrjutRGIdOiFoYs74iKps7s4NnRWT-SNAcSe7QfN1UlGS";
+    
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setEnviarDatos(true)
+    postBookings(productId, userId, guestName, guestLastName, guestEmail, guestCity, startHour, startDate, endDate, Authorization)
+    console.log("ENVIADOS");
+  }
+  
   
   return (
     <div className="reserva">

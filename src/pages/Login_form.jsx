@@ -4,10 +4,10 @@ import Login from '../components/sesion/Login';
 import Footer from '../components/footer/Footer';
 import Body from '../components/body/Body';
 
-const userTest = {
-  email: 'fulano@gmail.com',
-  password: 'prueba123'
-}
+// const userTest = {
+//   email: 'fulano@gmail.com',
+//   password: 'prueba123'
+// }
 
 const Login_form = () => {
 
