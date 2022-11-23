@@ -26,12 +26,12 @@ public class SecurityConfig {
 
         JwtAuthenticationFilter jwtAuthenticationFilter = new JwtAuthenticationFilter();
         jwtAuthenticationFilter.setAuthenticationManager(authManager);
-        jwtAuthenticationFilter.setFilterProcessesUrl("/login");
+        jwtAuthenticationFilter.setFilterProcessesUrl("/login/");
 
         return httpSecurity
                 .csrf().disable()
                 .authorizeRequests()
-                .antMatchers("*", "*" )
+                .antMatchers("*", "/**" )
                 .permitAll()
                 .anyRequest()
                 .authenticated()
