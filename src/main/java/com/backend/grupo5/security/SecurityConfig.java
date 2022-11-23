@@ -30,8 +30,9 @@ public class SecurityConfig {
 
         return httpSecurity
                 .csrf().disable()
+                .cors().disable()
                 .authorizeRequests()
-                .antMatchers("*", "/**" )
+                .antMatchers("*", "/**")
                 .permitAll()
                 .anyRequest()
                 .authenticated()
