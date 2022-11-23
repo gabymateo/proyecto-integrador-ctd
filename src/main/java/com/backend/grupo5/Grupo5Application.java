@@ -11,6 +11,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 @SpringBootApplication()
 public class Grupo5Application extends SpringBootServletInitializer {
 	public static void main(String[] args) {
+
 		SpringApplication.run(Grupo5Application.class, args);
 	}
 
