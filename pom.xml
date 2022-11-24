@@ -140,6 +140,7 @@
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
 		</plugins>
+		<finalName>grupo5</finalName>
 	</build>
 
 </project>
