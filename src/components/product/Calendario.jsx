@@ -15,7 +15,7 @@ export const Calendario = () => {
   ]);
   const [logued, setLogued] = useState(false);
 
-  localStorage.JWT = 'qwertyuiop'  //voy a simular mientras tanto que alguien está logueado. ESTO LO DEBO BORRAR
+  //localStorage.JWT = 'qwertyuiop'  //voy a simular mientras tanto que alguien está logueado. ESTO LO DEBO BORRAR
   //localStorage.clear(); //ESTO LO DEBO BORRAR DE ACÁ, solo para simular
 
 
