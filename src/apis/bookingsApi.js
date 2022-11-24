@@ -58,14 +58,8 @@ const getBookingsById = async (id) => {
 
 //------------------- OBTENER LAS RESERVAS DE UN PRODUCTO POR ID ------------
 
-const getBookingByProductId = async (productId) => {
-        try {
-            const response = await axios.get(`${baseUrl}/bookings/products/${productId}`);
-
-        } catch (error) {
-            console.log(error);
-        }
-}
+// const getBookingByProductId = async (productId) => {
+// }
     // ---------- ESTE ES EL RETURN DE LA API ---------------------------
 return {
     bookings: bookings.data,
