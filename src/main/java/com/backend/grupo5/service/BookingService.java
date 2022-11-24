@@ -52,6 +52,7 @@ public class BookingService implements IBookingService {
         Booking booking = mapper.map(input);
         booking.setUser(user.get());
         booking.setProduct(product.get());
+        System.out.println(booking);
         return this.bookingRepository.save(booking);
     }
 

@@ -6,8 +6,12 @@
   <component name="ChangeListManager">
     <list default="true" id="3d23211f-316c-4ad6-94b6-51a98bb7f6d8" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/backend/grupo5/controller/http/BookingController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/backend/grupo5/controller/http/BookingController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/backend/grupo5/security/TokenManagement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/backend/grupo5/security/TokenManagement.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/backend/grupo5/controller/http/CategoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/backend/grupo5/controller/http/CategoryController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/backend/grupo5/controller/http/CityController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/backend/grupo5/controller/http/CityController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/backend/grupo5/controller/http/FeatureController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/backend/grupo5/controller/http/FeatureController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/backend/grupo5/controller/http/ProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/backend/grupo5/controller/http/ProductController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/backend/grupo5/controller/http/RoleController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/backend/grupo5/controller/http/RoleController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/backend/grupo5/service/BookingService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/backend/grupo5/service/BookingService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -190,7 +194,7 @@
       <workItem from="1669158349597" duration="11828000" />
       <workItem from="1669208559831" duration="18000" />
       <workItem from="1669243944497" duration="5465000" />
-      <workItem from="1669253377805" duration="3865000" />
+      <workItem from="1669253377805" duration="4962000" />
     </task>
     <servers />
   </component>

@@ -20,7 +20,7 @@ public class RoleController {
     private final IRoleService roleService;
 
     @PostMapping("/")
-    @PreAuthorize("hasAuthority('ADMIN')")
+    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
     public ResponseEntity<Object> create(@RequestBody Role input) {
         try {
             Role role = this.roleService.create(input);

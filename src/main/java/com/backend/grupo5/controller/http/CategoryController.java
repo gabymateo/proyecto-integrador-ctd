@@ -23,7 +23,7 @@ public class CategoryController {
 
     private final ICategoryService categoryService;
 
-    @PostMapping("/") @PreAuthorize("hasAuthority('ADMIN')")
+    @PostMapping("/") @PreAuthorize("hasAuthority('ROLE_ADMIN')")
     public ResponseEntity<Object> create(@RequestBody CategoryCreateDTO categoryCreateDTO)  {
         try {
             Category category = this.categoryService.create(categoryCreateDTO);
@@ -53,7 +53,7 @@ public class CategoryController {
         }
     }
 
-    @PatchMapping("/{id}") @PreAuthorize("hasAuthority('ADMIN')")
+    @PatchMapping("/{id}") @PreAuthorize("hasAuthority('ROLE_ADMIN')")
     public ResponseEntity<Object> update(@PathVariable Long id, @RequestBody CategoryUpdateDTO categoryUpdateDTO) {
         try {
             Category category = this.categoryService.update(id, categoryUpdateDTO);
@@ -63,7 +63,7 @@ public class CategoryController {
         }
     }
 
-    @DeleteMapping("/{id}") @PreAuthorize("hasAuthority('ADMIN')")
+    @DeleteMapping("/{id}") @PreAuthorize("hasAuthority('ROLE_ADMIN')")
     public ResponseEntity<Object> delete(@PathVariable Long id) {
         try {
             this.categoryService.delete(id);
