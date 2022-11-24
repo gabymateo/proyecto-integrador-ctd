@@ -40,7 +40,7 @@ public class SecurityConfig {
                 .csrf()
                 .disable()
                 .authorizeRequests()
-                .antMatchers( HttpMethod.GET,"*")
+                .antMatchers( HttpMethod.GET,"/**")
                 .permitAll()
                 .anyRequest()
                 .authenticated()
