@@ -78,18 +78,19 @@ export const Reserva = () => {
     const guestLastName = formValues.lastName;
     const guestEmail = formValues.email;
     const guestCity = formValues.city;
-    const startHour = '';
+    const startHour = "12:00";
     //const startDate = (new Date(date[0].startDate)).toISOString().substring(0, 10);
     //const endDate = (new Date(date[0].endDate)).toISOString().substring(0, 10); 
-    const Authorization = localStorage.JWT;
     const startDate = 2022-11-11;
     const endDate = 2022-11-13; 
+    const Authorization = localStorage.JWT;
+
         
   const handleSubmit = (e) => {
     e.preventDefault();
     setEnviarDatos(true)
     const respuestaReserva= postBookings(productId, userId, guestName, guestLastName, guestEmail, guestCity, startHour, startDate, endDate, Authorization)
-    console.log(respuestaReserva);
+    console.log(Authorization);
     console.log("ENVIADOS");
   }
   
