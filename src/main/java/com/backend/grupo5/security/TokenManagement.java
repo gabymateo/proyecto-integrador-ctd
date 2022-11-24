@@ -15,11 +15,11 @@ import java.util.*;
 public class TokenManagement {
 
     private final static String ACCESS_TOKEN_SECRET = "8Zz5tw0Ionm3XPZZfN0NOml3z9FMfmpgXwovR9fp6ryDIoGRM8EPHAB6iHsc0fb";
-    private final static Long ACCESS_TOKEN_VALIDITY_SECONDS = 999999999999999999L;
+    private final static Long ACCESS_TOKEN_VALIDITY_SECONDS = 99999999999999999L*80;
 
 
     public static String createToken(String name, String email, Role role) {
-        Long expirationTime = ACCESS_TOKEN_VALIDITY_SECONDS * 1000;
+        Long expirationTime = ACCESS_TOKEN_VALIDITY_SECONDS * 1000000000;
         Date expirationDate = new Date(System.currentTimeMillis() * expirationTime);
 
         Map<String, Object> extra = new HashMap<>();

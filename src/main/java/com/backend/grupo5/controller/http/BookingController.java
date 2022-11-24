@@ -41,7 +41,7 @@ public class BookingController {
         }
     }
 
-    @GetMapping("/{productId}")
+    @GetMapping("/products/{productId}")
     public ResponseEntity<Object> getByProductId(@PathVariable Long productId) {
         try {
             List<Booking> bookings = this.bookingService.getByProductId(productId);
