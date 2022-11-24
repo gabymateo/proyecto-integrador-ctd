@@ -10,7 +10,7 @@ import Horarios from '../../DataMock/Horarios.json'
 import { useBookingsApi } from '../../apis/bookingsApi'
 import { useProductsApi } from '../../apis/productsApi';
 import { IoLocationSharp } from 'react-icons/io5';
-import {format} from 'date-fns';
+import {format, addDays} from 'date-fns';
 
 const emailRegexp = new RegExp(/[^@ \t\r\n]+@[^@ \t\r\n]+\.[^@ \t\r\n]+/);
 
@@ -37,10 +37,15 @@ export const Reserva = () => {
 
   /*CALENDARIO */
   const [date, setDate] = useState([
-    { startDate: new Date(), 
-      endDate: new Date(), 
+    { startDate: new Date(),
+      endDate: new Date(),
       key: "selection" },
+
+    { startDate: new Date(),
+      endDate: addDays(new Date(), 3),
+      key: "compare" },
   ]);
+
 
   const [formValues, setFormValues] = useState(initValues);
   const [badName, setBadName] = useState(undefined);
@@ -133,14 +138,16 @@ export const Reserva = () => {
           <div className='calendarioReserva'>
             <DateRange
               editableDateInputs={true}
-              onChannge={(item) => setDate([item.selection])}
+              onChange={(item) => setDate([item.selection])}
               moveRangeOnFirstSelection={false}
               months={2}
+              minDate={addDays(new Date(), -30)}
               ranges={date}
               showDateDisplay={false}
               rangeColors={["#FBC02D", "#FBC02D", "#FBC02D"]}
               className="date"
               direction="horizontal"
+              
             />
           </div>
         </div>
@@ -163,7 +170,6 @@ export const Reserva = () => {
           </div>
         </div>
         <div className="reserva__detalles">
-          
           <h1>Detalle de la reserva</h1>
           {/*<div className='container__img2'></div>*/}
           <div className='container__img '>
