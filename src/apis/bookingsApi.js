@@ -20,8 +20,9 @@ export function useBookingsApi() {
             startHour:startHour,
             startDate:startDate,
             endDate:endDate,
+        }, {
             headers: {
-                Authorization: Authorization,
+                "Authorization": Authorization,
             },
         })
         console.log("responsePostBookings: ", responsePostBookings);
@@ -55,6 +56,16 @@ const getBookingsById = async (id) => {
     }
 }
 
+//------------------- OBTENER LAS RESERVAS DE UN PRODUCTO POR ID ------------
+
+const getBookingByProductId = async (productId) => {
+        try {
+            const response = await axios.get(`${baseUrl}/bookings/products/${productId}`);
+
+        } catch (error) {
+            console.log(error);
+        }
+}
     // ---------- ESTE ES EL RETURN DE LA API ---------------------------
 return {
     bookings: bookings.data,
