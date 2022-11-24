@@ -19,6 +19,7 @@ import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 
 import java.util.Arrays;
+import java.util.Set;
 
 @Configuration @RequiredArgsConstructor @EnableGlobalMethodSecurity(prePostEnabled = true)
 public class SecurityConfig {
@@ -39,10 +40,12 @@ public class SecurityConfig {
                 .csrf()
                 .disable()
                 .authorizeRequests()
-                .antMatchers(HttpMethod.GET, "/**")
+                .antMatchers( HttpMethod.GET,"*")
                 .permitAll()
                 .anyRequest()
                 .authenticated()
+                .and()
+                .headers()
                 .and()
                 .httpBasic()
                 .and()

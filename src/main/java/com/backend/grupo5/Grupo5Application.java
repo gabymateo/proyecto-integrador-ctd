@@ -31,7 +31,8 @@ public class Grupo5Application extends SpringBootServletInitializer {
 						.addMapping("/**")
 						.allowedOrigins(CorsConfiguration.ALL)
 						.allowedMethods(CorsConfiguration.ALL)
-						.allowedHeaders(CorsConfiguration.ALL);
+						.allowedHeaders(CorsConfiguration.ALL)
+						.exposedHeaders(CorsConfiguration.ALL);
 			}
 		};
 	}
