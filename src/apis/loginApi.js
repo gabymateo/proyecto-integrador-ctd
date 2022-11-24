@@ -14,10 +14,10 @@ export function useLoginApi() {
             email:email,
             password:password,
         })
-        console.log("responsePostLogin: ", responsePostLogin); //acá mirar como llega la respuesta para saber que campos debo tomar para las asignaciones de los 3 pasos siguientes
-        setToken(responsePostLogin)  //asignar el JWT devuelto al estado token
-        localStorage.JWT = responsePostLogin; //almacenar el token en el local storage, en una variable llamada JWT
-        localStorage.userId = responsePostLogin; //almacenar el userId en el local storage, en una variable llamada userId        
+        //console.log("responsePostLogin: ", responsePostLogin.headers.expires); //acá mirar como llega la respuesta para saber que campos debo tomar para las asignaciones de los 3 pasos siguientes
+        setToken(responsePostLogin.headers.expires)  //asignar el JWT devuelto al estado token
+        localStorage.JWT = responsePostLogin.headers.expires; //almacenar el token en el local storage, en una variable llamada JWT
+        localStorage.userId = 1; //almacenar el userId en el local storage, en una variable llamada userId        
     }
     catch (error) {
         console.log('error', error.response.data)

@@ -88,28 +88,30 @@ export const Reserva = () => {
       //console.log("total validaciones: ",isValid);
   }, [badName, badLastName, badEmail, badCity])
 
+
     const productId = useParams().id;
-    const userId = 1;
+    const userId = localStorage.userId;
     const guestName = formValues.name;
     const guestLastName = formValues.lastName;
     const guestEmail = formValues.email;
     const guestCity = formValues.city;
-    const startHour = '';
+    const startHour = "12:00";
     //const startDate = (new Date(date[0].startDate)).toISOString().substring(0, 10);
     //const endDate = (new Date(date[0].endDate)).toISOString().substring(0, 10); 
-    //const Authorization = localStorage.JWT;
     const startDate = 2022-11-11;
     const endDate = 2022-11-13; 
-    const Authorization = "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiIkMmEkMTIkeG5jOTdYZUJKWHZoRWJNRTloY3h6T21uMUMwMTNyM3hsTkJsV0s0emZZL0kvano0ckU2Uk8iLCJleHAiOjM0Nzk1NzU1NTIwODY1OTEsInJvbGUiOiJBRE1JTiIsIm5hbWUiOiJ0ZXN0MSJ9.12C6pYBktEoXqKt4Q2ugrjutRGIdOiFoYs74iKps7s4NnRWT-SNAcSe7QfN1UlGS";
-    
+    const Authorization = localStorage.JWT;
+
+        
   const handleSubmit = (e) => {
     e.preventDefault();
     setEnviarDatos(true)
-    postBookings(productId, userId, guestName, guestLastName, guestEmail, guestCity, startHour, startDate, endDate, Authorization)
+    const respuestaReserva= postBookings(productId, userId, guestName, guestLastName, guestEmail, guestCity, startHour, startDate, endDate, Authorization)
+    console.log(Authorization);
     console.log("ENVIADOS");
   }
   
-  
+
   return (
     <div className="reserva">
       <form className="reserva__container" onSubmit={handleSubmit}>
@@ -182,9 +184,9 @@ export const Reserva = () => {
             <span>{`${format(date[0].endDate, 'dd/MM/yyyy')}`}</span>
           </div>
           <hr />
-          <NavLink to={'ok'}>
-            <button type='submit' disabled={!validationAll}>Confirmar Reserva</button>
-          </NavLink>
+          {/* <NavLink to={'ok'}> */}
+            <button className="submit" type='submit' disabled={!validationAll}>Confirmar Reserva</button>
+          {/* </NavLink> */}
         </div>
       </form>
     </div>
