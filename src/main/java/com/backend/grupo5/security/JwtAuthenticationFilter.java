@@ -39,8 +39,6 @@ public class JwtAuthenticationFilter extends UsernamePasswordAuthenticationFilte
         String token = TokenManagement.createToken(userDetailsImp.getUsername(), userDetailsImp.getPassword(), userDetailsImp.getRole());
 
         response.addHeader("Authorization", "Bearer " + token);
-        response.addHeader("Access-Control-Allow-Credentials", "true");
-        response.addHeader("Access-Control-Allow-Origin", "*");
         response.getWriter().flush();
 
         super.successfulAuthentication(request, response, chain, authResult);
