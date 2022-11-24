@@ -23,11 +23,11 @@ const Login_form = () => {
   }
 
   return (
-    <div>
+    <>
         <Header user={userLogged}/>
         {isAuthenticated  ? <div> <Body/> </div>: <Login onHandleLogin={handleLogin} initSesion={isAuthenticated} /> };
         <Footer/>
-    </div>
+    </>
   )
 }
 

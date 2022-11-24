@@ -274,13 +274,18 @@
     color: var(--grisFuerte);
 }
 /*---CALENDARIO---*/
-.fechasReserva__container > .calendario {
-    width: 300px;
-    height: 300px;
+.fechasReserva__container > div {
+    display: flex;
+    align-items: center;
+}
+.calendario {
+    width: 50%;
 }
 
-.rdrCalendarWrapper,q .rdrDateRangeWrapper .date{
-   
+.calendario > .rdrCalendarWrapper, 
+.calendario > .rdrDateRangeWrapper, 
+.calendario > .date{
+   width: 100%;
 }
 
 
@@ -291,6 +296,7 @@
     border-radius: 6px;
     margin: 15px;
     width: 50%;
+    height: 50%;
 }
 .fechasReserva__reserva > p{
     margin: 15px;

@@ -4,7 +4,7 @@ import { IoLocationSharp } from 'react-icons/io5';
 
 export const Ubicacion = (props) => {
     const ubi = props?.products;
-    console.log(props?.products);
+    //console.log(props?.products);
   return (
     <>
     <div className="alojamiento__ubicacion">
