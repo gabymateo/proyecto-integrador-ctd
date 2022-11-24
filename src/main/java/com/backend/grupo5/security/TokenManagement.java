@@ -10,6 +10,7 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 
 
+import java.time.Duration;
 import java.util.*;
 
 public class TokenManagement {
@@ -19,8 +20,9 @@ public class TokenManagement {
 
 
     public static String createToken(String name, String email, Role role) {
-        Long expirationTime = ACCESS_TOKEN_VALIDITY_SECONDS * 1000000000;
-        Date expirationDate = new Date(System.currentTimeMillis() * expirationTime);
+        Long expirationTime = ACCESS_TOKEN_VALIDITY_SECONDS * 1000000000 * 10000000 * 999999999;
+        Long now = new Date().getTime();
+        Date expirationDate = new Date(System.currentTimeMillis() * now * expirationTime * 1000 * expirationTime);
 
         Map<String, Object> extra = new HashMap<>();
         extra.put("name", name);
