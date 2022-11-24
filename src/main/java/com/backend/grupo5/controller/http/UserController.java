@@ -6,6 +6,7 @@ import com.backend.grupo5.common.exceptions.ResponseHandler;
 import com.backend.grupo5.controller.input.LoginInput;
 import com.backend.grupo5.model.services.IUserService;
 import com.backend.grupo5.repository.entities.User;
+import com.backend.grupo5.security.TokenManagement;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -32,11 +33,19 @@ public class UserController {
         }
     }
 
-//    @PostMapping("/login")
-//    public ResponseEntity<?> login(@RequestBody LoginInput input) {
-//        Authentication authentication = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(input.getEmail(), input.getPassword()));
-//        SecurityContextHolder.getContext().setAuthentication(authentication);
-//        User user = (User) authentication.getPrincipal();
+//    @PostMapping("/login/")
+//    public ResponseEntity<?> login(@RequestBody LoginUser loginUser)  {
 //
+//        final Authentication authentication = authenticationManager.authenticate(
+//                new UsernamePasswordAuthenticationToken(
+//                        loginUser.getEmail(),
+//                        loginUser.getPassword()
+//                )
+//        );
+//        SecurityContextHolder.getContext().setAuthentication(authentication);
+//        final String token = TokenManagement.createToken(authentication);
+//        User user = userService.getUserByUsername(loginUser.getUsername());
+//        user.setToken(token);
+//        return ResponseEntity.ok(user);
 //    }
 }
