@@ -189,22 +189,8 @@
 }
 
 /*---BLOQUE IMAGENES-RES---*/
-.slick-list {
-    height: 400px;
-    
-    overflow: hidden;
-    
-}
-
-.slick-slide > div > div > img {
-    object-fit: cover;
-    max-width:400px;
-    max-height:400px;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    
-
+.alojamiento__imagenes-res{
+    display: none;
 }
 /*---BLOQUE DESCRIPCION---*/
 .alojamiento__descripcion {
@@ -255,6 +241,13 @@
     display: grid;
     grid-template-columns: repeat(4, 1fr);
 }
+
+.caracteristicas__atributos > p > svg {
+    margin-right: 5px;
+    color: var(--amarillo);
+    width: 1.1em;
+    height: 1.1em;
+}
 /*---BLOQUE FEHCAS RESERVA---*/
 .alojamiento__fechasReserva{
     display: flex;
@@ -280,6 +273,9 @@
 }
 .calendario {
     width: 50%;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: #FFF;
 }
 
 .calendario > .rdrCalendarWrapper, 
@@ -358,9 +354,7 @@
     color: var(--grisFuerte);
     font-size: 0.9em;
 }
-.alojamiento__imagenes-res{
-    display: none;
-}
+
 /*---RESPONSIVE---*/
 /*---RESPONSIVE TABLET---*/
 @media (min-width:551px) and (max-width:700px){
@@ -394,8 +388,18 @@
     }
     .slick-slide > div > div > img{
         object-fit: cover;
-
+        max-width:100%;
+        max-height:400px;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
     }
+
+    .slick-list {
+        height: 400px;
+        overflow: hidden;
+    }
+    
 
     /*---BLOQUE POLITICAS---*/
     .normas__container {

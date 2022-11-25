@@ -41,9 +41,9 @@ export const Reserva = () => {
       endDate: new Date(),
       key: "selection" },
 
-    { startDate: new Date(),
+    {/*{ startDate: new Date(),
       endDate: addDays(new Date(), 3),
-      key: "compare" },
+    key: "compare" },*/}
   ]);
 
 
@@ -147,7 +147,6 @@ export const Reserva = () => {
               rangeColors={["#FBC02D", "#FBC02D", "#FBC02D"]}
               className="date"
               direction="horizontal"
-              
             />
           </div>
         </div>
@@ -191,7 +190,7 @@ export const Reserva = () => {
           </div>
           <hr />
           {/* <NavLink to={'ok'}> */}
-            <button className="submit" type='submit' disabled={!validationAll}>Confirmar Reserva</button>
+            <button type='submit' disabled={!validationAll}>Confirmar Reserva</button>
           {/* </NavLink> */}
         </div>
       </form>

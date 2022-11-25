@@ -9,12 +9,10 @@
     --grisFondo: rgba(214, 214, 214, 0.898);
     font-family: Quicksand;
     background: transparent;
-    --minT: 551px;
-    --maxT: 768px;
-    --maxM: 992px;
-    --xl: 1200px;
+    
 }
 
 body{
     margin: 0px;
+    width: 100%;
 }

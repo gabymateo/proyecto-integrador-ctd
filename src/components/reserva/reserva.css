@@ -203,10 +203,11 @@
     object-fit: cover;
     max-height:100%;
     max-width: 100%;
+    width: 100%;
 }
 
 
-.reserva__detalles > a > button {
+.reserva__detalles > button {
     margin-top: 2em;
     border:none;
     outline: none;
@@ -224,7 +225,7 @@
     font-weight: bolder;
 }
 
-.reserva__detalles > a > button:hover{
+.reserva__detalles > button:hover{
     transform: translateY(-3px);
 }
 
