@@ -43,7 +43,10 @@ export const BloqueBuscador = ({getProductosFiltrados, getProductos}) => {
       //setSearchParams({checkIn:checkIn, checkOut:checkOut})
       getProductosFiltrados(checkIn, checkOut);
     }
-
+  const res = window.matchMedia('(max-width:550px)')
+  const responsive = ()=>{
+    
+  }
 
   return (
     <div className='bloqueBuscador'>
