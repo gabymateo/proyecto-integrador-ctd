@@ -35,6 +35,9 @@ const LoginForm = (props) => {
       //props.onHandleLogin(email, password)
       postLogin(email, password)
       console.log("token en el componente login: ", token);
+      if (token.length > 1){
+        props.onHandleLogin(email);
+      }
     }
 
     const hadleBlurEmail = () =>{

@@ -9,6 +9,7 @@ import {BiCheckCircle} from 'react-icons/bi';
 import Horarios from '../../DataMock/Horarios.json'
 import { useBookingsApi } from '../../apis/bookingsApi'
 
+
 const emailRegexp = new RegExp(/[^@ \t\r\n]+@[^@ \t\r\n]+\.[^@ \t\r\n]+/);
 
 const initValues={
@@ -41,35 +42,10 @@ export const Reserva = () => {
     })
   }
 
-  const handleBlurName= () =>{
-    const hasError = !((formValues.name).length>1)
-    setBadName(hasError)
-    //handleValidationAll();
-  }
-
-  const handleBlurLastName= () =>{
-    const hasError = !((formValues.lastName).length>1)
-    setBadLastName(hasError)
-    //handleValidationAll();
-  }
-
-  const handleBlurEmail = () =>{
-    const hasError = ! emailRegexp.test(formValues.email);
-    setBadEmail(hasError)
-    //handleValidationAll();
-  }
-
-  const handleBlurCity = () =>{
-    const hasError = !((formValues.city).length>1);
-    setBadCity(hasError)
-    //handleValidationAll();
-  }
 
     React.useEffect(()=>{
-      const isValid = ((badName==false) && (badLastName==false) && (badEmail==false)  && (badCity==false))
-      setValidationAll(isValid)
-      //console.log("total validaciones: ",isValid);
-  }, [badName, badLastName, badEmail, badCity])
+      
+  }, [])
 
 
     const productId = useParams().id;
@@ -81,10 +57,9 @@ export const Reserva = () => {
     const startHour = "12:00";
     //const startDate = (new Date(date[0].startDate)).toISOString().substring(0, 10);
     //const endDate = (new Date(date[0].endDate)).toISOString().substring(0, 10); 
+    const Authorization = localStorage.JWT;
     const startDate = 2022-11-11;
     const endDate = 2022-11-13; 
-    const Authorization = localStorage.JWT;
-
         
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -101,13 +76,13 @@ export const Reserva = () => {
         <div className="reserva__form">
         <h2 className="booking_title">Completa tus datos</h2>
           <div className="form__container">
-          <label> Nombre  <input name="name" type='text' value={formValues.name} onChange={handleChangeFormValues} onBlur={handleBlurName}/>
+          <label> Nombre  <input name="name" type='text' value={formValues.name} onChange={handleChangeFormValues} />
             <span style={{ visibility: badName ? "visible" :"hidden"}}>Por favor ingrese su nombre</span> <br></br> </label>
-          <label> Apellido  <input name="lastName" type='text' value={formValues.lastName} onChange={handleChangeFormValues} onBlur={handleBlurLastName}/>
+          <label> Apellido  <input name="lastName" type='text' value={formValues.lastName} onChange={handleChangeFormValues} />
             <span style={{ visibility: badLastName ? "visible" : "hidden"}}>Por favor ingrese su apellido</span> <br></br> </label>
-          <label> Correo electrónico  <input name="email" type='email' value={formValues.email} onChange={handleChangeFormValues} onBlur={handleBlurEmail}/> 
+          <label> Correo electrónico  <input name="email" type='email' value={formValues.email} onChange={handleChangeFormValues} /> 
             <span style={{ visibility: badEmail ? "visible" : "hidden"}}>No es un email correcto</span> <br></br> </label>
-            <label> Ciudad  <input name="city" type='text' value={formValues.city} onChange={handleChangeFormValues} onBlur={handleBlurCity}/> 
+            <label> Ciudad  <input name="city" type='text' value={formValues.city} onChange={handleChangeFormValues} /> 
             <span style={{ visibility: badCity ? "visible" : "hidden"}}>Ingresa una ciudad</span> <br></br> </label>
           </div>
         </div>
@@ -115,7 +90,7 @@ export const Reserva = () => {
           <h1>Seleccioná tu fecha de reserva</h1>
           <DateRange
             editableDateInputs={true}
-            onChannge={(item) => setDate([item.selection])}
+            onChange={(item) => setDate([item.selection])}
             moveRangeOnFirstSelection={false}
             months={2}
             ranges={date}

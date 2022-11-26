@@ -11,7 +11,7 @@ export default function ListCards ({productos}) {
     return (
         <div className='ListCardsContainer'>
         <div className='ListCards'>
-            {productos.data?.map((prod)=>{
+            {productos?.data?.map((prod)=>{
                 return <Card
                     key={prod.id}
                     id={prod.id}

@@ -5,9 +5,14 @@ import { GiHamburgerMenu } from 'react-icons/gi'; //icono hamburguesa
 import { GrClose } from 'react-icons/gr';//
 import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
+
 const Header = (props) => {
   const [clicked, setClicked] = useState(false);
-  //console.log(props.user);
+  
+  const handleCerrarSesion = () => {
+    localStorage.clear()
+    props.setUser(null)
+  }
 
   return (
     <div className='header'>
@@ -39,7 +44,7 @@ const Header = (props) => {
                 <p>
                   Hola <span>{props.user}</span>
                 </p>
-                <button className='headerButton'>Cerrar Sesion </button>
+                <button className='headerButton' onClick={handleCerrarSesion} >Cerrar Sesion </button>
               </div>
               <Avatar />
             </div>
