@@ -5,11 +5,11 @@ import Footer from '../components/footer/Footer';
 
 const Register_form = () => {
   return (
-    <div>
+    <>
         <Header/>
         <Register/>
         <Footer/>
-    </div>
+    </>
   )
 }
 

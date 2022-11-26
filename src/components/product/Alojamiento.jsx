@@ -7,7 +7,13 @@ import { NavLink, useParams, useSearchParams } from "react-router-dom";
 
 import { FiShare2 } from 'react-icons/fi';
 import { AiTwotoneHeart } from 'react-icons/ai';
-
+import { MdKitchen } from 'react-icons/md';
+import {FaTv} from 'react-icons/fa';
+import {GiThermometerCold} from 'react-icons/gi';
+import {MdOutlinePets} from 'react-icons/md';
+import {AiFillCar} from 'react-icons/ai';
+import {TbSwimming} from 'react-icons/tb';
+import {FaWifi} from 'react-icons/fa';
 import "../../../node_modules/slick-carousel/slick/slick.css"; 
 import "../../../node_modules/slick-carousel/slick/slick-theme.css";
 import { HeaderAlojamiento } from "./HeaderAlojamiento";
@@ -49,13 +55,13 @@ export const Alojamiento = () => {
           <h1>¿Que ofrece este lugar?</h1>
           <div className="caracteristicas__barra"></div>
           <div className="caracteristicas__atributos">
-            <p>Lorem.</p>
-            <p>Dolor.</p>
-            <p>Eius.</p>
-            <p>In?</p>
-            <p>Vitae?</p>
-            <p>Eligendi?</p>
-            <p>Nam?</p>
+            <p><MdKitchen/>Cocina</p>
+            <p><FaTv/>Televisor</p>
+            <p><GiThermometerCold/>Aire Acondicionado</p>
+            <p><MdOutlinePets/>Apto Mascotas</p>
+            <p><AiFillCar/>Estacionamiento Gratuito</p>
+            <p><TbSwimming/>Pileta</p>
+            <p><FaWifi/>WiFi</p>
           </div>
         </div>
       </div>

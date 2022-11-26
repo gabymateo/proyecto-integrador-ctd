@@ -13,9 +13,9 @@ import { IoMdCalendar } from 'react-icons/io';
 import {format} from 'date-fns';
 
 export const BloqueBuscador = ({getProductosFiltrados, getProductos}) => {
-  const [openDate, setOpenDate] = useState(false)
   const [searchParams, setSearchParams] = useSearchParams();
   /*CALENDARIO */
+  const [openDate, setOpenDate] = useState(false)
   const [date, setDate] = useState([
     { startDate: new Date(),
       endDate: new Date(),
@@ -68,12 +68,12 @@ export const BloqueBuscador = ({getProductosFiltrados, getProductos}) => {
                 </span>
                 {openDate && <DateRange
                   editableDateInputs={true}
-                  onChange={item => setDate([item.selection])}
+                  onChange={(item) => setDate([item.selection])}
                   moveRangeOnFirstSelection={false}
                   months={2}
+                  ranges={date}
                   showDateDisplay={false}
                   rangeColors={['#FBC02D', '#FBC02D', '#FBC02D']}
-                  ranges={date}
                   className='date'
                   direction='horizontal'
                 />}

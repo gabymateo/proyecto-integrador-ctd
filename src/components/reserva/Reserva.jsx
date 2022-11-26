@@ -8,9 +8,15 @@ import "../../../node_modules/react-date-range/dist/theme/default.css"; // theme
 import {BiCheckCircle} from 'react-icons/bi';
 import Horarios from '../../DataMock/Horarios.json'
 import { useBookingsApi } from '../../apis/bookingsApi'
+import { useProductsApi } from '../../apis/productsApi';
+import { IoLocationSharp } from 'react-icons/io5';
+import {format, addDays} from 'date-fns';
 
 
 const emailRegexp = new RegExp(/[^@ \t\r\n]+@[^@ \t\r\n]+\.[^@ \t\r\n]+/);
+
+//
+
 
 const initValues={
   name: "",
@@ -20,11 +26,27 @@ const initValues={
 }
 
 export const Reserva = () => {
-  //calendario
-  const [openDate, setOpenDate] = useState(false);
+  //apiProducts
+  const {getProducts, products} = useProductsApi()
+  const ident = useParams().id
+  
+  React.useEffect(() => {
+    getProducts(ident)
+  },[])
+  const detalle = products?.data
+  //console.log(products?.data);
+
+  /*CALENDARIO */
   const [date, setDate] = useState([
-    { startDate: new Date(), endDate: new Date(), key: "selection" },
+    { startDate: new Date(),
+      endDate: new Date(),
+      key: "selection" },
+
+    {/*{ startDate: new Date(),
+      endDate: addDays(new Date(), 3),
+    key: "compare" },*/}
   ]);
+
 
   const [formValues, setFormValues] = useState(initValues);
   const [badName, setBadName] = useState(undefined);
@@ -74,31 +96,34 @@ export const Reserva = () => {
     <div className="reserva">
       <form className="reserva__container" onSubmit={handleSubmit}>
         <div className="reserva__form">
-        <h2 className="booking_title">Completa tus datos</h2>
-          <div className="form__container">
-          <label> Nombre  <input name="name" type='text' value={formValues.name} onChange={handleChangeFormValues} />
-            <span style={{ visibility: badName ? "visible" :"hidden"}}>Por favor ingrese su nombre</span> <br></br> </label>
-          <label> Apellido  <input name="lastName" type='text' value={formValues.lastName} onChange={handleChangeFormValues} />
-            <span style={{ visibility: badLastName ? "visible" : "hidden"}}>Por favor ingrese su apellido</span> <br></br> </label>
-          <label> Correo electrónico  <input name="email" type='email' value={formValues.email} onChange={handleChangeFormValues} /> 
-            <span style={{ visibility: badEmail ? "visible" : "hidden"}}>No es un email correcto</span> <br></br> </label>
-            <label> Ciudad  <input name="city" type='text' value={formValues.city} onChange={handleChangeFormValues} /> 
-            <span style={{ visibility: badCity ? "visible" : "hidden"}}>Ingresa una ciudad</span> <br></br> </label>
-          </div>
+          <h2 className="booking_title">Completa tus datos</h2>
+            <div className="form__container">
+            <label> Nombre  <input name="name" type='text' value={formValues.name} onChange={handleChangeFormValues} />
+              <span style={{ visibility: badName ? "visible" :"hidden"}}>Por favor ingrese su nombre</span> <br></br> </label>
+            <label> Apellido  <input name="lastName" type='text' value={formValues.lastName} onChange={handleChangeFormValues} />
+              <span style={{ visibility: badLastName ? "visible" : "hidden"}}>Por favor ingrese su apellido</span> <br></br> </label>
+            <label> Correo electrónico  <input name="email" type='email' value={formValues.email} onChange={handleChangeFormValues} /> 
+              <span style={{ visibility: badEmail ? "visible" : "hidden"}}>No es un email correcto</span> <br></br> </label>
+              <label> Ciudad  <input name="city" type='text' value={formValues.city} onChange={handleChangeFormValues}/> 
+              <span style={{ visibility: badCity ? "visible" : "hidden"}}>Ingresa una ciudad</span> <br></br> </label>
+            </div>
         </div>
         <div className="calendario__container">
           <h1>Seleccioná tu fecha de reserva</h1>
-          <DateRange
-            editableDateInputs={true}
-            onChange={(item) => setDate([item.selection])}
-            moveRangeOnFirstSelection={false}
-            months={2}
-            ranges={date}
-            showDateDisplay={false}
-            rangeColors={["#FBC02D", "#FBC02D", "#FBC02D"]}
-            className="date"
-            direction="horizontal"
-          />
+          <div className='calendarioReserva'>
+            <DateRange
+              editableDateInputs={true}
+              onChange={(item) => setDate([item.selection])}
+              moveRangeOnFirstSelection={false}
+              months={2}
+              minDate={addDays(new Date(), -30)}
+              ranges={date}
+              showDateDisplay={false}
+              rangeColors={["#FBC02D", "#FBC02D", "#FBC02D"]}
+              className="date"
+              direction="horizontal"
+            />
+          </div>
         </div>
         <div className="reserva__horario">
           <h1>Tu horario de llegada</h1>
@@ -120,24 +145,27 @@ export const Reserva = () => {
         </div>
         <div className="reserva__detalles">
           <h1>Detalle de la reserva</h1>
-          <img></img>
-          <p>Categoria</p>
-          <h1>Titulo Hotel</h1>
-          <p>Ubicacion, en ubicacion, Buenos Aires</p>
+          {/*<div className='container__img2'></div>*/}
+          <div className='container__img '>
+            <img src={detalle?.images[0].url}></img>
+          </div>
+          <p className='category'>{detalle?.category?.title}</p>
+          <h1 className='name'>{detalle?.name}</h1>
+          <p className='address'><IoLocationSharp/>{detalle?.address}, {detalle?.city?.name}, {detalle?.city?.state}, {detalle?.city.country}</p>
           {/*Crear y reutilizar componente de ubicaion */}
           <hr />
-          <div>
+          <div className='check'>
             <p>Check In</p>
-            <span>_/_/_</span>
+            <span>{`${format(date[0].startDate, 'dd/MM/yyyy')}`}</span>
           </div>
           <hr />
-          <div>
+          <div className='check'>
             <p>Check Out</p>
-            <span>_/_/_</span>
+            <span>{`${format(date[0].endDate, 'dd/MM/yyyy')}`}</span>
           </div>
           <hr />
           {/* <NavLink to={'ok'}> */}
-            <button className="submit" type='submit' disabled={!validationAll}>Confirmar Reserva</button>
+            <button type='submit' disabled={!validationAll}>Confirmar Reserva</button>
           {/* </NavLink> */}
         </div>
       </form>

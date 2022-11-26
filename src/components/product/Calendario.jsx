@@ -24,23 +24,25 @@ export const Calendario = () => {
       <div className="alojamiento__fechasReserva">
         <div className="fechasReserva__container">
           <h1>Fechas Disponibles</h1>
-          <div className='calendario'>
-            <DateRange
-              editableDateInputs={true}
-              onChange={(item) => setDate([item.selection])}
-              moveRangeOnFirstSelection={false}
-              months={2}
-              ranges={date}
-              showDateDisplay={false}
-              rangeColors={["#FBC02D", "#FBC02D", "#FBC02D"]}
-              className="date"
-              direction="horizontal"
-            />
-          </div>
-          <div className="fechasReserva__reserva">
-            <p>Agregá tus fechas de viaje para obtener precios exactos</p>
-            {localStorage.JWT ? (<NavLink to={`reserva`}><button>Iniciar Reserva</button></NavLink>)
-                    :(<NavLink to={`./../../login`}><button>Iniciar Reserva</button></NavLink>)}
+          <div>
+            <div className='calendario'>
+              <DateRange
+                editableDateInputs={true}
+                onChange={(item) => setDate([item.selection])}
+                moveRangeOnFirstSelection={false}
+                months={2}
+                ranges={date}
+                showDateDisplay={false}
+                rangeColors={["#FBC02D", "#FBC02D", "#FBC02D"]}
+                className="date"
+                direction="horizontal"
+              />
+            </div>
+            <div className="fechasReserva__reserva">
+              <p>Agregá tus fechas de viaje para obtener precios exactos</p>
+              {localStorage.JWT ? (<NavLink to={`reserva`}><button>Iniciar Reserva</button></NavLink>)
+                      :(<NavLink to={`./../../login`}><button>Iniciar Reserva</button></NavLink>)}
+            </div>
           </div>
         </div>
       </div>
