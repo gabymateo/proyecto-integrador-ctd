@@ -379,13 +379,16 @@
     .alojamiento__imagenes{
         display: none;
     }
+
     .alojamiento__imagenes-res{
         display:block;
     }
+
     .slick-slide > div > div{
         height: 50px;
         width: 50px;
     }
+
     .slick-slide > div > div > img{
         object-fit: cover;
         max-width:100%;
@@ -400,10 +403,8 @@
         overflow: hidden;
     }
     
-
     /*---BLOQUE POLITICAS---*/
     .normas__container {
         grid-template-columns: repeat(1, 1fr);
     }
-
 }
