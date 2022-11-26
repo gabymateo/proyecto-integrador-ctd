@@ -10,7 +10,7 @@ Maven-build:
     - mvn clean
     - mvn package -B
     - ls target
-    - echo "Finished building the app."
+    - echo "Finished building the app"
   artifacts:
     paths:      
       - target/*.war
