@@ -248,7 +248,7 @@
     width: 1.1em;
     height: 1.1em;
 }
-/*---BLOQUE FEHCAS RESERVA---*/
+/*---BLOQUE FECHAS RESERVA---*/
 .alojamiento__fechasReserva{
     display: flex;
     justify-content: center;
@@ -284,6 +284,10 @@
    width: 100%;
 }
 
+.calendario > div > .rdrMonthAndYearWrapper {
+    padding: 0;
+}
+
 
 .fechasReserva__reserva{
     display: flex;
@@ -317,8 +321,6 @@
 
 .fechasReserva__reserva > a > button:hover{
     transform: translateY(-3px);
-    
-
 }
 
 
@@ -375,15 +377,73 @@
     .caracteristicas__atributos{
         grid-template-columns: repeat(1, 1fr);
     }
+    /*---BLOQUE FECHAS RESERVA---*/ 
+    .fechasReserva__container{
+        margin: 0 15px;
+    }
+    /*---CALENDARIO---*/
+    .fechasReserva__container > div {
+        flex-direction: column;
+    }
+    .calendario{
+        width: 100%;
+    }
+    
+    .calendario > .rdrCalendarWrapper, 
+    .calendario > .rdrDateRangeWrapper, 
+    .calendario > .date{
+       width: 100%;
+    }
 
+    .calendario > div > div > .rdrMonth{
+        width: 100%;
+    }
+    /*---BOTON INICIAR RESERVA---*/
+    .fechasReserva__reserva{
+        display: flex;
+        flex-direction: column;
+        padding: 0 10px;
+        margin: 15px 0;
+        width: 100%;
+    }
+
+    .fechasReserva__reserva > p{
+        margin: 15px 0;
+    }
+
+    .fechasReserva__reserva > a{
+        margin: 15px 0;
+    }
     .alojamiento__imagenes{
         display: none;
     }
-
+    /*---BLOQUE IMAGENES-RES---*/
     .alojamiento__imagenes-res{
         display:block;
+        position: relative;
     }
 
+    .imagenes-res__botones{
+        position: absolute;
+        z-index: 10;
+    }
+    .imagenes-res__botones > .share, .like {
+        cursor: pointer;
+        color: #FFF;
+        margin-left: 15px;
+        padding: 10px 5px;
+        width: 2em;
+        height: 2em;   
+    }
+
+    .imagenes-res__botones > .share:active{
+        transform: scale(1.1, 1.1);
+    }
+
+    .imagenes-res__botones > .like:active{
+        color: red;
+        transform: scale(1.1, 1.1);
+    }
     .slick-slide > div > div{
         height: 50px;
         width: 50px;
@@ -391,7 +451,6 @@
 
     .slick-slide > div > div > img{
         object-fit: cover;
-        max-width:100%;
         max-height:400px;
         display: block;
         margin-left: auto;

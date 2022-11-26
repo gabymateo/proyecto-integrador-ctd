@@ -30,7 +30,7 @@ export const Calendario = () => {
                 editableDateInputs={true}
                 onChange={(item) => setDate([item.selection])}
                 moveRangeOnFirstSelection={false}
-                months={2}
+                months={1}
                 ranges={date}
                 showDateDisplay={false}
                 rangeColors={["#FBC02D", "#FBC02D", "#FBC02D"]}
