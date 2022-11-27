@@ -1,12 +1,7 @@
 import React from "react";
 import "./alojamiento.css";
 import { NavLink, useParams, useSearchParams } from "react-router-dom";
-
-
 //Iconos
-
-import { FiShare2 } from 'react-icons/fi';
-import { AiTwotoneHeart } from 'react-icons/ai';
 import { MdKitchen } from 'react-icons/md';
 import {FaTv} from 'react-icons/fa';
 import {GiThermometerCold} from 'react-icons/gi';
@@ -19,7 +14,7 @@ import "../../../node_modules/slick-carousel/slick/slick-theme.css";
 import { HeaderAlojamiento } from "./HeaderAlojamiento";
 import { Ubicacion } from "./Ubicacion";
 import { BloqueImagenes, BloqueImagenesRes } from './BloqueImagenes';
-import { Calendario } from "./Calendario";
+import { FechasDisponibles } from "./FechasDisponibles";
 import { Politicas } from "./Politicas";
 import { useProductsApi } from "../../apis/productsApi";
 
@@ -65,7 +60,7 @@ export const Alojamiento = () => {
           </div>
         </div>
       </div>
-      <Calendario/>
+      <FechasDisponibles/>
       <Politicas/>
     </div>
   );

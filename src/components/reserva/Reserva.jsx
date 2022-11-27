@@ -40,10 +40,6 @@ export const Reserva = () => {
     { startDate: new Date(),
       endDate: new Date(),
       key: "selection" },
-
-    {/*{ startDate: new Date(),
-      endDate: addDays(new Date(), 3),
-    key: "compare" },*/}
   ]);
 
 
@@ -141,7 +137,7 @@ export const Reserva = () => {
               onChange={(item) => setDate([item.selection])}
               moveRangeOnFirstSelection={false}
               months={2}
-              minDate={addDays(new Date(), -30)}
+              minDate={new Date()}
               ranges={date}
               showDateDisplay={false}
               rangeColors={["#FBC02D", "#FBC02D", "#FBC02D"]}

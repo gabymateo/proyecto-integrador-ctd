@@ -5,7 +5,7 @@ import { NavLink } from 'react-router-dom';
 import '../../../node_modules/react-date-range/dist/styles.css'; // main css file
 import '../../../node_modules/react-date-range/dist/theme/default.css'; // theme css file
 
-export const Calendario = () => {
+export const FechasDisponibles = () => {
   const [openDate, setOpenDate] = useState(false)
   const [date, setDate] = useState([
     { startDate: new Date(),
@@ -32,6 +32,7 @@ export const Calendario = () => {
                 moveRangeOnFirstSelection={false}
                 months={1}
                 ranges={date}
+                minDate={new Date()}
                 showDateDisplay={false}
                 rangeColors={["#FBC02D", "#FBC02D", "#FBC02D"]}
                 className="date"
