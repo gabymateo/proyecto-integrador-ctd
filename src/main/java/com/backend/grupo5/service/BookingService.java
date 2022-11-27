@@ -28,7 +28,6 @@ import java.util.*;
 public class BookingService implements IBookingService {
 
     private final BookingRepository bookingRepository;
-    private final ModelMapper modelMapper;
     private final IUserService userService;
     private final IProductService productService;
     private final BookingDTOToBookingEntity mapper;
@@ -49,6 +48,9 @@ public class BookingService implements IBookingService {
         }
         //validate if dates are available
         Page<ProductModel> available = this.productService.search(null, null, null, null, null, LocalDate.parse(input.getStartDate()), LocalDate.parse(input.getEndDate()), product.get().getId(), PageRequest.of(0, 5));
+        if(available.getContent().size() == 0) {
+            throw new ApplicationError(ProductErrorDescription.PRODUCT_NOT_AVAILABLE.getDescription(), HttpStatus.BAD_REQUEST);
+        }
         Booking booking = mapper.map(input);
         booking.setUser(user.get());
         booking.setProduct(product.get());

@@ -14,10 +14,9 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.Optional;
 
 @RestController @RequiredArgsConstructor @RequestMapping("/auth")
 public class UserController {
@@ -28,6 +27,17 @@ public class UserController {
         try {
             User user = this.userService.create(input);
             return ResponseHandler.generateResponse(HttpStatus.CREATED, "success", user);
+        } catch (ApplicationError error) {
+            return ErrorHandler.generateErrorResponse(error.getHttpStatus(), error.getMessage());
+        }
+    }
+
+    @GetMapping("/users/")
+    public ResponseEntity<Object> getById(@RequestHeader("Authorization") String jwt) {
+        try {
+            Long userId = TokenManagement.getUserId(jwt);
+            Optional<User> user = this.userService.getById(userId);
+            return ResponseHandler.generateResponse(HttpStatus.OK, "success", user);
         } catch (ApplicationError error) {
             return ErrorHandler.generateErrorResponse(error.getHttpStatus(), error.getMessage());
         }

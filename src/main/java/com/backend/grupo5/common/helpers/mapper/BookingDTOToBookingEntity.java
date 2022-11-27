@@ -16,10 +16,6 @@ public class BookingDTOToBookingEntity implements IMapper<BookingCreateInput, Bo
         booking.setStartDate(LocalDate.parse(in.getStartDate()));
         booking.setEndDate(LocalDate.parse(in.getEndDate()));
         booking.setStartHour(LocalTime.parse(in.getStartHour()));
-        booking.setGuestCity(in.getGuestCity());
-        booking.setGuestLastName(in.getGuestLastName());
-        booking.setGuestEmail(in.getGuestEmail());
-        booking.setGuestName(in.getGuestName());
         return booking;
     }
 }

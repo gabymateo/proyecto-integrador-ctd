@@ -15,6 +15,6 @@ public interface IProductService {
     ProductModel create(ProductCreateDTO input, MultipartFile[] files);
     Optional<ProductModel> getById(Long id);
     Page<ProductModel> search(String name, Long categoryId, Long cityId, String order, String sort, LocalDate startDate, LocalDate endDate, Long productId, Pageable pageable);
-    Product update(Long id, ProductUpdateDTO input);
+    Product update(Long id, ProductUpdateDTO input, MultipartFile[] files);
     void delete(Long id);
 }
