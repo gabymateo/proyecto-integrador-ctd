@@ -389,6 +389,7 @@
         width: 100%;
     }
     
+    
     .calendario > .rdrCalendarWrapper, 
     .calendario > .rdrDateRangeWrapper, 
     .calendario > .date{
@@ -452,6 +453,8 @@
     .slick-slide > div > div > img{
         object-fit: cover;
         max-height:400px;
+        height: 400px;
+        width: 100%;
         display: block;
         margin-left: auto;
         margin-right: auto;
