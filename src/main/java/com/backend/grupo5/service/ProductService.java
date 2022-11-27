@@ -1,6 +1,8 @@
 package com.backend.grupo5.service;
 
 import com.backend.grupo5.common.exceptions.ApplicationError;
+import com.backend.grupo5.common.helpers.error_description.CategoryErrorDescription;
+import com.backend.grupo5.common.helpers.error_description.CityErrorDescription;
 import com.backend.grupo5.common.helpers.error_description.ProductErrorDescription;
 import com.backend.grupo5.common.helpers.mapper.ProductDTOTOProduct;
 import com.backend.grupo5.common.helpers.validators.ProductValidator;
@@ -105,9 +107,82 @@ public class ProductService implements IProductService {
         return new PageImpl<>(productModels, products.getPageable(), products.getTotalElements());
     }
 
-    @Override
-    public Product update(Long id, ProductUpdateDTO input) {
-        return null;
+    @Override @Transactional
+    public Product update(Long id, ProductUpdateDTO input, MultipartFile[] files) {
+
+        Optional<Product> product = this.productRepository.findById(id);
+        if(product.isEmpty()) {
+            throw new ApplicationError(ProductErrorDescription.PRODUCT_NOT_FOUND.getDescription(), HttpStatus.NOT_FOUND);
+        }
+
+        if(input.getCategoryId() != null) {
+            Optional<Category> category = this.categoryRepository.findById(input.getCategoryId());
+            if(category.isEmpty()) {
+                throw new ApplicationError(CategoryErrorDescription.CATEGORY_NOT_FOUND.getDescription(), HttpStatus.NOT_FOUND);
+            }
+            product.get().setCategory(category.get());
+        }
+
+        if(input.getCityId() != null) {
+            Optional<City> city = this.cityRepository.findById(input.getCityId());
+            if(city.isEmpty()) {
+                throw new ApplicationError(CityErrorDescription.CITY_NOT_FOUND.getDescription(), HttpStatus.NOT_FOUND);
+            }
+            product.get().setCity(city.get());
+        }
+
+        if(input.getAddress() != null) {
+            product.get().setAddress(input.getAddress());
+        }
+
+        if(input.getName() != null) {
+            product.get().setName(input.getName());
+        }
+
+        if(input.getPrice() != null) {
+            product.get().setPrice(input.getPrice());
+        }
+
+        if(input.getFeatures() != null && input.getFeatures().size() != 0) {
+            for(Long feature : input.getFeatures()) {
+                Optional<Feature> feature1 = this.featureService.getById(feature);
+                if(feature1.isEmpty()) {
+                    throw new ApplicationError("Feature id" + " " + feature + " " + "was not found", HttpStatus.NOT_FOUND);
+                }
+                product.get().getFeatures().add(feature1.get());
+            }
+        }
+
+        if(input.getFeaturesToDelete() != null && input.getFeaturesToDelete().size() != 0) {
+            for (Long feature : input.getFeaturesToDelete()) {
+                Optional<Feature> feature1 = this.featureService.getById(feature);
+                if(feature1.isEmpty()) {
+                    throw new ApplicationError("Feature id" + " " + feature + " " + "was not found", HttpStatus.NOT_FOUND);
+                }
+                product.get().getFeatures().remove(feature1.get());
+                feature1.get().getProducts().remove(product.get());
+            }
+        }
+
+        if(input.getImagesToDelete() != null && input.getImagesToDelete().size() != 0) {
+            for (Long imageId : input.getImagesToDelete()) {
+                Optional<Image> image = this.imageRepository.findById(imageId);
+                if(image.isEmpty()) {
+                    throw new ApplicationError("Image id" + " " + imageId + " " + "was not found", HttpStatus.NOT_FOUND);
+                }
+                product.get().getImages().remove(image.get());
+            }
+        }
+
+        if(files != null && files.length > 0) {
+            for(MultipartFile file : files) {
+                Image image = awsService.upload(file);
+                image.setProduct(product.get());
+                imageRepository.save(image);
+                product.get().getImages().add(image);
+            }
+        }
+        return this.productRepository.save(product.get());
     }
 
     @Override

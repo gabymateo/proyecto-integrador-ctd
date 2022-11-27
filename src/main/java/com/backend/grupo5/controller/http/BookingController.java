@@ -6,6 +6,7 @@ import com.backend.grupo5.common.exceptions.ResponseHandler;
 import com.backend.grupo5.model.services.IBookingService;
 import com.backend.grupo5.repository.entities.Booking;
 import com.backend.grupo5.controller.input.booking.BookingCreateInput;
+import com.backend.grupo5.security.TokenManagement;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -22,8 +23,9 @@ public class BookingController {
 
     @PostMapping("/")
     @PreAuthorize("hasAnyAuthority('ROLE_ADMIN', 'ROLE_USER')")
-    public ResponseEntity<Object> create(@RequestBody BookingCreateInput input) {
+    public ResponseEntity<Object> create(@RequestBody BookingCreateInput input, @RequestHeader("Authorization") String jwt) {
         try {
+            input.setUserId(TokenManagement.getUserId(jwt));
             Booking booking = this.bookingService.create(input);
             return ResponseHandler.generateResponse(HttpStatus.CREATED, "success", booking);
         } catch (ApplicationError error) {
@@ -41,7 +43,7 @@ public class BookingController {
         }
     }
 
-    @GetMapping("/{productId}")
+    @GetMapping("/products/{productId}")
     public ResponseEntity<Object> getByProductId(@PathVariable Long productId) {
         try {
             List<Booking> bookings = this.bookingService.getByProductId(productId);

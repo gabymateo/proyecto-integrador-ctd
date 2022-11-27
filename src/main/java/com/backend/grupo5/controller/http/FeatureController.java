@@ -21,7 +21,7 @@ public class FeatureController {
     private final IFeatureService featureService;
 
     @PostMapping("/")
-    @PreAuthorize("hasAuthority('ADMIN')")
+    @PreAuthorize("hasAnyAuthority('ROLE_ADMIN')")
     public ResponseEntity<Object> create(@RequestBody FeatureCreateDTO input) {
         try {
             Feature feature = this.featureService.create(input);
@@ -52,7 +52,7 @@ public class FeatureController {
     }
 
     @DeleteMapping("/{id}")
-    @PreAuthorize("hasAuthority('ADMIN')")
+    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
     public ResponseEntity<Object> delete(@PathVariable Long id) {
         try {
             this.featureService.delete(id);

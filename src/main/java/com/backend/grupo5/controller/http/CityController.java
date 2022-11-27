@@ -21,7 +21,7 @@ public class CityController {
     private final ICityService cityService;
 
     @PostMapping("/")
-    @PreAuthorize("hasAuthority('ADMIN')")
+    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
     public ResponseEntity<Object> create(@RequestBody CityCreateDTO input) {
         try {
             City city = this.cityService.create(input);
@@ -52,7 +52,7 @@ public class CityController {
     }
 
     @DeleteMapping("/{id}")
-    @PreAuthorize("hasAuthority('ADMIN')")
+    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
     public ResponseEntity<Object> delete(@PathVariable Long id) {
         try {
             this.cityService.delete(id);

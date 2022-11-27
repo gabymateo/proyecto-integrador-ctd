@@ -16,17 +16,17 @@ public class Booking {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column
-    private String guestName;
-
-    @Column
-    private String guestLastName;
-
-    @Column
-    private String guestEmail;
-
-    @Column
-    private String guestCity;
+//    @Column
+//    private String guestName;
+//
+//    @Column
+//    private String guestLastName;
+//
+//    @Column
+//    private String guestEmail;
+//
+//    @Column
+//    private String guestCity;
 
     @Column
     private LocalTime startHour;
