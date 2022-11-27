@@ -4,7 +4,8 @@ public enum ProductErrorDescription {
     PRODUCT_NOT_FOUND("product not found"),
     CATEGORY_NOT_PROVIDED("category not provided"),
     CITY_NOT_PROVIDED("city not provided"),
-    FEATURE_NOT_FOUND("feature with given id was not found");
+    FEATURE_NOT_FOUND("feature with given id was not found"),
+    PRODUCT_NOT_AVAILABLE("product not available");
 
 
     private final String description;
