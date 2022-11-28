@@ -8,15 +8,10 @@ export function useBookingsApi() {
     const [bookings, setBookings] = React.useState([]);
 
      // ---------- FUNCIÓN PARA CREAR RESERVAS EN LA DB ---------------   
-    const postBookings = async (productId, userId, guestName, guestLastName, guestEmail, guestCity, startHour, startDate, endDate, Authorization) => {
+    const postBookings = async (productId, startHour, startDate, endDate, Authorization) => {
     try{    
         const responsePostBookings = await axios.post(`${baseUrl}/bookings/`, {
             productId:productId,
-            userId:userId,
-            guestName:guestName,
-            guestLastName:guestLastName,
-            guestEmail:guestEmail,
-            guestCity:guestCity,
             startHour:startHour,
             startDate:startDate,
             endDate:endDate,
@@ -25,10 +20,12 @@ export function useBookingsApi() {
                 "Authorization": Authorization,
             },
         })
-        console.log("responsePostBookings: ", responsePostBookings);
+        return true
+        //console.log("responsePostBookings: ", responsePostBookings);
     }
     catch (error) {
-        console.error('error', error.response.data)
+        console.error("ERROR: ", error.response.data.data)
+        return false
     }
 }
 

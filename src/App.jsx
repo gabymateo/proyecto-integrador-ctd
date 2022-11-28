@@ -18,25 +18,33 @@ import {
 import { useProductsApi } from './apis/productsApi';
 import { Book } from './pages/Book';
 import {ReservaOk} from './components/reserva/ReservaOk'
+import { CustomProvider } from './apis/userContext';
 
+
+import {Admin} from './pages/Admin'
 function App() {
   const {products, getProducts, getProductsFilter} = useProductsApi()
+
 
   React.useEffect(()=> {
     getProductsFilter()
   }, [])
 
+
   return (
     <>
+    <CustomProvider>
       <Routes>
         <Route path="/" element={<Home productos={products} getProductosFiltrados={getProductsFilter} getProductos={getProducts} />}></Route>
         <Route path="/login" element={<Login/>}></Route>
         <Route path="/register" element={<Register/>}></Route>
+        <Route path="/admin" element={<Admin/>}></Route>
         <Route path='/product/:id' element={<Product/>}></Route>
         <Route path='/filter' element={<Filter/>}></Route>
         <Route path='/product/:id/reserva' element={<Book/>}></Route>
         <Route path='/product/:id/reserva/ok' element={<ReservaOk/>}></Route>
       </Routes>
+      </CustomProvider>
     </>
   )
 }

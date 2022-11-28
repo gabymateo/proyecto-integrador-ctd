@@ -5,9 +5,16 @@ import { GiHamburgerMenu } from 'react-icons/gi'; //icono hamburguesa
 import { GrClose } from 'react-icons/gr';//
 import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
+import userContext from '../../apis/userContext';
+
 const Header = (props) => {
   const [clicked, setClicked] = useState(false);
-  //console.log(props.user);
+  const { userLogged, setUserLogged} = React.useContext(userContext);
+  
+  const handleCerrarSesion = () => {
+    localStorage.clear()
+    setUserLogged("")  //llamo la función del componente userContext y borro el usuario que estaba logueado
+  }
 
   return (
     <div className='header'>
@@ -33,13 +40,13 @@ const Header = (props) => {
           <div className='menuContainer'>
             <span>MENÚ</span>
           </div>
-          {props.user != '' && props.user != undefined ? (
+          {userLogged != '' && userLogged != undefined ? (
             <div className='sesionContainer'>
               <div className='helloUser'>
                 <p>
-                  Hola <span>{props.user}</span>
+                  Hola <span>{userLogged}</span>
                 </p>
-                <button className='headerButton'>Cerrar Sesion </button>
+                <button className='headerButton' onClick={handleCerrarSesion} >Cerrar Sesion </button>
               </div>
               <Avatar />
             </div>

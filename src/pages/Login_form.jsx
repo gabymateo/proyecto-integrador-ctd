@@ -3,31 +3,35 @@ import Header from '../components/header/Header';
 import Login from '../components/sesion/Login';
 import Footer from '../components/footer/Footer';
 import Body from '../components/body/Body';
+import { useProductsApi } from '../apis/productsApi'; 
+import userContext from '../apis/userContext';
 
-// const userTest = {
-//   email: 'fulano@gmail.com',
-//   password: 'prueba123'
-// }
 
 const Login_form = () => {
 
   const [isAuthenticated, setIsAuthenticated] = React.useState(undefined);
-  const [userLogged, setUserLogged] = React.useState("");
+  const {products, getProducts, getProductsFilter} = useProductsApi();
+  const { userLogged} = React.useContext(userContext);
 
-  const handleLogin = (correo, contraseña) =>{
-    if (correo == userTest.email && contraseña == userTest.password) {
-      setIsAuthenticated(true);
-      setUserLogged(correo); 
-    }
-    else setIsAuthenticated(false);   
+  const verifiedAuth = () => {
+  if (userLogged) {
+    setIsAuthenticated(true)
   }
+}
+
+  React.useEffect(()=> {
+    getProductsFilter();
+    verifiedAuth()
+  }, [])
 
   return (
-    <>
-        <Header user={userLogged}/>
-        {isAuthenticated  ? <div> <Body/> </div>: <Login onHandleLogin={handleLogin} initSesion={isAuthenticated} /> };
+    <div>
+        <Header/>
+        {isAuthenticated  ? 
+          <div> <Body productos={products} getProductosFiltrados={getProductsFilter} getProductos={getProducts}/> </div>
+          : <Login/>};
         <Footer/>
-    </>
+    </div>
   )
 }
 

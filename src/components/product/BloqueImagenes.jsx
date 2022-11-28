@@ -54,7 +54,10 @@ export const BloqueImagenesRes = (props) => {
     infinite: true,
     speed: 500,
     slidesToShow: 1,
-    slidesToScroll: 1
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 3000,
+    pauseOnHover: true,
   };
 
   const images = props?.products?.images
@@ -63,7 +66,7 @@ export const BloqueImagenesRes = (props) => {
       <div className="alojamiento__imagenes-res">
         
           <div className="imagenes-res__botones">
-            <FiShare2 className="share" />
+            <FiShare2 className="share"/>
             <AiFillHeart className="like" />
           </div>
           <div className="imagenes-res__container">
@@ -75,15 +78,6 @@ export const BloqueImagenesRes = (props) => {
               ))}
             </Slider>
           </div>
-              {/*<Slider {...settings}>
-              <div>
-                <h3>1</h3>
-              </div>
-              <div>
-                <h3>2</h3>
-              </div>
-            </Slider>*/}
-        
       </div>
     </>
   );
