@@ -1,0 +1,190 @@
+/*---HEADER---*/
+.header-admin{
+    background-color: var(--grisClaro);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 15px;
+}
+
+.header-admin > h1 {
+    color: #FFF;
+    font-size: 1.5em;
+}
+
+.header-admin > a > .backButton{
+    width: 3.3em;
+    height: 3.3em;
+    color: #FFF;
+    cursor: pointer;
+}
+.header-admin > a > .backButton:hover{
+    color: var(--amarillo);
+    transform: scale(1.1, 1.1);
+}
+/*---FORM CONTAINER---*/
+.admin-form {
+    margin: 15px;
+}
+
+.admin-form > h1 {
+    color: var(--grisFuerte);
+    font-size: 1.5em;
+}
+
+.admin-form_container{
+    background-color: #FFF;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0px 3px 9px 1px rgba(0,0,0,0.37);
+    -webkit-box-shadow: 0px 3px 9px 1px rgba(0,0,0,0.37);
+    -moz-box-shadow: 0px 3px 9px 1px rgba(0,0,0,0.37);
+}
+/*---DATOS---*/
+.admin-form_container > .datos{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+}
+
+.admin-form_container > .datos > label{
+    display: flex;
+    flex-direction: column;
+}
+
+.admin-form_container > .datos > label > div {
+    box-sizing: border-box;
+    border-color: black;
+    border: black;
+    padding: 3px;
+    height: 40px;
+    border-radius: 10px;
+    box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.15);
+}
+
+.admin-form_container > .datos > label > div > input {
+    border-width: 0px;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.admin-form_container > .datos > label > div > select {
+    border: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/*---DESCRIPCION---*/
+.admin-form_container > .descripcion{
+    
+}
+
+.admin-form_container > .descripcion > div{
+    box-sizing: border-box;
+    border-color: black;
+    border: black;
+    padding: 3px;
+    height: 40px;
+    border-radius: 10px;
+    box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.15);
+   
+}
+
+.admin-form_container > .descripcion > div > input{
+    border-width: 0px;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/*---ATRIBUTOS---*/
+.admin-form_container > .atributos > h1{
+    font-size: 1.5em;
+    color: var(--grisFuerte);
+}
+
+.atributos > .atributos__contenedor {
+    display: grid;
+    grid-template-columns: minmax(auto, 70%) minmax(auto, 20%) minmax(auto, 10%);
+    /*grid-template-columns: 68% 18% 10%;*/
+    align-items: center;
+    gap: 10px;
+    background-color: var(--grisFondo);
+    padding: 10px;
+}
+
+.atributos > .atributos__contenedor > label > div {
+    box-sizing: border-box;
+    border-color: black;
+    border: black;
+    padding: 3px;
+    height: 40px;
+    border-radius: 10px;
+    box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.15);
+    background-color: #FFF;
+}
+
+.atributos > .atributos__contenedor > label > div > input{
+    border-width: 0px;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.atributos > .atributos__contenedor > svg{
+    width: 100%;
+    height: 100%;
+    color: var(--grisClaro);
+    cursor: pointer;
+}
+
+.atributos > .atributos__contenedor > svg:hover{
+    transform: scale(1.1, 1.1);
+}
+
+/*---POLITICAS---*/
+.admin-form_container > .politicas {
+
+}
+.admin-form_container > .politicas > h1 {
+    font-size: 1.5em;
+    color: var(--grisFuerte);
+}
+
+.admin-form_container > .politicas > .politicas__contenedor{
+    display: grid;
+    grid-template-columns: minmax(auto, auto) minmax(auto, auto) minmax(auto, auto) ;
+    gap: 15px;
+    box-sizing: border-box;
+    padding: 3px;
+    border-radius: 10px;
+    box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.15);
+    background-color: #FFF;
+    padding: 10px;
+}
+
+.politicas > .politicas__contenedor > div >  h1{
+    font-size: 1.2em;
+    color: var(--grisFuerte);
+}
+
+.politicas > .politicas__contenedor > div > p {
+    font-size: 1em;
+    color: var(--grisFuerte);
+}
+
+.politicas > .politicas__contenedor > div > div{
+    box-sizing: border-box;
+    padding: 3px;
+    border-radius: 10px;
+    box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.15);
+    height: 80px;
+}
+
+.politicas > .politicas__contenedor > div > div > input {
+    border-width: 0px;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+}
