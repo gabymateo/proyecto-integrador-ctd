@@ -6,9 +6,10 @@ const baseUrl = 'http://34.201.99.165:8080/grupo5'
 const userContext = React.createContext();
 
 export const CustomProvider = (props) => {
-const [userLogged, setUserLogged] = React.useState("") //por ahora quemo estos datos, DEBO BORRARLOS
-const [userIdLogged, setUserIdLogged] = React.useState(1)  //por ahora quemo estos datos, DEBO BORRARLOS
-const [token, setToken] = React.useState([]);
+
+const [userLogged, setUserLogged] = React.useState("") 
+const [userLastName, setUserLastName] = React.useState("")
+const [userEmail, setUserEmail] = React.useState([]);
 
 const login = React.useCallback( async (email, password)=> {
     try {
@@ -22,10 +23,10 @@ const login = React.useCallback( async (email, password)=> {
                 Authorization: responsePostLogin.headers.authorization,
             },
         })
-        console.log(responseGetUser.data.data.name);
-        setToken(responsePostLogin.headers.authorization)
+        console.log(responseGetUser.data.data);
         setUserLogged(responseGetUser.data.data.name)
-        setUserIdLogged(responseGetUser.data.data.name)
+        setUserLastName(responseGetUser.data.data.lastName)
+        setUserEmail(responseGetUser.data.data.email)
         localStorage.JWT =  responsePostLogin.headers.authorization; //almacenar el token en el local storage, en una variable llamada JWT
         return true;
     }
@@ -40,8 +41,8 @@ const login = React.useCallback( async (email, password)=> {
         <userContext.Provider value={{
             userLogged:userLogged,
             setUserLogged:setUserLogged,
-            userIdLogged:userIdLogged,
-            token: token,
+            userLastName:userLastName,
+            userEmail: userEmail,
             login:login
         }}>
             {props.children}

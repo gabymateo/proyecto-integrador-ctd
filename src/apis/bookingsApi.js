@@ -24,7 +24,7 @@ export function useBookingsApi() {
         //console.log("responsePostBookings: ", responsePostBookings);
     }
     catch (error) {
-        console.error('error en la API', error.response.data.status, error.response.data.error)
+        console.error("ERROR: ", error.response.data.data)
         return false
     }
 }

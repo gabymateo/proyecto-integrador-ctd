@@ -16,7 +16,8 @@ const LoginForm = (props) => {
     const [BadEmail, setBadEmail] = useState(undefined);
     const [badPassword, setBadPassword] = useState(undefined);
     const [validationAll, setValidationAll] = useState(true);
-    const { login, userLogged, userIdLogged, token } = React.useContext(userContext); //Revisar cuales requiero y cuales sobran
+    const [loginOk, setLoginOk] = useState();
+    const { login, userLogged} = React.useContext(userContext); //Revisar cuales requiero y cuales sobran
     const navigate = useNavigate();
     
     //---------------------------------INIT Controlar valores del form----------------------
@@ -36,7 +37,11 @@ const LoginForm = (props) => {
       const userExist = await login(email, password)
       console.log(userExist);
       if (userExist) {
-        navigate("../")  //se supone que con esto hago el reenvío al home ("/")
+        setLoginOk(true)
+        navigate("../")  // con esto hago el reenvío al home ("/")
+      }
+      else {
+        setLoginOk(false)
       }
     }
 
@@ -68,7 +73,7 @@ const LoginForm = (props) => {
           <span  style={{ visibility: badPassword ? "visible" : "hidden"}}>El password debe ser de al menos 6 caracteres</span>
           <br></br>
         </div>
-        {props.initSesion == undefined || props.initSesion==true ? undefined : <p>las credenciales son invalidas, intente nuevamente</p>}
+        {(loginOk==true || loginOk == undefined) ? undefined : <p>las credenciales son invalidas, intente nuevamente</p>}
           <button form='login' className="submit" type='submit' > Ingresar </button>
           <div className='footer_form'>
             <p>¿Aún no tienes cuenta? <NavLink to="/register" className="active">Registrate</NavLink></p>

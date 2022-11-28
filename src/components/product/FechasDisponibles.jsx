@@ -1,10 +1,12 @@
-import {React , useState} from 'react';
+import React from 'react';
+import {useState} from 'react';
 import './alojamiento.css';
 import { DateRange } from 'react-date-range';
 import { NavLink } from 'react-router-dom';
 import '../../../node_modules/react-date-range/dist/styles.css'; // main css file
 import '../../../node_modules/react-date-range/dist/theme/default.css'; // theme css file
 import { Calendar } from '../calendar/Calendar';
+import userContext from '../../apis/userContext';
 
 export const FechasDisponibles = () => {
   {/*const [openDate, setOpenDate] = useState(false)
@@ -15,9 +17,7 @@ export const FechasDisponibles = () => {
     }
   ]);*/}
   const [logued, setLogued] = useState(false);
-
-  //localStorage.JWT = 'qwertyuiop'  //voy a simular mientras tanto que alguien está logueado. ESTO LO DEBO BORRAR
-  //localStorage.clear(); //ESTO LO DEBO BORRAR DE ACÁ, solo para simular
+  const {userLogged} = React.useContext(userContext);
 
 
   return (
@@ -43,7 +43,7 @@ export const FechasDisponibles = () => {
             </div>
             <div className="fechasReserva__reserva">
               <p>Agregá tus fechas de viaje para obtener precios exactos</p>
-              {localStorage.JWT ? (<NavLink to={`reserva`}><button>Iniciar Reserva</button></NavLink>)
+              {userLogged ? (<NavLink to={`reserva`}><button>Iniciar Reserva</button></NavLink>)
                       :(<NavLink to={`./../../login`}><button>Iniciar Reserva</button></NavLink>)}
             </div>
           </div>

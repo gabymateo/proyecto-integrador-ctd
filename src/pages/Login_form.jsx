@@ -11,7 +11,7 @@ const Login_form = () => {
 
   const [isAuthenticated, setIsAuthenticated] = React.useState(undefined);
   const {products, getProducts, getProductsFilter} = useProductsApi();
-  const { userLogged, userIdLogged} = React.useContext(userContext);
+  const { userLogged} = React.useContext(userContext);
 
   const verifiedAuth = () => {
   if (userLogged) {

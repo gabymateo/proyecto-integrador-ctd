@@ -12,14 +12,9 @@ import { useProductsApi } from '../../apis/productsApi';
 import { IoLocationSharp } from 'react-icons/io5';
 import {format, addDays} from 'date-fns';
 import { Calendar } from '../calendar/Calendar';
+import userContext from '../../apis/userContext';
 
 const emailRegexp = new RegExp(/[^@ \t\r\n]+@[^@ \t\r\n]+\.[^@ \t\r\n]+/);
-const initValues={
-  name: "",
-  lastName: "",
-  email:"",
-  city:""
-}
 
 //------------- ACÁ EMPIEZA EL COMPONENTE RESERVA ----------------//
 export const Reserva = () => {
@@ -28,11 +23,19 @@ export const Reserva = () => {
   const ident = useParams().id
   const detalle = products?.data
   const navigate = useNavigate();
-
+  const { userLogged, userLastName, userEmail} = React.useContext(userContext); 
+  const [formValues, setFormValues] = useState({});
+  const [horaIni, setHoraIni] = useState();
+  const [bookOk, setBookOk] = useState(); //utilizo este estado para el mensaje de error
+  const {bookings, postBookings} = useBookingsApi();
   
   React.useEffect(() => {
     getProducts(ident)
   },[])
+
+  // React.useEffect(()=>{
+      
+  // }, [])
 
   /*------ INIT CALENDARIO -----*/
   const [date, setDate] = useState([
@@ -42,33 +45,34 @@ export const Reserva = () => {
   ]);
   /*----- FIN CALENDARIO ------*/
 
-  const [formValues, setFormValues] = useState(initValues);
-  const {bookings, postBookings} = useBookingsApi();
-
+  /*----- Esta función es para controlar los input del form ------*/
   const handleChangeFormValues = (e) => {
     setFormValues({
       ...formValues,
       [e.target.name]: e.target.value,
     })
+    setHoraIni(e.target.value);
   }
+  /*----- -------------------------------------------------------*/
 
-
-    React.useEffect(()=>{
-      
-  }, [])
-
-
+/*----- EMPIEZO A ARMAR EL BODY PARA EL POST DE UNA RESERVA------*/
     const productId = useParams().id;
-    const startHour = "12:00";
+    const startHour = horaIni
     const startDate = (new Date(date[0].startDate)).toISOString().substring(0, 10);
     const endDate = (new Date(date[0].endDate)).toISOString().substring(0, 10); 
     const Authorization = localStorage.JWT;
+/*----- FIN DE ARMAR EL BODY PARA EL POST DE UNA RESERVA------*/
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     const reservaOk= await postBookings(productId, startHour, startDate, endDate, Authorization)
+    console.log(productId, startHour, startDate, endDate, Authorization);
     if (reservaOk) {
+      setBookOk(true)
       navigate("./ok")
+    }
+    else {
+      setBookOk(false)
     }
   }
   
@@ -79,9 +83,9 @@ export const Reserva = () => {
         <div className="reserva__form">
           <h2 className="booking_title">Completa tus datos</h2>
             <div className="form__container">
-              <label> Nombre  <input name="name" type='text' value={formValues.name} onChange={handleChangeFormValues} /> </label>
-              <label> Apellido  <input name="lastName" type='text' value={formValues.lastName} onChange={handleChangeFormValues} /> </label>
-              <label> Correo electrónico  <input name="email" type='email' value={formValues.email} onChange={handleChangeFormValues} /> </label>
+              <label> Nombre  <input name="name" type='text' value={userLogged} onChange={handleChangeFormValues} /> </label>
+              <label> Apellido  <input name="lastName" type='text' value={userLastName} onChange={handleChangeFormValues} /> </label>
+              <label> Correo electrónico  <input name="email" type='email' value={userEmail} onChange={handleChangeFormValues} /> </label>
               <label> Ciudad  <input name="city" type='text' value={formValues.city} onChange={handleChangeFormValues}/> </label>
             </div>
         </div>
@@ -113,10 +117,10 @@ export const Reserva = () => {
             <label>
               Indica tu horario estimado de llegada
               </label>
-              <select>
+              <select onChange={handleChangeFormValues}>
                 <option defaultValue>Seleccionar hora de llegada</option>
                 {Horarios.map((h) => {
-                  return <option key={h.id}>{h.horario}</option>;
+                  return <option key={h.id} value={h.horario}> {h.horario} </option>;
                 })}
               </select>
           </div>
@@ -142,9 +146,8 @@ export const Reserva = () => {
             <span>{`${format(date[0].endDate, 'dd/MM/yyyy')}`}</span>
           </div>
           <hr />
-          {/* <NavLink to={'ok'}> */}
+          {(bookOk==true || bookOk == undefined) ? undefined : <p>Lamentablemente la reserva no ha podido realizarse. Por favor, intente más tarde</p>}
             <button type='submit'>Confirmar Reserva</button>
-          {/* </NavLink> */}
         </div>
       </form>
     </div>

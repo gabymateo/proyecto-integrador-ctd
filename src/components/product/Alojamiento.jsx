@@ -67,28 +67,6 @@ export const Alojamiento = () => {
 };
 
 /**
- * const images = [
-    {
-      src: "https://i.blogs.es/c68014/casa-3d/840_560.jpeg",
-      id: 1,
-    },
-    {
-      src: "https://i.blogs.es/c68014/casa-3d/840_560.jpeg",
-      id: 2,
-    },
-    {
-      src: "https://i.blogs.es/c68014/casa-3d/840_560.jpeg",
-      id: 3,
-    },
-    {
-      src: "https://i.blogs.es/c68014/casa-3d/840_560.jpeg",
-      id: 4,
-    },
-    {
-      src: "https://i.blogs.es/c68014/casa-3d/840_560.jpeg",
-      id: 5,
-    },
-  ];
   const settings = {
     responsive: [
       {
