@@ -1,7 +1,7 @@
 import React from 'react';
 import { useState } from "react";
 import "./reserva.css";
-import { NavLink, useParams } from 'react-router-dom';
+import { NavLink, useParams, useNavigate } from 'react-router-dom';
 import { DateRange } from "react-date-range";
 import "../../../node_modules/react-date-range/dist/styles.css"; // main css file
 import "../../../node_modules/react-date-range/dist/theme/default.css"; // theme css file
@@ -12,11 +12,8 @@ import { useProductsApi } from '../../apis/productsApi';
 import { IoLocationSharp } from 'react-icons/io5';
 import {format, addDays} from 'date-fns';
 import { Calendar } from '../calendar/Calendar';
+
 const emailRegexp = new RegExp(/[^@ \t\r\n]+@[^@ \t\r\n]+\.[^@ \t\r\n]+/);
-
-//
-
-
 const initValues={
   name: "",
   lastName: "",
@@ -24,32 +21,28 @@ const initValues={
   city:""
 }
 
+//------------- ACÁ EMPIEZA EL COMPONENTE RESERVA ----------------//
 export const Reserva = () => {
-  //apiProducts
+  
   const {getProducts, products} = useProductsApi()
   const ident = useParams().id
+  const detalle = products?.data
+  const navigate = useNavigate();
+
   
   React.useEffect(() => {
     getProducts(ident)
   },[])
-  const detalle = products?.data
-  //console.log(products?.data);
 
-  /*CALENDARIO */
+  /*------ INIT CALENDARIO -----*/
   const [date, setDate] = useState([
     { startDate: new Date(),
       endDate: new Date(),
       key: "selection" },
   ]);
-
+  /*----- FIN CALENDARIO ------*/
 
   const [formValues, setFormValues] = useState(initValues);
-  const [badName, setBadName] = useState(undefined);
-  const [badLastName, setBadLastName] = useState(undefined);
-  const [badEmail, setBadEmail] = useState(undefined);
-  const [badCity, setBadCity] = useState(undefined);
-  const [validationAll, setValidationAll] = useState(false);
-  const [enviarDatos, setEnviarDatos] = useState(false);
   const {bookings, postBookings} = useBookingsApi();
 
   const handleChangeFormValues = (e) => {
@@ -59,57 +52,24 @@ export const Reserva = () => {
     })
   }
 
-  const handleBlurName= () =>{
-    const hasError = !((formValues.name).length>1)
-    setBadName(hasError)
-    //handleValidationAll();
-  }
-
-  const handleBlurLastName= () =>{
-    const hasError = !((formValues.lastName).length>1)
-    setBadLastName(hasError)
-    //handleValidationAll();
-  }
-
-  const handleBlurEmail = () =>{
-    const hasError = ! emailRegexp.test(formValues.email);
-    setBadEmail(hasError)
-    //handleValidationAll();
-  }
-
-  const handleBlurCity = () =>{
-    const hasError = !((formValues.city).length>1);
-    setBadCity(hasError)
-    //handleValidationAll();
-  }
 
     React.useEffect(()=>{
-      const isValid = ((badName==false) && (badLastName==false) && (badEmail==false)  && (badCity==false))
-      setValidationAll(isValid)
-      //console.log("total validaciones: ",isValid);
-  }, [badName, badLastName, badEmail, badCity])
+      
+  }, [])
 
 
     const productId = useParams().id;
-    const userId = localStorage.userId;
-    const guestName = formValues.name;
-    const guestLastName = formValues.lastName;
-    const guestEmail = formValues.email;
-    const guestCity = formValues.city;
     const startHour = "12:00";
-    //const startDate = (new Date(date[0].startDate)).toISOString().substring(0, 10);
-    //const endDate = (new Date(date[0].endDate)).toISOString().substring(0, 10); 
-    const startDate = 2022-11-11;
-    const endDate = 2022-11-13; 
+    const startDate = (new Date(date[0].startDate)).toISOString().substring(0, 10);
+    const endDate = (new Date(date[0].endDate)).toISOString().substring(0, 10); 
     const Authorization = localStorage.JWT;
 
-        
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setEnviarDatos(true)
-    const respuestaReserva= postBookings(productId, userId, guestName, guestLastName, guestEmail, guestCity, startHour, startDate, endDate, Authorization)
-    console.log(Authorization);
-    console.log("ENVIADOS");
+    const reservaOk= await postBookings(productId, startHour, startDate, endDate, Authorization)
+    if (reservaOk) {
+      navigate("./ok")
+    }
   }
   
 
@@ -119,14 +79,10 @@ export const Reserva = () => {
         <div className="reserva__form">
           <h2 className="booking_title">Completa tus datos</h2>
             <div className="form__container">
-            <label> Nombre  <input name="name" type='text' value={formValues.name} onChange={handleChangeFormValues} onBlur={handleBlurName}/>
-              <span style={{ visibility: badName ? "visible" :"hidden"}}>Por favor ingrese su nombre</span> <br></br> </label>
-            <label> Apellido  <input name="lastName" type='text' value={formValues.lastName} onChange={handleChangeFormValues} onBlur={handleBlurLastName}/>
-              <span style={{ visibility: badLastName ? "visible" : "hidden"}}>Por favor ingrese su apellido</span> <br></br> </label>
-            <label> Correo electrónico  <input name="email" type='email' value={formValues.email} onChange={handleChangeFormValues} onBlur={handleBlurEmail}/> 
-              <span style={{ visibility: badEmail ? "visible" : "hidden"}}>No es un email correcto</span> <br></br> </label>
-              <label> Ciudad  <input name="city" type='text' value={formValues.city} onChange={handleChangeFormValues} onBlur={handleBlurCity}/> 
-              <span style={{ visibility: badCity ? "visible" : "hidden"}}>Ingresa una ciudad</span> <br></br> </label>
+              <label> Nombre  <input name="name" type='text' value={formValues.name} onChange={handleChangeFormValues} /> </label>
+              <label> Apellido  <input name="lastName" type='text' value={formValues.lastName} onChange={handleChangeFormValues} /> </label>
+              <label> Correo electrónico  <input name="email" type='email' value={formValues.email} onChange={handleChangeFormValues} /> </label>
+              <label> Ciudad  <input name="city" type='text' value={formValues.city} onChange={handleChangeFormValues}/> </label>
             </div>
         </div>
         <div className="calendario__container">
@@ -187,7 +143,7 @@ export const Reserva = () => {
           </div>
           <hr />
           {/* <NavLink to={'ok'}> */}
-            <button type='submit' disabled={!validationAll}>Confirmar Reserva</button>
+            <button type='submit'>Confirmar Reserva</button>
           {/* </NavLink> */}
         </div>
       </form>
