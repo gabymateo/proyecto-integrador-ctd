@@ -11,7 +11,7 @@ import { useBookingsApi } from '../../apis/bookingsApi'
 import { useProductsApi } from '../../apis/productsApi';
 import { IoLocationSharp } from 'react-icons/io5';
 import {format, addDays} from 'date-fns';
-
+import { Calendar } from '../calendar/Calendar';
 
 const emailRegexp = new RegExp(/[^@ \t\r\n]+@[^@ \t\r\n]+\.[^@ \t\r\n]+/);
 const initValues={
@@ -39,10 +39,6 @@ export const Reserva = () => {
     { startDate: new Date(),
       endDate: new Date(),
       key: "selection" },
-
-    {/*{ startDate: new Date(),
-      endDate: addDays(new Date(), 3),
-    key: "compare" },*/}
   ]);
   /*----- FIN CALENDARIO ------*/
 
@@ -92,18 +88,19 @@ export const Reserva = () => {
         <div className="calendario__container">
           <h1>Seleccioná tu fecha de reserva</h1>
           <div className='calendarioReserva'>
-            <DateRange
+            <Calendar/>
+            {/*<DateRange
               editableDateInputs={true}
               onChange={(item) => setDate([item.selection])}
               moveRangeOnFirstSelection={false}
               months={2}
-              minDate={addDays(new Date(), -30)}
+              minDate={new Date()}
               ranges={date}
               showDateDisplay={false}
               rangeColors={["#FBC02D", "#FBC02D", "#FBC02D"]}
               className="date"
               direction="horizontal"
-            />
+  />*/}
           </div>
         </div>
         <div className="reserva__horario">

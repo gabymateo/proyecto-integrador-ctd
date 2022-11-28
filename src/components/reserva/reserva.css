@@ -328,4 +328,19 @@
     .reserva__form{
         margin: 0;
     }
+    .calendario__container{
+        width: 100%;
+        margin: 0;
+    }
+    .calendarioReserva{
+        width: auto;
+    }
+
+    .rdrMonth{
+        width: 100%
+    }
+
+    .horario__container{
+        margin: 0;
+    }
 }

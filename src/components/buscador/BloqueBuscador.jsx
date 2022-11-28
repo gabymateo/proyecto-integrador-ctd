@@ -11,6 +11,7 @@ import { useProductsApi } from '../../apis/productsApi';
 import { IoLocationSharp } from 'react-icons/io5';
 import { IoMdCalendar } from 'react-icons/io';
 import {format} from 'date-fns';
+import { Calendar } from '../calendar/Calendar';
 
 export const BloqueBuscador = ({getProductosFiltrados, getProductos}) => {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -69,17 +70,7 @@ export const BloqueBuscador = ({getProductosFiltrados, getProductos}) => {
                 className='buscador'>
                   {`${format(date[0].startDate, 'dd/MM/yyyy')} to ${format(date[0].endDate, 'dd/MM/yyyy')}`}
                 </span>
-                {openDate && <DateRange
-                  editableDateInputs={true}
-                  onChange={(item) => setDate([item.selection])}
-                  moveRangeOnFirstSelection={false}
-                  months={2}
-                  ranges={date}
-                  showDateDisplay={false}
-                  rangeColors={['#FBC02D', '#FBC02D', '#FBC02D']}
-                  className='date'
-                  direction='horizontal'
-                />}
+                {openDate && <Calendar/>}
             </div>
             <NavLink to='/filter'>
               <button onClick={handleClick}>Buscar</button>

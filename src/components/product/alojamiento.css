@@ -359,7 +359,7 @@
 
 /*---RESPONSIVE---*/
 /*---RESPONSIVE TABLET---*/
-@media (min-width:551px) and (max-width:700px){
+@media (min-width:551px) and (max-width:768px){
     /*---BLOQUE CARACTERISTICAS--*/
     .caracteristicas__atributos{
         grid-template-columns: repeat(2, 1fr);
@@ -368,6 +368,42 @@
     /*---BLOQUE POLITICAS---*/
     .normas__container {
         grid-template-columns: repeat(2, 1fr);
+    }
+
+    .fechasReserva__container > div{
+        flex-direction: column;
+    }
+
+    .calendario{
+        width: 100%;
+    }
+    
+    
+    .calendario > .rdrCalendarWrapper, 
+    .calendario > .rdrDateRangeWrapper, 
+    .calendario > .date{
+       width: 100%;
+    }
+
+    .calendario > div > div > .rdrMonth{
+        width: 100%;
+    }
+
+     /*---BOTON INICIAR RESERVA---*/
+     .fechasReserva__reserva{
+        display: flex;
+        flex-direction: column;
+        padding: 0 10px;
+        margin: 15px 0;
+        width: 100%;
+    }
+
+    .fechasReserva__reserva > p{
+        margin: 15px 0;
+    }
+
+    .fechasReserva__reserva > a{
+        margin: 15px 0;
     }
 
 }
@@ -388,6 +424,7 @@
     .calendario{
         width: 100%;
     }
+    
     
     .calendario > .rdrCalendarWrapper, 
     .calendario > .rdrDateRangeWrapper, 
@@ -452,6 +489,8 @@
     .slick-slide > div > div > img{
         object-fit: cover;
         max-height:400px;
+        height: 400px;
+        width: 100%;
         display: block;
         margin-left: auto;
         margin-right: auto;
