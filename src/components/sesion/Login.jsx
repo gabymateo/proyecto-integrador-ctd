@@ -1,10 +1,10 @@
 import React from 'react';
 import './form.css';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import { useState } from "react";
 import Eye from '../../images/icon-eye.png';
 import closeEye from '../../images/icon-close-eye.png';
-import { useLoginApi } from '../../apis/loginApi';
+import userContext from '../../apis/userContext';
 
 const emailRegexp = new RegExp(/[^@ \t\r\n]+@[^@ \t\r\n]+\.[^@ \t\r\n]+/);
 
@@ -16,27 +16,27 @@ const LoginForm = (props) => {
     const [BadEmail, setBadEmail] = useState(undefined);
     const [badPassword, setBadPassword] = useState(undefined);
     const [validationAll, setValidationAll] = useState(true);
-    const {token, postLogin} = useLoginApi();
+    const { login, userLogged, userIdLogged, token } = React.useContext(userContext); //Revisar cuales requiero y cuales sobran
+    const navigate = useNavigate();
     
+    //---------------------------------INIT Controlar valores del form----------------------
     const handleValueEmail = (e) => {
       setEmail(e.target.value)
     }
-
     const handleValuePassword = (e) => {
       setPassword(e.target.value);
     }
-
+    //---------------------------------FIN Controlar valores del form ----------------------
 
     //---------------------------------INIT Validaciones ----------------------
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
       e.preventDefault()
       const isValid = ((!BadEmail) && !(BadEmail == undefined)) && ((!badPassword) && !(badPassword == undefined))
       setValidationAll(isValid)
-      //props.onHandleLogin(email, password)
-      postLogin(email, password)
-      console.log("token en el componente login: ", token);
-      if (token.length > 1){
-        props.onHandleLogin(email);
+      const userExist = await login(email, password)
+      console.log(userExist);
+      if (userExist) {
+        navigate("../")  //se supone que con esto hago el reenvío al home ("/")
       }
     }
 
