@@ -146,7 +146,7 @@ export const Reserva = () => {
             <span>{`${format(date[0].endDate, 'dd/MM/yyyy')}`}</span>
           </div>
           <hr />
-          {(bookOk==true || bookOk == undefined) ? undefined : <p>Lamentablemente la reserva no ha podido realizarse. Por favor, intente más tarde</p>}
+          {(bookOk==true || bookOk == undefined) ? undefined : <p className='error'>Lamentablemente la reserva no ha podido realizarse. Por favor, intente más tarde</p>}
             <button type='submit'>Confirmar Reserva</button>
         </div>
       </form>

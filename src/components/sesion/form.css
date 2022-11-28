@@ -23,6 +23,16 @@ body{
    font-size: 12px;
 }
 
+.form > .error {
+    color: red;
+    font-family: 'Poppins';
+    font-size: 15px;
+    text-align: center;
+    margin-top: 5%;
+    margin-left: 5%; 
+}
+
+
 .title{
     color: #FBC02D;
     font-family: 'Poppins';
