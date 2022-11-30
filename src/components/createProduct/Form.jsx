@@ -7,6 +7,7 @@ import { Datos } from './Datos'
 import { Descripcion } from './Descripcion';
 import { Atributos } from './Atributos';
 import { Politicas } from './Politicas';
+import { Imagenes } from './Imagenes'
 export const Form = () => {
   return (
     <>
@@ -23,7 +24,7 @@ export const Form = () => {
         <Descripcion/>
         <Atributos/>
         <Politicas/>
-        <div className="cargarImg"></div>
+        <Imagenes/>
         <button>Crear</button>
     </div>
     </div>

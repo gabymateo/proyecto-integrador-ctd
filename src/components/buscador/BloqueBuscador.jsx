@@ -49,6 +49,13 @@ export const BloqueBuscador = ({getProductosFiltrados, getProductos}) => {
     
   }
 
+  // /*------ INIT CALENDARIO -----*/
+  // const [date, setDate] = useState([
+  //   { startDate: new Date(),
+  //     endDate: new Date(),
+  //     key: "selection" },
+  // ]);
+
   return (
     <div className='bloqueBuscador'>
           <h1>Busca ofertas en hoteles, casas y mucho mas.</h1>
@@ -70,7 +77,9 @@ export const BloqueBuscador = ({getProductosFiltrados, getProductos}) => {
                 className='buscador'>
                   {`${format(date[0].startDate, 'dd/MM/yyyy')} to ${format(date[0].endDate, 'dd/MM/yyyy')}`}
                 </span>
-                {openDate && <Calendar/>}
+                {openDate && <Calendar
+                date={date}
+                setDate={setDate}/>}
             </div>
             <NavLink to='/filter'>
               <button onClick={handleClick}>Buscar</button>

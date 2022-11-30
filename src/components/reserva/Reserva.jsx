@@ -76,7 +76,6 @@ export const Reserva = () => {
     }
   }
   
-
   return (
     <div className="reserva">
       <form className="reserva__container" onSubmit={handleSubmit}>
@@ -92,19 +91,10 @@ export const Reserva = () => {
         <div className="calendario__container">
           <h1>Seleccioná tu fecha de reserva</h1>
           <div className='calendarioReserva'>
-            <Calendar/>
-            {/*<DateRange
-              editableDateInputs={true}
-              onChange={(item) => setDate([item.selection])}
-              moveRangeOnFirstSelection={false}
-              months={2}
-              minDate={new Date()}
-              ranges={date}
-              showDateDisplay={false}
-              rangeColors={["#FBC02D", "#FBC02D", "#FBC02D"]}
-              className="date"
-              direction="horizontal"
-  />*/}
+            <Calendar 
+            date={date}
+            setDate={setDate}
+             />
           </div>
         </div>
         <div className="reserva__horario">
@@ -153,3 +143,11 @@ export const Reserva = () => {
     </div>
   );
 };
+// import { addDays } from 'date-fns';
+// const [range, setRange] = useState([
+//     {
+//       startDate: new Date(),
+//       endDate: addDays(new Date(), 7),
+//       key: 'selection',
+//     },
+//   ]);
