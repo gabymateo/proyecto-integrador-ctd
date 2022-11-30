@@ -9,12 +9,13 @@ import userContext from '../../apis/userContext';
 
 const Header = (props) => {
   const [clicked, setClicked] = useState(false);
-  const { userLogged, setUserLogged} = React.useContext(userContext);
+  const { userLogged, setUserLogged, userRol} = React.useContext(userContext);
   
   const handleCerrarSesion = () => {
     localStorage.clear()
     setUserLogged("")  //llamo la función del componente userContext y borro el usuario que estaba logueado
   }
+
 
   return (
     <div className='header'>
@@ -42,6 +43,7 @@ const Header = (props) => {
           </div>
           {userLogged != '' && userLogged != undefined ? (
             <div className='sesionContainer'>
+              {userRol===1 ? <NavLink to='/admin'><button className='adminButton'> Administrar </button> </NavLink>: undefined}
               <div className='helloUser'>
                 <p>
                   Hola <span>{userLogged}</span>

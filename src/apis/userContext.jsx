@@ -24,7 +24,6 @@ const login = React.useCallback( async (email, password)=> {
                 Authorization: responsePostLogin.headers.authorization,
             },
         })
-        //console.log(responseGetUser.data.data.role.id);
         setUserLogged(responseGetUser.data.data.name)
         setUserLastName(responseGetUser.data.data.lastName)
         setUserEmail(responseGetUser.data.data.email)
