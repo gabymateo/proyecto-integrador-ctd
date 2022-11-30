@@ -20,6 +20,7 @@ public class ProductUpdateDTO {
     private String price;
     private String address;
     private boolean availability;
+    private Integer rate;
 
 
 }
