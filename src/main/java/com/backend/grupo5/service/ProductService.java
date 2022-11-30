@@ -22,6 +22,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.transaction.Transactional;
+import java.io.IOException;
 import java.time.LocalDate;
 import java.util.*;
 
@@ -38,7 +39,7 @@ public class ProductService implements IProductService {
     private final FeatureService featureService;
 
     @Override @Transactional
-    public ProductModel create(ProductCreateDTO input, MultipartFile[] files) {
+    public ProductModel create(ProductCreateDTO input, MultipartFile[] files) throws IOException {
         //validate input
         ProductValidator.validateCreate(input);
         Product product = mapper.map(input);
@@ -108,7 +109,7 @@ public class ProductService implements IProductService {
     }
 
     @Override @Transactional
-    public Product update(Long id, ProductUpdateDTO input, MultipartFile[] files) {
+    public Product update(Long id, ProductUpdateDTO input, MultipartFile[] files) throws IOException {
 
         Optional<Product> product = this.productRepository.findById(id);
         if(product.isEmpty()) {
