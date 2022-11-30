@@ -7,7 +7,7 @@ export const Descripcion = () => {
     <div className="descripcion">
         <p>Descripción</p>
         <div>
-            <input type="text" />
+            <textarea></textarea>
         </div>
     </div>
     </>
