@@ -143,6 +143,10 @@ public class ProductService implements IProductService {
             product.get().setPrice(input.getPrice());
         }
 
+        if(input.getRate() != null) {
+            product.get().setRate(input.getRate());
+        }
+
         if(input.getFeatures() != null && input.getFeatures().size() != 0) {
             for(Long feature : input.getFeatures()) {
                 Optional<Feature> feature1 = this.featureService.getById(feature);
