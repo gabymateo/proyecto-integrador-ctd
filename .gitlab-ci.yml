@@ -33,6 +33,6 @@ Deploy:
     - pwd
     - ssh "$SSH_USER"@"$EC2_IPADDRESS" "hostname"
     - scp -o StrictHostKeyChecking=no ./target/*war "$SSH_USER"@"$EC2_IPADDRESS":/opt/tomcat/webapps
-    - echo "finalizacion exitosa del proceso de deploy"
+    - echo "finalizacion exitosa del proceso de deploy en ubuntuDH"
   only:
       - Main_Backend
