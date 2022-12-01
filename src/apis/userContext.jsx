@@ -10,6 +10,7 @@ export const CustomProvider = (props) => {
 const [userLogged, setUserLogged] = React.useState("") 
 const [userLastName, setUserLastName] = React.useState("")
 const [userEmail, setUserEmail] = React.useState([]);
+const [userRol, setUserRol] = React.useState();
 
 const login = React.useCallback( async (email, password)=> {
     try {
@@ -23,10 +24,10 @@ const login = React.useCallback( async (email, password)=> {
                 Authorization: responsePostLogin.headers.authorization,
             },
         })
-        console.log(responseGetUser.data.data);
         setUserLogged(responseGetUser.data.data.name)
         setUserLastName(responseGetUser.data.data.lastName)
         setUserEmail(responseGetUser.data.data.email)
+        setUserRol(responseGetUser.data.data.role.id)
         localStorage.JWT =  responsePostLogin.headers.authorization; //almacenar el token en el local storage, en una variable llamada JWT
         return true;
     }
@@ -43,6 +44,7 @@ const login = React.useCallback( async (email, password)=> {
             setUserLogged:setUserLogged,
             userLastName:userLastName,
             userEmail: userEmail,
+            userRol:userRol,
             login:login
         }}>
             {props.children}

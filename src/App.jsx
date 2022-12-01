@@ -19,9 +19,10 @@ import { useProductsApi } from './apis/productsApi';
 import { Book } from './pages/Book';
 import {ReservaOk} from './components/reserva/ReservaOk'
 import { CustomProvider } from './apis/userContext';
-
-
+import { ProtectedElement} from './apis/ProtectedElement';
 import {Admin} from './pages/Admin'
+
+
 function App() {
   const {products, getProducts, getProductsFilter} = useProductsApi()
 
@@ -38,10 +39,10 @@ function App() {
         <Route path="/" element={<Home productos={products} getProductosFiltrados={getProductsFilter} getProductos={getProducts} />}></Route>
         <Route path="/login" element={<Login/>}></Route>
         <Route path="/register" element={<Register/>}></Route>
-        <Route path="/admin" element={<Admin/>}></Route>
+        <Route path="/admin" element={ <ProtectedElement> <Admin/> </ProtectedElement> }></Route>
         <Route path='/product/:id' element={<Product/>}></Route>
         <Route path='/filter' element={<Filter/>}></Route>
-        <Route path='/product/:id/reserva' element={<Book/>}></Route>
+        <Route path='/product/:id/reserva' element={ <ProtectedElement><Book/></ProtectedElement> }></Route>
         <Route path='/product/:id/reserva/ok' element={<ReservaOk/>}></Route>
       </Routes>
       </CustomProvider>

@@ -55,31 +55,36 @@ const LoginRegister = (props) => {
     const hadleBlurName= () =>{
       const hasError = !((formValues.name).length>1)
       setBadName(hasError)
-      //handleValidationAll();
+      handleValidationAll();
     }
 
     const hadleBlurLastName= () =>{
       const hasError = !((formValues.lastName).length>1)
       setBadLastName(hasError)
-      //handleValidationAll();
+      handleValidationAll();
     }
 
     const hadleBlurEmail = () =>{
       const hasError = ! emailRegexp.test(formValues.email);
       setBadEmail(hasError)
-      //handleValidationAll();
+      handleValidationAll();
     }
 
     const hadleBlurPass = () => {
       const hasError = (formValues.password).length <6;
       setBadPassword(hasError);
-      //handleValidationAll()
+      handleValidationAll()
     }
 
     const hadleBlurDifPass = () => {
       const difPass = !(formValues.password == formValues.confirmPassword);
       setDifPassword(difPass);
-      //handleValidationAll()
+      handleValidationAll()
+    }
+
+    const handleValidationAll = () => {
+      const isValid = ((badName==false) && (badLastName==false) && (badEmail==false) && (badPassword==false) && (difPassword==false))
+      setValidationAll(isValid)
     }
    //--------------------------------- FIN Validaciones ----------------------
 

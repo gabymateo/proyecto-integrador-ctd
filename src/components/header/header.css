@@ -18,11 +18,12 @@
 
 .sesionContainer {
     display: flex;
-    flex-direction: row 
+    flex-direction: row ;
 }
 
 .helloUser > p > span {
-    color: var(--amarillo)
+    color: var(--grisFuerte);
+    size: 10;
 }
 
 .avatar-contenedor > img {
@@ -53,10 +54,10 @@
 
 /*----BOTONES----*/
 .headerButton {
-    margin-top: 5%;
-    margin-right: 15px;
+    margin-top: 1%;
+    margin-right: 5px;
     border: none;
-    padding: 7px 40px;
+    padding: 5px 4px;
     cursor: pointer;
     color: var(--amarillo);
     background: #FFFFFF;
@@ -68,6 +69,22 @@
     background: var(--amarillo);
     color: white;
 }
+
+.adminButton {
+    margin-top: 7%;
+    border: none;
+    padding: 9px 20px;
+    cursor: pointer;
+    color: var(--amarillo);
+    background: #FFFFFF;
+    font-family: sans-serif;
+    font-size: 15px;
+}
+.adminButton:hover {
+    background: var(--amarillo);
+    color: white;
+}
+
 /*----BOTON HAMBURGUESA, POR DEFAULT ESCONDIDO EN DESKTOP----*/
 .toggleButton {
     display: none;

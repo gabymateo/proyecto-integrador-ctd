@@ -33,8 +33,7 @@ export const FechasDisponibles = () => {
             </div>
             <div className="fechasReserva__reserva">
               <p>Agregá tus fechas de viaje para obtener precios exactos</p>
-              {userLogged ? (<NavLink to={`reserva`}><button>Iniciar Reserva</button></NavLink>)
-                      :(<NavLink to={`./../../login`}><button>Iniciar Reserva</button></NavLink>)}
+              <NavLink to={`reserva`}><button>Iniciar Reserva</button></NavLink>
             </div>
           </div>
         </div>

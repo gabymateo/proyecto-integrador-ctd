@@ -28,8 +28,6 @@ export const BloqueBuscador = ({getProductosFiltrados, getProductos}) => {
 
 
   const handleChange = (event) => {
-    console.log(event.target.value);
-
     searchParams.get("categoryId") ? 
     ( (event.target.value)==="0" ? 
         setSearchParams({categoryId:searchParams.get("categoryId")})
