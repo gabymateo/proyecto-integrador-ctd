@@ -25,7 +25,7 @@ export const Form = () => {
         <Atributos/>
         <Politicas/>
         <Imagenes/>
-        <button>Crear</button>
+        <button type='submit'>Crear</button>
     </div>
     </div>
      

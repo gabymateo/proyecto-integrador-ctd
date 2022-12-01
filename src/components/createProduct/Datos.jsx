@@ -1,13 +1,28 @@
-import React from "react";
+import React, { useState } from "react";
 
 export const Datos = () => {
+  const [name,setName] = useState("")
+  const [address,setAddress] = useState("")
+
+  const [nameErr,setNameErr] = useState({})
+  const [addressErr, setAddressErr] = useState({})
+
+  const handleSubmit=(e)=>{
+    console.log(name, address);
+  }
+
   return (
     <>
-      <div className="datos">
+      <form onSubmit={handleSubmit} className="datos">
         <label>
           Nombre de la propiedad
           <div>
-            <input type="text" />
+            <input 
+              type="text"
+              value={name}
+              onChange={(e)=>{setName(e.target.value)}}
+             />
+             <label>El nombre no pueda </label>
           </div>
         </label>
         <label>
@@ -19,7 +34,12 @@ export const Datos = () => {
         <label>
           Dirección
           <div>
-            <input type="text" />
+            <input
+            type="text"
+            value={address}
+            onChange={(e)=>{setAddress(e.target.value)}}
+             />
+             
           </div>
         </label>
         <label>
@@ -28,7 +48,8 @@ export const Datos = () => {
             <select name="" id=""></select>
           </div>
         </label>
-      </div>
+        <button type='submit'>test</button>
+      </form>
     </>
   );
 };
