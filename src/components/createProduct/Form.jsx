@@ -8,7 +8,7 @@ import { Descripcion } from './Descripcion';
 import { Atributos } from './Atributos';
 import { Politicas } from './Politicas';
 import { Imagenes } from './Imagenes'
-export const Form = () => {
+export const Form = (props) => {
   return (
     <>
     <div className='header-admin'>
@@ -20,7 +20,7 @@ export const Form = () => {
     <div className='admin-form'>
      <h1>Crear Propiedad</h1>
     <div className="admin-form_container">
-        <Datos/>
+        <Datos />
         <Descripcion/>
         <Atributos/>
         <Politicas/>

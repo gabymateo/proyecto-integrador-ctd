@@ -16,6 +16,7 @@ export const Datos = () => {
   const apiCity = useCitiesApi();
   //CONSUMIR API CATEGORIAS
   const apiCat = useCategoriesApi();
+
   const [formValues, setFormValues] = useState(initValues);
   const [name, setName] = useState(undefined);
   const [address, setAddress] = useState(undefined);
@@ -75,8 +76,11 @@ export const Datos = () => {
         <label>
           Categoria
           <div>
-            <select name="" id="">
+            <select name="" id="" required>
             <option disabled selected>Selecciona una Categoria</option>
+            {apiCat?.categories?.map((cat)=> {
+                    return <option  key={cat.id} value={cat.id}>{cat.title}</option>
+                  })}
             </select>
           </div>
         </label>
@@ -95,7 +99,7 @@ export const Datos = () => {
         <label>
           Ciudad
           <div>
-            <select name="" id="">
+            <select name="" id="" required placeholder="Select a person...">
             <option disabled selected>Selecciona una Ciudad</option>
             {apiCity.cities.map((city)=> {
                     return <option  key={city.id} value={city.id}>{city.name}</option>

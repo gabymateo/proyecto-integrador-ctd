@@ -21,6 +21,7 @@ import {ReservaOk} from './components/reserva/ReservaOk'
 import { CustomProvider } from './apis/userContext';
 import { ProtectedElement} from './apis/ProtectedElement';
 import {Admin} from './pages/Admin'
+import {ProductOk} from './components/createProduct/ProductOk';
 
 
 function App() {
@@ -42,6 +43,7 @@ function App() {
         {/* <Route path="/admin" element={ <ProtectedElement> <Admin/> </ProtectedElement> }></Route> !IMPORTANT DESCOMENTAR*/}
         <Route path="/admin" element={ <Admin/> }></Route>
         {/* COMENTAR/ BORRAR LA LINEA DE ARRIBA */}
+        <Route path="/admin/newProductOk" element={ <ProductOk/> }></Route>
         <Route path='/product/:id' element={<Product/>}></Route>
         <Route path='/filter' element={<Filter/>}></Route>
         <Route path='/product/:id/reserva' element={ <ProtectedElement><Book/></ProtectedElement> }></Route>
