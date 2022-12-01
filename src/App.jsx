@@ -39,7 +39,9 @@ function App() {
         <Route path="/" element={<Home productos={products} getProductosFiltrados={getProductsFilter} getProductos={getProducts} />}></Route>
         <Route path="/login" element={<Login/>}></Route>
         <Route path="/register" element={<Register/>}></Route>
-        <Route path="/admin" element={ <ProtectedElement> <Admin/> </ProtectedElement> }></Route>
+        {/* <Route path="/admin" element={ <ProtectedElement> <Admin/> </ProtectedElement> }></Route> !IMPORTANT DESCOMENTAR*/}
+        <Route path="/admin" element={ <Admin/> }></Route>
+        {/* COMENTAR/ BORRAR LA LINEA DE ARRIBA */}
         <Route path='/product/:id' element={<Product/>}></Route>
         <Route path='/filter' element={<Filter/>}></Route>
         <Route path='/product/:id/reserva' element={ <ProtectedElement><Book/></ProtectedElement> }></Route>
