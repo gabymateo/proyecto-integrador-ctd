@@ -27,7 +27,7 @@ public class AwsService implements IAwsService {
     }
 
     @Override
-    public Image upload(MultipartFile file) {
+    public Image upload(MultipartFile file) throws IOException {
         File fileToUpload = new File(file.getOriginalFilename());
         try(FileOutputStream stream = new FileOutputStream(fileToUpload)) {
             stream.write(file.getBytes());
@@ -36,8 +36,8 @@ public class AwsService implements IAwsService {
             amazonS3.putObject(request);
             return new Image(request.getBucketName(), request.getKey());
         }catch (IOException e) {
-            System.out.println(e.getMessage());
-            return null;
+            e.printStackTrace(System.out);
+            throw new IOException(e.getMessage());
         }
     }
 

@@ -78,6 +78,11 @@ public class BookingService implements IBookingService {
     }
 
     @Override
+    public List<Booking> getByUserId(Long userId) {
+        return this.bookingRepository.findByUserId(userId);
+    }
+
+    @Override
     public void delete(Long id) {
         Optional<Booking> booking = this.bookingRepository.findById(id);
         if(booking.isEmpty()) {

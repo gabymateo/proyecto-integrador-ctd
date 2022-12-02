@@ -16,6 +16,7 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import java.io.IOException;
 import java.time.LocalDate;
 import java.util.Optional;
 
@@ -31,6 +32,8 @@ public class ProductController {
             return ResponseHandler.generateResponse(HttpStatus.CREATED, "success", product);
         } catch (ApplicationError error) {
             return ErrorHandler.generateErrorResponse(HttpStatus.BAD_REQUEST, error.getMessage());
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         }
     }
 
