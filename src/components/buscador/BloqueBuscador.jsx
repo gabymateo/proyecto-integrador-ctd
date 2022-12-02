@@ -60,7 +60,7 @@ export const BloqueBuscador = ({getProductosFiltrados, getProductos}) => {
           <div className='barraBuscadorContainer'>
             <div className='barraBuscadorItem'>
               <IoLocationSharp/>
-                <select onChange={handleChange}>
+                <select onChange={handleChange} >
                   <option defaultValue> Selecciona una ciudad </option>
                   <option value={0}> Traer todos </option>
                   {apiCity.cities.map((city)=> {
