@@ -4,6 +4,7 @@ import com.backend.grupo5.common.exceptions.ApplicationError;
 import com.backend.grupo5.common.exceptions.ErrorHandler;
 import com.backend.grupo5.common.exceptions.ResponseHandler;
 import com.backend.grupo5.controller.input.LoginInput;
+import com.backend.grupo5.controller.input.UserCreateInput;
 import com.backend.grupo5.model.services.IUserService;
 import com.backend.grupo5.repository.entities.User;
 import com.backend.grupo5.security.TokenManagement;
@@ -22,8 +23,8 @@ import java.util.Optional;
 public class UserController {
     private final IUserService userService;
     private final AuthenticationManager authenticationManager;
-    @PostMapping("/signUp")
-    public ResponseEntity<Object> create(@RequestBody User input) {
+    @PostMapping("/singUp")
+    public ResponseEntity<Object> create(@RequestBody UserCreateInput input) {
         try {
             User user = this.userService.create(input);
             return ResponseHandler.generateResponse(HttpStatus.CREATED, "success", user);

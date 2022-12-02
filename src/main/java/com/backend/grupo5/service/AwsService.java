@@ -36,6 +36,7 @@ public class AwsService implements IAwsService {
             amazonS3.putObject(request);
             return new Image(request.getBucketName(), request.getKey());
         }catch (IOException e) {
+            e.printStackTrace(System.out);
             throw new IOException(e.getMessage());
         }
     }
