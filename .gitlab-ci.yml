@@ -33,6 +33,8 @@ Deploy:
     - pwd
     - ssh "$SSH_USER"@"$EC2_IPADDRESS" "hostname"
     - scp -o StrictHostKeyChecking=no ./target/*war "$SSH_USER"@"$EC2_IPADDRESS":/opt/tomcat/webapps
-    - echo "finalizacion exitosa del proceso de deploy en DH server"
+    - sudo systemctl stop tomcat
+    - nohup java -jar /opt/tomcat/webapps/grupo5.war > output.log & 
+    - echo "finalizacion exitosa del proceso de deploy en DH"
   only:
       - Main_Backend
