@@ -53,6 +53,17 @@ public class BookingController {
         }
     }
 
+    @GetMapping("/users/")
+    public ResponseEntity<Object> getByUserId(@RequestHeader("Authorization") String jwt) {
+        try {
+            Long userId = TokenManagement.getUserId(jwt);
+            List<Booking> bookings = this.bookingService.getByUserId(userId);
+            return ResponseHandler.generateResponse(HttpStatus.OK, "success", bookings);
+        } catch (ApplicationError error) {
+            return ErrorHandler.generateErrorResponse(error.getHttpStatus(), error.getMessage());
+        }
+    }
+
     @GetMapping("/")
     public ResponseEntity<Object> getAll() {
         try {

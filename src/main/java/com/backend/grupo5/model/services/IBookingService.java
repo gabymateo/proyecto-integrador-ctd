@@ -9,8 +9,8 @@ import java.util.Optional;
 public interface IBookingService {
     Booking create(BookingCreateInput input);
     Optional<Booking> getById(Long id);
-
     List<Booking> getByProductId(Long productId);
+    List<Booking> getByUserId(Long userId);
     List<Booking> getAll();
     void delete(Long id);
 }
