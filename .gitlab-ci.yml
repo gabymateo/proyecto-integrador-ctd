@@ -21,7 +21,8 @@ Deploy App:
   before_script:                                                                                                                                
     - apt-get update -qq && apt-get install -y -qq sshpass                                                                                      
   stage: deploy                                                                                                                                 
-  script:                                                                                                                                       
+  script:   
+    - echo "Init Deploy App"                                                                                                                                    
     - sshpass -V                                                                                                                                
     - export SSHPASS=$CI_USER_PASS                                                                                                              
     - sshpass -e scp -o StrictHostKeyChecking=no target/*.jar gitlab-ci@"$EC2_IPADDRESS":/home/gitlab-ci                            
