@@ -30,9 +30,10 @@ Deploy App:
     - chmod 644 ~/.ssh/known_hosts                                                                                                                                                                                                                        
   script:   
     - echo "Init Deploy App"                                                                                                                                    
-    - ssh "$SSH_USER"@"$EC2_IPADDRESS" "hostname"  
+    - ssh "$SSH_USER"@"$EC2_IPADDRESS" "sudo systemctl stop dhGrupo5.service"  
     - scp -o StrictHostKeyChecking=no ./target/*jar "$SSH_USER"@"$EC2_IPADDRESS":~
     - ssh "$SSH_USER"@"$EC2_IPADDRESS" "ls -lr"
+    - ssh "$SSH_USER"@"$EC2_IPADDRESS" "sudo systemctl start dhGrupo5.service"
 
   only:
       - Main_Backend
