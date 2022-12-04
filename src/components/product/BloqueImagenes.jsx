@@ -5,16 +5,14 @@ import Slider from "react-slick";
 
 //React Photoswipe
 import '../../../node_modules/photoswipe/dist/photoswipe.css'
-import { Gallery, Item } from 'react-photoswipe-gallery'
+import { Gallery, Item, useGallery } from 'react-photoswipe-gallery'
 //Iconos
 import { FiShare2 } from 'react-icons/fi';
 import { AiFillHeart } from 'react-icons/ai';
 
 export const BloqueImagenes = (props) => {
-  //console.log(props?.products);
   const images = props?.products?.images;
-  //console.log(images[0]);
-
+  
   return (
     <>
       <div className="alojamiento__imagenes">
@@ -25,6 +23,7 @@ export const BloqueImagenes = (props) => {
         <div className="imagenes__container">
           <div className="imagenes__imagen-secundaria">
             <Gallery>
+              {/* <GalleryContent/> */}
               {images?.map((image, i = 0) => (
                 <div key={image.id} className={`imagen${i}`}>
                   <Item original={image.url} width="1024" height="768">
@@ -48,6 +47,24 @@ export const BloqueImagenes = (props) => {
     </>
   );
 }
+
+// export const GalleryContent = (props) => {
+//   const images = props?.products?.images;
+//   console.log(props);
+//   return (
+//     <>
+//     {images?.map((image, i = 0) => (
+//                 <div key={image.id} className={`imagen${i}`}>
+//                   <Item original={image.url} width="1024" height="768">
+//                     {({ ref, open }) => (
+//                       <img ref={ref} onClick={open} src={image.url} />
+//                     )}
+//                   </Item>
+//                 </div>
+//               ))}
+//     </>
+//   )
+// }
 
 export const BloqueImagenesRes = (props) => {
   const settings = {

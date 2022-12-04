@@ -28,15 +28,18 @@ export const Reserva = () => {
   const [horaIni, setHoraIni] = useState();
   const [bookOk, setBookOk] = useState(); //utilizo este estado para el mensaje de error
   const {bookings, postBookings} = useBookingsApi();
-  
+  const {reservedDate, getBookingByProductId} = useBookingsApi();
+
   React.useEffect(() => {
     getProducts(ident)
+    getBookingByProductId(ident)
   },[])
-
-  // React.useEffect(()=>{
-      
-  // }, [])
-
+  
+  console.log(reservedDate);
+  // const f1 = reservedDate[0].startDate
+  // const f2 = reservedDate[0].endDate
+  
+  
   /*------ INIT CALENDARIO -----*/
   const [date, setDate] = useState([
     { startDate: new Date(),
@@ -44,6 +47,40 @@ export const Reserva = () => {
       key: "selection" },
   ]);
   /*----- FIN CALENDARIO ------*/
+  /*----- TRANSFORMAR FECHAS RESERVADAS  */ 
+  // console.log(...reservedDate);
+  // function apiToDisableDate(){
+  //   let dateArray = [];
+  //   const nuevoArray = reservedDate.map((a)=>{
+  //     return{
+        
+  //     }
+  //   })
+
+  // }
+  function getDatesInRange(startDate, endDate) {
+    const fechas = [];
+    let currentDate = addDays(startDate, 1);
+    let stopDate = addDays(endDate, 1);
+    // const date = new Date(startDate.getTime());
+  
+    while (currentDate <= stopDate) {
+      fechas.push(currentDate);
+      currentDate = addDays(currentDate , 1);
+    }
+  
+    return fechas;
+  }
+  
+  // const d1 = new Date('2022-12-18');
+  // const d2 = new Date('2022-12-24');
+  // const f1 = new Date(reservedDate[0].startDate)
+  // const f2 = new Date(reservedDate[0].endDate)
+  // console.log(reservedDate[0].startDate);
+  // console.log(getDatesInRange(d1,d2));
+  // console.log(getDatesInRange(f1,f2));
+  // console.log(getDatesInRange(f1,f2));
+  // console.log(f1);
 
   /*----- Esta función es para controlar los input del form ------*/
   const handleChangeFormValues = (e) => {
