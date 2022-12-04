@@ -2,7 +2,7 @@ import React from 'react'
 import axios from 'axios'
 import { useSearchParams } from "react-router-dom";
 
-const baseUrl = 'http://3.22.183.252:8080/grupo5'
+const baseUrl = 'http://3.142.76.191:8080/'
 
 // -----------------  ESTA ES LA API DE PRODUCTOS ----------------------
 export function useProductsApi() {
