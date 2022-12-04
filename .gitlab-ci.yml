@@ -2,7 +2,7 @@ stages:
   - build
   - deploy  
 
-Maven-build:  
+Build App:  
   stage: build
   image: maven:3.8.5-openjdk-17-slim
   script:
@@ -13,28 +13,19 @@ Maven-build:
     - echo "Finished building the app"
   artifacts:
     paths:      
-      - target/*.war
+      - target/*.jar
   only:
       - Main_Backend
 
-Deploy:
-  stage: deploy 
-  image: alpine:3.11
-  before_script:
-    - 'command -v ssh-agent >/dev/null || ( apk add --update openssh )'   
-    - eval $(ssh-agent -s)  
-    - echo "$SSH_PRIVATE_KEY" | tr -d '\r' | ssh-add -  
-    - mkdir -p ~/.ssh  
-    - chmod 700 ~/.ssh  
-    - ssh-keyscan $EC2_IPADDRESS >> ~/.ssh/known_hosts  
-    - chmod 644 ~/.ssh/known_hosts  
-  script:
-    - echo "Deploying started..."
-    - pwd
-    - ssh "$SSH_USER"@"$EC2_IPADDRESS" "hostname"
-    - scp -o StrictHostKeyChecking=no ./target/*war "$SSH_USER"@"$EC2_IPADDRESS":/opt/tomcat/webapps
-    - ssh "$SSH_USER"@"$EC2_IPADDRESS" "sudo systemctl stop tomcat"
-    - ssh "$SSH_USER"@"$EC2_IPADDRESS" "nohup java -jar /opt/tomcat/webapps/grupo5.war > output.log &"
-    - echo "finalizacion exitosa del proceso de deploy en DH"
+Deploy App:                                                                                                                                  
+  before_script:                                                                                                                                
+    - apt-get update -qq && apt-get install -y -qq sshpass                                                                                      
+  stage: deploy                                                                                                                                 
+  script:                                                                                                                                       
+    - sshpass -V                                                                                                                                
+    - export SSHPASS=$CI_USER_PASS                                                                                                              
+    - sshpass -e scp -o StrictHostKeyChecking=no target/*.jar gitlab-ci@"$EC2_IPADDRESS":/home/gitlab-ci                            
+    - sshpass -e ssh -tt -o StrictHostKeyChecking=no gitlab-ci@"$EC2_IPADDRESS" sudo mv /home/gitlab-ci/*.jar /opt/java/webapps     
+    - sshpass -e ssh -tt -o StrictHostKeyChecking=no gitlab-ci@"$EC2_IPADDRESS" sudo systemctl restart gitlab-ci-demo.service
   only:
       - Main_Backend
