@@ -17,10 +17,11 @@ Build App:
   only:
       - Main_Backend
 
-Deploy App:                                                                                                                                  
+Deploy App:     
+  image: alpine:3.11       
+  stage: deploy                                                                                                                       
   before_script:                                                                                                                                
-    - sudo apt-get update -qq && sudo apt-get install -y -qq sshpass                                                                                      
-  stage: deploy                                                                                                                                 
+    - sudo apt-get update -qq && sudo apt-get install -y -qq sshpass                                                                                                                                                                                                                      
   script:   
     - echo "Init Deploy App"                                                                                                                                    
     - sshpass -V                                                                                                                                
