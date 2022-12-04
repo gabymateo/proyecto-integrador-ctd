@@ -1,7 +1,7 @@
 import React from 'react'
 import axios from 'axios'
 
-const baseUrl = 'http://18.220.195.162:8080/grupo5'
+const baseUrl = 'http://3.142.76.191:8080'
 
 // -----------------  ESTA ES LA API DE CIUDADES----------------------
 export function useCitiesApi() {
