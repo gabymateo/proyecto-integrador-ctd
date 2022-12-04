@@ -1,7 +1,7 @@
 import React from 'react'
 import axios from 'axios'
 
-const baseUrl = 'http://3.142.76.191:8080/'
+const baseUrl = 'http://3.142.76.191:8080'
 
 // -----------------  ESTA ES LA API DE RESERVAS---------------------
 export function useBookingsApi() {

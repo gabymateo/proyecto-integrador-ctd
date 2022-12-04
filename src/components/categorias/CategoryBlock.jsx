@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import "./categoryBlock.css";
 import { useSearchParams } from "react-router-dom";
 
-const baseUrl = 'http://3.142.76.191:8080/'
+const baseUrl = 'http://3.142.76.191:8080'
 
 export default function CategoryBlock(props) {
   const [searchParams, setSearchParams] = useSearchParams();
