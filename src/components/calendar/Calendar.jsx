@@ -4,7 +4,7 @@ import { DateRange } from "react-date-range";
 import "../../../node_modules/react-date-range/dist/styles.css"; // main css file
 import "../../../node_modules/react-date-range/dist/theme/default.css"; // theme css file
 
-export const Calendar = () => {
+export const Calendar = (props) => {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
   const setWindowDimensions = () => {
@@ -20,23 +20,27 @@ export const Calendar = () => {
   }, []);
 
   const [openDate, setOpenDate] = useState(false);
-  const [date, setDate] = useState([
-    { startDate: new Date(), endDate: new Date(), key: "selection" },
-  ]);
-
+  // {const [date, setDate] = useState([
+  //   { startDate: new Date(), endDate: new Date(), key: "selection" },
+  // ]);}
+  const date = [
+    {}
+  ]
   return (
     <>
       <DateRange
         editableDateInputs={true}
-        onChange={(item) => setDate([item.selection])}
+        onChange={(item) => props.setDate([item.selection])}
         moveRangeOnFirstSelection={false}
         months={windowWidth < 550 ? 1 : 2}
-        ranges={date}
+        ranges={props.date}
         minDate={new Date()}
         showDateDisplay={false}
         rangeColors={["#FBC02D", "#FBC02D", "#FBC02D"]}
         className="date"
         direction="horizontal"
+        disabledDates={props.disabledDates}
+        
       />
     </>
   );

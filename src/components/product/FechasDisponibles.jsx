@@ -9,16 +9,15 @@ import { Calendar } from '../calendar/Calendar';
 import userContext from '../../apis/userContext';
 
 export const FechasDisponibles = () => {
-  {/*const [openDate, setOpenDate] = useState(false)
+  const [openDate, setOpenDate] = useState(false)
   const [date, setDate] = useState([
     { startDate: new Date(),
       endDate: new Date(),
       key: 'selection'
     }
-  ]);*/}
+  ]);
   const [logued, setLogued] = useState(false);
   const {userLogged} = React.useContext(userContext);
-
 
   return (
     <>
@@ -27,24 +26,14 @@ export const FechasDisponibles = () => {
           <h1>Fechas Disponibles</h1>
           <div>
             <div className='calendario'>
-              <Calendar/>
-              {/*<DateRange
-                editableDateInputs={true}
-                onChange={(item) => setDate([item.selection])}
-                moveRangeOnFirstSelection={false}
-                months={1}
-                ranges={date}
-                minDate={new Date()}
-                showDateDisplay={false}
-                rangeColors={["#FBC02D", "#FBC02D", "#FBC02D"]}
-                className="date"
-                direction="horizontal"
-              />*/}
+              <Calendar
+              date={date}
+              setDate={setDate}
+              />
             </div>
             <div className="fechasReserva__reserva">
               <p>Agregá tus fechas de viaje para obtener precios exactos</p>
-              {userLogged ? (<NavLink to={`reserva`}><button>Iniciar Reserva</button></NavLink>)
-                      :(<NavLink to={`./../../login`}><button>Iniciar Reserva</button></NavLink>)}
+              <NavLink to={`reserva`}><button>Iniciar Reserva</button></NavLink>
             </div>
           </div>
         </div>

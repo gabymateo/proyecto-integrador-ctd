@@ -36,7 +36,7 @@ export const Politicas = (props) => {
                 <h1>Normas</h1>
                 {rules?.map((rules)=>{
                   return(
-                    <p>{rules.name}</p>
+                    <p key={rules.id}>{rules.name}</p>
                   )
                 })}
               </div>
@@ -44,7 +44,7 @@ export const Politicas = (props) => {
                 <h1>Seguridad</h1>
                 {security?.map((rules)=>{
                   return(
-                    <p>{rules.name}</p>
+                    <p key={rules.id}>{rules.name}</p>
                   )
                 })}
               </div>
@@ -52,7 +52,7 @@ export const Politicas = (props) => {
                 <h1>Política de Cancelación</h1>
                 {cancelation?.map((rules)=>{
                   return(
-                    <p>{rules.name}</p>
+                    <p key={rules.id}>{rules.name}</p>
                   )
                 })}
               </div>

@@ -28,15 +28,19 @@ export const Reserva = () => {
   const [horaIni, setHoraIni] = useState();
   const [bookOk, setBookOk] = useState(); //utilizo este estado para el mensaje de error
   const {bookings, postBookings} = useBookingsApi();
-  
+  const {reservedDate, getBookingByProductId} = useBookingsApi();
+
   React.useEffect(() => {
     getProducts(ident)
+    getBookingByProductId(ident)
   },[])
-
-  // React.useEffect(()=>{
-      
-  // }, [])
-
+  
+  // console.log(reservedDate);
+  // console.log(reservedDate[0].startDate);
+  // const f1 = reservedDate[0].startDate
+  // const f2 = reservedDate[0].endDate
+  
+  
   /*------ INIT CALENDARIO -----*/
   const [date, setDate] = useState([
     { startDate: new Date(),
@@ -44,6 +48,61 @@ export const Reserva = () => {
       key: "selection" },
   ]);
   /*----- FIN CALENDARIO ------*/
+  /*----- TRANSFORMAR FECHAS RESERVADAS  */ 
+  // console.log(...reservedDate);
+  // function apiToDisableDate(){
+  //   let dateArray = [];
+  //   const nuevoArray = reservedDate.map((a)=>{
+  //     return{
+        
+  //     }
+  //   })
+
+  // }
+  const disabledDates = reservedDate?apiDatesToDisabled(reservedDate):undefined
+
+  function getDatesInRange(startDate, endDate) {
+    const fechas = [];
+    let currentDate = addDays(startDate, 1);
+    let stopDate = addDays(endDate, 1);
+    // const date = new Date(startDate.getTime());
+  
+    while (currentDate <= stopDate) {
+      fechas.push(currentDate);
+      currentDate = addDays(currentDate , 1);
+    }
+  
+    return fechas;
+  }
+  function apiDatesToDisabled(reservedDate) {
+    let disabledDates = [];
+    const transfomedDates = reservedDate.map((reserved)=>{
+      return {
+        startDate: new Date(reserved.startDate),
+        endDate: new Date(reserved.endDate),
+      };
+    });
+    transfomedDates.forEach((reserved)=>{
+      const fechas = getDatesInRange(
+        reserved.startDate,
+        reserved.endDate
+      );
+      disabledDates = [...disabledDates, ...fechas];
+    });
+    return disabledDates;
+  }
+  // console.log(disabledDates);
+  
+  // const d1 = new Date('2022-12-18');
+  // const d2 = new Date('2022-12-24');
+  // const f1 = new Date(reservedDate[0].startDate)
+  // const f2 = new Date(reservedDate[0].endDate)
+  // console.log(reservedDate[0].startDate);
+  // console.log(reservedDate[0].startDate);
+  // console.log(getDatesInRange(d1,d2));
+  // console.log(getDatesInRange(f1,f2));
+  // console.log(getDatesInRange(f1,f2));
+  // console.log(f1);
 
   /*----- Esta función es para controlar los input del form ------*/
   const handleChangeFormValues = (e) => {
@@ -76,7 +135,6 @@ export const Reserva = () => {
     }
   }
   
-
   return (
     <div className="reserva">
       <form className="reserva__container" onSubmit={handleSubmit}>
@@ -92,19 +150,11 @@ export const Reserva = () => {
         <div className="calendario__container">
           <h1>Seleccioná tu fecha de reserva</h1>
           <div className='calendarioReserva'>
-            <Calendar/>
-            {/*<DateRange
-              editableDateInputs={true}
-              onChange={(item) => setDate([item.selection])}
-              moveRangeOnFirstSelection={false}
-              months={2}
-              minDate={new Date()}
-              ranges={date}
-              showDateDisplay={false}
-              rangeColors={["#FBC02D", "#FBC02D", "#FBC02D"]}
-              className="date"
-              direction="horizontal"
-  />*/}
+            <Calendar 
+            date={date}
+            setDate={setDate}
+            disabledDates={disabledDates}
+             />
           </div>
         </div>
         <div className="reserva__horario">
@@ -153,3 +203,11 @@ export const Reserva = () => {
     </div>
   );
 };
+// import { addDays } from 'date-fns';
+// const [range, setRange] = useState([
+//     {
+//       startDate: new Date(),
+//       endDate: addDays(new Date(), 7),
+//       key: 'selection',
+//     },
+//   ]);

@@ -1,11 +1,12 @@
 import React from 'react'
 import axios from 'axios'
 
-const baseUrl = 'http://34.201.99.165:8080/grupo5'
+const baseUrl = 'http://3.142.76.191:8080'
 
 // -----------------  ESTA ES LA API DE RESERVAS---------------------
 export function useBookingsApi() {
     const [bookings, setBookings] = React.useState([]);
+    const [reservedDate, setReservedDate] = React.useState([]);
 
      // ---------- FUNCIÓN PARA CREAR RESERVAS EN LA DB ---------------   
     const postBookings = async (productId, startHour, startDate, endDate, Authorization) => {
@@ -55,14 +56,25 @@ const getBookingsById = async (id) => {
 
 //------------------- OBTENER LAS RESERVAS DE UN PRODUCTO POR ID ------------
 
-// const getBookingByProductId = async (productId) => {
-// }
+const getBookingByProductId = async (productId) => {
+    try {
+        const responseGetBookingByProductId = await axios.get(`${baseUrl}/bookings/products/${productId}`)
+        //console.log("responseGetCategories: ", responseGetCategories);
+        setReservedDate(responseGetBookingByProductId.data?.data);
+        // console.log(responseGetBookingByProductId.data?.data);
+    }
+    catch (error) {
+        console.error('error', error.response.data)
+    }
+}
     // ---------- ESTE ES EL RETURN DE LA API ---------------------------
 return {
     bookings: bookings.data,
     postBookings: postBookings,
     getBookings: getBookings,
     getBookingsById:getBookingsById,
+    getBookingByProductId:getBookingByProductId,
+    reservedDate: reservedDate,
     }
 
 

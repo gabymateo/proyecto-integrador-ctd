@@ -10,21 +10,21 @@ export const Politicas = () => {
                 <h1>Normas de la Casa</h1>
                 <p>Descripción</p>
                 <div>
-                    <input type="text" />
+                    <textarea></textarea>
                 </div>
             </div>
             <div>
                 <h1>Salud y seguridad</h1>
                 <p>Descripción</p>
                 <div>
-                    <input type="text" />
+                    <textarea></textarea>
                 </div>
             </div>
             <div>
                 <h1>Política de cancelacion</h1>
                 <p>Descripción</p>
                 <div>
-                    <input type="text" />
+                    <textarea></textarea>
                 </div>
             </div>
         </div>
