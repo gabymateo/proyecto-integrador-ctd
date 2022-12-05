@@ -14,6 +14,7 @@ public class ProductDTOTOProduct implements IMapper<ProductCreateDTO, Product>{
         product.setPrice(in.getPrice());
         product.setAvailability(in.isAvailability());
         product.setDescription(in.getDescription());
+        product.setDescriptionTitle(in.getDescriptionTitle());
         return product;
     }
 }

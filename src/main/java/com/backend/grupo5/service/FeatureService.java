@@ -2,6 +2,8 @@ package com.backend.grupo5.service;
 
 import com.backend.grupo5.common.exceptions.ApplicationError;
 import com.backend.grupo5.common.helpers.validators.FeatureValidator;
+import com.backend.grupo5.controller.input.feature.FeatureUpdateInput;
+import com.backend.grupo5.controller.input.product.ProductUpdateDTO;
 import com.backend.grupo5.model.services.IFeatureService;
 import com.backend.grupo5.repository.FeatureRepository;
 import com.backend.grupo5.repository.entities.Feature;
@@ -43,6 +45,30 @@ public class FeatureService implements IFeatureService {
             throw new ApplicationError("not found", HttpStatus.NOT_FOUND);
         }
         this.repository.delete(feature.get());
+    }
+
+    @Override
+    public Feature update(Long id, FeatureUpdateInput input) {
+        Optional<Feature> feature = this.repository.findById(id);
+        if(feature.isEmpty()) {
+            throw new ApplicationError("not found", HttpStatus.NOT_FOUND);
+        }
+
+        if(input.getIcon() != null) {
+            feature.get().setIcon(input.getIcon());
+        }
+
+        if(input.getType() != null) {
+            feature.get().setType(input.getType());
+        }
+
+        if(input.getName() != null) {
+            feature.get().setName(input.getName());
+        }
+
+        this.repository.save(feature.get());
+
+        return feature.get();
     }
 
 }

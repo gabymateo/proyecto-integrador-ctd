@@ -11,6 +11,8 @@ import com.backend.grupo5.security.TokenManagement;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PostAuthorize;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -23,7 +25,7 @@ import java.util.Optional;
 public class UserController {
     private final IUserService userService;
     private final AuthenticationManager authenticationManager;
-    @PostMapping("/singUp")
+    @PostMapping("/signUp/")
     public ResponseEntity<Object> create(@RequestBody UserCreateInput input) {
         try {
             User user = this.userService.create(input);

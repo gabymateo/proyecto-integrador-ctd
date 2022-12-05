@@ -4,6 +4,7 @@ package com.backend.grupo5.controller.http;
 import com.backend.grupo5.common.exceptions.ApplicationError;
 import com.backend.grupo5.common.exceptions.ErrorHandler;
 import com.backend.grupo5.common.exceptions.ResponseHandler;
+import com.backend.grupo5.controller.input.feature.FeatureUpdateInput;
 import com.backend.grupo5.model.services.IFeatureService;
 import com.backend.grupo5.repository.entities.Feature;
 import com.backend.grupo5.controller.input.feature.FeatureCreateDTO;
@@ -61,4 +62,15 @@ public class FeatureController {
             return ErrorHandler.generateErrorResponse(error.getHttpStatus(), error.getMessage());
         }
     }
+
+    @PatchMapping("/{id}") @PreAuthorize("hasAnyAuthority('ROLE_ADMIN')")
+    public ResponseEntity<Object> update(@PathVariable Long id, @RequestBody FeatureUpdateInput input) {
+        try {
+            Feature feature = this.featureService.update(id, input);
+            return ResponseHandler.generateResponse(HttpStatus.OK, "success", feature);
+        } catch (ApplicationError error) {
+            return ErrorHandler.generateErrorResponse(error.getHttpStatus(), error.getMessage());
+        }
+    }
+
 }
