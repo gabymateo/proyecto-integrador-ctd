@@ -35,7 +35,8 @@ export const Reserva = () => {
     getBookingByProductId(ident)
   },[])
   
-  console.log(reservedDate);
+  // console.log(reservedDate);
+  // console.log(reservedDate[0].startDate);
   // const f1 = reservedDate[0].startDate
   // const f2 = reservedDate[0].endDate
   
@@ -58,6 +59,8 @@ export const Reserva = () => {
   //   })
 
   // }
+  const disabledDates = reservedDate?apiDatesToDisabled(reservedDate):undefined
+
   function getDatesInRange(startDate, endDate) {
     const fechas = [];
     let currentDate = addDays(startDate, 1);
@@ -71,11 +74,30 @@ export const Reserva = () => {
   
     return fechas;
   }
+  function apiDatesToDisabled(reservedDate) {
+    let disabledDates = [];
+    const transfomedDates = reservedDate.map((reserved)=>{
+      return {
+        startDate: new Date(reserved.startDate),
+        endDate: new Date(reserved.endDate),
+      };
+    });
+    transfomedDates.forEach((reserved)=>{
+      const fechas = getDatesInRange(
+        reserved.startDate,
+        reserved.endDate
+      );
+      disabledDates = [...disabledDates, ...fechas];
+    });
+    return disabledDates;
+  }
+  // console.log(disabledDates);
   
   // const d1 = new Date('2022-12-18');
   // const d2 = new Date('2022-12-24');
   // const f1 = new Date(reservedDate[0].startDate)
   // const f2 = new Date(reservedDate[0].endDate)
+  // console.log(reservedDate[0].startDate);
   // console.log(reservedDate[0].startDate);
   // console.log(getDatesInRange(d1,d2));
   // console.log(getDatesInRange(f1,f2));
@@ -131,6 +153,7 @@ export const Reserva = () => {
             <Calendar 
             date={date}
             setDate={setDate}
+            disabledDates={disabledDates}
              />
           </div>
         </div>

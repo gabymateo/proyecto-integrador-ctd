@@ -39,6 +39,7 @@ export const Calendar = (props) => {
         rangeColors={["#FBC02D", "#FBC02D", "#FBC02D"]}
         className="date"
         direction="horizontal"
+        disabledDates={props.disabledDates}
         
       />
     </>
