@@ -23,6 +23,9 @@ public class Feature {
     @Column(nullable = false)
     private String type;
 
+    @Column
+    private String icon;
+
     @ManyToMany(mappedBy = "features")
     @JsonIgnore
     private Set<Product> products = new HashSet<>();
