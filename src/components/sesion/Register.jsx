@@ -5,6 +5,7 @@ import { useState } from "react";
 import { isValid } from 'date-fns';
 import Eye from '../../images/icon-eye.png';
 import closeEye from '../../images/icon-close-eye.png';
+import { useUserSingUpApi } from '../../apis/UserSingUpApi';
 
 
 const emailRegexp = new RegExp(/[^@ \t\r\n]+@[^@ \t\r\n]+\.[^@ \t\r\n]+/);
@@ -28,6 +29,7 @@ const LoginRegister = (props) => {
     const [difPassword, setDifPassword] = useState(undefined);
     const [validationAll, setValidationAll] = useState(false);
     const [enviarDatos, setEnviarDatos] = useState(false);
+    const {postCreateUser} = useUserSingUpApi();
 
     const handleChangeFormValues = (e) => {
       setFormValues({
@@ -38,7 +40,8 @@ const LoginRegister = (props) => {
 
     const handleSubmit = (e) => {
       e.preventDefault();
-      setEnviarDatos(true)
+      setEnviarDatos(true) //Estado para activar el boton de enviar el formulario
+      postCreateUser(formValues.email, formValues.password, formValues.name, formValues.lastName) //llamado a API para crear usuarios
       console.log("ENVIADOS");
     }
 
