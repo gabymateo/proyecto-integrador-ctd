@@ -24,5 +24,6 @@ public class ProductUpdateDTO {
     private Integer rate;
     private MultipartFile[] files;
     private String descriptionTitle;
+    private String description;
 
 }
