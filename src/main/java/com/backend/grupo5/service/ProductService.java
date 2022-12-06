@@ -187,9 +187,16 @@ public class ProductService implements IProductService {
                 product.get().getImages().add(image);
             }
         }
+
         if(input.getDescriptionTitle() != null) {
             product.get().setDescriptionTitle(input.getDescriptionTitle());
         }
+
+        if(input.getDescription() != null) {
+            product.get().setDescription(input.getDescription());
+        }
+
+
         return this.productRepository.save(product.get());
     }
 
