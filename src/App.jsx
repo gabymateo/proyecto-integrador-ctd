@@ -47,6 +47,7 @@ function App() {
         <Route path='/product/:id' element={<Product/>}></Route>
         <Route path='/filter' element={<Filter/>}></Route>
         <Route path='/product/:id/reserva' element={ <ProtectedElement><Book/></ProtectedElement> }></Route>
+        {/* <Route path='/product/:id/reserva' element={ <Book/> }></Route> */}
         <Route path='/product/:id/reserva/ok' element={<ReservaOk/>}></Route>
       </Routes>
       </CustomProvider>

@@ -19,16 +19,25 @@ export const Datos = () => {
 
   const [formValues, setFormValues] = useState(initValues);
   const [name, setName] = useState(undefined);
+  const [category, setCategory] = useState(undefined);
   const [address, setAddress] = useState(undefined);
+  const [city, setCity] = useState(undefined);
   const [validationAll, setValidationAll] = useState(false);
-
+//---------------------------------INIT Controlar valores del form----------------------
   const handleChangeFormValues = (e) => {
     setFormValues({
       ...formValues,
       [e.target.name]: e.target.value,
     });
   };
-
+  const handleValueCategory = (e) => {
+    setCategory(e.target.value);
+    // console.log('elegido');
+  }
+  const handleValueCity = (e)=> {
+    setCity(e.target.value);
+    console.log('elegido');
+  }
   const handleSubmit = (e) => {
     e.preventDefault();
     setEnviarDatos(true);
@@ -47,16 +56,24 @@ export const Datos = () => {
     handleValidationAll();
   }
 
+  const handleBlurCategory = ()=>{
+    // const hasError = !(formValues.category)
+    // setAddress(hasError)
+    // console.log('elegido');
+  }
+
   const handleBlurAddress=()=>{
     const hasError = !((formValues.name).length>1)
     setAddress(hasError)
     handleValidationAll();
   }
-
+  // console.log(city);
   const handleValidationAll = () => {
-    const isValid = ((name==false) && (address==false))
+    // console.log(category);
+    const isValid = ((name==false) && (category!==undefined) && (address==false) && (city!==undefined) )
     setValidationAll(isValid)
   }
+  
 
   return (
     <>
@@ -76,7 +93,13 @@ export const Datos = () => {
         <label>
           Categoria
           <div>
-            <select name="" id="" required>
+            <select 
+            name="category"
+            value={formValues.category}
+            onChange={handleValueCategory}
+            onBlur={handleBlurCategory}
+            id=""
+            required>
             <option disabled selected>Selecciona una Categoria</option>
             {apiCat?.categories?.map((cat)=> {
                     return <option  key={cat.id} value={cat.id}>{cat.title}</option>
@@ -99,7 +122,12 @@ export const Datos = () => {
         <label>
           Ciudad
           <div>
-            <select name="" id="" required placeholder="Select a person...">
+            <select 
+            name="" 
+            value={formValues.city}
+            onChange={handleValueCity}
+            required 
+            placeholder="Select a person...">
             <option disabled selected>Selecciona una Ciudad</option>
             {apiCity.cities.map((city)=> {
                     return <option  key={city.id} value={city.id}>{city.name}</option>

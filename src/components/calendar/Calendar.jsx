@@ -23,7 +23,9 @@ export const Calendar = (props) => {
   // {const [date, setDate] = useState([
   //   { startDate: new Date(), endDate: new Date(), key: "selection" },
   // ]);}
-
+  const date = [
+    {}
+  ]
   return (
     <>
       <DateRange
@@ -37,6 +39,8 @@ export const Calendar = (props) => {
         rangeColors={["#FBC02D", "#FBC02D", "#FBC02D"]}
         className="date"
         direction="horizontal"
+        disabledDates={props.disabledDates}
+        
       />
     </>
   );
