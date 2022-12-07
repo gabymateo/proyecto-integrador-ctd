@@ -9,7 +9,6 @@ import { useUserSingUpApi } from '../../apis/UserSingUpApi';
 
 
 const emailRegexp = new RegExp(/[^@ \t\r\n]+@[^@ \t\r\n]+\.[^@ \t\r\n]+/);
-
 const initValues={
   name: "",
   lastName: "",
@@ -29,7 +28,7 @@ const LoginRegister = (props) => {
     const [difPassword, setDifPassword] = useState(undefined);
     const [validationAll, setValidationAll] = useState(false);
     const [enviarDatos, setEnviarDatos] = useState(false);
-    const {postCreateUser} = useUserSingUpApi();
+    const {postCreateUser, singUpUser, statusMessage} = useUserSingUpApi();
 
     const handleChangeFormValues = (e) => {
       setFormValues({
@@ -42,6 +41,12 @@ const LoginRegister = (props) => {
       e.preventDefault();
       setEnviarDatos(true) //Estado para activar el boton de enviar el formulario
       postCreateUser(formValues.email, formValues.password, formValues.name, formValues.lastName) //llamado a API para crear usuarios
+      if (singUpUser ==201) {
+        //acá hago el reenvío a la página ppal
+      }
+      else {
+        //sale el error y queda en el formulario de crear cuenta
+      }
       console.log("ENVIADOS");
     }
 
@@ -115,8 +120,8 @@ const LoginRegister = (props) => {
           <label> Confirmar contraseña <input name="confirmPassword" type='password' value={formValues.confirmPassword} onChange={handleChangeFormValues} onBlur={hadleBlurDifPass} /> 
             <span style={{ visibility: difPassword ? "visible" : "hidden"}}>El password no coincide</span> <br></br></label>
           {enviarDatos==true
-            ? <p>Datos enviados</p>
-            : <p>Debes diligenciar todos los campos</p>}
+            ? <p>{statusMessage}</p>
+            : <p>Please fill all form</p>}
           <button className="submit" type='submit' disabled={!validationAll}>Crear cuenta</button>
           <div className='footer_form'>
             <p>¿Ya tienes cuenta? <NavLink to="/login" className="active">Iniciar sesión</NavLink></p>

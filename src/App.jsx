@@ -1,20 +1,11 @@
 import React from 'react';
-import axios from 'axios';
 import './app.css'
 import Home from './pages/Home';
 import Login from './pages/Login_form';
 import Register from './pages/Register';
 import { Product } from './pages/Product';
 import { Filter } from './pages/Filter';
-import {
-  BrowserRouter,
-  Route,
-  Routes,
-  Outlet,
-  Link,
-  Navigate,
-  useParams,useSearchParams
-} from "react-router-dom";
+import {BrowserRouter,Route,Routes,Outlet,Link,Navigate,useParams,useSearchParams} from "react-router-dom";
 import { useProductsApi } from './apis/productsApi';
 import { Book } from './pages/Book';
 import {ReservaOk} from './components/reserva/ReservaOk'
@@ -22,6 +13,7 @@ import { CustomProvider } from './apis/userContext';
 import { ProtectedElement} from './apis/ProtectedElement';
 import {Admin} from './pages/Admin'
 import {ProductOk} from './components/createProduct/ProductOk';
+// import {RegisterOk} from './components/sesion/RegisterOk';
 
 
 function App() {
@@ -49,6 +41,7 @@ function App() {
         <Route path='/product/:id/reserva' element={ <ProtectedElement><Book/></ProtectedElement> }></Route>
         {/* <Route path='/product/:id/reserva' element={ <Book/> }></Route> */}
         <Route path='/product/:id/reserva/ok' element={<ReservaOk/>}></Route>
+        {/* <Route path='/registerOk' element={<RegisterOk/>}></Route> */}
       </Routes>
       </CustomProvider>
     </>
