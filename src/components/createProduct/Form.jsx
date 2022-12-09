@@ -1,38 +1,75 @@
-import React from 'react';
-import './form.css';
-import { NavLink } from 'react-router-dom';
-import {IoChevronBack} from 'react-icons/io5';
+import { React, useState, useCallback, useEffect } from "react";
+import "./form.css";
+import { NavLink } from "react-router-dom";
+import { IoChevronBack } from "react-icons/io5";
 /*---COMPONENTES---*/
-import { Datos } from './Datos'
-import { Descripcion } from './Descripcion';
-import { Atributos } from './Atributos';
-import { Politicas } from './Politicas';
-import { Imagenes } from './Imagenes'
-export const Form = (props) => {
+import { Datos } from "./Datos";
+import { Descripcion } from "./Descripcion";
+import { Atributos } from "./Atributos";
+import { Politicas } from "./Politicas";
+import { Imagenes } from "./Imagenes";
+export const Form = () => {
+  const [desc, setDesc] = useState("");
+  const [atributeName, setAtributeName] = useState("");
+  const [atributeIcon, setAtributeIcon] = useState("");
+  const [policies, setPolicies] = useState("");
+  const [img, setImg] = useState("")
+  const [validationAll, setValidationAll] = useState(false);
+
+  const validate = () => {
+    useEffect(() => {
+      const error = desc !== "" && atributeName !== "" && atributeIcon !== "" && policies !=='' && img!=='';
+      console.log("elegido");
+      setValidationAll(error);
+    }, [desc, atributeName, atributeIcon, policies, img]);
+  };
+
+  console.log("La validacion es: " + validationAll);
+
   return (
     <>
-    <div className='header-admin'>
+      <div className="header-admin">
         <h1>Administración</h1>
         <NavLink to="/">
-            <IoChevronBack className="backButton" />
+          <IoChevronBack className="backButton" />
         </NavLink>
-    </div>
-    <div className='admin-form'>
-     <h1>Crear Propiedad</h1>
-    <div className="admin-form_container">
-        <Datos />
-        <Descripcion/>
-        <Atributos/>
-        <Politicas/>
-        <Imagenes/>
-        <button type='submit'>Crear</button>
-    </div>
-    </div>
-     
+      </div>
+      <div className="admin-form">
+        <h1>Crear Propiedad</h1>
+        <form
+          onSubmit={(ev) => {
+            ev.preventDefault();
+          }}
+          className="admin-form_container"
+        >
+          <Datos />
+          <Descripcion desc={desc} setDesc={setDesc} onChange={validate()} />
+          <Atributos
+            atributeName={atributeName}
+            setAtributeName={setAtributeName}
+            atributeIcon={atributeIcon}
+            setAtributeIcon={setAtributeIcon}
+            onChange={validate()}
+          />
+          <Politicas
+            policies={policies}
+            setPolicies={setPolicies}
+            onChange={validate()}
+          />
+          <Imagenes
+          img={img}
+          setImg={setImg}
+          onChange={validate()}
+          />
+          <button type="submit"
+          disabled={!validationAll}>
+            Crear
+          </button>
+          <p></p>
+        </form>
+      </div>
     </>
-  )
-}
-
-
+  );
+};
 
 export default Form;

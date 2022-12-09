@@ -29,7 +29,7 @@ export const Alojamiento = () => {
     getProducts(ident)
   },[])
   
-  //console.log(products.data);
+  console.log(products.data?.description);
   //console.log(api.products.name);
   //console.log(ident);
 
@@ -41,8 +41,8 @@ export const Alojamiento = () => {
       <BloqueImagenesRes products={products.data}/>
       <div className="alojamiento__descripcion">
         <div className="descripcion__container">
-          <h1>SubTitulo</h1>
-          <p>Texto de descripcion</p>
+          <h1>{products.data?.descriptionTitle}</h1>
+          <p>{products.data?.description}</p>
         </div>
       </div>
       <div className="alojamiento__caracteristicas">
@@ -65,19 +65,3 @@ export const Alojamiento = () => {
     </div>
   );
 };
-
-/**
-  const settings = {
-    responsive: [
-      {
-        breakpoint: 700,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 3,
-          infinite: true,
-          dots: true,
-        },
-      },
-    ],
-  };
- */

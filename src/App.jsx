@@ -40,8 +40,8 @@ function App() {
         <Route path="/" element={<Home productos={products} getProductosFiltrados={getProductsFilter} getProductos={getProducts} />}></Route>
         <Route path="/login" element={<Login/>}></Route>
         <Route path="/register" element={<Register/>}></Route>
-        <Route path="/admin" element={ <ProtectedElement> <Admin/> </ProtectedElement> }></Route>
-        {/* <Route path="/admin" element={ <Admin/> }></Route> */}
+        {/* <Route path="/admin" element={ <ProtectedElement> <Admin/> </ProtectedElement> }></Route> */}
+        <Route path="/admin" element={ <Admin/> }></Route>
         {/* COMENTAR/ BORRAR LA LINEA DE ARRIBA */}
         <Route path="/admin/newProductOk" element={ <ProductOk/> }></Route>
         <Route path='/product/:id' element={<Product/>}></Route>

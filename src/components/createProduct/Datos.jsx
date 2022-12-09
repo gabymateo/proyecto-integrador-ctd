@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useCitiesApi } from '../../apis/citiesApi';
 import { useCategoriesApi } from "../../apis/categoriesApi";
 
-const emailRegexp = new RegExp(/[^@ \t\r\n]+@[^@ \t\r\n]+\.[^@ \t\r\n]+/);
+// const emailRegexp = new RegExp(/[^@ \t\r\n]+@[^@ \t\r\n]+\.[^@ \t\r\n]+/);
 
 const initValues = {
   name: "",
@@ -36,22 +36,22 @@ export const Datos = () => {
   }
   const handleValueCity = (e)=> {
     setCity(e.target.value);
-    console.log('elegido');
+    // console.log('elegido');
   }
   const handleSubmit = (e) => {
     e.preventDefault();
     setEnviarDatos(true);
-    console.log("ENVIADOS");
+    // console.log("ENVIADOS");
   };
   //---------------------------------INIT Validaciones ----------------------
   React.useEffect(() => {
-    const isValid = ((name==false) && (address==false));
+    const isValid = ((name==false) && (category!==undefined) && (address==false) && (city!==undefined));
     setValidationAll(isValid);
-    console.log("total validaciones: ", isValid);
+    // console.log("total validaciones: ", isValid);
   }, [name, address]);
 
   const handleBlurName= () =>{
-    const hasError = !((formValues.name).length>1)
+    const hasError = !((formValues.name).length > 1)
     setName(hasError)
     handleValidationAll();
   }
@@ -67,6 +67,7 @@ export const Datos = () => {
     setAddress(hasError)
     handleValidationAll();
   }
+  
   // console.log(city);
   const handleValidationAll = () => {
     // console.log(category);
@@ -87,6 +88,7 @@ export const Datos = () => {
               value={formValues.name}
               onChange={handleChangeFormValues}
               onBlur={handleBlurName}
+              placeholder='Introduce aquí el nombre'
             />
           </div>
         </label>
@@ -98,9 +100,8 @@ export const Datos = () => {
             value={formValues.category}
             onChange={handleValueCategory}
             onBlur={handleBlurCategory}
-            id=""
-            required>
-            <option disabled selected>Selecciona una Categoria</option>
+            >
+            <option  disabled selected value="">Selecciona una Categoria</option>
             {apiCat?.categories?.map((cat)=> {
                     return <option  key={cat.id} value={cat.id}>{cat.title}</option>
                   })}
@@ -116,6 +117,7 @@ export const Datos = () => {
               value={formValues.address}
               onChange={handleChangeFormValues}
               onBlur={handleBlurAddress}
+              placeholder='Introduce aquí la dirección'
             />
           </div>
         </label>
@@ -127,8 +129,8 @@ export const Datos = () => {
             value={formValues.city}
             onChange={handleValueCity}
             required 
-            placeholder="Select a person...">
-            <option disabled selected>Selecciona una Ciudad</option>
+            >
+            <option  defaultValue >Selecciona una Ciudad</option>
             {apiCity.cities.map((city)=> {
                     return <option  key={city.id} value={city.id}>{city.name}</option>
                   })}

@@ -1,8 +1,10 @@
 import React from 'react';
 import './header.css';
 import { Logo, Avatar } from './Logo';
-import { GiHamburgerMenu } from 'react-icons/gi'; //icono hamburguesa
-import { GrClose } from 'react-icons/gr';//
+// Iconos
+import { GiHamburgerMenu } from 'react-icons/gi';
+import { GrClose, GrUserAdmin } from 'react-icons/gr';
+
 import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import userContext from '../../apis/userContext';
@@ -18,52 +20,61 @@ const Header = (props) => {
 
 
   return (
-    <div className='header'>
-      <div className='headerContainer'>
-        <div className='container-logo'>
-          <NavLink to='/'>
-            {' '}
-            <span className='logo'>
+    <div className="header">
+      <div className="headerContainer">
+        <div className="container-logo">
+          <NavLink to="/">
+            {" "}
+            <span className="logo">
               <Logo />
             </span>
           </NavLink>
-          <span className='lema'>Sentite como en tu hogar</span>
+          <span className="lema">Sentite como en tu hogar</span>
         </div>
-        <div className={`headerItems ${clicked && 'active'}`}>
+        <div className={`headerItems ${clicked && "active"}`}>
           <GiHamburgerMenu
-            className={`toggleButton ${clicked && 'active'}`}
+            className={`toggleButton ${clicked && "active"}`}
             onClick={() => setClicked(!clicked)}
           />
-          <GrClose 
-          className={`closeButton ${clicked && 'active'}`}
-          onClick={() => setClicked(!clicked)}
+          <GrClose
+            className={`closeButton ${clicked && "active"}`}
+            onClick={() => setClicked(!clicked)}
           />
-          <div className='menuContainer'>
+          <div className="menuContainer">
             <span>MENÚ</span>
           </div>
-          {userLogged != '' && userLogged != undefined ? (
-            <div className='sesionContainer'>
-              {userRol===1 ? <NavLink to='/admin'><button className='adminButton'> Administrar </button> </NavLink>: undefined}
-              <div className='helloUser'>
-                <p>
-                  Hola <span>{userLogged}</span>
-                </p>
-                <button className='headerButton' onClick={handleCerrarSesion} >Cerrar Sesion </button>
+          {userLogged != "" && userLogged != undefined ? (
+            <div className="sesionContainer">
+              {/* {userRol===1 ? <NavLink to='/admin'><button className='adminButton'> Administrar </button> </NavLink>: undefined} */}
+
+              <div className="helloUser">
+                <p>Hola,</p>
+                <span>{userLogged}</span>
+                {/* <span>Ramiro Fontesola</span> */}
+                {/* <button className='headerButton' onClick={handleCerrarSesion} >Cerrar Sesion </button> */}
+                <GrClose className="closeBtn" onClick={handleCerrarSesion} />
+                {/* <GrUserAdmin className='admnBtn'/> */}
+                {userRol === 1 ? (
+                  <NavLink to="/admin">
+                    {" "}
+                    <GrUserAdmin className="admnBtn" />
+                  </NavLink>
+                ) : undefined}
               </div>
+              
               <Avatar />
             </div>
           ) : (
-            <div className='buttonContainer'>
-              {' '}
-              <NavLink to='/register' className='link_btn'>
-                <button className='headerButton'>Crear cuenta</button>
+            <div className="buttonContainer">
+              {" "}
+              <NavLink to="/register" className="link_btn">
+                <button className="headerButton">Crear cuenta</button>
               </NavLink>
-              <NavLink to='/login' className='link_btn'>
-                <button className='headerButton'>Iniciar sesión</button>
+              <NavLink to="/login" className="link_btn">
+                <button className="headerButton">Iniciar sesión</button>
               </NavLink>
             </div>
           )}
-          
         </div>
       </div>
     </div>

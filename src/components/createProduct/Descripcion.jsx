@@ -1,40 +1,20 @@
-import React from 'react'
-import './form.css';
+import React, { useState } from "react";
 
-  const initValues = {
-    descripcion: "",
-  };
-
-export const Descripcion = () => {
-  const [description, setDesciption] = useState(undefined)
-  //---------------------------------INIT Controlar valores del form----------------------
-  const handleChangeFormValues = (e) => {
-    setFormValues({
-      ...formValues,
-      [e.target.name]: e.target.value,
-    });
-  };
-  const handleBlurDescription = ()=> {
-    const hasError = !((formValues.name).length>15)
-    setDesciption(hasError)
-    // handleValidationAll();
-  }
-
+export const Descripcion = (props) => {
   return (
     <>
-    <div className="descripcion">
+      <form className="descripcion">
         <p>Descripción</p>
         <div>
-            <textarea
-            onClick={handleChangeFormValues}
-            onBlur={handleBlurDescription}
-            ></textarea>
+          <textarea
+            type="text"
+            name="description"
+            value={props.desc}
+            onChange={(ev) => props.setDesc(ev.target.value)}
+            placeholder="Introduce aqui la descripción del producto"
+          ></textarea>
         </div>
-        <button type="submit" >
-          test
-        </button>
-
-    </div>
+      </form>
     </>
-  )
-}
+  );
+};
