@@ -9,19 +9,36 @@ import { Atributos } from "./Atributos";
 import { Politicas } from "./Politicas";
 import { Imagenes } from "./Imagenes";
 export const Form = () => {
+  /*---ESTADOS---*/
+  /*---COMPONENTE DATOS---*/
+  const [name, setName] = useState('');
+  const [category, setCategory] = useState('');
+  const [address, setAddress] = useState("");
+  const [city, setCity] = useState("");
+  /*---COMPONENTE DESCRIPCION---*/
   const [desc, setDesc] = useState("");
+  /*---COMPONENTE ATRIBUTOS---*/
   const [atributeName, setAtributeName] = useState("");
   const [atributeIcon, setAtributeIcon] = useState("");
-  const [policies, setPolicies] = useState("");
+  /*---COMPONENTE POLITICAS---*/
+  const [rules, setRules] = useState("");
+  const [security, setSecurity] = useState("")
+  const [cancelation, setCancelation] = useState("")
+  /*---COMPONENTE IMAGENES---*/
   const [img, setImg] = useState("")
   const [validationAll, setValidationAll] = useState(false);
 
   const validate = () => {
     useEffect(() => {
-      const error = desc !== "" && atributeName !== "" && atributeIcon !== "" && policies !=='' && img!=='';
+      const error =
+      name !== "" && category !== "" && address !== "" && city !== "" &&
+      desc !== "" && 
+      atributeName !== "" && atributeIcon !== "" &&
+      rules !=='' && security !=='' && cancelation !=='' &&
+      img!=='';
       console.log("elegido");
       setValidationAll(error);
-    }, [desc, atributeName, atributeIcon, policies, img]);
+    }, [name, category, address, city, desc, atributeName, atributeIcon, rules, security, cancelation, img]);
   };
 
   console.log("La validacion es: " + validationAll);
@@ -42,8 +59,21 @@ export const Form = () => {
           }}
           className="admin-form_container"
         >
-          <Datos />
-          <Descripcion desc={desc} setDesc={setDesc} onChange={validate()} />
+          <Datos
+            name={name}
+            setName={setName}
+            category={category}
+            setCategory={setCategory}
+            address={address}
+            setAddress={setAddress}
+            city={city}
+            setCity={setCity}
+            onChange={validate()}
+          />
+          <Descripcion 
+          desc={desc} 
+          setDesc={setDesc} 
+          onChange={validate()} />
           <Atributos
             atributeName={atributeName}
             setAtributeName={setAtributeName}
@@ -52,17 +82,16 @@ export const Form = () => {
             onChange={validate()}
           />
           <Politicas
-            policies={policies}
-            setPolicies={setPolicies}
+            rules={rules}
+            setRules={setRules}
+            security={security}
+            setSecurity={setSecurity}
+            cancelation={cancelation}
+            setCancelation={setCancelation}
             onChange={validate()}
           />
-          <Imagenes
-          img={img}
-          setImg={setImg}
-          onChange={validate()}
-          />
-          <button type="submit"
-          disabled={!validationAll}>
+          <Imagenes img={img} setImg={setImg} onChange={validate()} />
+          <button type="submit" disabled={!validationAll}>
             Crear
           </button>
           <p></p>
