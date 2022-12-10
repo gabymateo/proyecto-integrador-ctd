@@ -1,7 +1,7 @@
 import React from "react";
 import {FaWindowClose} from 'react-icons/fa'
 
-export const Atributos = () => {
+export const Atributos = (props) => {
   return (
     <>
       <div className="atributos">
@@ -10,13 +10,19 @@ export const Atributos = () => {
           <label>
             Nombre
             <div>
-              <input type="text" />
+              <input 
+              type="text"
+              value={props.atribute}
+              onChange={ev=> props.setAtributeName(ev.target.value)} />
             </div>
           </label>
           <label>
             Ícono
             <div>
-              <input type="text" />
+              <input 
+              type="text" 
+              value={props.atribute}
+              onChange={ev=> props.setAtributeIcon(ev.target.value)}/>
             </div>
           </label>
           <FaWindowClose/>

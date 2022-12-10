@@ -16,7 +16,7 @@ export default function Card (props) {
                 <p>{props.Categoria}</p>  
                 <h1>{props.Nombre}</h1>   
                 <h2>{props.Ubicacion}</h2>
-                <p className="desc">{props.Descripcion}</p>
+                <p className="desc">{props.TituloDescripcion}</p>
                 <NavLink to={`product/${props.id}`} >
                 {/* incluir la ruta por id de producto*/}  
                 <button className='button'> Ver detalle </button> 

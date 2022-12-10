@@ -35,7 +35,7 @@ const LoginForm = (props) => {
       const isValid = ((!BadEmail) && !(BadEmail == undefined)) && ((!badPassword) && !(badPassword == undefined))
       setValidationAll(isValid)
       const userExist = await login(email, password)
-      console.log(userExist);
+      // console.log(userExist);
       if (userExist) {
         setLoginOk(true)
         navigate("../")  // con esto hago el reenvío al home ("/")
@@ -54,7 +54,7 @@ const LoginForm = (props) => {
       const hasError = (password).length <6;
       setBadPassword(hasError);
     }
-
+    console.log('el email es ' + BadEmail);
     //------------------------------ FIN Validaciones -------------------
     
     return(    
@@ -74,7 +74,7 @@ const LoginForm = (props) => {
           <br></br>
         </div>
         {(loginOk==true || loginOk == undefined) ? undefined : <p className='error'>las credenciales son invalidas, intente nuevamente</p>}
-          <button form='login' className="submit" type='submit' > Ingresar </button>
+          <button form='login' className="submit" type='submit' disabled={(BadEmail && badPassword)} > Ingresar </button>
           <div className='footer_form'>
             <p>¿Aún no tienes cuenta? <NavLink to="/register" className="active">Registrate</NavLink></p>
           </div>

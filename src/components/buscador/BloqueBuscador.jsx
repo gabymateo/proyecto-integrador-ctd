@@ -53,7 +53,8 @@ export const BloqueBuscador = ({getProductosFiltrados, getProductos}) => {
   //     endDate: new Date(),
   //     key: "selection" },
   // ]);
-
+  // const placeholder = 'Introduce la fecha'
+  console.log(openDate);
   return (
     <div className='bloqueBuscador'>
           <h1>Busca ofertas en hoteles, casas y mucho mas.</h1>
@@ -73,11 +74,12 @@ export const BloqueBuscador = ({getProductosFiltrados, getProductos}) => {
                 <span 
                 onClick={()=>setOpenDate(!openDate)} 
                 className='buscador'>
-                  {`${format(date[0].startDate, 'dd/MM/yyyy')} to ${format(date[0].endDate, 'dd/MM/yyyy')}`}
+                 Del {`${format(date[0].startDate, 'dd/MM/yyyy')} al ${format(date[0].endDate, 'dd/MM/yyyy')}`}
                 </span>
                 {openDate && <Calendar
                 date={date}
-                setDate={setDate}/>}
+                setDate={setDate}
+                />}
             </div>
             <NavLink to='/filter'>
               <button onClick={handleClick}>Buscar</button>

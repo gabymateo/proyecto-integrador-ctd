@@ -35,7 +35,7 @@ export const Reserva = () => {
     getBookingByProductId(ident)
   },[])
   
-  // console.log(reservedDate);
+  console.log(reservedDate);
   // console.log(reservedDate[0].startDate);
   // const f1 = reservedDate[0].startDate
   // const f2 = reservedDate[0].endDate
@@ -49,16 +49,6 @@ export const Reserva = () => {
   ]);
   /*----- FIN CALENDARIO ------*/
   /*----- TRANSFORMAR FECHAS RESERVADAS  */ 
-  // console.log(...reservedDate);
-  // function apiToDisableDate(){
-  //   let dateArray = [];
-  //   const nuevoArray = reservedDate.map((a)=>{
-  //     return{
-        
-  //     }
-  //   })
-
-  // }
   const disabledDates = reservedDate?apiDatesToDisabled(reservedDate):undefined
 
   function getDatesInRange(startDate, endDate) {
