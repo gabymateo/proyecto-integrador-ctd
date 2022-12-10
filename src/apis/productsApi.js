@@ -2,6 +2,7 @@ import React from 'react'
 import axios from 'axios'
 import { useSearchParams } from "react-router-dom";
 
+
 const baseUrl = 'http://3.142.76.191:8080'
 
 // -----------------  ESTA ES LA API DE PRODUCTOS ----------------------
@@ -23,7 +24,7 @@ export function useProductsApi() {
             price: price,           //string
             address: address,       //String
             features: features,     //array numeros (se toma desde un checkbox)
-            files: files            //array 
+            files: files            //arraay
         },
         {
             headers: {
