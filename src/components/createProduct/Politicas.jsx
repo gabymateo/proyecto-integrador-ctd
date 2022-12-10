@@ -12,8 +12,8 @@ export const Politicas = (props) => {
                 <div>
                     <textarea
                     type="text"
-                    value={props.policies}
-                    onChange={ev=> props.setPolicies(ev.target.value)}
+                    value={props.rules}
+                    onChange={ev=> props.setRules(ev.target.value)}
                     ></textarea>
                 </div>
             </div>
@@ -23,8 +23,8 @@ export const Politicas = (props) => {
                 <div>
                     <textarea
                     type="text"
-                    value={props.policies}
-                    onChange={ev=> props.setPolicies(ev.target.value)}
+                    value={props.security}
+                    onChange={ev=> props.setSecurity(ev.target.value)}
                     ></textarea>
                 </div>
             </div>
@@ -34,8 +34,8 @@ export const Politicas = (props) => {
                 <div>
                     <textarea
                     type="text"
-                    value={props.policies}
-                    onChange={ev=> props.setPolicies(ev.target.value)}
+                    value={props.cancelation}
+                    onChange={ev=> props.setCancelation(ev.target.value)}
                     ></textarea>
                 </div>
             </div>

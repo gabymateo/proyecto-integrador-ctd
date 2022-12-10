@@ -7,7 +7,7 @@ import { useState } from "react";
 import axios from "axios";
 
 export default function ListCards ({productos}) {
-    // console.log(productos?.data);
+    console.log(productos?.data);
     return (
         <div className='ListCardsContainer'>
         <div className='ListCards'>
