@@ -46,11 +46,16 @@ export const Form = () => {
   };
 
   //armando el body para el post de productos
-  const name= 
+  // const descriptionTitle= ""; //mientras tanto lo enviamos vacío
+  // const availability= true, 
+  // const price = 200;
+  // const feacturesIds = [1, 2, 3]
+
 //(name, cityId, categoryId, description, descriptionTitle, availability, price, address, features, files, Authorization)
+console.log(category);
   const submitForm = (ev) => {
     ev.preventDefault();
-    postProducts()
+    //postProducts(name, city, category, desc, descriptionTitle, availability, price, address,  )
 
   }
 
