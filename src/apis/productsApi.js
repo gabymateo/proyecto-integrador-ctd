@@ -11,24 +11,34 @@ export function useProductsApi() {
     const [searchParams, setSearchParams] = useSearchParams();
 
      // ---------- FUNCIÓN PARA CREAR PRODUCTOS EN LA DB ---------------   
-//     const postProducts = async (name, email, description, images, availability, description, category, city) => {
-//     try{    
-//         const responsePostProducts = await axios.post(`${baseUrl}/products/`, {
-//             name: name,
-//             email: email,
-//             description: description,
-//             images: images,
-//             availability: availability,
-//             category: category,
-//             city: city
-//         })
-//         console.log("responsePostProducts: ", responsePostProducts);
-//     }
-//     catch (error) {
-//         console.error('error', error.response.data)
+    const postProducts = async (name, cityId, categoryId, description, descriptionTitle, availability, price, address, features, files, Authorization) => {
+    try{    
+        const responsePostProducts = await axios.post(`${baseUrl}/products/`, {
+            name: name,
+            cityId: cityId,             //numeros
+            categoryId: categoryId,     //numeros
+            description: description,
+            descriptionTitle: descriptionTitle,
+            availability: availability,     //boolean
+            price: price,           //string
+            address: address,       //String
+            features: features,     //array numeros (se toma desde un checkbox)
+            files: files            //array 
+        },
+        {
+            headers: {
+                "Authorization": Authorization,
+            }
+        }
+        
+        )
+        console.log("responsePostProducts: ", responsePostProducts);
+    }
+    catch (error) {
+        console.error('error', error.response.data)
 
-//     }
-// }
+    }
+}
 
     // ---------- FUNCIÓN PARA OBTENER TODOS LOS PRODUCTOS DE LA DB --------------- 
     const getProducts = async (id) => {
@@ -111,6 +121,6 @@ return {
     setProducts: setProducts,
     getProducts: getProducts,
     getProductsFilter: getProductsFilter,
-    //postProducts: postProducts,
+    postProducts: postProducts,
     }
 }
