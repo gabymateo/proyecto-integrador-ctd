@@ -8,6 +8,8 @@ import { Descripcion } from "./Descripcion";
 import { Atributos } from "./Atributos";
 import { Politicas } from "./Politicas";
 import { Imagenes } from "./Imagenes";
+import { useProductsApi } from "../../apis/productsApi";
+
 export const Form = () => {
   const [desc, setDesc] = useState("");
   const [atributeName, setAtributeName] = useState("");
@@ -15,6 +17,8 @@ export const Form = () => {
   const [policies, setPolicies] = useState("");
   const [img, setImg] = useState("")
   const [validationAll, setValidationAll] = useState(false);
+  const {postProducts} = useProductsApi()
+
 
   const validate = () => {
     useEffect(() => {
@@ -23,6 +27,16 @@ export const Form = () => {
       setValidationAll(error);
     }, [desc, atributeName, atributeIcon, policies, img]);
   };
+
+  //armando el body para el post de productos
+  const name= 
+//(name, cityId, categoryId, description, descriptionTitle, availability, price, address, features, files, Authorization)
+  const submitForm = (ev) => {
+    ev.preventDefault();
+    postProducts()
+
+  }
+
 
   console.log("La validacion es: " + validationAll);
 
@@ -37,9 +51,7 @@ export const Form = () => {
       <div className="admin-form">
         <h1>Crear Propiedad</h1>
         <form
-          onSubmit={(ev) => {
-            ev.preventDefault();
-          }}
+          onSubmit={submitForm}
           className="admin-form_container"
         >
           <Datos />

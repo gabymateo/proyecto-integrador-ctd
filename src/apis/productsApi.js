@@ -23,7 +23,7 @@ export function useProductsApi() {
             price: price,           //string
             address: address,       //String
             features: features,     //array numeros (se toma desde un checkbox)
-            files: files            //array 
+            files: files            //arraay
         },
         {
             headers: {
