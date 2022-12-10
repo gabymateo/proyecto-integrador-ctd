@@ -23,9 +23,7 @@ export const Calendar = (props) => {
   // {const [date, setDate] = useState([
   //   { startDate: new Date(), endDate: new Date(), key: "selection" },
   // ]);}
-  const date = [
-    {}
-  ]
+  console.log(props.placeholder);
   return (
     <>
       <DateRange

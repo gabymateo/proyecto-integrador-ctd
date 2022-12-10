@@ -40,7 +40,7 @@ export const Form = () => {
       setValidationAll(error);
     }, [name, category, address, city, desc, atributeName, atributeIcon, rules, security, cancelation, img]);
   };
-
+  console.log(img);
   console.log("La validacion es: " + validationAll);
 
   return (

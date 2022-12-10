@@ -29,8 +29,8 @@ export const Alojamiento = () => {
     getProducts(ident)
   },[])
   
-  console.log(products.data?.description);
-  //console.log(api.products.name);
+  console.log(products.data);
+  // console.log(api.products.name);
   //console.log(ident);
 
   return (
