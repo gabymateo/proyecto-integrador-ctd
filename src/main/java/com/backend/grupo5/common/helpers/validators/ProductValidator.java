@@ -27,5 +27,11 @@ public class ProductValidator {
         if(input.getDescriptionTitle() == null | input.getDescriptionTitle().isEmpty()) {
             throw new ApplicationError("description title not provided", HttpStatus.BAD_REQUEST);
         }
+        if(input.getFeatureIds() == null) {
+            throw new ApplicationError("features not provided", HttpStatus.BAD_REQUEST);
+        }
+        if(input.getFiles() == null) {
+            throw new ApplicationError("you must provide at least one image", HttpStatus.BAD_REQUEST);
+        }
     }
 }

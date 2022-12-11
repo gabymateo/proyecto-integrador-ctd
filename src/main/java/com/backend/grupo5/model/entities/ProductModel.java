@@ -32,6 +32,7 @@ public class ProductModel {
     private Set<Long> imageIds;
     private Set<Booking> bookings;
     private String descriptionTitle;
+    private Integer rate;
 
     public static ProductModel ProductEntityToProduct(Product input, Set<ImageModel> images, Optional<Boolean> fetchAttributes) {
         ProductModel product = new ProductModel();
@@ -45,6 +46,7 @@ public class ProductModel {
         product.setPrice(input.getPrice());
         product.setDescription(input.getDescription());
         product.setDescriptionTitle(input.getDescriptionTitle());
+        product.setRate(input.getRate());
         if(fetchAttributes.isPresent() && fetchAttributes.get().equals(true)) {
             product.setFeatures(input.getFeatures());
             product.setCity(input.getCity());
