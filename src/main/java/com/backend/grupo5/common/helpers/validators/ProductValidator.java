@@ -33,5 +33,7 @@ public class ProductValidator {
         if(input.getFiles() == null) {
             throw new ApplicationError("you must provide at least one image", HttpStatus.BAD_REQUEST);
         }
+
+        //askdfkasjdflkajskldfjaklsjdflakjsdfklajs;dflkajfklajfld
     }
 }
