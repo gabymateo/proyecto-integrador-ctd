@@ -24,5 +24,8 @@ public class ProductValidator {
         if(input.getPrice() == null || input.getPrice().isEmpty()) {
             throw new ApplicationError("price not provided", HttpStatus.BAD_REQUEST);
         }
+        if(input.getDescriptionTitle() == null | input.getDescriptionTitle().isEmpty()) {
+            throw new ApplicationError("description title not provided", HttpStatus.BAD_REQUEST);
+        }
     }
 }

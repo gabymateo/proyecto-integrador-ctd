@@ -18,4 +18,5 @@ public class ProductCreateDTO {
     private boolean availability;
     private ArrayList<Long> featureIds;
     private MultipartFile[] files;
+    private String descriptionTitle;
 }

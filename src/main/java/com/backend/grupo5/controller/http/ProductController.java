@@ -3,9 +3,11 @@ package com.backend.grupo5.controller.http;
 import com.backend.grupo5.common.exceptions.ApplicationError;
 import com.backend.grupo5.common.exceptions.ErrorHandler;
 import com.backend.grupo5.common.exceptions.ResponseHandler;
+import com.backend.grupo5.controller.input.product.ProductUpdateDTO;
 import com.backend.grupo5.model.entities.ProductModel;
 import com.backend.grupo5.model.services.IProductService;
 import com.backend.grupo5.controller.input.product.ProductCreateDTO;
+import com.backend.grupo5.repository.entities.Product;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -64,6 +66,16 @@ public class ProductController {
             int parsedSize = size != null ? Integer.parseInt(size) : 8;
             Page<ProductModel> products = this.productService.search(name, categoryId, cityId, order, sort, startDate, endDate, null, PageRequest.of(parsedPage, parsedSize));
             return ResponseHandler.generateResponse(HttpStatus.OK, "success", products.getContent(), products.getPageable());
+        } catch (ApplicationError error) {
+            return ErrorHandler.generateErrorResponse(error.getHttpStatus(), error.getMessage());
+        }
+    }
+
+    @PatchMapping("/{id}") @PreAuthorize("hasAnyAuthority('ROLE_ADMIN')")
+    public ResponseEntity<Object> update(@ModelAttribute ProductUpdateDTO input, @PathVariable Long id) throws IOException {
+        try {
+            Product productModel = this.productService.update(id, input, input.getFiles());
+            return ResponseHandler.generateResponse(HttpStatus.OK, "success", productModel);
         } catch (ApplicationError error) {
             return ErrorHandler.generateErrorResponse(error.getHttpStatus(), error.getMessage());
         }
