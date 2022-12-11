@@ -11,21 +11,16 @@ export function useFeaturesApi() {
 const getFeatures = async () => {
     try {
         const responseGetFeatures = await axios.get(`${baseUrl}/features/`)
-        console.log("responseGetFeatures: ", responseGetFeatures);
-        //setFeatures(responseGetFeatures.data.data)
+        setFeatures(responseGetFeatures.data.data)
     }
     catch (error) {
         console.error('error', error.response.data)
     }
 }
-
-    React.useEffect(() => {
-        getFeatures()
-    }, [])
-
     // ---------- ESTE ES EL RETURN DE LA API ---------------------------
 return {
     features: features,
+    getFeatures: getFeatures
     }
 
 }

@@ -1,4 +1,5 @@
-import { React, useState, useCallback, useEffect } from "react";
+import React from 'react'
+import { useState, useCallback, useEffect } from "react";
 import "./form.css";
 import { NavLink } from "react-router-dom";
 import { IoChevronBack } from "react-icons/io5";
@@ -9,6 +10,7 @@ import { Atributos } from "./Atributos";
 import { Politicas } from "./Politicas";
 import { Imagenes } from "./Imagenes";
 import { useProductsApi } from "../../apis/productsApi";
+import { useFeaturesApi } from "../../apis/featuresApi";
 
 export const Form = () => {
   /*---ESTADOS---*/
@@ -29,8 +31,15 @@ export const Form = () => {
   /*---COMPONENTE IMAGENES---*/
   const [img, setImg] = useState("")
   const [validationAll, setValidationAll] = useState(false);
-  const {postProducts} = useProductsApi()
+    /*---IMPORTANDO APIS A UTILIZAR--*/
+  const {postProducts} = useProductsApi();
+  const {features, getFeatures} = useFeaturesApi();
 
+  //Este use effect es para que en el mount del componente se puedan obtener las features y usarlas luego en los selects
+  React.useEffect(() => {
+    getFeatures()
+}, [])
+// ----------------------- fin del useEffect-----------------------------------------------------------------------------
 
   const validate = () => {
     useEffect(() => {
@@ -45,7 +54,7 @@ export const Form = () => {
     }, [name, category, address, city, desc, atributeName, atributeIcon, rules, security, cancelation, img]);
   };
 
-  //armando el body para el post de productos
+  // armando el body para el post de productos
   // const descriptionTitle= ""; //mientras tanto lo enviamos vacío
   // const availability= true, 
   // const price = 200;
