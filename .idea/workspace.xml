@@ -6,20 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="3d23211f-316c-4ad6-94b6-51a98bb7f6d8" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/backend/grupo5/common/helpers/mapper/ProductDTOTOProduct.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/backend/grupo5/common/helpers/mapper/ProductDTOTOProduct.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/backend/grupo5/common/helpers/validators/ProductValidator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/backend/grupo5/common/helpers/validators/ProductValidator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/backend/grupo5/controller/http/FeatureController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/backend/grupo5/controller/http/FeatureController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/backend/grupo5/controller/http/ProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/backend/grupo5/controller/http/ProductController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/backend/grupo5/controller/http/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/backend/grupo5/controller/http/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/backend/grupo5/controller/input/feature/FeatureCreateDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/backend/grupo5/controller/input/feature/FeatureCreateDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/backend/grupo5/controller/input/product/ProductCreateDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/backend/grupo5/controller/input/product/ProductCreateDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/backend/grupo5/controller/input/product/ProductUpdateDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/backend/grupo5/controller/input/product/ProductUpdateDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/backend/grupo5/model/services/IFeatureService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/backend/grupo5/model/services/IFeatureService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/backend/grupo5/repository/entities/Feature.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/backend/grupo5/repository/entities/Feature.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/backend/grupo5/repository/entities/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/backend/grupo5/repository/entities/Product.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/backend/grupo5/security/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/backend/grupo5/security/SecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/backend/grupo5/service/FeatureService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/backend/grupo5/service/FeatureService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/backend/grupo5/service/ProductService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/backend/grupo5/service/ProductService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/backend/grupo5/model/entities/ProductModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/backend/grupo5/model/entities/ProductModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -221,7 +210,15 @@
       <workItem from="1669986217750" duration="25000" />
       <workItem from="1670019709902" duration="2595000" />
       <workItem from="1670245081598" duration="17000" />
-      <workItem from="1670278790199" duration="2802000" />
+      <workItem from="1670278790199" duration="3631000" />
+      <workItem from="1670331500963" duration="37000" />
+      <workItem from="1670364793241" duration="2403000" />
+      <workItem from="1670418253351" duration="40000" />
+      <workItem from="1670630728452" duration="645000" />
+      <workItem from="1670640041406" duration="16000" />
+      <workItem from="1670644142043" duration="616000" />
+      <workItem from="1670722754136" duration="15000" />
+      <workItem from="1670776813348" duration="439000" />
     </task>
     <servers />
   </component>
