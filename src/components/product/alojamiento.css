@@ -242,11 +242,18 @@
     grid-template-columns: repeat(4, 1fr);
 }
 
-.caracteristicas__atributos > p > svg {
+.caracteristicas__atributos > p  {
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
     margin-right: 5px;
-    color: var(--amarillo);
+    
     width: 1.1em;
     height: 1.1em;
+}
+
+.caracteristicas__atributos > p > i{
+    color: var(--amarillo);
 }
 /*---BLOQUE FECHAS RESERVA---*/
 .alojamiento__fechasReserva{
