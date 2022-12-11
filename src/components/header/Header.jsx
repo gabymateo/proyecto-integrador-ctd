@@ -29,7 +29,7 @@ const Header = (props) => {
               <Logo />
             </span>
           </NavLink>
-          <span className="lema">Sentite como en tu hogar</span>
+          <span className="lema">Encuentra tu choza!</span>
         </div>
         <div className={`headerItems ${clicked && "active"}`}>
           <GiHamburgerMenu

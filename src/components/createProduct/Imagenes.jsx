@@ -1,5 +1,6 @@
 import React from "react";
 import { FaWindowClose } from "react-icons/fa";
+import {FaPlusSquare} from 'react-icons/fa';
 
 export const Imagenes = (props) => {
   // console.log(props.img);
@@ -17,7 +18,8 @@ export const Imagenes = (props) => {
               onChange={(ev) => props.setImg(ev.target.value)}
             />
           </div>
-          <FaWindowClose />
+          {/* <FaWindowClose /> */}
+          <FaPlusSquare/>
         </div>
       </div>
     </>

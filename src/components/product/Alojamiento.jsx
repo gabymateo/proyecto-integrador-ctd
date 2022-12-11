@@ -2,6 +2,14 @@ import React from "react";
 import "./alojamiento.css";
 import { NavLink, useParams, useSearchParams } from "react-router-dom";
 //Iconos
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPersonSwimming } from "@fortawesome/free-solid-svg-icons";
+import { faKitchenSet } from "@fortawesome/free-solid-svg-icons";
+import { faTvAlt } from "@fortawesome/free-solid-svg-icons";
+import { faSnowflake } from "@fortawesome/free-solid-svg-icons";
+import { faPaw } from "@fortawesome/free-solid-svg-icons";
+import { faCar } from "@fortawesome/free-solid-svg-icons";
+import { faWifi } from "@fortawesome/free-solid-svg-icons";
 import { MdKitchen } from 'react-icons/md';
 import {FaTv} from 'react-icons/fa';
 import {GiThermometerCold} from 'react-icons/gi';
@@ -35,10 +43,10 @@ export const Alojamiento = () => {
 
   return (
     <div className="alojamiento">
-      <HeaderAlojamiento/>
-      <Ubicacion products={products.data}/>
-      <BloqueImagenes products={products.data}/>
-      <BloqueImagenesRes products={products.data}/>
+      <HeaderAlojamiento />
+      <Ubicacion products={products.data} />
+      <BloqueImagenes products={products.data} />
+      <BloqueImagenesRes products={products.data} />
       <div className="alojamiento__descripcion">
         <div className="descripcion__container">
           <h1>{products.data?.descriptionTitle}</h1>
@@ -50,18 +58,50 @@ export const Alojamiento = () => {
           <h1>¿Que ofrece este lugar?</h1>
           <div className="caracteristicas__barra"></div>
           <div className="caracteristicas__atributos">
-            <p><MdKitchen/>Cocina</p>
-            <p><FaTv/>Televisor</p>
-            <p><GiThermometerCold/>Aire Acondicionado</p>
-            <p><MdOutlinePets/>Apto Mascotas</p>
-            <p><AiFillCar/>Estacionamiento Gratuito</p>
-            <p><TbSwimming/>Pileta</p>
-            <p><FaWifi/>WiFi</p>
+            
+            <p>
+              <FontAwesomeIcon icon={faKitchenSet} />
+              Cocina
+            </p>
+            
+            <p>
+              <FontAwesomeIcon icon={faTvAlt} />
+              Televisor
+            </p>
+
+            
+            <p>
+              <FontAwesomeIcon icon={faSnowflake} />
+              Aire Acondicionado
+            </p>
+
+           
+            <p>
+              <FontAwesomeIcon icon={faPaw} />
+              Apto Mascotas
+            </p>
+
+            
+            <p>
+              <FontAwesomeIcon icon={faCar} />
+              Estacionamiento Gratuito
+            </p>
+
+         
+            <p>
+              <FontAwesomeIcon icon={faPersonSwimming} />
+              Pileta
+            </p>
+            
+            <p>
+              <FontAwesomeIcon icon={faWifi} />
+              WiFi
+            </p>
           </div>
         </div>
       </div>
-      <FechasDisponibles/>
-      <Politicas/>
+      <FechasDisponibles />
+      <Politicas />
     </div>
   );
 };

@@ -94,6 +94,20 @@
     border-radius: 10px;
     box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.15);  
 }
+.admin-form_container > .descripcion > div > input {
+    max-width: 100%;
+    width: 95%;
+    border-width: 0px;
+    padding: 0;
+    outline: none;
+    margin: 0 5px;
+}
+.admin-form_container > .descripcion > div > .description__barra{
+    height: 2px;
+    width: 100%;
+    background-color: var(--grisClaro);
+
+} 
 
 .admin-form_container > .descripcion > div > textarea{
     border-width: 0px;

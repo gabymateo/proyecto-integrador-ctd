@@ -10,9 +10,9 @@ export const Politicas = (props) => {
   React.useEffect(() => {
     getProducts(id);
   }, []);
-  const rules = products?.data?.features.filter(x=> x.type!=='security'&&x.type!=='cancelation');
-  const security = products?.data?.features.filter(x=> x.type!=='rules'&&x.type!=='cancelation');
-  const cancelation = products?.data?.features.filter(x=> x.type!=='rules'&& x.type!== 'security');
+  const rules = products?.data?.features.filter(x=> x.type!=='security'&&x.type!=='cancelation'&&x.type!=='comodities');
+  const security = products?.data?.features.filter(x=> x.type!=='rules'&&x.type!=='cancelation'&&x.type!=='comodities');
+  const cancelation = products?.data?.features.filter(x=> x.type!=='rules'&& x.type!== 'security'&&x.type!=='comodities');
 
  
   return (
