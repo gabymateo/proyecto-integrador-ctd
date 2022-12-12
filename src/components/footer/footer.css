@@ -19,18 +19,28 @@
 
 .logos{
     margin-left: 1rem;
+    font-size: bolder;
     color: #FFF;
 }
 
 .redes{
     display: flex;
     justify-content: space-between;
+    align-items: center;
     margin-right: 1rem;
-    gap: 8px;
+    gap: 10px;
     border: none;
     padding: 5px 10px;
     cursor: pointer;
-
+}
+.redes > a > svg {
+    color: #FFF;
+    height: 1.5em;
+    width: 1.5em;
+}
+.redes > a > svg:hover{
+    transform: scale(1.1, 1.1);
+    color: var(--grisClaro);
 }
 
 /*---mobile---*/

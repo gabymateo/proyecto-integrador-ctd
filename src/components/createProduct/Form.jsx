@@ -19,6 +19,7 @@ export const Form = () => {
   const [city, setCity] = useState("");
   /*---COMPONENTE DESCRIPCION---*/
   const [desc, setDesc] = useState("");
+  const [descTitle, setDescTitle] = useState("")
   /*---COMPONENTE ATRIBUTOS---*/
   const [atributeName, setAtributeName] = useState("");
   const [atributeIcon, setAtributeIcon] = useState("");
@@ -36,13 +37,13 @@ export const Form = () => {
     useEffect(() => {
       const error =
       name !== "" && category !== "" && address !== "" && city !== "" &&
-      desc !== "" && 
+      desc !== "" && descTitle !== "" &&
       atributeName !== "" && atributeIcon !== "" &&
       rules !=='' && security !=='' && cancelation !=='' &&
       img!=='';
       console.log("elegido");
       setValidationAll(error);
-    }, [name, category, address, city, desc, atributeName, atributeIcon, rules, security, cancelation, img]);
+    }, [name, category, address, city, desc, descTitle, atributeName, atributeIcon, rules, security, cancelation, img]);
   };
 
   //armando el body para el post de productos
@@ -89,7 +90,9 @@ console.log(category);
           />
           <Descripcion 
           desc={desc} 
-          setDesc={setDesc} 
+          setDesc={setDesc}
+          descTitle={descTitle}
+          setDescTitle={setDescTitle} 
           onChange={validate()} />
           <Atributos
             atributeName={atributeName}

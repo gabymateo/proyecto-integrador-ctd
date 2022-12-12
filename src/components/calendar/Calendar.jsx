@@ -23,7 +23,7 @@ export const Calendar = (props) => {
   // {const [date, setDate] = useState([
   //   { startDate: new Date(), endDate: new Date(), key: "selection" },
   // ]);}
-  console.log(props.placeholder);
+  // console.log(props.placeholder);
   return (
     <>
       <DateRange
