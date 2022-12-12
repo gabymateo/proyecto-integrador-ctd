@@ -29,6 +29,20 @@
     width: 422px;
     
 }
+/*---ICONO UBICACION---*/
+.bloqueBuscador > .barraBuscadorContainer > .barraBuscadorItem > svg{
+    color: gray;
+    height: 1.5em;
+    width: 1.5em;
+    margin: 0 5px;
+}
+/*---ICONO UBICACION---*/
+.bloqueBuscador > .barraBuscadorContainer > .barraBuscadorItem > svg {
+    color: gray;
+    height: 1.5em;
+    width: 1.5em;
+    margin: 0 5px;
+}
 
 .bloqueBuscador > .barraBuscadorContainer > .barraBuscadorItem > .date{
     position: absolute;
@@ -40,6 +54,14 @@
 }
 .bloqueBuscador > .barraBuscadorContainer > .barraBuscadorItem > .buscador{
     width: 100%;
+}
+/*---SELECT---*/
+.bloqueBuscador>.barraBuscadorContainer>.barraBuscadorItem>select {
+    width: 100%;
+    border: none;
+    font-size: 1em;
+    font-family: 'Quicksand';
+    margin-right: 5px;
 }
 
 .bloqueBuscador > .barraBuscadorContainer > .barraBuscadorItem > .barraBuscadorInput {
@@ -63,12 +85,16 @@
     width: 100%;
     border-radius: 5px;
     box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.15);
+    font-size: 1em;
+    transition: 0.2s linear;
+    height: 100%;
+    width: 100%;
 }
 
 .bloqueBuscador > .barraBuscadorContainer > a > button:hover{
-    color: var(--amarillo);
-    background: #FFF;
-    border: 1px solid var(--amarillo);
+    transform: translateY(-3px);
+   
+    
 }
 
 
@@ -76,7 +102,7 @@
 /*---RESPONSIVE---*/
 /*---RESPONSIVE TABLET---*/
 
-@media (min-width:551px) and (max-width:700px){
+@media (min-width:551px) and (max-width:768px){
     .bloqueBuscador > .barraBuscadorContainer > .barraBuscadorItem {
         display: flex;
         align-items: center;
@@ -102,7 +128,7 @@
         align-items: center;
     }
     .bloqueBuscador > .barraBuscadorContainer > .barraBuscadorItem{
-        width: 250%;
+        width: 150%;
         margin-bottom: 10px;
     }
 
@@ -112,86 +138,11 @@
     }
 
     .bloqueBuscador > .barraBuscadorContainer > a {
-        width: 250%;
+        width: 150%;
     }
 
     .bloqueBuscador > .barraBuscadorContainer > a > button{
         height: 40px;
     }
 }
-
-/*
-.bloqueBuscador{
-    background-color: #545776;
-    z-index: 10;
-    width: 100%;
-}
-
-h1{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.barraBuscadorContainer {
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    padding: 10px 0px;
-    
-}
-
-.barraBuscadorItem{
-    display: flex;
-    align-items: center;
-    background-color: white;
-    height: 40px;
-    border-radius: 5px;
-    box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.15);
-    border: 3px solid gray;
-    width: 422px;
-    margin-left: 10px;
-}
-
-.barraBuscadorInput{
-    border:none;
-    outline: none;
-    color:gray;
-}
-
-.barraBuscador{
-    color:gray;
-
-}
-
-.date{
-    position: absolute;
-    top: 234px;
-    z-index: 10;
-}
-
-.buscadorButton{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border:none;
-    outline: none;
-    background: #1DBEB4;
-    height: 40px;
-    border-radius: 5px;
-    box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.15);
-    width: 206px;
-    margin-left: 10px;
-    margin-right: 10px;
-
-}
-
-button{
-    border:none;
-    outline: none;
-    background: #1DBEB4;
-    cursor: pointer;
-    color: white;
-}
-
 

@@ -1,4 +1,6 @@
-import logo from '../../images/logo 1logo-gris-db.png';
+// import logo from '../../images/logo 1logo-gris-db.png';
+import logo from '../../images/Logo-Encuentra tu choza.png';
+
 import avatar from '../../images/avatar.png'
 
 export const Logo = () => (

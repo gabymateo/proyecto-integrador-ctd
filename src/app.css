@@ -2,13 +2,17 @@
 
 :root{
     --amarillo: #FBC02D;
+    --amarilloHover: #fbc12dcf;
     --grisFuerte: #263238;
     --grisClaro:#607D8B;
     --beige:#FFFBE2;
+    --grisFondo: rgba(214, 214, 214, 0.273);
     font-family: Quicksand;
     background: transparent;
+    
 }
 
 body{
     margin: 0px;
+    width: 100%;
 }

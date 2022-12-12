@@ -1,0 +1,361 @@
+/*---HEADER---*/
+.header-admin{
+    background-color: var(--grisClaro);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 15px;
+}
+
+.header-admin > h1 {
+    color: #FFF;
+    font-size: 1.5em;
+}
+
+.header-admin > a > .backButton{
+    width: 3.3em;
+    height: 3.3em;
+    color: #FFF;
+    cursor: pointer;
+}
+.header-admin > a > .backButton:hover{
+    color: var(--amarillo);
+    transform: scale(1.1, 1.1);
+}
+/*---FORM CONTAINER---*/
+.admin-form {
+    margin: 15px;
+}
+
+.admin-form > h1 {
+    color: var(--grisFuerte);
+    font-size: 1.5em;
+}
+
+.admin-form_container{
+    background-color: #FFF;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0px 3px 9px 1px rgba(0,0,0,0.37);
+    -webkit-box-shadow: 0px 3px 9px 1px rgba(0,0,0,0.37);
+    -moz-box-shadow: 0px 3px 9px 1px rgba(0,0,0,0.37);
+}
+/*---DATOS---*/
+.admin-form_container > .datos{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.admin-form_container > .datos > label{
+    display: flex;
+    flex-direction: column;
+    font-weight: 600;
+}
+
+.admin-form_container > .datos > label > div {
+    box-sizing: border-box;
+    border-color: black;
+    border: black;
+    padding: 3px;
+    height: 40px;
+    border-radius: 10px;
+    box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.15);
+}
+
+.admin-form_container > .datos > label > div > input {
+    border-width: 0px;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    outline: none;
+    margin: 0 5px;
+}
+
+.admin-form_container > .datos > label > div > select {
+    border: 0;
+    width: 100%;
+    height: 100%;
+    outline: none;
+}
+
+/*---DESCRIPCION---*/
+.admin-form_container > .descripcion > p{
+    font-weight: 600;
+    margin-block-end: 0em;
+}
+
+.admin-form_container > .descripcion > div{
+    box-sizing: border-box;
+    border-color: black;
+    border: black;
+    padding: 3px;
+    height: 85px;
+    border-radius: 10px;
+    box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.15);  
+}
+.admin-form_container > .descripcion > div > input {
+    max-width: 100%;
+    width: 95%;
+    border-width: 0px;
+    padding: 0;
+    outline: none;
+    margin: 0 5px;
+}
+.admin-form_container > .descripcion > div > .description__barra{
+    height: 2px;
+    width: 100%;
+    background-color: var(--grisClaro);
+
+} 
+
+.admin-form_container > .descripcion > div > textarea{
+    border-width: 0px;
+    padding: 0;
+    max-width: 100%;
+    width: 99%;
+    max-height: 100%;
+    resize: none;
+    outline: none;
+    margin: 0 5px;
+    
+}
+
+/*---ATRIBUTOS---*/
+.admin-form_container > .atributos > h1{
+    font-size: 1.5em;
+    color: var(--grisFuerte);
+}
+
+.atributos > .atributos__contenedor {
+    display: grid;
+    grid-template-columns: minmax(auto, 70%) minmax(auto, 25%) minmax(auto, 5%);
+    /*grid-template-columns: 68% 18% 10%;*/
+    align-items: center;
+    gap: 10px;
+    background-color: var(--grisFondo);
+    padding: 20px;
+}
+.atributos > .atributos__contenedor > label{
+    font-weight: 600;
+}
+
+.atributos > .atributos__contenedor > label > div {
+    box-sizing: border-box;
+    border-color: black;
+    border: black;
+    padding: 3px;
+    height: 40px;
+    border-radius: 10px;
+    box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.15);
+    background-color: #FFF;
+}
+
+.atributos > .atributos__contenedor > label > div > input{
+    border-width: 0px;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    outline: none;
+}
+
+.atributos > .atributos__contenedor > svg{
+    width: 45px;
+    height: 45px;
+    color: var(--grisClaro);
+    cursor: pointer;
+    justify-self: center;
+    align-self: flex-end;
+}
+
+.atributos > .atributos__contenedor > svg:hover{
+    transform: scale(1.1, 1.1);
+}
+
+/*---POLITICAS---*/
+.admin-form_container > .politicas {
+
+}
+.admin-form_container > .politicas > h1 {
+    font-size: 1.5em;
+    color: var(--grisFuerte);
+}
+
+.admin-form_container > .politicas > .politicas__contenedor{
+    display: grid;
+    grid-template-columns: minmax(auto, auto) minmax(auto, auto) minmax(auto, auto) ;
+    gap: 15px;
+    box-sizing: border-box;
+    padding: 3px;
+    border-radius: 10px;
+    box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.15);
+    background-color: #FFF;
+    padding: 10px;
+}
+
+.politicas > .politicas__contenedor > div >  h1{
+    font-size: 1.2em;
+    color: var(--grisFuerte);
+}
+
+.politicas > .politicas__contenedor > div > p {
+    font-size: 1em;
+    color: var(--grisFuerte);
+    font-weight: 900;
+    margin-block-end: 0em;
+}
+
+.politicas > .politicas__contenedor > div > div{
+    box-sizing: border-box;
+    padding: 3px;
+    border-radius: 10px;
+    box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.15);
+    height: 80px;
+}
+
+.politicas > .politicas__contenedor > div > div > textarea {
+    border-width: 0px;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    resize: none;
+    outline: none;
+}
+/*---IMAGENES---*/
+
+.admin-form_container > .imagenes > h1{
+    font-size: 1.5em;
+    color: var(--grisFuerte);
+}
+
+.imagenes > .imagenes__contenedor{
+    display: grid;
+    grid-template-columns: minmax(auto, 95%) minmax(auto, 5%);
+    background-color: var(--grisFondo);
+    gap: 15px;
+    align-items: center;
+    padding: 20px;
+}
+.imagenes__contenedor > div {
+    box-sizing: border-box;
+    border-color: black;
+    border: black;
+    padding: 3px;
+    height: 40px;
+    border-radius: 10px;
+    box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.15);
+    background-color: #FFF;
+}
+
+.imagenes__contenedor > div > input {
+    border-width: 0px;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    outline: none;
+}
+
+.imagenes__contenedor > svg {
+    width: 45px;
+    height: 45px;
+    color: var(--grisClaro);
+    cursor: pointer;
+    justify-self: center;
+    align-self: flex-end;
+}
+
+.imagenes__contenedor > svg:hover {
+    transform: scale(1.1, 1.1);
+}
+
+/*---BOTON---*/
+.admin-form_container >  button {
+    display: block;
+    margin: 40px auto;
+    border:none;
+    outline: none;
+    background: var(--amarillo);
+    color: #fff;
+    cursor: pointer;
+    height: 100%;
+    width: 40%;
+    border-radius: 5px;
+    box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.15);
+    font-size: 1em;
+    padding: 10px 5em;
+    box-shadow: 0px 3px 9px 1px rgba(0,0,0,0.37);
+    -webkit-box-shadow: 0px 3px 9px 1px rgba(0,0,0,0.37);
+    -moz-box-shadow: 0px 3px 9px 1px rgba(0,0,0,0.37);
+    font-size: 1.1em;
+    font-weight: 550;
+    transition: 0.25s linear;
+}
+
+.admin-form_container >  button:hover {
+    transform: translateY(-3px);
+}
+
+.admin-form_container >  button:disabled{
+    cursor: default;
+    background-color: grey;
+    transition: none;
+}
+
+/*---PRODUCTO CREADO---*/
+.productOk{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+ 
+.productOk__container{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+    background-color: #FFF;
+    padding: 20px;
+    width: 30%;
+    border-radius: 10px;
+    box-shadow: 1px 5px 9px 0px rgba(0,0,0,0.48);
+    -webkit-box-shadow: 1px 5px 9px 0px rgba(0,0,0,0.48);
+    -moz-box-shadow: 1px 5px 9px 0px rgba(0,0,0,0.48);
+}
+
+.productOk__container > svg {
+    width: 4em;
+    height: 4em;
+    color: var(--amarillo);
+}
+
+.productOk__container > h1 {
+    color: var(--grisFuerte);
+    font-size: 1.2em;
+    font-weight: bolder;
+    margin: 0.5em 0;
+}
+
+.productOk__container > a > button {
+    border:none;
+    outline: none;
+    background: var(--amarillo);
+    color: #fff;
+    cursor: pointer;
+    height: 100%;
+    width: 100%;
+    border-radius: 5px;
+    box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.15);
+    font-size: 1em;
+    transition: 0.25s linear;
+    padding: 10px 5em;
+    box-shadow: 0px 3px 9px 1px rgba(0,0,0,0.37);
+    -webkit-box-shadow: 0px 3px 9px 1px rgba(0,0,0,0.37);
+    -moz-box-shadow: 0px 3px 9px 1px rgba(0,0,0,0.37);
+    font-size: 1.1em;
+    font-weight: 550;
+}
+
+.productOk__container > a > button:hover{
+    transform: translateY(-3px);
+}

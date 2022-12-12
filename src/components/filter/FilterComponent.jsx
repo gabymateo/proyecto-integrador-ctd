@@ -1,8 +1,9 @@
 import React from 'react'
+import './filter.css'
 
 export const FilterComponent = () => {
   return (
-    <div>FilterComponent</div>
+    <div className='filter__container'>FilterComponent</div>
   )
 }
 

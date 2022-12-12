@@ -3,11 +3,12 @@ import Header from '../components/header/Header';
 import Body from '../components/body/Body';
 import Footer from '../components/footer/Footer';
 
-const Home = () => {
+const Home = ({productos, getProductosFiltrados, getProductos}) => {
+
   return (
     <>
         <Header/>
-        <Body/>
+        <Body productos={productos} getProductosFiltrados={getProductosFiltrados} getProductos={getProductos}/>
         <Footer/>
     </>
   )
