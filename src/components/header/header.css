@@ -121,6 +121,13 @@
     border: 1px solid var(--amarillo);
     border-radius: 5px;
 }
+.closeBtnRes{
+    display: none;
+}
+
+.admnBtnRes {
+    display: none;
+}
 
 .headerButton:hover {
     background: var(--amarillo);

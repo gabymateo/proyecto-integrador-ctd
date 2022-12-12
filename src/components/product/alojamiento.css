@@ -83,6 +83,10 @@
     color: var(--grisClaro);
 }
 
+.ubicacion__container > .puntuacion > span > i{
+    color: var(--amarillo);
+}
+
 .ubicacion__container > .puntuacion > .rate{
     grid-row: 1 / 3;
     grid-column: 2;

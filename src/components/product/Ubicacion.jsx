@@ -4,7 +4,7 @@ import { IoLocationSharp } from 'react-icons/io5';
 
 export const Ubicacion = (props) => {
     const ubi = props?.products;
-    //console.log(props?.products);
+    // console.log(props?.products);
   return (
     <>
     <div className="alojamiento__ubicacion">
@@ -15,9 +15,15 @@ export const Ubicacion = (props) => {
           </div>
           <div className="puntuacion">
             <p>Muy bueno</p>
-            <span>Estrellitas</span>
+            <span>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+            </span>
             <div className='rate'>
-              <p>9</p>
+              <p>{ubi?.rate}</p>
             </div>
           </div>
         </div>
