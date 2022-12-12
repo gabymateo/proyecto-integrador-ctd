@@ -11,6 +11,7 @@ export function useFeaturesApi() {
 const getFeatures = async () => {
     try {
         const responseGetFeatures = await axios.get(`${baseUrl}/features/`)
+        // console.log("responseGetFeatures: ", responseGetFeatures);
         setFeatures(responseGetFeatures.data.data)
     }
     catch (error) {
@@ -20,7 +21,7 @@ const getFeatures = async () => {
     // ---------- ESTE ES EL RETURN DE LA API ---------------------------
 return {
     features: features,
-    getFeatures: getFeatures
+    getFeatures: getFeatures,
     }
 
 }

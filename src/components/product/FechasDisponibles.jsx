@@ -18,7 +18,7 @@ export const FechasDisponibles = () => {
   React.useEffect(() => {
     getBookingByProductId(ident)
   },[])
-  console.log(reservedDate);
+  // console.log(reservedDate);
 
   /*------ INIT CALENDARIO -----*/
   const [date, setDate] = useState([

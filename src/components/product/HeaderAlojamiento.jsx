@@ -13,7 +13,7 @@ export const HeaderAlojamiento = () => {
   },[])
 
   const data = products?.data;
-
+  // console.log(data);
   return (
     <>
       <div className="alojamiento__header">

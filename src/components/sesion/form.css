@@ -7,15 +7,14 @@ body{
     display: flex;
     flex-direction: column;
     justify-content: center;
-    width: 100%;
-    max-width: 25%;
-    margin-left: 34%;
+    align-items: center;
     margin-bottom: 5%;
     height: 100vh;
 }
 
-.container form {
+.container > form {
    width: 100%;
+   max-width: 50%;
    padding: 20px 20px;
    background: #F3F1ED;
    color: #000;
@@ -33,14 +32,11 @@ body{
 }
 
 
-.title{
+.container > .title{
     color: #FBC02D;
     font-family: 'Poppins';
     font-size: 20px;
     text-align: center;
-    margin-top: 30%;
-    margin-left: 15%;
-  
 }
 
 .form input{
@@ -52,8 +48,37 @@ body{
     font-weight: bold;
 
 }
+.form > button {
+    display: flex;
+    margin: 0 auto;
+    border:none;
+    outline: none;
+    background: var(--amarillo);
+    color: #fff;
+    cursor: pointer;
+    border-radius: 5px;
+    box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.15);
+    font-size: 1em;
+    transition: 0.25s linear;
+    padding: 10px 5em;
+    box-shadow: 0px 3px 9px 1px rgba(0,0,0,0.37);
+    -webkit-box-shadow: 0px 3px 9px 1px rgba(0,0,0,0.37);
+    -moz-box-shadow: 0px 3px 9px 1px rgba(0,0,0,0.37);
+    font-size: 1.1em;
+    font-weight: 550;
+}
 
-.submit{
+.form > button:hover{
+    transform: translateY(-3px);
+}
+
+.form > button:disabled{
+    transition: none;
+    transform: none;
+    cursor: default;
+    background-color: grey;
+}
+/* .submit{
     padding: 5px 70px;
     border-radius: 4%;
     margin-top: 30px;
@@ -64,7 +89,7 @@ body{
     cursor: pointer;
     outline: none;
     margin-left: 25%;
-}
+} */
 
 .footer_form{
     display: flex;

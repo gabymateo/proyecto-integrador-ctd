@@ -12,7 +12,7 @@
 .header__container {
     width: 100%;
     height: 93px;
-    max-width: 1024px;
+    max-width: 1440px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -56,7 +56,7 @@
 .ubicacion__container{
     width: 100%;
     height: 93px;
-    max-width: 1024px;
+    max-width: 1440px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -81,6 +81,10 @@
     margin-right: 15px;
     padding: 10px 5px;
     color: var(--grisClaro);
+}
+
+.ubicacion__container > .puntuacion > span > i{
+    color: var(--amarillo);
 }
 
 .ubicacion__container > .puntuacion > .rate{
@@ -113,7 +117,7 @@
 
 .imagenes__botones{
     width: 100%;
-    max-width: 1024px;
+    max-width: 1440px;
 }
 
 .imagenes__botones > .share ,.like {
@@ -138,7 +142,7 @@
 
 .imagenes__container {
     width: 100%;
-    max-width: 1024px;
+    max-width: 1440px;
     margin: 0 15px;
 }
 
@@ -200,7 +204,7 @@
 
 .descripcion__container{
     width: 100%;
-    max-width: 1024px;
+    max-width: 1440px;
     margin-left: 15px;
     padding: 10px 5px;
 }
@@ -220,7 +224,7 @@
 
 .caracteristicas__container{
     width: 100%;
-    max-width: 1024px;
+    max-width: 1440px;
     margin-left: 15px;
     padding: 10px 5px;
 }
@@ -242,11 +246,18 @@
     grid-template-columns: repeat(4, 1fr);
 }
 
-.caracteristicas__atributos > p > svg {
+.caracteristicas__atributos > p  {
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
     margin-right: 5px;
-    color: var(--amarillo);
+    
     width: 1.1em;
     height: 1.1em;
+}
+
+.caracteristicas__atributos > p > i{
+    color: var(--amarillo);
 }
 /*---BLOQUE FECHAS RESERVA---*/
 .alojamiento__fechasReserva{
@@ -257,7 +268,7 @@
 
 .fechasReserva__container{
     width: 100%;
-    max-width: 1024px;
+    max-width: 1440px;
     margin-left: 15px;
     padding: 10px 5px;
     
@@ -332,7 +343,7 @@
 
 .politicas__container{
     width: 100%;
-    max-width: 1024px;
+    max-width: 1440px;
     margin-left: 15px;
     padding: 10px 5px;
 }

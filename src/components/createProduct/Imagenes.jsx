@@ -1,7 +1,9 @@
 import React from "react";
 import { FaWindowClose } from "react-icons/fa";
+import {FaPlusSquare} from 'react-icons/fa';
 
 export const Imagenes = (props) => {
+  // console.log(props.img);
   return (
     <>
       <div className="imagenes">
@@ -9,12 +11,15 @@ export const Imagenes = (props) => {
         <div className="imagenes__contenedor">
           <div>
             <input
-              type="text"
+              type="file"
+              accept="image/*"
+              multiple
               value={props.img}
               onChange={(ev) => props.setImg(ev.target.value)}
             />
           </div>
-          <FaWindowClose />
+          {/* <FaWindowClose /> */}
+          <FaPlusSquare/>
         </div>
       </div>
     </>

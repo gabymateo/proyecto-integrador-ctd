@@ -21,6 +21,7 @@ export default function ListCards ({productos}) {
                     Ubicacion={prod.address}
                     Descripcion={prod.description}
                     TituloDescripcion={prod.descriptionTitle}
+                    Rate={prod.rate}
                 />  
             })}
         </div>

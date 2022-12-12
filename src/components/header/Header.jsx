@@ -29,7 +29,7 @@ const Header = (props) => {
               <Logo />
             </span>
           </NavLink>
-          <span className="lema">Sentite como en tu hogar</span>
+          <span className="lema">Encuentra tu choza!</span>
         </div>
         <div className={`headerItems ${clicked && "active"}`}>
           <GiHamburgerMenu
@@ -53,11 +53,14 @@ const Header = (props) => {
                 {/* <span>Ramiro Fontesola</span> */}
                 {/* <button className='headerButton' onClick={handleCerrarSesion} >Cerrar Sesion </button> */}
                 <GrClose className="closeBtn" onClick={handleCerrarSesion} />
+                <p className='closeBtnRes' onClick={handleCerrarSesion}> Cerrar Sesion</p>
                 {/* <GrUserAdmin className='admnBtn'/> */}
+                
                 {userRol === 1 ? (
                   <NavLink to="/admin">
                     {" "}
                     <GrUserAdmin className="admnBtn" />
+                    <p className='admnBtnRes'>Modo Admimistrador</p>
                   </NavLink>
                 ) : undefined}
               </div>

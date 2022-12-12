@@ -21,6 +21,7 @@ export const Form = () => {
   const [city, setCity] = useState("");
   /*---COMPONENTE DESCRIPCION---*/
   const [desc, setDesc] = useState("");
+  const [descTitle, setDescTitle] = useState("")
   /*---COMPONENTE ATRIBUTOS---*/
   const [atributeName, setAtributeName] = useState("");
   const [atributeIcon, setAtributeIcon] = useState("");
@@ -30,6 +31,8 @@ export const Form = () => {
   const [cancelation, setCancelation] = useState("")
   /*---COMPONENTE IMAGENES---*/
   const [img, setImg] = useState("")
+  //const [img, setImg] = useState([{File:""}])
+
   const [validationAll, setValidationAll] = useState(false);
     /*---IMPORTANDO APIS A UTILIZAR--*/
   const {postProducts} = useProductsApi();
@@ -45,31 +48,31 @@ export const Form = () => {
     useEffect(() => {
       const error =
       name !== "" && category !== "" && address !== "" && city !== "" &&
-      desc !== "" && 
+      desc !== "" && descTitle !== "" &&
       atributeName !== "" && atributeIcon !== "" &&
       rules !=='' && security !=='' && cancelation !=='' &&
       img!=='';
       console.log("elegido");
       setValidationAll(error);
-    }, [name, category, address, city, desc, atributeName, atributeIcon, rules, security, cancelation, img]);
+    }, [name, category, address, city, desc, descTitle, atributeName, atributeIcon, rules, security, cancelation, img]);
   };
 
-  // armando el body para el post de productos
-  // const descriptionTitle= ""; //mientras tanto lo enviamos vacío
-  // const availability= true, 
-  // const price = 200;
-  // const feacturesIds = [1, 2, 3]
+  //armando el body para el post de productos
+  const availability= true 
+  const price = 200;
+  const feacturesIds = [8, 10, 12, 13] //cocina, tv, aa y wifi
+  const Authorization = localStorage.JWT
 
 //(name, cityId, categoryId, description, descriptionTitle, availability, price, address, features, files, Authorization)
 console.log(category);
   const submitForm = (ev) => {
     ev.preventDefault();
-    //postProducts(name, city, category, desc, descriptionTitle, availability, price, address,  )
+    //postProducts(name, city, category, desc, descTitle, availability, price, address, feacturesIds, xxxxx, Authorization )
 
   }
-
-
-  console.log("La validacion es: " + validationAll);
+  // console.log(atributeName);
+  console.log(atributeIcon);
+  // console.log("La validacion es: " + validationAll);
 
   return (
     <>
@@ -98,7 +101,9 @@ console.log(category);
           />
           <Descripcion 
           desc={desc} 
-          setDesc={setDesc} 
+          setDesc={setDesc}
+          descTitle={descTitle}
+          setDescTitle={setDescTitle} 
           onChange={validate()} />
           <Atributos
             atributeName={atributeName}

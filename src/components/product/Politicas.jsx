@@ -10,9 +10,9 @@ export const Politicas = (props) => {
   React.useEffect(() => {
     getProducts(id);
   }, []);
-  const rules = products?.data?.features.filter(x=> x.type!=='security'&&x.type!=='cancelation');
-  const security = products?.data?.features.filter(x=> x.type!=='rules'&&x.type!=='cancelation');
-  const cancelation = products?.data?.features.filter(x=> x.type!=='rules'&& x.type!== 'security');
+  const rules = products?.data?.features.filter(x=> x.type!=='security'&&x.type!=='cancelation'&&x.type!=='comodities');
+  const security = products?.data?.features.filter(x=> x.type!=='rules'&&x.type!=='cancelation'&&x.type!=='comodities');
+  const cancelation = products?.data?.features.filter(x=> x.type!=='rules'&& x.type!== 'security'&&x.type!=='comodities');
 
  
   return (
@@ -21,16 +21,6 @@ export const Politicas = (props) => {
         <div className="politicas__container">
           <h1>Qué tenés que saber</h1>
           <div className="caracteristicas__barra"></div>
-          {/**Cambiar nombre a barra */}
-          {/*<div className="normas__container">
-            {features?.map((politica) => {
-              return (
-                <div key={politica.id} className="normas">
-                  <h1>Normas</h1>
-                  <p>{politica.name}</p>
-                </div>
-              );
-            })}*/}
             <div className='normas__container'>
               <div className="normas">
                 <h1>Normas</h1>
