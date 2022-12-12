@@ -11,9 +11,9 @@ export const Comodities = () => {
     getProducts(id);
   }, []);
 
-  
-
-  const comoditi = products?.data?.features.filter(x=> x.type=='comodities')
+  const comoditi = products?.data?.features.filter(
+    (x) => x.type == "comodities"
+  );
 
   return (
     <>
@@ -22,17 +22,14 @@ export const Comodities = () => {
           <h1>¿Que ofrece este lugar?</h1>
           <div className="caracteristicas__barra"></div>
           <div className="caracteristicas__atributos">
-          
-
-          
-            {comoditi?.map((com)=>{
-                  return (
-                    <p key={com.id}><i class={`fa-solid ${com.icon}`}></i>
-                      {com.name}
-                    </p>
-                  );
-                })}
-        
+            {comoditi?.map((com) => {
+              return (
+                <p key={com.id}>
+                  <i class={`fa-solid ${com.icon}`}></i>
+                  {com.name}
+                </p>
+              );
+            })}
           </div>
         </div>
       </div>
