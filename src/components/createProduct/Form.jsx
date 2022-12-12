@@ -59,9 +59,9 @@ console.log(category);
     //postProducts(name, city, category, desc, descriptionTitle, availability, price, address,  )
 
   }
-
-
-  console.log("La validacion es: " + validationAll);
+  // console.log(atributeName);
+  console.log(atributeIcon);
+  // console.log("La validacion es: " + validationAll);
 
   return (
     <>

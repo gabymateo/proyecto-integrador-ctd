@@ -21,6 +21,13 @@ export const Atributos = (props) => {
     setServiceList(list)
   }
   // console.log(atributos);
+  // console.log(atributeName);
+  const handleIcon = ()=>{
+    if(atributeName === atributos.id)
+    return atributos?.icon
+    
+  }
+
   return (
     <>
       <div className="atributos">
@@ -30,6 +37,17 @@ export const Atributos = (props) => {
             <label>
               Nombre
               <div>
+              <select 
+                name="" 
+                value={props.atributeName}
+                onChange={(ev) => props.setAtributeName(ev.target.value)}
+                >
+                  
+                <option value=""></option>
+                 {atributos.map((a)=>{
+                  return <option key={a.id} value={a.id}>{a.name}</option>
+                 })}
+                </select>
                 <input
                   type="text"
                   value={props.atribute}
@@ -42,12 +60,14 @@ export const Atributos = (props) => {
               Ícono
               <div>
                 <input
+                  
                   type="text"
-                  value={props.atribute}
+                  value={handleIcon}
                   onChange={(ev) => props.setAtributeIcon(ev.target.value)}
                 />
               </div>
             </label>
+            
             <FaWindowClose
             onClick = {()=> handleServiceRemove(index)}
             />
