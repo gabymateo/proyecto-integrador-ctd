@@ -19,7 +19,7 @@ export default function ListCategoryBlock() {
   return (
     <div className="ListCategoryContainer">
       <div className="TituloCategoria">
-        <h2>Buscar por tipo de tipo de alojamiento</h2>
+        <h2>Buscar por tipo de alojamiento</h2>
       </div>
       <div className="ListCategoryBlock">
         {categories?.map((category) => {

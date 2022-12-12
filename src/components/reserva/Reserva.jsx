@@ -151,7 +151,7 @@ export const Reserva = () => {
           <h1>Tu horario de llegada</h1>
           <div className="horario__container">
             <p className='principal'>
-              <BiCheckCircle /> Tu habitacion va a estar lista para el check in
+              <BiCheckCircle /> Tu habitación va a estar lista para el check in
               entre las 10:00 AM y las 11:00 PM
             </p>
             <label>
