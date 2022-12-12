@@ -16,13 +16,14 @@
     display: grid;
     grid-template-columns: 65% 40%;
     grid-template-rows: repeat(3, auto);
-    max-width: 1024px;
+    max-width: 1440px;
+    width: 100%;
     gap:20px;
     
 }
 /*---BLOQUE FORM---*/
 .reserva__form{
-    margin-right: 5%;
+    margin-right: 3%;
 
 }
 
@@ -69,7 +70,7 @@
 
 /*---BLOQUE CALENDARIO---*/
 .calendario__container{
-    margin-right: 5%;
+    margin-right: 3%;
 }
 
 .calendario__container > h1 {
@@ -145,7 +146,7 @@
     background-color: #FFF;
     grid-column: 2;
     grid-row: 1 / 4;
-    margin-top: 16%;
+    margin-top: 13%;
     border-radius: 10px;
     padding: 5%;
     box-shadow: 1px 3px 2px #c2c2c2;
@@ -250,7 +251,7 @@
     padding-top: 1%;
     font-family: 'Poppins';
     font-size: 15px;
-    margin-right: 5%;
+    margin-right: 3%;
     border-radius: 10px;
     box-shadow: 1px 3px 2px #c2c2c2;
 }
