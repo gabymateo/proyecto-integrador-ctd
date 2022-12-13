@@ -28,7 +28,7 @@ public class ProductController {
 
     @PostMapping(value = "/")
     @PreAuthorize("hasAuthority('ROLE_ADMIN')")
-    public ResponseEntity<Object> create(@ModelAttribute ProductCreateDTO input) {
+    public ResponseEntity<Object> create(@ModelAttribute("body") ProductCreateDTO input) {
         try {
             System.out.println(input);
             ProductModel product = this.productService.create(input, input.getFiles());
