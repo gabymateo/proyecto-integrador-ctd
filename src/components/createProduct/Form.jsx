@@ -9,10 +9,10 @@ import { Descripcion } from "./Descripcion";
 import { Atributos } from "./Atributos";
 import { Politicas } from "./Politicas";
 import { Imagenes } from "./Imagenes";
-import { useProductsApi } from "../../apis/productsApi";
 import { useFeaturesApi } from "../../apis/featuresApi";
 import { FaWindowClose } from "react-icons/fa";
 import {FaPlusSquare} from 'react-icons/fa';
+import { useProductsApi} from "../../apis/productsApi";
 
 export const Form = () => {
   /*---ESTADOS---*/
@@ -32,12 +32,12 @@ export const Form = () => {
   const [security, setSecurity] = useState("")
   const [cancelation, setCancelation] = useState("")
   /*---COMPONENTE IMAGENES---*/
-  const [fotos, setFotos] = useState("");
-  const [imagenes, setImagenes] = useState("");
+  const [files, setFiles] = React.useState("");
+  const [archivos, setArchivos] = useState("");
 
   const [validationAll, setValidationAll] = useState(false);
     /*---IMPORTANDO APIS A UTILIZAR--*/
-  const {postProducts} = useProductsApi();
+  const {postProducts, products} = useProductsApi();
   const {features, getFeatures} = useFeaturesApi();
 
   //Este use effect es para que en el mount del componente se puedan obtener las features y usarlas luego en los selects
@@ -53,10 +53,10 @@ export const Form = () => {
       desc !== "" && descTitle !== "" &&
       atributeName !== "" && atributeIcon !== "" &&
       rules !=='' && security !=='' && cancelation !=='' &&
-      fotos!=='';
+      files!=='';
       console.log("elegido");
       setValidationAll(error);
-    }, [name, category, address, city, desc, descTitle, atributeName, atributeIcon, rules, security, cancelation, fotos]);
+    }, [name, category, address, city, desc, descTitle, atributeName, atributeIcon, rules, security, cancelation, files]);
   };
 
   //armando el body para el post de productos
@@ -65,23 +65,14 @@ export const Form = () => {
   const feacturesIds = [8, 10, 12, 13] //cocina, tv, aa y wifi
   const Authorization = localStorage.JWT
 
-//(name, cityId, categoryId, description, descriptionTitle, availability, price, address, features, files, Authorization)
-console.log(category);
-  const submitForm = (ev) => {
-    ev.preventDefault();
-    //postProducts(name, city, category, desc, descTitle, availability, price, address, feacturesIds, xxxxx, Authorization )
-
-  }
-
   function handleChange(event) {
-    setImagenes(event.target.files)
+    setArchivos(event.target.files)
   }
-  console.log(setImagenes);
 
   function handleSubmit(event) {
     event.preventDefault()
-    //postProducts(name, city, category, desc, descriptionTitle, availability, price, address,  )
-
+    postProducts(name, city, category, desc, descTitle, availability, price, address, feacturesIds, archivos, Authorization);
+    console.log("DATOS ENVIADOS");
   };
 
   return (
@@ -94,10 +85,7 @@ console.log(category);
       </div>
       <div className="admin-form">
         <h1>Crear Propiedad</h1>
-        <form
-          onSubmit={submitForm}
-          className="admin-form_container"
-        >
+        <form onSubmit={handleSubmit} className="admin-form_container" >
           <Datos
             name={name}
             setName={setName}
@@ -114,7 +102,8 @@ console.log(category);
           setDesc={setDesc}
           descTitle={descTitle}
           setDescTitle={setDescTitle} 
-          onChange={validate()} />
+          onChange={validate()} 
+          />
           <Atributos
             atributeName={atributeName}
             setAtributeName={setAtributeName}
@@ -139,18 +128,16 @@ console.log(category);
               type="file"
               accept="image/*"
               multiple
-              value={fotos}
+              value={files}
               onChange={handleChange}
             />
-          </div>
-          {/* <FaWindowClose /> */}
+            </div>
           <FaPlusSquare/>
+          </div>
         </div>
-      </div>
-          <button type="submit" disabled={!validationAll}>
-            Crear
-          </button>
+        <button type="submit" > Crear </button>
           <p></p>
+
         </form>
       </div>
     </>

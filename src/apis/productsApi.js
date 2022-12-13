@@ -12,32 +12,43 @@ export function useProductsApi() {
     const [searchParams, setSearchParams] = useSearchParams();
 
      // ---------- FUNCIÓN PARA CREAR PRODUCTOS EN LA DB ---------------   
-    const postProducts = async (name, cityId, categoryId, description, descriptionTitle, availability, price, address, features, files, Authorization) => {
+    const postProducts = async (name, city, category, desc, descTitle, availability, price, address, feacturesIds, archivos, Authorization) => {
     try{    
+        console.log("nombre: ", name);
+        console.log("city: " ,city);
+        console.log("category: " ,category);
+        console.log("desc: " ,desc);
+        console.log("descTitle: " ,descTitle);
+        console.log("availability: " ,availability);
+        console.log("price: " ,price);
+        console.log("address: " ,address);
+        console.log("feacturesIds: " ,feacturesIds);
+        console.log("archivos: " ,archivos);
+        console.log("Authorization: " ,Authorization);
+        console.log("respuesta de la API: ", products);
+        
         const responsePostProducts = await axios.post(`${baseUrl}/products/`, {
             name: name,
-            cityId: cityId,             //numeros
-            categoryId: categoryId,     //numeros
-            description: description,
-            descriptionTitle: descriptionTitle,
+            cityId: city,             //numeros
+            categoryId: category,     //numeros
+            description: desc,
+            descriptionTitle: descTitle,
             availability: availability,     //boolean
             price: price,           //string
             address: address,       //String
-            features: features,     //array numeros (se toma desde un checkbox)
-            files: files            //arraay
-        },
-        {
+            features: feacturesIds,     //array numeros (se toma desde un checkbox)
+            files: archivos            //arraay
+        }, {
             headers: {
                 "Authorization": Authorization,
-            }
-        }
-        
-        )
+            },
+        })
+        return true
         console.log("responsePostProducts: ", responsePostProducts);
     }
     catch (error) {
-        console.error('error', error.response.data)
-
+        console.error('error en el llamado de la API postProducts', error.response.data)
+        return false
     }
 }
 
