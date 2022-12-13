@@ -1,6 +1,5 @@
 import React from "react";
-import { FaWindowClose } from "react-icons/fa";
-import {FaPlusSquare} from 'react-icons/fa';
+
 
 export const Imagenes = (props) => {
   // console.log(props.img);

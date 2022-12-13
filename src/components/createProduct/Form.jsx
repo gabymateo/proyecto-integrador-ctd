@@ -11,6 +11,8 @@ import { Politicas } from "./Politicas";
 import { Imagenes } from "./Imagenes";
 import { useProductsApi } from "../../apis/productsApi";
 import { useFeaturesApi } from "../../apis/featuresApi";
+import { FaWindowClose } from "react-icons/fa";
+import {FaPlusSquare} from 'react-icons/fa';
 
 export const Form = () => {
   /*---ESTADOS---*/
@@ -30,8 +32,8 @@ export const Form = () => {
   const [security, setSecurity] = useState("")
   const [cancelation, setCancelation] = useState("")
   /*---COMPONENTE IMAGENES---*/
-  const [img, setImg] = useState("")
-  //const [img, setImg] = useState([{File:""}])
+  const [fotos, setFotos] = useState("");
+  const [imagenes, setImagenes] = useState("");
 
   const [validationAll, setValidationAll] = useState(false);
     /*---IMPORTANDO APIS A UTILIZAR--*/
@@ -51,10 +53,10 @@ export const Form = () => {
       desc !== "" && descTitle !== "" &&
       atributeName !== "" && atributeIcon !== "" &&
       rules !=='' && security !=='' && cancelation !=='' &&
-      img!=='';
+      fotos!=='';
       console.log("elegido");
       setValidationAll(error);
-    }, [name, category, address, city, desc, descTitle, atributeName, atributeIcon, rules, security, cancelation, img]);
+    }, [name, category, address, city, desc, descTitle, atributeName, atributeIcon, rules, security, cancelation, fotos]);
   };
 
   //armando el body para el post de productos
@@ -70,9 +72,17 @@ console.log(category);
     //postProducts(name, city, category, desc, descTitle, availability, price, address, feacturesIds, xxxxx, Authorization )
 
   }
-  // console.log(atributeName);
-  console.log(atributeIcon);
-  // console.log("La validacion es: " + validationAll);
+
+  function handleChange(event) {
+    setImagenes(event.target.files)
+  }
+  console.log(setImagenes);
+
+  function handleSubmit(event) {
+    event.preventDefault()
+    //postProducts(name, city, category, desc, descriptionTitle, availability, price, address,  )
+
+  };
 
   return (
     <>
@@ -121,7 +131,22 @@ console.log(category);
             setCancelation={setCancelation}
             onChange={validate()}
           />
-          <Imagenes img={img} setImg={setImg} onChange={validate()} />
+        <div className="imagenes">
+          <h1>Cargar imágenes</h1>
+          <div className="imagenes__contenedor">
+            <div>
+              <input
+              type="file"
+              accept="image/*"
+              multiple
+              value={fotos}
+              onChange={handleChange}
+            />
+          </div>
+          {/* <FaWindowClose /> */}
+          <FaPlusSquare/>
+        </div>
+      </div>
           <button type="submit" disabled={!validationAll}>
             Crear
           </button>
