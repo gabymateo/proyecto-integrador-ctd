@@ -3,14 +3,14 @@ import React, { useState } from "react";
 export const Descripcion = (props) => {
   return (
     <>
-      <form className="descripcion">
+      <form className="descripción">
         <p>Descripción</p>
         <div>
           <input
           type="text"
           value={props.descTitle}
           onChange={(ev) => props.setDescTitle(ev.target.value)}
-          placeholder="Introduce un breve titulo para la descripcion" />
+          placeholder="Introduce un breve título" />
           <div className="description__barra"></div>
           <textarea
             type="text"
