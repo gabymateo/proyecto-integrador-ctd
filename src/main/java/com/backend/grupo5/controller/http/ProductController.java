@@ -30,6 +30,7 @@ public class ProductController {
     @PreAuthorize("hasAuthority('ROLE_ADMIN')")
     public ResponseEntity<Object> create(@ModelAttribute ProductCreateDTO input) {
         try {
+            System.out.println(input);
             ProductModel product = this.productService.create(input, input.getFiles());
             return ResponseHandler.generateResponse(HttpStatus.CREATED, "success", product);
         } catch (ApplicationError error) {
