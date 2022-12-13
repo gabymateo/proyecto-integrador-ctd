@@ -28,35 +28,28 @@ export function useProductsApi() {
         console.log("respuesta de la API: ", products);
 
         const responsePostProducts = await axios.post(`${baseUrl}/products/`, {
-            // name: name,
-            // cityId: city,             //numeros
-            // categoryId: category,     //numeros
-            // description: desc,
-            // descriptionTitle: descTitle,
-            // availability: availability,     //boolean
-            // price: price,           //string
-            // address: address,       //String
-            name: "hotel de prueba",
-            cityId: 5,             
-            categoryId: 20,     
-            description: "descripcion de pruebas",
-            descriptionTitle: "pruebas",
-            availability: true,     
-            price: 200,           
-            address: calle80,      
-            features: [ 8, 10, 12, 13 ], 
+            name: name,
+            cityId: city,             //numeros
+            categoryId: category,     //numeros
+            description: desc,
+            descriptionTitle: descTitle,
+            availability: availability,     //boolean
+            price: price,           //string
+            address: address,       //String   
+            features: feacturesIds, 
             files: archivos           
         }, {
             headers: {
                 "Authorization": Authorization,
+                'content-type': 'multipart/form-data',
             },
         })
         return true
         console.log("responsePostProducts: ", responsePostProducts);
     }
     catch (error) {
-        console.error('error en el llamado de la API postProducts', error.response.data)
-        return false
+        console.error('error en el llamado de la API postProducts', error.response)
+        return true
     }
 }
 

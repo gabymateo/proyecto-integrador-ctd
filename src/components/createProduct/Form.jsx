@@ -1,7 +1,7 @@
 import React from 'react'
 import { useState, useCallback, useEffect } from "react";
 import "./form.css";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { IoChevronBack } from "react-icons/io5";
 /*---COMPONENTES---*/
 import { Datos } from "./Datos";
@@ -39,6 +39,7 @@ export const Form = () => {
     /*---IMPORTANDO APIS A UTILIZAR--*/
   const {postProducts, products} = useProductsApi();
   const {features, getFeatures} = useFeaturesApi();
+  const navigate = useNavigate();
 
   //Este use effect es para que en el mount del componente se puedan obtener las features y usarlas luego en los selects
   React.useEffect(() => {
@@ -71,8 +72,10 @@ export const Form = () => {
 
   function handleSubmit(event) {
     event.preventDefault()
-    postProducts(name, city, category, desc, descTitle, availability, price, address, feacturesIds, archivos, Authorization);
-    console.log("DATOS ENVIADOS");
+    const productoOk=  postProducts(name, city, category, desc, descTitle, availability, price, address, feacturesIds, archivos, Authorization);
+    if (productoOk) {
+      navigate("/admin/newProductOk")
+    }
   };
 
   return (
@@ -128,7 +131,7 @@ export const Form = () => {
               type="file"
               accept="image/*"
               multiple
-              value={files}
+              
               onChange={handleChange}
             />
             </div>

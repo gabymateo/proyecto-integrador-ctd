@@ -12,7 +12,7 @@ export const ProductOk = () => {
       <div className="productOk">
         <div className="productOk__container">
           <BsFillPatchCheckFill/>
-          <h1>Tu propiedad se ha creado con exito.</h1>
+          <h1>Tu producto se ha creado con exito.</h1>
           <NavLink to={"/"}>
             <button>volver</button>
           </NavLink>
