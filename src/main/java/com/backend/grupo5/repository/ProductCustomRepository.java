@@ -2,6 +2,9 @@ package com.backend.grupo5.repository;
 
 import com.backend.grupo5.repository.entities.Booking;
 import com.backend.grupo5.repository.entities.Product;
+import org.hibernate.CacheMode;
+import org.hibernate.query.criteria.internal.expression.LiteralExpression;
+import org.hibernate.query.criteria.internal.expression.function.FunctionExpression;
 import org.springframework.data.domain.*;
 import org.springframework.stereotype.Repository;
 
@@ -36,6 +39,7 @@ public class ProductCustomRepository {
         Root<Product> productRoot = query.from(Product.class);
         List<Predicate> predicates = new ArrayList<Predicate>();
 
+
         if(name != null) {
             predicates.add(cb.and(cb.like(productRoot.get("name"), "%"+name+"%")));
         }
@@ -64,14 +68,11 @@ public class ProductCustomRepository {
             String parsedOrder = order.toLowerCase();
             query.orderBy(parsedOrder.equals("desc") ? cb.desc(productRoot.get(sort)) : cb.asc(productRoot.get(sort)));
         }
-        //fetch products per page limit
-        List<Product> products = entityManager.createQuery(query).setFirstResult((int) pageable.getOffset()).setMaxResults(pageable.getPageSize()).getResultList();
-        //create count
-//        CriteriaQuery<Long> count = cb.createQuery(Long.class);
-//        Root<Product> productRootCount = count.from(Product.class);
-//        count.select(cb.count(productRootCount)).where(cb.and(predicates.toArray(new Predicate[predicates.size()])));
-//        Long countProducts = entityManager.createQuery(count).getSingleResult();
 
+        query.orderBy(cb.asc(cb.function("RAND", Product.class)));
+
+//        fetch products per page limit
+        List<Product> products = entityManager.createQuery(query).setFirstResult((int) pageable.getOffset()).setMaxResults(pageable.getPageSize()).getResultList();
         return new PageImpl<>(products, pageable, 0);
     }
 
