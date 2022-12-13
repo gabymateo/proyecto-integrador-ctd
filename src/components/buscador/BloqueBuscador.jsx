@@ -57,7 +57,7 @@ export const BloqueBuscador = ({getProductosFiltrados, getProductos}) => {
   console.log(openDate);
   return (
     <div className='bloqueBuscador'>
-          <h1>Busca ofertas en hoteles, casas y mucho mas.</h1>
+          <h1>Busca ofertas en hoteles, casas y mucho más.</h1>
           <div className='barraBuscadorContainer'>
             <div className='barraBuscadorItem'>
               <IoLocationSharp/>

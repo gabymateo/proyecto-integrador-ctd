@@ -121,7 +121,7 @@ const LoginRegister = (props) => {
             <span style={{ visibility: difPassword ? "visible" : "hidden"}}>El password no coincide</span> <br></br></label>
           {enviarDatos==true
             ? <p>{statusMessage}</p>
-            : <p>Please fill all form</p>}
+            : <p>Diligencia todos los campos del formulario</p>}
           <button className="submit" type='submit' disabled={!validationAll}>Crear cuenta</button>
           <div className='footer_form'>
             <p>¿Ya tienes cuenta? <NavLink to="/login" className="active">Iniciar sesión</NavLink></p>

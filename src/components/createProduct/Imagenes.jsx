@@ -1,6 +1,5 @@
 import React from "react";
 
-
 export const Imagenes = (props) => {
   // console.log(props.img);
   return (

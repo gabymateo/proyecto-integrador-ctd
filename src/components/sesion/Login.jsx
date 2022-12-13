@@ -73,7 +73,7 @@ const LoginForm = (props) => {
           <span  style={{ visibility: badPassword ? "visible" : "hidden"}}>El password debe ser de al menos 6 caracteres</span>
           <br></br>
         </div>
-        {(loginOk==true || loginOk == undefined) ? undefined : <p className='error'>las credenciales son invalidas, intente nuevamente</p>}
+        {(loginOk==true || loginOk == undefined) ? undefined : <p className='error'>las credenciales no son válidas, intente nuevamente</p>}
           <button form='login' className="submit" type='submit' disabled={(BadEmail && badPassword)} > Ingresar </button>
           <div className='footer_form'>
             <p>¿Aún no tienes cuenta? <NavLink to="/register" className="active">Registrate</NavLink></p>
